@@ -1,7 +1,7 @@
 /*
 Theme Name: RB Blog One
 Text Domain: rb-blog-one
-Version: 1.0.7
+Version: 1.0.8
 Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.2.4
@@ -26,18 +26,18 @@ Table of JS Content Start Here
 Table of JS Content End Here
 ==========================*/
 
-(function (jQuery) {
+(function ($) {
     'use strict';
 
     /*=========================================
     ===== 01. Preloader jQuery Start Here =====
     =========================================*/
     jQuery(window).on("load", function () {
-        jQuery(".rb-blog-one-folding-cube").delay(700).fadeOut(),
+        $(".rb-blog-one-folding-cube").delay(700).fadeOut(),
             setTimeout(function () {
-                jQuery("#rb-blog-one-preloader").addClass("rb-blog-one-loading-end"),
+                $("#rb-blog-one-preloader").addClass("rb-blog-one-loading-end"),
                     setTimeout(function () {
-                        jQuery("#rb-blog-one-preloader").hide()
+                        $("#rb-blog-one-preloader").hide()
                     }, 1500)
             }, 800)
     });
@@ -50,7 +50,7 @@ Table of JS Content End Here
         /*==============================================
         ===== 02. Nice Scrollbar jQuery Start Here =====
         ==============================================*/
-        jQuery("body").niceScroll({
+        $("body").niceScroll({
             cursorwidth: 8,
             cursorcolor: '#f93601',
             cursorborder: "none",
@@ -66,7 +66,7 @@ Table of JS Content End Here
         /*==================================================
 		===== 03. Link Smooth Effect jQuery Start Here =====
 		==================================================*/
-        jQuery('.rb-blog-one-scroll-top a').on("click", function (e) {
+        $('.rb-blog-one-scroll-top a').on("click", function (e) {
             var anchor = jQuery(this);
             jQuery('html, body').stop().animate({
                 scrollTop: jQuery(anchor.attr('href')).offset().top
@@ -80,12 +80,12 @@ Table of JS Content End Here
         /*================================================================
         ===== 04. Icon Add With Dropdown Menu Item jQuery Start Here =====
         ================================================================*/
-        jQuery(".rb-blog-one-header-desktop-menu .sub-menu:first").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
+        $(".rb-blog-one-header-desktop-menu .sub-menu:first").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
 
-        if (jQuery(window).width() > 991) {
-            jQuery(".rb-blog-one-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-right"></i>');
+        if ($(window).width() > 991) {
+            $(".rb-blog-one-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-right"></i>');
         } else {
-            jQuery(".rb-blog-one-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
+            $(".rb-blog-one-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
         }
         /*==============================================================
         ===== 04. Icon Add With Dropdown Menu Item jQuery End Here =====
@@ -94,12 +94,12 @@ Table of JS Content End Here
         /*===========================================
         ===== 05. Mobile Menu jQuery Start Here =====
         ===========================================*/
-        jQuery(".rb-blog-one-mobile-menu").click(function () {
-            jQuery(".rb-blog-one-header-menu").slideToggle();
+        $(".rb-blog-one-mobile-menu").click(function () {
+            $(".rb-blog-one-header-menu").slideToggle();
         });
 
-        jQuery(".rb-blog-one-header-desktop-menu i").click(function () {
-            jQuery(this).siblings("ul").slideToggle();
+        $(".rb-blog-one-header-desktop-menu i").click(function () {
+            $(this).siblings("ul").slideToggle();
         });
         /*=========================================
         ===== 05. Mobile Menu jQuery End Here =====
@@ -108,11 +108,11 @@ Table of JS Content End Here
         /* ========================================
         ===== 06. Scroll to Top JS Start Here =====
         ======================================== */
-        jQuery(window).scroll(function () {
-            if (jQuery(this).scrollTop() > 500) {
-                jQuery(".rb-blog-one-scroll-top").fadeIn();
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 500) {
+                $(".rb-blog-one-scroll-top").fadeIn();
             } else {
-                jQuery(".rb-blog-one-scroll-top").fadeOut();
+                $(".rb-blog-one-scroll-top").fadeOut();
             }
         });
         /* ======================================

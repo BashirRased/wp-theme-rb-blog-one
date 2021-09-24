@@ -5,7 +5,7 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.7
+ * @since RB Blog One 1.0.8
  */
 
 /*
@@ -23,7 +23,7 @@ if ( comments_open() || pings_open() ) : ?>
 <div class="rb-blog-one-comment-area">
     <div class="container">
         <div class="row">
-            <div class="container">
+            <div class="col-lg-12">
 
                 <!--===== Comment Count Area Start Here =====-->
                 <div class="rb-blog-one-comment-count">
@@ -85,12 +85,15 @@ if ( comments_open() || pings_open() ) : ?>
                         'label_submit' => __('comment','rb-blog-one'),
                         'title_reply' => __('Write a comment','rb-blog-one'),
                         'fields' => apply_filters( 'comment_form_default_fields',array(
-                                'author' => '<input class="rb-blog-one-comment-box" placeholder="'.esc_attr("Name*","rb-blog-one").'"></input>',
-                                'email' => '<input class="rb-blog-one-comment-box" placeholder="'.esc_attr("E-mail*","rb-blog-one").'"></input>',
-                                'url' => '<input class="rb-blog-one-comment-box" placeholder="'.esc_attr("Website","rb-blog-one").'"></input>',
+                                'author' => sprintf('<input class="rb-blog-one-comment-box" placeholder="%s"></input>',esc_attr("Name*","rb-blog-one")),
+
+                                'email' => sprintf('<input class="rb-blog-one-comment-box" placeholder="%s"></input>',esc_attr("E-mail*","rb-blog-one")),
+                                
+                                'url' => sprintf('<input class="rb-blog-one-comment-box" placeholder="%s"></input>',esc_attr("Website","rb-blog-one"))
                             )),
-                        'comment_field' => '<textarea class="rb-blog-one-comment-box" placeholder="'.esc_attr("Write your comment here...","rb-blog-one").'" rows="5"></textarea>',
-                        ));
+                        'comment_field' => sprintf('<textarea class="rb-blog-one-comment-box" placeholder="%s" rows="5"></textarea>',
+                        esc_attr("Write your comment here...","rb-blog-one"))
+                    ));
                     ?>
                 </div>
                 <!--===== Comment Form Area End Here =====-->

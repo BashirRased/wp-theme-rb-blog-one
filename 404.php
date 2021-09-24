@@ -1,10 +1,12 @@
 <?php
 /**
- * The template for displaying the 404 template in the RB Blog One theme.
+ * The template for displaying 404 pages (not found)
+ *
+ * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.7
+ * @since RB Blog One 1.0.8
  */
 
 get_header();

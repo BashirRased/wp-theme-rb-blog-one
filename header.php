@@ -1,10 +1,14 @@
 <?php
 /**
- * Header file for the RB Blog One theme.
+ * The header.
+ *
+ * This is the template that displays all of the <head> section and everything up until main.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.7
+ * @since RB Blog One 1.0.8
  */
 
 ?>
@@ -19,15 +23,9 @@
 </head>
 
 <body <?php body_class();?> id="rb-blog-one-body">
-    <?php
-        if ( function_exists('wp_body_open')) :
-        wp_body_open();
-        else :
-            do_action('wp_body_open');
-        endif;
-    ?>
+    <?php wp_body_open(); ?>
     
-    <a class="screen-reader-text skip-link" href="#content">Skip to content</a>
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'rb-blog-one' ); ?></a>
 
     <!--=================================
     ===== Preloader Area Start Here =====
@@ -43,6 +41,8 @@
     <!--===============================
     ===== Preloader Area End Here =====
     ================================-->
+
+    <a class="skip-link screen-reader-text" href="#content"><?php echo esc_html ( 'Skip to content', 'rb-blog-one' ); ?></a>
 
     <!--==================================
     ===== Header Top Area Start Here =====
@@ -77,12 +77,12 @@
                         ));
                     elseif (!has_nav_menu('social_icons_menu') && is_user_logged_in()) : ?>
                         <ul>
-                            <li class="rb-blog-one-logged-social-menu"><a href="<?php echo esc_url(home_url('/wp-admin/nav-menus.php')); ?>"><?php echo esc_html__('add social icons menu','rb-blog-one') ?></a></li>
+                            <li class="rb-blog-one-logged-social-menu"><a href="<?php echo esc_url(admin_url('/nav-menus.php')); ?>"><?php echo esc_html__('add social icons menu','rb-blog-one') ?></a></li>
                         </ul>
                         <?php else : ?>
                         <ul>
                             <li>
-                                <a href="<?php echo esc_url('https://www.facebook.com/bashir.rased/'); ?>" target="_blank">
+                                <a href="<?php echo esc_url_raw('https://www.facebook.com/bashir.rased/'); ?>" target="_blank">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
@@ -170,7 +170,7 @@
                         ));
                     elseif (!has_nav_menu('header_menu') && is_user_logged_in()) : ?>
                         <ul>
-                            <li class="rb-blog-one-logged-header-menu"><a href="<?php echo esc_url(home_url('/wp-admin/nav-menus.php')); ?>"><?php echo esc_html__('add header menu','rb-blog-one') ?></a></li>
+                            <li class="rb-blog-one-logged-header-menu"><a href="<?php echo esc_url(admin_url('/nav-menus.php')); ?>"><?php echo esc_html__('add header menu','rb-blog-one') ?></a></li>
                         </ul>
                         <?php else : ?>
                         <ul>

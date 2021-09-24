@@ -6,7 +6,7 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.7
+ * @since RB Blog One 1.0.8
  */
 
 ?>

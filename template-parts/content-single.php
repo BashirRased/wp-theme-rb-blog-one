@@ -6,9 +6,8 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.7
+ * @since RB Blog One 1.0.8
  */
-
 ?>
 
 <!--====================================
@@ -61,7 +60,7 @@
                                                             $rb_blog_one_archive_month = get_the_time('m'); 
                                                             $rb_blog_one_archive_day   = get_the_time('d'); 
                                                         ?>
-                                                        <?php the_date("j F Y","<a href='".esc_url( get_day_link( $rb_blog_one_archive_year, $rb_blog_one_archive_month, $rb_blog_one_archive_day) );."'>","</a>",true); ?>
+                                                        <?php the_date("j F Y","<a href='".esc_url( get_day_link( $rb_blog_one_archive_year, $rb_blog_one_archive_month, $rb_blog_one_archive_day) )."'>","</a>",true); ?>
                                                     </div>
                                                     <div class="rb-blog-one-post-comments">
                                                         <i class="fas fa-comments"></i>

@@ -2,11 +2,14 @@
 /**
  * The template for displaying the footer
  *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.7
+ * @since RB Blog One 1.0.8
  */
-
 ?>
    
     <!--==============================
@@ -17,15 +20,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="rb-blog-one-copyright-text">
-                        <p>&copy;
-                        <?php echo esc_html__(' Copyright ','rb-blog-one');?>
-                        <?php echo date_i18n(__('Y','rb-blog-one')); ?>
-                        <?php echo esc_html__(' By ','rb-blog-one');?>
-                        <a href="<?php echo esc_url(home_url('/'));?>">
-                            <?php bloginfo('name'); ?>
-                        </a>
-                        <?php echo esc_html__('. All Right Reserved.','rb-blog-one');?>
-                        </p>
+                    <p><?php
+					printf(
+					/* translators: %s: Copyright Text. */
+					esc_html__( '&copy; Copyright %s By %s. All Right Reserved.','rb-blog-one'),
+					wp_kses_post(date_i18n("Y")),
+					'<a href="'.esc_url( home_url( '/' ) ).'">'.get_bloginfo("name").'</a>'
+					);
+					?></p>
                     </div>
                 </div>
             </div><!-- row end -->
@@ -33,7 +35,7 @@
     </div>
     <!--============================
     ===== Footer Area End Here =====
-    =============================-->
+    =============================-->    
 
     <!--=====================================
     ===== Scroll To Top Area Start Here =====

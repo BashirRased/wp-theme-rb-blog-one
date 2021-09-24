@@ -1,7 +1,7 @@
 /*
 Theme Name: RB Blog One
 Text Domain: rb-blog-one
-Version: 1.0.7
+Version: 1.0.8
 Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.2.4
@@ -39,6 +39,10 @@ Table of CSS Content End Here
 /*====================================== 
 ===== 01. HTML Tag Area Start Here =====
 ======================================*/
+*:focus {
+    outline: none;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -261,7 +265,6 @@ a:hover {
 }
 
 .rb-blog-one-header-top-right li a {
-    text-decoration: none;
     color: #fff;
 }
 
@@ -306,7 +309,6 @@ a:hover {
 }
 
 .rb-blog-one-header-title h1 a {
-    text-decoration: none;
     color: #f93601;
 }
 
@@ -389,7 +391,6 @@ a:hover {
 }
 
 .rb-blog-one-header-desktop-menu ul li a {
-    text-decoration: none;
     font-size: 16px;
     display: inline-block;
     text-transform: capitalize;
@@ -494,7 +495,6 @@ a:hover {
 
 .rb-blog-one-breadcrumbs-right ul li a {
     color: #f93601;
-    text-decoration: none;
 }
 
 /*======================================= 
@@ -550,7 +550,6 @@ a:hover {
 
 .rb-blog-one-post-cat a {
     color: #f93601;
-    text-decoration: none;
 }
 
 .rb-blog-one-post-title {
@@ -558,7 +557,6 @@ a:hover {
 }
 
 .rb-blog-one-post-title a {
-    text-decoration: none;
     color: #212121;
 }
 
@@ -578,7 +576,6 @@ a:hover {
 }
 
 .rb-blog-one-post-meta a {
-    text-decoration: none;
     color: #777;
 }
 
@@ -602,10 +599,6 @@ a:hover {
     border-bottom: 1px solid #c1c1c1;
 }
 
-.rb-blog-one-post-tag a {
-    text-decoration: none;
-}
-
 .rb-blog-one-post-excerpt,
 .rb-blog-one-post-content {
     margin-top: 15px;
@@ -614,7 +607,6 @@ a:hover {
 .rb-blog-one-post-read-btn a,
 .rb-blog-one-error-area .rb-blog-one-home-btn a {
     display: inline-block;
-    text-decoration: none;
     text-transform: capitalize;
     text-align: center;
     color: #fff;
@@ -707,7 +699,6 @@ a:hover {
 
 .rb-blog-one-post-content .wp-block-button a {
     display: inline-block;
-    text-decoration: none;
     text-align: center;
     color: #fff;
     border-radius: 5px;
@@ -781,7 +772,6 @@ a:hover {
     font-size: 16px;
     color: #fff;
     background-color: #f93601;
-    text-decoration: none;
     margin: 0 10px 10px 0;
     cursor: pointer;
 }
@@ -877,7 +867,6 @@ a:hover {
 
 .rb-blog-one-comment-area .rb-blog-one-comment-author-bio .rb-blog-one-comment-author a {
     font-size: 16px;
-    text-decoration: none;
     color: #212121;
 }
 
@@ -886,19 +875,11 @@ a:hover {
     color: #f93601;
 }
 
-.rb-blog-one-comment-area .rb-blog-one-comment-author-bio .rb-blog-one-comment-reply a {
-    text-decoration: none;
-}
-
 .rb-blog-one-comment-area .rb-blog-one-comment-meta {
     padding: 10px 0 0;
     border-bottom: 1px solid #c1c1c1;
     border-top: 1px solid #c1c1c1;
     margin: 10px 0;
-}
-
-.rb-blog-one-comment-area .rb-blog-one-comment-meta a {
-    text-decoration: none;
 }
 
 .rb-blog-one-comment-area .rb-blog-one-comment-meta i {
@@ -917,7 +898,6 @@ a:hover {
 
 .rb-blog-one-comment-area .form-submit #submit {
     display: inline-block;
-    text-decoration: none;
     text-align: center;
     color: #fff;
     border-radius: 5px;
@@ -1072,13 +1052,6 @@ a:hover {
     color: #fff;
 }
 
-.rb-blog-one-post-content .wp-calendar-table a,
-.rb-blog-one-post-content .wp-calendar-nav a,
-.rb-blog-one-single-widget .wp-calendar-table a,
-.rb-blog-one-single-widget .wp-calendar-nav a {
-    text-decoration: none;
-}
-
 .rb-blog-one-post-content .wp-calendar-nav,
 .rb-blog-one-single-widget .wp-calendar-nav {
     margin-top: 10px;
@@ -1128,7 +1101,6 @@ a:hover {
 .rb-blog-one-post-content .wp-block-archives li a:hover,
 .rb-blog-one-post-content .wp-block-latest-posts li a:hover,
 .rb-blog-one-single-widget li a:hover {
-    text-decoration: none;
     color: #f93601;
 }
 
@@ -1140,7 +1112,6 @@ a:hover {
 .rb-blog-one-post-content .wp-block-tag-cloud a,
 .rb-blog-one-single-widget .tagcloud a {
     color: #333;
-    text-decoration: none;
     border: 1px solid #c1c1c1;
     padding: 10px;
     margin: 0 10px 10px 0;
@@ -1281,10 +1252,6 @@ a:hover {
 .form-submit #submit {
     color: #fff !important;
     background-color: #f93601 !important;
-}
-
-.product-name a {
-    text-decoration: none !important;
 }
 
 .checkout-button,

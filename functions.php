@@ -4,11 +4,11 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.7
+ * @since RB Blog One 1.0.8
  */
 
 // Prefix With File Directory
-define('RB_BLOG_ONE_VERSION','1.0.7');
+define('RB_BLOG_ONE_VERSION','1.0.8');
 define('RB_BLOG_ONE_WP_CSS',get_stylesheet_uri());
 define('RB_BLOG_ONE_URL',get_template_directory_uri());
 define('RB_BLOG_ONE_CSS',RB_BLOG_ONE_URL.'/assets/css/');

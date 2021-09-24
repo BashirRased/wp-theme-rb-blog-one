@@ -6,9 +6,8 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.7
+ * @since RB Blog One 1.0.8
  */
-
 ?>
 
 <!--====================================
@@ -40,7 +39,7 @@
                                                     <?php if (has_post_thumbnail()) :
                                                     the_post_thumbnail('');
                                                     else : ?>
-                                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/no_image.jpg" alt="<?php the_title(''); ?>">
+                                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/no_image.jpg" alt="<?php the_title_attribute(); ?>">
                                                     <?php endif; ?>
                                                 </div>
                                             </div>

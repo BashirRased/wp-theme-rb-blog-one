@@ -1,8 +1,10 @@
 === RB Blog One ===
 Contributors: Bashir Rased
 Tested up to: 5.5
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 Author URI: http://bashir-rased.com/
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Installation ==
 1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
@@ -18,8 +20,7 @@ Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
 RB Blog One WordPress Theme, Copyright 2020 Bashir Rased
 RB Blog One is distributed under the terms of the GNU GPL
 
-RB Blog One bundles the following third-party resources:
-
+== Resources ==
 Bootstrap v4.5.0
 Copyright (c) 2011-2020 Twitter, Inc.
 License: MIT License, https://github.com/twbs/bootstrap/blob/master/LICENSE
@@ -48,5 +49,7 @@ Popper.js v1.16.0
 Copyright (c) Federico Zivolo 2019
 License: MIT License, http://opensource.org/licenses/MIT
 
-Image used in screenshot.png
-Licensed under the terms of CC0
+Images:
+* screenshot image by Bashir Rased, CC0. https://dribbble.com/shots/16228417-Screenshot-png
+
+* post default image by Bashir Rased, CC0. https://dribbble.com/shots/16228412-No-Image-Avaiable
