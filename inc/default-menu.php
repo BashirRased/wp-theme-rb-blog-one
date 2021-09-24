@@ -1,11 +1,11 @@
 <?php
 
-function default_header_menu(){
+function rb_default_header_menu(){
 	echo '<ul>';
 	if(is_user_logged_in()){
-		?><li><a href="<?php echo esc_url( home_url( '/' ) ); ?>/wp-admin/nav-menus.php">create a menu</a></li><?php
+		echo '<li><a href="'.esc_attr( home_url() ).'/wp-admin/nav-menus.php">create a menu</a></li>';
 	}else{
-		?><li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>';<?php
+		echo '<li><a href="'.esc_attr( home_url( "/" ) ).'">Home</a></li>';
 	}	
 	echo '</ul>';
 }

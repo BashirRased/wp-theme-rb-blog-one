@@ -1,7 +1,7 @@
 <?php
 
 // adding google fonts
-	function get_rb_fonts(){
+	function rb_fonts(){
 	$fonts 		= array();
 	$fonts[] 	= 'Roboto:400,700';
 
@@ -18,7 +18,7 @@
 function rb_google_font_style(){
 
 	// Google Fonts
-	wp_register_style('fonts', get_rb_fonts(),'','1.0.1','all');
+	wp_register_style('fonts', rb_fonts(),'','1.0.2','all');
 	wp_enqueue_style('fonts');
 	
 }

@@ -47,7 +47,31 @@ if( file_exists( dirname( __FILE__ ) . '/inc/default-menu.php' ) ) {
 
 if ( ! isset( $content_width ) ) $content_width = 900;
 
-function wpdocs_theme_add_editor_styles() {
-    add_editor_style( 'custom-editor-style.css' );
+
+function rb_add_editor_style( $rb_stylesheet = 'custom-editor-style.css' ) {
+    add_theme_support( 'editor-style' );
+ 
+    if ( ! is_admin() ) {
+        return;
+    }
+ 
+    global $rb_editor_styles;
+    $rb_editor_styles = (array) $rb_editor_styles;
+    $rb_stylesheet    = (array) $rb_stylesheet;
+    if ( is_rtl() ) {
+        $rb_rtl_stylesheet = str_replace( '.css', '-rtl.css', $stylesheet[0] );
+        $rb_stylesheet[]   = $rb_rtl_stylesheet;
+    }
+ 
+    $rb_editor_styles = array_merge( $rb_editor_styles, $rb_stylesheet );
+};
+
+function rb_skip_link_focus_fix() {
+	// The following is minified via `terser --compress --mangle -- js/skip-link-focus-fix.js`.
+	?>
+	<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+	</script>
+	<?php
 }
-add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
+add_action( 'wp_print_footer_scripts', 'rb_skip_link_focus_fix' );

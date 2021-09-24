@@ -22,7 +22,14 @@
 								
 		<div class="rb-meta-date">
 			<span class="rb-post-meta-icon"><i class="fas fa-clock"></i></span>
-			<span class="rb-post-meta-text"><?php echo get_the_date('j F Y'); ?></span>
+			<span class="rb-post-meta-text">
+				<?php 
+					$rb_archive_year  = get_the_time('Y'); 
+					$rb_archive_month = get_the_time('m'); 
+					$rb_archive_day   = get_the_time('d'); 
+				?>
+				<a href="<?php echo get_day_link( $rb_archive_year, $rb_archive_month, $rb_archive_day); ?>"><?php echo get_the_date('j F Y'); ?></a>			
+			</span>
 		</div>
 								
 		<div class="rb-meta-comments">
@@ -35,7 +42,7 @@
 		?>
 			<div class="rb-meta-post-edit">
 				<span class="rb-post-meta-icon"><i class="fas fa-pencil-alt"></i></span>
-				<span class="rb-post-meta-text"><?php echo esc_attr (edit_post_link('Edit This Post') ); ?></span>			
+				<span class="rb-post-meta-text"><?php echo esc_url( edit_post_link('Edit This Post') ); ?></span>			
 			</div>
 		<?php
 			}
@@ -44,7 +51,7 @@
 	</div>							
 							
 	<div class="rb-home-post-title">
-		<h2><a href="<?php the_permalink();?>"><?php the_title();?></a></h2>		   
+		<h2><a href="<?php esc_attr( the_permalink() );?>"><?php the_title();?></a></h2>		   
 	</div>
 							
 	<div class="rb-home-post-content">

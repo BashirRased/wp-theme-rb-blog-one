@@ -1,7 +1,7 @@
 <div class="rb-single-attachment-blog">
 						
 	<div class="rb-home-post-title">
-		<h2><a href="<?php the_permalink();?>"><?php the_title();?></a></h2>		   
+		<h2><a href="<?php esc_attr( the_permalink() );?>"><?php the_title();?></a></h2>		   
 	</div>
 	
 	<div class="rb-home-post-thumbnail">

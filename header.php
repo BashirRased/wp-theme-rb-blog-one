@@ -7,6 +7,7 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
+<?php wp_body_open(); ?>
 
 	<!-- Preloader Area Strat Here -->
 	<div class="rb-preloader">
@@ -27,25 +28,25 @@
 	
 	<!-- Header Area Strat Here -->
 	<header class="rb-header-area">
-		
+		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'rb-blog-one' ); ?></a>
 		<!-- Header Top Area Strat Here -->
 		<div class="rb-header-top-area">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="rb-header-top-left">
-							<?php echo esc_attr(date_i18n( __( 'l, j F Y', 'rb-blog-one' ) )); ?>
+							<?php echo esc_html(date_i18n( __( 'l, j F Y', 'rb-blog-one' ) )); ?>
 						</div>
 					</div>
 					<div class="col-lg-6">
 						<div class="rb-header-top-right float-right">
 							<nav class="rb-header-social-links">
 								<ul>
-									<li><a href="<?php echo esc_attr(get_theme_mod('facebook_links','https://www.facebook.com/bashir.rased')); ?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="<?php echo esc_attr(get_theme_mod('twitter_links','https://twitter.com/BashirRased')); ?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
-									<li><a href="<?php echo esc_attr(get_theme_mod('linkedin_links','https://www.linkedin.com/in/bashir-rased-a28306a4/')); ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-									<li><a href="<?php echo esc_attr(get_theme_mod('instagram_links','https://www.instagram.com/md.rashedmollik/')); ?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
-									<li><a href="<?php echo esc_attr(get_theme_mod('pinterest_links','https://www.pinterest.com/bashir4907/')); ?>" target="_blank"><i class="fab fa-pinterest-p"></i></a></li>
+									<li><a href="<?php echo esc_attr(get_theme_mod('rb_facebook_links','https://www.facebook.com/bashir.rased')); ?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="<?php echo esc_attr(get_theme_mod('rb_twitter_links','https://twitter.com/BashirRased')); ?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="<?php echo esc_attr(get_theme_mod('rb_linkedin_links','https://www.linkedin.com/in/bashir-rased-a28306a4/')); ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+									<li><a href="<?php echo esc_attr(get_theme_mod('rb_instagram_links','https://www.instagram.com/md.rashedmollik/')); ?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="<?php echo esc_attr(get_theme_mod('rb_pinterest_links','https://www.pinterest.com/bashir4907/')); ?>" target="_blank"><i class="fab fa-pinterest-p"></i></a></li>
 								</ul>
 							</nav>
 						</div>
@@ -65,7 +66,7 @@
 					</div>
 					<div class="col-lg-8">
 						<div class="rb-header-ads-area">
-							<?php dynamic_sidebar('header-sidebar'); ?>
+							<?php dynamic_sidebar('rb_header-sidebar'); ?>
 						</div>
 					</div>
 				</div>
@@ -90,7 +91,7 @@
 								wp_nav_menu(array(
 									'theme_location'  => 'header-menu',
 									'container'       => '',
-									'fallback_cb'     => 'default_header_menu'
+									'fallback_cb'     => 'rb_default_header_menu'
 								));
 							 ?>							
 						</nav>

@@ -25,14 +25,14 @@
 				
 				<!-- Blog Area Strat Here -->
 				<div class="col-lg-8">
-					<article <?php post_class(array('rb-blog-area')); ?> >
+					<article id="post-<?php the_ID(); ?>" <?php post_class(array('rb-blog-area')); ?> >
 						<?php
 							if(have_posts()) : 
 								while(have_posts()) : the_post();
 							get_template_part('template-parts/unsupported-file-content');
 								endwhile;
 							else:
-								echo 'No Posts Found';
+								echo "esc_html __('No Posts Found','rb-blog-one')";
 							endif;
 						?>
 					</article>
