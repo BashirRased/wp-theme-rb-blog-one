@@ -1,7 +1,7 @@
 /*
 Theme Name: RB Blog One
 Text Domain: rb-blog-one
-Version: 1.0.5
+Version: 1.0.6
 Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.2.4
@@ -9,7 +9,6 @@ Description: This is a personal free blog website.
 Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
 Author: Bashir Rased
 Author URI: http://bashir-rased.com/
-Theme URI: https://bashir-rased.com/wp/rb-blog-one/
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */

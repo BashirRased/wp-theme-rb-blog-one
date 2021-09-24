@@ -4,7 +4,7 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.5
+ * @since RB Blog One 1.0.6
  */
 
 ?>
@@ -13,11 +13,8 @@
 <html <?php language_attributes();?>>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="<?php bloginfo('charset');?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <?php wp_head();?>
 </head>
 
@@ -70,7 +67,7 @@
 
                 <!--===== Header Top Right Area Start Here =====-->
                 <div class="col-lg-6">
-                    <div class="rb-blog-one-header-top-right float-right">
+                    <nav class="rb-blog-one-header-top-right float-right">
                         <?php
                     if (has_nav_menu('social_icons_menu')) :
                         wp_nav_menu(array(
@@ -90,7 +87,7 @@
                         </ul>
                         <?php endif;
                     ?>
-                    </div>
+                    </nav>
                 </div>
                 <!--===== Header Top Right Area End Here =====-->
 
@@ -109,11 +106,11 @@
             <div class="row">
 
                 <!--===== Header Body Left Area Start Here =====-->
-                <div class="col-lg-6">
-                    <div class="rb-blog-one-header-body-left">
+                <div class="col-lg-12">
+                    <div class="rb-blog-one-header-body-left text-center">
                         <?php
                             if (has_custom_logo()) : ?>
-                        <div class="rb-blog-one-header-logo"><a href="<?php echo esc_url(home_url('/'));?>"><?php the_custom_logo(); ?></a></div>
+                        <div class="rb-blog-one-header-logo"><?php the_custom_logo(); ?></div>
                         <?php endif; ?>
                         <div class="rb-blog-one-header-title">
                             <h1>
@@ -128,10 +125,6 @@
                     </div>
                 </div>
                 <!--===== Header Body Left Area End Here =====-->
-
-                <!--===== Header Body Right Area Start Here =====-->
-                <?php get_sidebar('header'); ?>
-                <!--===== Header Body Right Area End Here =====-->
 
             </div><!-- row end -->
         </div><!-- container end -->
@@ -167,7 +160,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="rb-blog-one-header-desktop-menu">
+                    <nav class="rb-blog-one-header-desktop-menu">
                         <?php
                     if (has_nav_menu('header_menu')) :
                         wp_nav_menu(array(
@@ -185,7 +178,7 @@
                         </ul>
                         <?php endif;
                     ?>
-                    </div>
+                    </nav>
                 </div>
             </div><!-- row end -->
         </div><!-- container end -->
@@ -208,24 +201,6 @@
                         <?php if (is_front_page() && is_home()): ?>
                         <h2><?php echo esc_html__('home page','rb-blog-one');?></h2>
                         
-                        <?php elseif (is_shop()): ?>
-                        <h2><?php echo esc_html__('shop page','rb-blog-one');?></h2>
-                        
-                        <?php elseif (is_product()): ?>
-                        <h2><?php echo esc_html__('single product','rb-blog-one');?></h2>
-                        
-                        <?php elseif (is_product_category()): ?>
-                        <h2><?php echo esc_html__('product category','rb-blog-one');?></h2>
-                        
-                        <?php elseif (is_product_tag()): ?>
-                        <h2><?php echo esc_html__('product tag','rb-blog-one');?></h2>
-                        
-                        <?php elseif (is_cart()): ?>
-                        <h2><?php echo esc_html__('cart page','rb-blog-one');?></h2>
-                        
-                        <?php elseif (is_cart() || is_checkout()): ?>
-                        <h2><?php echo esc_html__('chackout page','rb-blog-one');?></h2>
-
                         <?php elseif (is_singular()): ?>
                         <h2><?php echo esc_html__('single page','rb-blog-one');?></h2>
 
@@ -267,29 +242,7 @@
                                 <a href="<?php echo esc_url(home_url('/'));?>"><?php echo esc_html__('Home','rb-blog-one');?></a>
                             </li>
 
-                            <?php if (is_shop()): ?>
-                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><?php echo esc_html__('Shop','rb-blog-one');?></li>
-
-                            <?php elseif (is_product()): ?>
-                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><a href="<?php echo esc_url(home_url('/shop/'));?>"><?php echo esc_html__('Shop','rb-blog-one');?></a></li>
-                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><?php wp_title("",true); ?></li>
-                            
-                            <?php elseif (is_product_category()): ?>
-                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><a href="<?php echo esc_url(home_url('/shop/'));?>"><?php echo esc_html__('Shop','rb-blog-one');?></a></li>
-                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><?php single_cat_title(); ?></li>
-                            
-                            <?php elseif (is_product_tag()): ?>
-                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><a href="<?php echo esc_url(home_url('/shop/'));?>"><?php echo esc_html__('Shop','rb-blog-one');?></a></li>
-                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><?php single_tag_title(); ?></li>
-
-                            <?php elseif (is_singular()): ?>
+                            <?php if (is_singular()): ?>
                             <li><i class="fas fa-long-arrow-alt-right"></i></li>
                             <li><?php wp_title("",true); ?></li>
 
