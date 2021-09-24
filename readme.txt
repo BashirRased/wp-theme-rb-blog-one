@@ -1,7 +1,7 @@
 === RB Blog One ===
 Contributors: Bashir Rased
 Tested up to: 5.5
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 Author URI: http://bashir-rased.com/
 
 == Installation ==
@@ -47,3 +47,6 @@ License: MIT License, https://github.com/scottjehl/Respond/blob/master/LICENSE-M
 Popper.js v1.16.0
 Copyright (c) Federico Zivolo 2019
 License: MIT License, http://opensource.org/licenses/MIT
+
+Image used in screenshot.png
+Licensed under the terms of CC0

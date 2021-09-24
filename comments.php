@@ -5,7 +5,7 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.6
+ * @since RB Blog One 1.0.7
  */
 
 /*
@@ -85,11 +85,11 @@ if ( comments_open() || pings_open() ) : ?>
                         'label_submit' => __('comment','rb-blog-one'),
                         'title_reply' => __('Write a comment','rb-blog-one'),
                         'fields' => apply_filters( 'comment_form_default_fields',array(
-                                'author' => '<input class="rb-blog-one-comment-box" placeholder="'.esc_attr("Name*").'"></input>',
-                                'email' => '<input class="rb-blog-one-comment-box" placeholder="'.esc_attr("E-mail*").'"></input>',
-                                'url' => '<input class="rb-blog-one-comment-box" placeholder="'.esc_attr("Website").'"></input>',
+                                'author' => '<input class="rb-blog-one-comment-box" placeholder="'.esc_attr("Name*","rb-blog-one").'"></input>',
+                                'email' => '<input class="rb-blog-one-comment-box" placeholder="'.esc_attr("E-mail*","rb-blog-one").'"></input>',
+                                'url' => '<input class="rb-blog-one-comment-box" placeholder="'.esc_attr("Website","rb-blog-one").'"></input>',
                             )),
-                        'comment_field' => '<textarea class="rb-blog-one-comment-box" placeholder="'.esc_attr("Write your comment here...").'" rows="5"></textarea>',
+                        'comment_field' => '<textarea class="rb-blog-one-comment-box" placeholder="'.esc_attr("Write your comment here...","rb-blog-one").'" rows="5"></textarea>',
                         ));
                     ?>
                 </div>

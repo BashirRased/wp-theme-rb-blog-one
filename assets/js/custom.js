@@ -1,7 +1,7 @@
 /*
 Theme Name: RB Blog One
 Text Domain: rb-blog-one
-Version: 1.0.6
+Version: 1.0.7
 Requires at least: 4.7
 Tested up to: 5.5
 Requires PHP: 5.2.4

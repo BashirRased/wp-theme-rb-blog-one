@@ -4,7 +4,7 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.6
+ * @since RB Blog One 1.0.7
  */
 
 ?>
@@ -26,6 +26,8 @@
             do_action('wp_body_open');
         endif;
     ?>
+    
+    <a class="screen-reader-text skip-link" href="#content">Skip to content</a>
 
     <!--=================================
     ===== Preloader Area Start Here =====
@@ -244,7 +246,7 @@
 
                             <?php if (is_singular()): ?>
                             <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><?php wp_title("",true); ?></li>
+                            <?php the_title("<li>","</li>",true); ?>
 
                             <?php elseif (is_404()): ?>
                             <li><i class="fas fa-long-arrow-alt-right"></i></li>
@@ -268,15 +270,15 @@
 
                             <?php elseif (is_year()): ?>
                             <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><?php echo get_the_date("Y"); ?></li>
+                            <?php the_date("Y","<li>","</li>",true); ?>
 
                             <?php elseif (is_month()): ?>
                             <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><?php echo get_the_date("F, Y"); ?></li>
+                            <?php the_date("F, Y","<li>","</li>",true); ?>
 
                             <?php elseif (is_day()): ?>
                             <li><i class="fas fa-long-arrow-alt-right"></i></li>
-                            <li><?php echo get_the_date("l, jS F, Y"); ?></li>
+                            <?php the_date("l, jS F, Y","<li>","</li>",true); ?>
 
                             <?php endif ; ?>
                         </ul>

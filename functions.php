@@ -4,11 +4,11 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.6
+ * @since RB Blog One 1.0.7
  */
 
 // Prefix With File Directory
-define('RB_BLOG_ONE_VERSION','1.0.6');
+define('RB_BLOG_ONE_VERSION','1.0.7');
 define('RB_BLOG_ONE_WP_CSS',get_stylesheet_uri());
 define('RB_BLOG_ONE_URL',get_template_directory_uri());
 define('RB_BLOG_ONE_CSS',RB_BLOG_ONE_URL.'/assets/css/');
@@ -31,8 +31,7 @@ function rb_blog_one_theme_setup(){
     // Logo Image Register
 	add_theme_support('custom-logo',array(
 		'height'      => 80,
-        'flex-height' => true,
-        'header-text' => array('site-title','site-description')
+        'flex-height' => true
 	));
     
     // Menu Register
@@ -53,8 +52,8 @@ add_action('after_setup_theme','rb_blog_one_theme_setup');
 // Include CSS & JS Files
 function rb_blog_one_css_js_files_add(){
     
-    // Google Font v1.0.6
-	wp_enqueue_style('google-fonts','http://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap','','1.0.6','all');
+    // Google Font v1.0.7
+	wp_enqueue_style('google-fonts','http://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap','','1.0.7','all');
     
     // Font Awesome v5.14.0
 	wp_enqueue_style('font-awesome',RB_BLOG_ONE_CSS.'font-awesome-5.14.0.min.css','','5.14.0','all');
@@ -83,18 +82,18 @@ function rb_blog_one_css_js_files_add(){
 	wp_enqueue_script('respond-js',RB_BLOG_ONE_JS.'respond-1.4.2.min.js',array(),'1.4.2',false);
 	wp_script_add_data('respond-js','conditional','lt IE 9');
     
-    // Comment Reply v1.0.6    
+    // Comment Reply v1.0.7    
     if ((! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script('comment-reply');
 	}
     
-    // Template CSS & JS v1.0.6
+    // Template CSS & JS v1.0.7
 	wp_enqueue_style('rb-blog-one-style',RB_BLOG_ONE_CSS.'style.css','',RB_BLOG_ONE_VERSION,'all');
     wp_enqueue_style('rb-blog-one-responsive',RB_BLOG_ONE_CSS.'responsive.css','',RB_BLOG_ONE_VERSION,'all');
     wp_enqueue_script('rb-blog-one-custom',RB_BLOG_ONE_JS.'custom.js',array('jquery'),RB_BLOG_ONE_VERSION,true);
 
 	// Main Style
-	wp_enqueue_style('rb-wp-stylesheet',RB_BLOG_ONE_WP_CSS,'','1.0.6','all');
+	wp_enqueue_style('rb-wp-stylesheet',RB_BLOG_ONE_WP_CSS,'','1.0.7','all');
     
 }
 add_action('wp_enqueue_scripts','rb_blog_one_css_js_files_add');
@@ -182,7 +181,7 @@ function rb_blog_one_comment_list($comment, $args, $depth){
                 <div class="rb-blog-one-comment-time">
                     <a href="<?php echo esc_url(get_comment_link()); ?>">
                         <span class="fas fa-calendar-alt"></span>
-                        <span><?php echo get_comment_date('l, d F, Y H:i A'); ?></span>
+                        <span><?php comment_date('l, d F, Y H:i A'); ?></span>
                     </a>
                 </div>
 
@@ -211,12 +210,3 @@ function rb_blog_one_comment_list($comment, $args, $depth){
 
 <?php
 } endif;
-
-/**
- * Include a skip to content link at the top of the page so that users can bypass the menu.
- */
-function rb_blog_one_skip_link() {
-	echo '<a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'rb-blog-one' ) . '</a>';
-}
-
-add_action( 'wp_body_open', 'rb_blog_one_skip_link', 5 );
