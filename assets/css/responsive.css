@@ -1,58 +1,139 @@
-@media all and (max-width: 992px) {
-  .rb-header-top-area {
-	  text-align: center;
-  }  
-  .rb-header-top-right.float-right,
-  .rb-footer-right.float-right {
-	  float: none !important;
-  }
-  .rb-header-top-left,
-  .rb-header-top-right {
-	  margin: 5px 0;
-  }
-  .rb-header-ads-area {
-	  margin: 8px 0;
-  }
-  .rb-footer-left,
-  .rb-footer-right {
-	  text-align: center;
-	  margin: 10px 0;
-  }
-  .rb-blog-area {
-	  margin-bottom: 20px;
-  }
-  .error-page h1 {
-	  font-size: 100px;
-  }
-  .rb-header-menu > ul > li {
-	float: none;
-  }
-  .rb-header-menu ul ul {
-	  display: block;
-	  position: inherit;
-  }
-  .rb-header-menu ul ul ul {
-		display: block;
-		position: inherit;
-		left: 0;
-		top: 100%;
-	}
-	.rb-header-menu ul ul a {
-		text-indent: 20px;
-	}
-	.rb-header-menu ul ul ul a {
-		text-indent: 40px;
-	}
-	.rb-header-menu ul ul ul ul a {
-		text-indent: 60px;
-	}
-	.rb-header-menu ul ul ul ul ul a {
-		text-indent: 80px;
-	}
-	.rb-mobile-menu {
-		display: block;
-	}
-	.rb-header-menu {
-		display: none;
-	}
+/*
+Theme Name: RB Blog One
+Text Domain: rb-blog-one
+Version: 1.0.4
+Requires at least: 4.7
+Tested up to: 5.0
+Requires PHP: 5.2.4
+Description: This is a personal free blog website.
+Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
+Author: Bashir Rased
+Author URI: http://bashir-rased.com/
+Theme URI: https://bashir-rased.com/wp/rb-blog-one/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/*=============================
+Table of CSS Content Start Here
+===============================
+	01. @media (min-width: 992px)-------------->Line 27
+	02. @media (max-width: 991px)-------------->Line 40
+	03. @media (max-width: 575px)-------------->Line 115
+=============================
+Table of CSS Content End Here
+===========================*/
+
+/*==================================================
+01. @media (min-width: 992px) CSS Content Start Here
+==================================================*/
+@media (min-width: 992px) {
+    .rb-header-menu {
+        display: block !important;
+    }
 }
+
+/*================================================
+01. @media (min-width: 992px) CSS Content End Here
+================================================*/
+
+/*==================================================
+02. @media (max-width: 991px) CSS Content Start Here
+==================================================*/
+@media (max-width: 991px) {
+    .rb-header-top-left {
+        text-align: center;
+    }
+
+    .rb-header-top-right {
+        text-align: center;
+        float: none !important;
+    }
+
+    .rb-header-body-left {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .rb-mobile-menu-area {
+        display: block;
+    }
+
+    .rb-header-menu {
+        display: none;
+    }
+
+    .rb-header-desktop-menu ul li {
+        float: none;
+    }
+
+    .rb-header-desktop-menu ul li i {
+        cursor: pointer;
+    }
+
+    .rb-header-desktop-menu ul li ul {
+        display: none;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .rb-header-desktop-menu ul li ul li:hover ul {
+        left: 0;
+    }
+
+    .rb-header-desktop-menu ul li ul li ul li {
+        border-left: none;
+    }
+
+    .rb-breadcrumbs-left {
+        text-align: center;
+    }
+
+    .rb-breadcrumbs-left h2 {
+        padding: 30px 0;
+    }
+
+    .rb-breadcrumbs-right {
+        float: none !important;
+        text-align: center;
+    }
+
+    .rb-breadcrumbs-right ul {
+        padding: 15px 0;
+    }
+
+    .rb-sidebar-area {
+        margin-top: 20px;
+    }
+}
+
+/*================================================
+02. @media (max-width: 991px) CSS Content End Here
+================================================*/
+
+/*==================================================
+03. @media (max-width: 575px) CSS Content Start Here
+==================================================*/
+@media (max-width: 575px) {
+    .rb-error-area h1 {
+        font-size: 100px;
+    }
+
+    .rb-post-content blockquote {
+        margin-left: 0;
+    }
+
+    .rb-post-content .wp-block-search {
+        margin: 20px 0 70px;
+    }
+
+    .rb-post-content .wp-block-search button {
+        bottom: -50px;
+        width: 100%;
+    }
+}
+
+/*================================================
+03. @media (max-width: 575px) CSS Content End Here
+================================================*/

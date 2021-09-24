@@ -1,31 +1,49 @@
-	<!-- Footer Area Strat Here -->
-	<footer class="rb-footer-area">
-		<div class="container">
-			<div class="row">
-				
-				<div class="col-lg-6">
-					<div class="rb-footer-left">
-						&copy; Copyright 2018-2019 <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo('name'); ?></a>. All rights reserved.
-					</div>						
-				</div>
-				
-				<div class="col-lg-6">
-					<div class="rb-footer-right float-right">
-						Power by <a href="http//bashir-rased.com">Bashir Rased</a>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	</footer>
-	<!-- Footer Area Strat Here -->
-	
-	<!-- Scroll To Top Area Strat Here -->
-	<div class="rb-scroll-to-top">
-		<i class="fas fa-angle-up"></i>
-	</div>
-	<!-- Scroll To Top Area End Here -->
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * @package RB Blog
+ * @subpackage RB Blog One
+ * @since RB Blog 1.0.4
+ */
 
-	<?php wp_footer(); ?>
+?>
+   
+    <!--==============================
+    ===== Footer Area Start Here =====
+    ===============================-->
+    <div class="rb-footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="rb-copyright-text">
+                        <p>&copy;
+                        <?php echo esc_html__(' Copyright ','rb-blog-one');?>
+                        <?php echo date_i18n(__('Y','rb-blog-one')); ?>
+                        <?php echo esc_html__(' By ','rb-blog-one');?>
+                        <a href="<?php echo esc_url(home_url('/'));?>">
+                            <?php bloginfo('name'); ?>
+                        </a>
+                        <?php echo esc_html__('. All Right Reserved.','rb-blog-one');?>
+                        </p>
+                    </div>
+                </div>
+            </div><!-- row end -->
+        </div><!-- container end -->
+    </div>
+    <!--============================
+    ===== Footer Area End Here =====
+    =============================-->
+
+    <!--=====================================
+    ===== Scroll To Top Area Start Here =====
+    ======================================-->
+    <div class="rb-scroll-top"><a href="#rb-body"><i class="fas fa-chevron-up"></i></a></div>
+    <!--===================================
+    ===== Scroll To Top Area End Here =====
+    ====================================-->
+
+    <?php wp_footer();?>
 </body>
+
 </html>

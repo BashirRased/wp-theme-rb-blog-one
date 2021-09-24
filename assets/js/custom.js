@@ -1,83 +1,125 @@
-(function($){
+/*
+Theme Name: RB Blog One
+Text Domain: rb-blog-one
+Version: 1.0.4
+Requires at least: 4.7
+Tested up to: 5.0
+Requires PHP: 5.2.4
+Description: This is a personal free blog website.
+Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
+Author: Bashir Rased
+Author URI: http://bashir-rased.com/
+Theme URI: https://bashir-rased.com/wp/rb-blog-one/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
 
-	/* Website Preloader */
-	$(window).on("load",function (){
-		$(".preloader").delay(100).fadeOut(),
-		setTimeout(function(){$("#preloader").addClass("loading-end"),
-		setTimeout(function(){$("#preloader").hide()},1500)},800)
-	});
-	/* End */
-  
-	jQuery(document).ready(function(){
-	  
-		/* Scroll To Top Show/Hide */
-		jQuery(window).scroll(function(){		  
-		  var RBScroll = jQuery(window).scrollTop();		  
-		  if( RBScroll > 100 ){
-			  jQuery(".rb-scroll-to-top").fadeIn();
-		  }else {
-			  jQuery(".rb-scroll-to-top").fadeOut();
-		  }
-		});
-		/* End */
-	
-		/* Scroll To Top Click */
-		jQuery(".rb-scroll-to-top").on('click', function(){
-			jQuery("html, body").animate({'scrollTop' : 0}, 500);
-			return false;
-		});
-		/* End */
-	
-		/* Scroll Menu Bar */
-		 $(window).scroll(function () {
-			if ($(this).scrollTop() > 400) {
-				$('.rb-header-menu-area').addClass("rb-scroll-header-menu");
-			} else {
-				$('.rb-header-menu-area').removeClass("rb-scroll-header-menu");
-			}
-		});
-		/* End */
-		
-		/* Mobile Menu */
-		jQuery(".rb-mobile-menu-icon").click(function(){
-			jQuery(".rb-header-menu").slideToggle();
-		});
-		/* End */
-	
-		/* Icon Add With Dropdown Menu */
-		jQuery(".rb-header-menu ul ul:first").parent("li").children("a").append(' <i class="fas fa-chevron-down"></i>');
-		/* End */
-	
-		/* Icon Add With Multi-Dropdown Menu */
-		jQuery(".rb-header-menu ul ul ul").parent("li").children("a").append(' <i class="fas fa-long-arrow-alt-right"></i>');
-		/* End */
-	
-		/* Menu Resize Close/Open */
-		jQuery(window).resize(function(){
-			var RBMenu = jQuery(window).width();
-			
-			if(RBMenu > 992){
-				jQuery(".rb-header-menu").show();
-				
-			}
-			else{
-				jQuery(".rb-header-menu").hide();			
-			}
-		});
-		/* End */
-	
-	/* Menu Resize Close/Open */
-	var url = window.location.href;
-    var activePage = url;
-    $('.rb-header-menu-area a').each(function () {
-        var linkPage = this.href;
+/*============================
+Table of JS Content Start Here
+==============================
+	01.	Preloader----------------------------->Line 33
+	02. Nice Scrollbar------------------------>Line 51
+    03. Link Smooth Effect-------------------->Line 67
+    04. Icon Add With Dropdown Menu Item------>Line 81
+    05. Mobile Menu--------------------------->Line 95
+    06. Scroll to Top------------------------->Line 109
+============================
+Table of JS Content End Here
+==========================*/
 
-        if (activePage == linkPage) {
-            $(this).addClass("rb-header-active-menu");
-        }
+(function (jQuery) {
+    'use strict';
+
+    /*=========================================
+    ===== 01. Preloader jQuery Start Here =====
+    =========================================*/
+    jQuery(window).on("load", function () {
+        jQuery(".rb-folding-cube").delay(700).fadeOut(),
+            setTimeout(function () {
+                jQuery("#rb-preloader").addClass("rb-loading-end"),
+                    setTimeout(function () {
+                        jQuery("#rb-preloader").hide()
+                    }, 1500)
+            }, 800)
     });
-	/* End */
-	
-  });
-  
-}(jQuery))
+    /*=======================================
+    ===== 01. Preloader jQuery End Here =====
+    =======================================*/
+
+    jQuery(document).ready(function () {
+
+        /*==============================================
+        ===== 02. Nice Scrollbar jQuery Start Here =====
+        ==============================================*/
+        jQuery("body").niceScroll({
+            cursorwidth: 8,
+            cursorcolor: '#f93601',
+            cursorborder: "none",
+            cursorborderradius: 15,
+            zindex: 9999,
+            autohidemode: false,
+            cursorminheight: 200,
+        });
+        /*============================================
+        ===== 02. Nice Scrollbar jQuery End Here =====
+        ============================================*/
+
+        /*==================================================
+		===== 03. Link Smooth Effect jQuery Start Here =====
+		==================================================*/
+        jQuery('a').on("click", function (e) {
+            var anchor = jQuery(this);
+            jQuery('html, body').stop().animate({
+                scrollTop: jQuery(anchor.attr('href')).offset().top
+            }, 3000);
+            e.preventDefault();
+        });
+        /*================================================
+		===== 03. Link Smooth Effect jQuery End Here =====
+        ================================================*/
+
+        /*================================================================
+        ===== 04. Icon Add With Dropdown Menu Item jQuery Start Here =====
+        ================================================================*/
+        jQuery(".rb-header-desktop-menu .sub-menu:first").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
+
+        if (jQuery(window).width() > 991) {
+            jQuery(".rb-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-right"></i>');
+        } else {
+            jQuery(".rb-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
+        }
+        /*==============================================================
+        ===== 04. Icon Add With Dropdown Menu Item jQuery End Here =====
+        ==============================================================*/
+
+        /*===========================================
+        ===== 05. Mobile Menu jQuery Start Here =====
+        ===========================================*/
+        jQuery(".rb-mobile-menu").click(function () {
+            jQuery(".rb-header-menu").slideToggle();
+        });
+
+        jQuery(".rb-header-desktop-menu i").click(function () {
+            jQuery(this).siblings("ul").slideToggle(500);
+        });
+        /*=========================================
+        ===== 05. Mobile Menu jQuery End Here =====
+        =========================================*/
+
+        /* ========================================
+        ===== 06. Scroll to Top JS Start Here =====
+        ======================================== */
+        jQuery(window).scroll(function () {
+            if (jQuery(this).scrollTop() > 500) {
+                jQuery(".rb-scroll-top").fadeIn();
+            } else {
+                jQuery(".rb-scroll-top").fadeOut();
+            }
+        });
+        /* ======================================
+        ===== 06. Scroll to Top JS End Here =====
+        ====================================== */
+
+    });
+
+}(jQuery));

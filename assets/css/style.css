@@ -1,348 +1,1229 @@
 /*
-Content Tables:
-	1. Tags
-	2. Header
-		2.1 Header Top
-		2.2 Header Middle
-		2.3 Header Menu
-	3. Blog Section
-		3.1 Blog
-		3.2 Sidebar
-	4. Footer
-	5. Scroll to Top
+Theme Name: RB Blog One
+Text Domain: rb-blog-one
+Version: 1.0.4
+Requires at least: 4.7
+Tested up to: 5.0
+Requires PHP: 5.2.4
+Description: This is a personal free blog website.
+Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
+Author: Bashir Rased
+Author URI: http://bashir-rased.com/
+Theme URI: https://bashir-rased.com/wp/rb-blog-one/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-/* 1. Tags */
+/*=============================
+Table of CSS Content Start Here
+===============================
+	01. HTML Tag------------------->Line 39
+	02. Preloader------------------>Line 79
+	03. Header Top----------------->Line 214
+	04. Header Body---------------->Line 278
+	05. Mobile Menu---------------->Line 343
+	06. Header Menu---------------->Line 372
+	07. Breadcrumbs---------------->Line 461
+	08. Blog----------------------->Line 504
+	09. Post Content--------------->Line 632
+	10. Pagination----------------->Line 761
+	11. Comment-------------------->Line 799
+	12. 404 Page------------------->Line 935
+	13. Widget--------------------->Line 965
+	14. Footer--------------------->Line 1179
+	15. Scroll To Top-------------->Line 1203
+=============================
+Table of CSS Content End Here
+===========================*/
+
+/*====================================== 
+===== 01. HTML Tag Area Start Here =====
+======================================*/
 body {
-	font-family: 'Roboto', sans-serif;
-	background: #e9ebee;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: #eee;
+    color: #212121;
+    word-break: break-all;
 }
-h1,h2,h3,h4,h5,h6 {
-	font-weight: 700;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+caption,
+figcaption,
+strong {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
 }
+
 img {
-	width: 100%;
-	height: auto;
+    max-width: 100% !important;
+    display: block !important;
 }
-a, a:hover {
-	text-decoration: none;
-}
-/* End */
 
-/* 2. Header */
-/* 2.1 Header Top */
-.rb-header-top-area {
-	color: #ffffff;
-	margin: 10px 0;
+a,
+a:hover {
+    color: #f93601;
 }
-.rb-header-top-area .container {
-	background: #333333;
-	padding: 20px;
+
+/*==================================== 
+===== 01. HTML Tag Area End Here =====
+====================================*/
+
+/*======================================= 
+===== 02. Preloader Area Start Here =====
+=======================================*/
+#rb-preloader {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 999999;
 }
-.rb-header-social-links ul {
-	padding: 0;
-	margin: 0;
-	list-style: none;
+
+#rb-preloader .rb-loading-end {
+    display: none;
 }
-.rb-header-social-links ul li {
-	display: inline-block;
-	margin: 0 6px;
+
+.rb-folding-cube {
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
 }
-.rb-header-social-links ul li a {
-	color: #ffffff;
+
+.rb-folding-cube .rb-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
-/* 2.2 Header Middle */
-.rb-header-middle-area {
-	margin: 20px 0;
+
+.rb-folding-cube .rb-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f93601;
+    -webkit-animation: rb-foldCubeAngle 2.4s infinite linear both;
+    animation: rb-foldCubeAngle 2.4s infinite linear both;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
 }
-.rb-header-middle-area .container {
-	background: #ffffff;
-	padding: 20px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+.rb-folding-cube .rb-cube2 {
+    -webkit-transform: scale(1.1) rotateZ(90deg);
+    transform: scale(1.1) rotateZ(90deg);
 }
-.rb-header-ads-area {
-	background: #dddddd;
-	min-height: 100px;
-	height: 100%;
+
+.rb-folding-cube .rb-cube3 {
+    -webkit-transform: scale(1.1) rotateZ(180deg);
+    transform: scale(1.1) rotateZ(180deg);
 }
-.rb-header-ads-area img {
-	width: 100% !important;
-	height: 100% !important;
+
+.rb-folding-cube .rb-cube4 {
+    -webkit-transform: scale(1.1) rotateZ(270deg);
+    transform: scale(1.1) rotateZ(270deg);
 }
-/* 2.3 Header Menu */
-.logged-in .rb-scroll-header-menu {
-	top: 40px;
+
+.rb-folding-cube .rb-cube2:before {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
 }
-.rb-scroll-header-menu {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 99999;
+
+.rb-folding-cube .rb-cube3:before {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
 }
-.header-active-menu {
-	background: red;
+
+.rb-folding-cube .rb-cube4:before {
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
 }
-.rb-header-menu {
-	background: #333333;
-	padding: 10px;
-	margin-bottom: 20px;
+
+@-webkit-keyframes rb-foldCubeAngle {
+
+    0%,
+    10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
 }
-.rb-header-menu:after {
-	content: "";
-	display: block;
-	clear: both;
+
+@keyframes rb-foldCubeAngle {
+
+    0%,
+    10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
 }
-.rb-header-menu ul {
-	padding: 0;
-	list-style: none;
+
+/*===================================== 
+===== 02. Preloader Area End Here =====
+=====================================*/
+
+/*======================================== 
+===== 03. Header Top Area Start Here =====
+========================================*/
+.rb-header-top {
+    width: 100%;
+    height: 100%;
+    min-height: 50px;
+    line-height: 50px;
+    background-color: #000;
 }
-.rb-header-menu > ul > li {
-	position: relative;
-	float: left;
+
+.rb-header-top-left {
+    color: #fff;
+    font-size: 14px;
 }
-.rb-header-menu ul li a {
-	color: #ffffff;
-	margin: 10px 5px;
-	padding: 10px 20px;
-	display: block;
-	text-transform: capitalize;
+
+.rb-header-top-left span {
+    margin-right: 10px;
 }
-.rb-header-menu ul ul {
-	display: none;
-	position: absolute;
-	left: 0;
-	top: 100%;
-	width: 100%;
-	min-width: 200px;
-	z-index: 99;
-	background: #333333;
+
+.rb-header-top-right {
+    font-size: 12px;
 }
-.rb-header-menu ul li:hover > ul,
-.rb-header-menu ul ul li:hover > ul,
-.rb-header-menu ul ul ul li:hover > ul,
-.rb-header-menu ul ul ul li:hover > ul {
-	display: block;
+
+.rb-header-top-right ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
-.rb-header-menu ul ul li {
-	position: relative;
+
+.rb-header-top-right li {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    border-radius: 50%;
+    background-color: #333;
 }
-.rb-header-menu ul ul ul {
-	display: none;
-	position: absolute;
-	left: 100%;
-	top: 0;
+
+.rb-header-top-right li:last-child {
+    margin: 0;
 }
+
+.rb-header-top-right li:hover {
+    background-color: #f93601;
+}
+
+.rb-header-top-right li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.rb-header-top-right li.rb-logged-social-menu {
+    width: 100%;
+    border-radius: 0;
+    text-transform: capitalize;
+}
+
+/*====================================== 
+===== 03. Header Top Area End Here =====
+======================================*/
+
+/*========================================= 
+===== 04. Header Body Area Start Here =====
+=========================================*/
+.rb-header-body {
+    width: 100%;
+    height: 100%;
+    min-height: 130px;
+    padding: 25px 0;
+    background-color: #fff;
+}
+
+.rb-header-logo,
+.rb-header-title {
+    display: inline-block;
+}
+
+.rb-header-logo {
+    margin-right: 20px;
+}
+
+.rb-header-logo img {
+    width: auto !important;
+    height: 80px;
+}
+
+.rb-header-title h1 {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.rb-header-title h1 a {
+    text-decoration: none;
+    color: #f93601;
+}
+
+.rb-header-title p {
+    font-size: 20px;
+    margin: 0;
+}
+
+.rb-header-body-right {
+    width: 100%;
+    height: 100%;
+    max-height: 85px;
+    border-radius: 5px;
+    background-color: #e8e8e8;
+    overflow: hidden;
+}
+
+.rb-header-body-right .alignnone {
+    width: 100% !important;
+}
+
+.rb-google-ads {
+    font-size: 14px;
+    color: #555;
+    line-height: 80px;
+    text-align: center;
+    margin: 0;
+}
+
+/*======================================= 
+===== 04. Header Body Area End Here =====
+=======================================*/
+
+/*========================================= 
+===== 05. Mobile Menu Area Start Here =====
+=========================================*/
+.rb-mobile-menu-area {
+    min-height: 70px;
+    background-color: #000;
+    padding: 10px 0;
+    display: none;
+}
+
 .rb-mobile-menu {
-	background: #333333;
-	overflow: hidden;
-	padding: 10px;
-	display: none;
-	margin-bottom: 20px;
-}
-.rb-mobile-menu-icon {
-	float: right;
-	padding: 5px 10px;
-	color: #ffffff;
-	cursor: pointer;
-}
-/* End */
-
-/* 3. Blog Section */
-.rb-content-area {
-	margin: 20px 0;
-}
-.rb-breadcrumbs-area .container {
-	background: #ffffff;
-	padding: 20px;
-}
-.rb-breadcrumbs ul {
-	padding: 0;
-	list-style: none;
-}
-.rb-breadcrumbs ul li {
-	float: left;
-	margin: 0 5px;
-}
-/* 3.1 Blog */
-.rb-blog-area {
-	background: #ffffff;	
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	padding: 20px;
-}
-.rb-single-home-blog {
-	margin: 40px 0;
-	border-bottom: 1px solid #dddddd;
-}
-.rb-single-home-blog:not(:last-child) { border-bottom: none; }
-.rb-single-page-blog,
-.rb-single-attachment-blog {
-	margin: 40px 0;
-}
-.rb-home-post-thumbnail {
-	margin: 20px 0;
-}
-.rb-home-post-meta {
-	margin: 20px 0;
-	padding: 10px 0;
-	border-top: 1px solid #dddddd;
-	border-bottom: 1px solid #dddddd;
-}
-.rb-meta-categories,
-.rb-meta-author,
-.rb-meta-date,
-.rb-meta-views,
-.rb-meta-comments,
-.rb-meta-post-edit {
-	display: inline-block;
-	margin: 5px 20px 5px 0;
-}
-.rb-post-meta-text {
-	margin-left: 5px;
-}
-.rb-home-post-title a,
-.rb-post-meta-text a {
-	color: #333333;
-}
-.rb-home-post-content {
-	text-align: justify;
-}
-.rb-home-read-more {
-	margin: 40px 0;
-}
-.rb-home-read-more a {
-	padding: 10px 30px;
-	color: #ffffff;
-}
-.rb-home-read-more a:hover {
-	background: none;
-}
-.rb-home-post-tags {
-	margin: 20px 0;
-}
-.rb-home-post-tags a {
-	display: inline-block;
-	background: red;
-	border: 1px solid red;
-	color: #ffffff;
-	padding: 10px;
-	margin: 0 5px 5px;
-}
-.rb-home-post-tags a:hover {
-	background: none;
-}
-.error-page {
-	text-align: center;
-	text-transform: uppercase;
-}
-.error-page h1 {
-	font-size: 200px;
-}
-.error-page a {
-	display: inline-block;
-	margin: 20px 0;
-	padding: 10px 30px;
-	color: #ffffff;
-}
-.error-page a:hover {
-	background: none;
-}
-.contact-left,
-.contact-right {
-	background: #ffffff;
-	padding: 20px;
-}
-.contact-left input,
-.contact-left textarea {
-	width: 100%;
-	margin: 10px 0;
-	padding: 10px;
-}
-.contact-left button {
-	color: #ffffff;
-	cursor: pointer;
-	padding: 10px 30px;
-}
-.contact-left button:hover {
-	background: none;
-}
-.contact-right {
-	font-size: 20px;
-}
-.contact-phone,
-.contact-email,
-.contact-address {
-	margin: 25px 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
 }
 
-/* 3.2 Sidebar */
-.rb-sidebar-area {
-	background: #ffffff;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	padding: 20px;	
-}
-.rb-sidebar-item {
-	margin: 20px 0;
-}
-.rb-sidebar-item a {
-	color: #333333;
-}
-.rb-sidebar-item-title {
-	color: #ffffff;
-	margin: 20px 0;
-	padding: 10px 0;
-	text-align: center;
-	font-size: 20px;
-}
-.rb-search-form {
-	position: relative;
-	margin: 20px 0;
-}
-.rb-search-form input {
-	width: 100%;
-	padding: 5px;
-	border: 1px solid #dddddd;
-}
-.rb-search-form button {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	background: #333333;
-	color: #ffffff;
-	height: 100%;
-	padding: 0 10px;
-	border: none;
-	cursor: pointer;
-}
-/* End */
+/*======================================= 
+===== 05. Mobile Menu Area End Here =====
+=======================================*/
 
-/* 4. Footer */
+/*========================================= 
+===== 06. Header Menu Area Start Here =====
+=========================================*/
+.rb-header-menu {
+    background-color: #000;
+}
+
+.rb-header-desktop-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rb-header-desktop-menu ul li {
+    float: left;
+    position: relative;
+
+}
+
+.rb-header-desktop-menu ul li a {
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    text-transform: capitalize;
+    color: #fff;
+    padding: 23px 15px;
+}
+
+.rb-header-desktop-menu ul li a:hover,
+.rb-header-desktop-menu ul li a[aria-current="page"] {
+    color: #f93601 !important;
+}
+
+.rb-logged-header-menu li a,
+.rb-unset-header-menu li a {
+    color: #f93601 !important;
+}
+
+.rb-header-desktop-menu ul li i {
+    color: #fff;
+    float: right;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    width: 40px;
+    margin-left: -20px;
+}
+
+.rb-header-desktop-menu ul li ul {
+    position: absolute;
+    top: 100%;
+    left: -999999px;
+    min-width: 250px;
+    background-color: #333;
+    z-index: 9;
+}
+
+.rb-header-desktop-menu ul li:hover > ul {
+    left: 0;
+}
+
+.rb-header-desktop-menu ul li ul li {
+    float: none;
+    border-bottom: 1px solid #555;
+    position: relative;
+    padding: 15px;
+}
+
+.rb-header-desktop-menu ul li ul li:last-child {
+    border-bottom: none;
+}
+
+.rb-header-desktop-menu ul li ul li:hover ul {
+    left: 100%;
+    top: 0;
+}
+
+.rb-header-desktop-menu ul li ul li a {
+    padding: 15px;
+}
+
+.rb-header-desktop-menu ul li ul li ul li {
+    border-left: 1px solid #555;
+}
+
+/*======================================= 
+===== 06. Header Menu Area End Here =====
+=======================================*/
+
+/*========================================= 
+===== 07. Breadcrumbs Area Start Here =====
+=========================================*/
+.rb-breadcrumbs {
+    min-height: 120px;
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.rb-breadcrumbs-left h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 45px 0;
+}
+
+.rb-breadcrumbs-right ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding: 48px 0;
+}
+
+.rb-breadcrumbs-right ul li {
+    font-size: 14px;
+    color: #555;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.rb-breadcrumbs-right ul li:last-child {
+    margin-right: 0;
+}
+
+.rb-breadcrumbs-right ul li a {
+    color: #f93601;
+    text-decoration: none;
+}
+
+/*======================================= 
+===== 07. Breadcrumbs Area End Here =====
+=======================================*/
+
+/*================================== 
+===== 08. Blog Area Start Here =====
+==================================*/
+.rb-website-body {
+    margin-top: 70px;
+}
+
+.rb-blog-area,
+.rb-error-area {
+    background-color: #fff;
+    border: 1px solid #c1c1c1;
+    padding: 15px 0;
+}
+
+.rb-single-blog {
+    padding: 20px 0;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.rb-single-blog:first-child {
+    padding-top: 0;
+}
+
+.rb-single-blog:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.rb-post-img img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.rb-post-img.rb-single-page img {
+    margin-bottom: 15px;
+}
+
+.rb-post-cat {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.rb-post-cat i {
+    margin-right: 10px;
+}
+
+.rb-post-cat a {
+    color: #f93601;
+    text-decoration: none;
+}
+
+.rb-post-title {
+    font-size: 24px;
+}
+
+.rb-post-title a {
+    text-decoration: none;
+    color: #212121;
+}
+
+.rb-post-title:hover a {
+    color: #f93601;
+}
+
+.rb-post-meta {
+    color: #777;
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+    padding-bottom: 10px;
+}
+
+.rb-post-meta i {
+    color: #f93601;
+}
+
+.rb-post-meta a {
+    text-decoration: none;
+    color: #777;
+}
+
+.rb-post-meta a:hover {
+    color: #f93601;
+}
+
+.rb-post-author,
+.rb-post-date,
+.rb-post-comments,
+.rb-post-edit {
+    display: inline-block;
+    margin: 10px 20px 0 0;
+}
+
+.rb-post-tag {
+    margin-top: 10px;
+    padding: 10px 0;
+    color: #777;
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.rb-post-tag a {
+    text-decoration: none;
+}
+
+.rb-post-excerpt,
+.rb-post-content {
+    margin-top: 15px;
+}
+
+.rb-post-read-btn a,
+.rb-error-area .rb-home-btn a {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+    color: #fff;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    background-color: #f93601;
+}
+
+/*================================ 
+===== 08. Blog Area End Here =====
+================================*/
+
+/*========================================== 
+===== 09. Post Content Area Start Here =====
+==========================================*/
+.rb-post-content {
+    overflow: hidden;
+}
+
+.rb-post-content .wp-block-calendar {
+    margin: 15px 0;
+}
+
+.rb-post-content figcaption {
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #f93601;
+}
+
+.rb-post-content blockquote {
+    margin-left: 15px;
+    padding: 30px 20px;
+    background-color: #e5e5e5;
+    border-left: 4px solid #f93601;
+}
+
+.rb-post-content blockquote cite {
+    color: #555;
+    float: right;
+}
+
+.rb-post-content strong {
+    color: #f93601;
+}
+
+.rb-post-content .wp-block-categories,
+.rb-post-content .wp-block-archives,
+.rb-post-content .wp-block-latest-posts {
+    list-style: none;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #e5e5e5;
+}
+
+.rb-post-content .wp-block-search {
+    margin: 20px 0;
+    position: relative;
+}
+
+.rb-post-content .wp-block-search .wp-block-search__label {
+    display: block;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #f93601;
+}
+
+.rb-post-content .wp-block-search input {
+    max-width: 100%;
+    height: 50px;
+    border: 1px solid #c1c1c1;
+    padding: 0 60px 0 15px;
+    display: block;
+}
+
+.rb-post-content .wp-block-search button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 13px 30px;
+    color: #fff;
+    background-color: #f93601;
+    border: none;
+    margin: 0;
+}
+
+.rb-post-content .wp-block-button a {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #f93601;
+    padding: 10px 30px;
+    margin: 10px 10px 10px 0;
+}
+
+.rb-post-content .wp-block-table {
+    margin: 20px 0;
+}
+
+.rb-post-content .wp-block-table td {
+    border: 1px solid #c1c1c1;
+    color: #555;
+    padding: 10px;
+}
+
+.rb-post-content div,
+.rb-post-content iframe,
+.rb-post-content figure,
+.rb-post-content blockquote {
+    max-width: 100% !important;
+}
+
+.rb-post-content .tiktok-embed {
+    min-width: 200px !important;
+}
+
+.rb-post-content audio,
+.rb-post-content video {
+    display: block;
+}
+
+.rb-post-content .rb-next-page {
+    padding: 20px 0 10px;
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.rb-post-content .attachment img,
+.rb-post-content .wp-video {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/*======================================== 
+===== 09. Post Content Area End Here =====
+========================================*/
+
+/*======================================== 
+===== 10. Pagination Area Start Here =====
+========================================*/
+.rb-pagination,
+.rb-next-page {
+    margin-top: 30px;
+}
+
+.rb-pagination .screen-reader-text {
+    display: none;
+}
+
+.rb-comment-pagination .page-numbers,
+.rb-next-page .post-page-numbers,
+.rb-pagination .page-numbers {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f93601;
+    text-decoration: none;
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+}
+
+.rb-comment-pagination .page-numbers.current,
+.rb-next-page .post-page-numbers.current,
+.rb-pagination .page-numbers.current {
+    background-color: #333;
+}
+
+/*====================================== 
+===== 10. Pagination Area End Here =====
+======================================*/
+
+/*===================================== 
+===== 11. Comment Area Start Here =====
+=====================================*/
+.rb-comment-area .rb-comment-count,
+.rb-comment-area .rb-comment-body,
+.rb-comment-area .rb-comment-pagination,
+.rb-comment-area .rb-comment-form {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #c1c1c1;
+    padding: 15px;
+}
+
+.rb-comment-area .rb-comment-count h3 {
+    margin: 0;
+}
+
+.rb-comment-area .container {
+    padding: 8px !important;
+}
+
+.rb-comment-area .rb-comment-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #c1c1c1;
+}
+
+.rb-comment-area .rb-comment-box:focus {
+    border: 1px solid #f93601;
+}
+
+.rb-comment-area .rb-comment-body {
+    padding: 30px 20px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.rb-comment-area .rb-comment-author-left {
+    float: left;
+    width: 20%;
+    overflow: hidden;
+    border: 1px solid #f93601;
+    padding: 10px;
+}
+
+.rb-comment-area .rb-comment-author-left img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.rb-comment-area .rb-comment-author-right {
+    float: left;
+    width: 80%;
+    padding-left: 20px;
+}
+
+.rb-comment-area .rb-comment-author-bio {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.rb-comment-area .rb-comment-author-bio .rb-comment-author {
+    float: left;
+    margin-left: 0 0 10px 30px;
+}
+
+.rb-comment-area .rb-comment-author-bio .rb-comment-author a {
+    font-size: 16px;
+    text-decoration: none;
+    color: #212121;
+}
+
+.rb-comment-area .rb-comment-author-bio .rb-comment-reply {
+    float: right;
+    color: #f93601;
+}
+
+.rb-comment-area .rb-comment-author-bio .rb-comment-reply a {
+    text-decoration: none;
+}
+
+.rb-comment-area .rb-comment-meta {
+    padding: 10px 0 0;
+    border-bottom: 1px solid #c1c1c1;
+    border-top: 1px solid #c1c1c1;
+    margin: 10px 0;
+}
+
+.rb-comment-area .rb-comment-meta a {
+    text-decoration: none;
+}
+
+.rb-comment-area .rb-comment-meta i {
+    margin-right: 5px;
+}
+
+.rb-comment-area .rb-comment-meta .rb-comment-time,
+.rb-comment-area .rb-comment-meta .rb-comment-edit {
+    margin: 0 10px 10px 0;
+    display: inline-block;
+}
+
+.rb-comment-area .rb-comment-desc {
+    color: #555;
+}
+
+.rb-comment-area .form-submit #submit {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #f93601;
+    padding: 10px 30px;
+    margin: 10px 10px 10px 0;
+    text-transform: uppercase;
+    border: none;
+}
+
+/*=================================== 
+===== 11. Comment Area End Here =====
+===================================*/
+
+/*===================================== 
+===== 12. 404 Page CSS Start Here =====
+=====================================*/
+.rb-error-area {
+    text-align: center;
+}
+
+.rb-error-area h1 {
+    font-size: 200px;
+    margin: 50px 0;
+    color: #f93601;
+}
+
+.rb-error-area h5 {
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.rb-error-area p {
+    color: #777;
+}
+
+.rb-error-area .rb-home-btn {
+    margin-bottom: 20px;
+}
+
+/*=================================== 
+===== 12. 404 Page CSS End Here =====
+===================================*/
+
+/*==================================== 
+===== 13. Widget Area Start Here =====
+====================================*/
+.rb-single-widget {
+    padding: 20px 15px 15px;
+    background-color: #fff;
+    border: 1px solid #c1c1c1;
+    margin-bottom: 25px;
+}
+
+.rb-widget-title h4 {
+    font-size: 20px;
+    text-transform: capitalize;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.rb-widget-title h4:before,
+.rb-widget-title h4:after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.rb-widget-title h4:before {
+    bottom: -16px;
+    width: 100%;
+    height: 1px;
+    background-color: #c1c1c1;
+}
+
+.rb-widget-title h4:after {
+    bottom: -17px;
+    width: 70px;
+    height: 4px;
+    background-color: #f93601;
+}
+
+.rb-widget-content img,
+.rb-single-widget .alignnone {
+    margin: 20px auto;
+}
+
+.rb-error-area .rb-search-form,
+.rb-single-widget .rb-search-form {
+    position: relative;
+}
+
+.rb-error-area .rb-search-form input,
+.rb-single-widget .rb-search-form input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #c1c1c1;
+    padding: 0 60px 0 15px;
+}
+
+.rb-error-area .rb-search-btn,
+.rb-single-widget .rb-search-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #f93601;
+    color: #fff;
+    border: none;
+}
+
+.rb-post-content .wp-calendar-table,
+.rb-single-widget .wp-calendar-table {
+    width: 100%;
+    text-align: center;
+}
+
+.rb-post-content .wp-calendar-table caption,
+.rb-single-widget .wp-calendar-table caption {
+    caption-side: top;
+    font-size: 18px;
+    color: #f93601;
+    text-align: center;
+}
+
+.rb-post-content .wp-calendar-table th,
+.rb-single-widget .wp-calendar-table th {
+    background-color: #333;
+    border: 1px solid #555;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.rb-post-content .wp-calendar-table td,
+.rb-single-widget .wp-calendar-table td {
+    border: 1px solid #c1c1c1;
+    height: 40px;
+    line-height: 40px;
+    color: #555;
+}
+
+.rb-post-content .wp-calendar-table td#today,
+.rb-single-widget .wp-calendar-table td#today {
+    background-color: #f93601;
+    color: #fff;
+}
+
+.rb-post-content .wp-calendar-table a,
+.rb-post-content .wp-calendar-nav a,
+.rb-single-widget .wp-calendar-table a,
+.rb-single-widget .wp-calendar-nav a {
+    text-decoration: none;
+}
+
+.rb-post-content .wp-calendar-nav,
+.rb-single-widget .wp-calendar-nav {
+    margin-top: 10px;
+}
+
+.rb-post-content .wp-calendar-nav-prev,
+.rb-single-widget .wp-calendar-nav-prev {
+    float: left;
+}
+
+.rb-post-content .wp-calendar-nav-next,
+.rb-single-widget .wp-calendar-nav-next {
+    float: right;
+}
+
+.rb-single-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rb-post-content .wp-block-categories li,
+.rb-post-content .wp-block-archives li,
+.rb-post-content .wp-block-latest-posts li,
+.rb-single-widget li {
+    display: block;
+    padding: 15px 0;
+    border-bottom: 1px solid #f93601;
+    color: #777;
+}
+
+.rb-post-content .wp-block-categories li:last-child,
+.rb-post-content .wp-block-archives li:last-child,
+.rb-post-content .wp-block-latest-posts li:last-child,
+.rb-single-widget li:last-child {
+    border-bottom: none;
+}
+
+.rb-post-content .wp-block-categories li a,
+.rb-post-content .wp-block-archives li a,
+.rb-post-content .wp-block-latest-posts li a,
+.rb-single-widget li a {
+    color: #333;
+}
+
+.rb-post-content .wp-block-categories li a:hover,
+.rb-post-content .wp-block-archives li a:hover,
+.rb-post-content .wp-block-latest-posts li a:hover,
+.rb-single-widget li a:hover {
+    text-decoration: none;
+    color: #f93601;
+}
+
+.rb-single-widget .post-date {
+    display: block;
+    margin-top: 10px;
+}
+
+.rb-post-content .wp-block-tag-cloud a,
+.rb-single-widget .tagcloud a {
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #c1c1c1;
+    padding: 10px;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    font-size: 16px !important;
+}
+
+.rb-post-content .wp-block-tag-cloud a:hover,
+.rb-single-widget .tagcloud a:hover {
+    background-color: #f93601;
+    color: #fff;
+    border: 1px solid #f93601;
+}
+
+.rb-single-widget .gallery-item {
+    margin: 0 !important;
+}
+
+.rb-single-widget .gallery-item img {
+    height: auto !important;
+    margin: 0;
+}
+
+.rb-single-widget .screen-reader-text {
+    display: none;
+}
+
+.rb-single-widget select {
+    border: 1px solid #c1c1c1;
+    width: 100%;
+    padding: 15px 0;
+}
+
+/*================================== 
+===== 13. Widget Area End Here =====
+==================================*/
+
+/*==================================== 
+===== 14. Footer Area Start Here =====
+====================================*/
 .rb-footer-area {
-	color: #ffffff;
+    margin-top: 20px;
+    background-color: #000;
+    color: #fff;
+    min-height: 50px;
 }
-.rb-footer-area .container {
-	background: #333333;
-	padding: 20px;
-}
-/* End */
 
-/* 5. Scroll to Top */
-.rb-scroll-to-top {
-	display: none;
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	cursor: pointer;
-	z-index: 9999;
+.rb-copyright-text p {
+    margin: 0;
+    text-align: center;
+    line-height: 50px;
 }
-.rb-scroll-to-top i {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);	
-	color: #ffffff;
-	font-size: 30px;
+
+.rb-copyright-text p a:hover {
+    color: #f93601;
 }
-/* End */
+
+/*================================== 
+===== 14. Footer Area End Here =====
+==================================*/
+
+/*=========================================== 
+===== 15. Scroll To Top Area Start Here =====
+===========================================*/
+.rb-scroll-top {
+    position: fixed;
+    z-index: 99;
+    bottom: 70px;
+    right: 70px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #f93601;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+.rb-scroll-top a {
+    color: #fff;
+    display: block;
+}
+
+/*========================================= 
+===== 15. Scroll To Top Area End Here =====
+=========================================*/
