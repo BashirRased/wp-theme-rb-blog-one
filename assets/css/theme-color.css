@@ -1,0 +1,78 @@
+a, a:hover {
+	color: #2ecc71;
+}
+.rb-sidebar-item-title {
+	background: #2ecc71;
+}
+.rb-home-blog-pagination a:hover {
+	background: #2ecc71;
+}
+.rb-home-blog-pagination .current {
+	background: #2ecc71;
+}
+.rb-scroll-to-top {
+	background: #2ecc71;
+}
+.rb-home-read-more a {
+	background: #2ecc71;
+	border: 1px solid #2ecc71;
+}
+.rb-header-social-links ul li a:hover {
+	color: #2ecc71;
+}
+.rb-search-form button:hover {
+	background: #2ecc71;
+}
+.comment-form .form-submit input {
+	border: 1px solid #2ecc71;
+	background: #2ecc71;
+}
+.comment-form .form-submit input:hover {
+	color: #2ecc71;
+}
+.calendar_wrap tbody td a {
+	background: #2ecc71;
+}
+.calendar_wrap caption {
+	color: #2ecc71;
+}
+.tag-cloud-link {
+	background: #2ecc71;
+	border: 1px solid #2ecc71;
+}
+.tag-cloud-link:hover {
+	color: #2ecc71 !important;
+}
+.rb-home-post-tags a {
+	background: #2ecc71;
+	border: 1px solid #2ecc71;
+}
+.error-page a {
+	background: #2ecc71;
+	border: 1px solid #2ecc71;
+}
+.error-page a:hover {
+	color: #2ecc71;
+}
+
+.rb-header-menu > ul > li:first-child > a,
+.rb-header-menu ul li a:hover {
+	background: #2ecc71;
+}
+.rb-mobile-menu-icon {
+	background: #2ecc71;
+}
+.contact-left input,
+.contact-left textarea {
+	border: 1px solid #2ecc71;
+}
+.contact-left button {
+	border: 1px solid #2ecc71;
+	background: #2ecc71;
+}
+.contact-left button:hover {
+	color: #2ecc71;
+}
+.rb-header-active-menu {
+	background: #2ecc71;
+}

@@ -1,0 +1,58 @@
+@media all and (max-width: 992px) {
+  .rb-header-top-area {
+	  text-align: center;
+  }  
+  .rb-header-top-right.float-right,
+  .rb-footer-right.float-right {
+	  float: none !important;
+  }
+  .rb-header-top-left,
+  .rb-header-top-right {
+	  margin: 5px 0;
+  }
+  .rb-header-ads-area {
+	  margin: 8px 0;
+  }
+  .rb-footer-left,
+  .rb-footer-right {
+	  text-align: center;
+	  margin: 10px 0;
+  }
+  .rb-blog-area {
+	  margin-bottom: 20px;
+  }
+  .error-page h1 {
+	  font-size: 100px;
+  }
+  .rb-header-menu > ul > li {
+	float: none;
+  }
+  .rb-header-menu ul ul {
+	  display: block;
+	  position: inherit;
+  }
+  .rb-header-menu ul ul ul {
+		display: block;
+		position: inherit;
+		left: 0;
+		top: 100%;
+	}
+	.rb-header-menu ul ul a {
+		text-indent: 20px;
+	}
+	.rb-header-menu ul ul ul a {
+		text-indent: 40px;
+	}
+	.rb-header-menu ul ul ul ul a {
+		text-indent: 60px;
+	}
+	.rb-header-menu ul ul ul ul ul a {
+		text-indent: 80px;
+	}
+	.rb-mobile-menu {
+		display: block;
+	}
+	.rb-header-menu {
+		display: none;
+	}
+}

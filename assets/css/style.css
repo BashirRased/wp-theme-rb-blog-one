@@ -1,0 +1,348 @@
+/*
+Content Tables:
+	1. Tags
+	2. Header
+		2.1 Header Top
+		2.2 Header Middle
+		2.3 Header Menu
+	3. Blog Section
+		3.1 Blog
+		3.2 Sidebar
+	4. Footer
+	5. Scroll to Top
+*/
+
+/* 1. Tags */
+body {
+	font-family: 'Roboto', sans-serif;
+	background: #e9ebee;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-weight: 700;
+}
+img {
+	width: 100%;
+	height: auto;
+}
+a, a:hover {
+	text-decoration: none;
+}
+/* End */
+
+/* 2. Header */
+/* 2.1 Header Top */
+.rb-header-top-area {
+	color: #ffffff;
+	margin: 10px 0;
+}
+.rb-header-top-area .container {
+	background: #333333;
+	padding: 20px;
+}
+.rb-header-social-links ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.rb-header-social-links ul li {
+	display: inline-block;
+	margin: 0 6px;
+}
+.rb-header-social-links ul li a {
+	color: #ffffff;
+}
+/* 2.2 Header Middle */
+.rb-header-middle-area {
+	margin: 20px 0;
+}
+.rb-header-middle-area .container {
+	background: #ffffff;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.rb-header-ads-area {
+	background: #dddddd;
+	min-height: 100px;
+	height: 100%;
+}
+.rb-header-ads-area img {
+	width: 100% !important;
+	height: 100% !important;
+}
+/* 2.3 Header Menu */
+.logged-in .rb-scroll-header-menu {
+	top: 40px;
+}
+.rb-scroll-header-menu {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 99999;
+}
+.header-active-menu {
+	background: red;
+}
+.rb-header-menu {
+	background: #333333;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+.rb-header-menu:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.rb-header-menu ul {
+	padding: 0;
+	list-style: none;
+}
+.rb-header-menu > ul > li {
+	position: relative;
+	float: left;
+}
+.rb-header-menu ul li a {
+	color: #ffffff;
+	margin: 10px 5px;
+	padding: 10px 20px;
+	display: block;
+	text-transform: capitalize;
+}
+.rb-header-menu ul ul {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	width: 100%;
+	min-width: 200px;
+	z-index: 99;
+	background: #333333;
+}
+.rb-header-menu ul li:hover > ul,
+.rb-header-menu ul ul li:hover > ul,
+.rb-header-menu ul ul ul li:hover > ul,
+.rb-header-menu ul ul ul li:hover > ul {
+	display: block;
+}
+.rb-header-menu ul ul li {
+	position: relative;
+}
+.rb-header-menu ul ul ul {
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: 0;
+}
+.rb-mobile-menu {
+	background: #333333;
+	overflow: hidden;
+	padding: 10px;
+	display: none;
+	margin-bottom: 20px;
+}
+.rb-mobile-menu-icon {
+	float: right;
+	padding: 5px 10px;
+	color: #ffffff;
+	cursor: pointer;
+}
+/* End */
+
+/* 3. Blog Section */
+.rb-content-area {
+	margin: 20px 0;
+}
+.rb-breadcrumbs-area .container {
+	background: #ffffff;
+	padding: 20px;
+}
+.rb-breadcrumbs ul {
+	padding: 0;
+	list-style: none;
+}
+.rb-breadcrumbs ul li {
+	float: left;
+	margin: 0 5px;
+}
+/* 3.1 Blog */
+.rb-blog-area {
+	background: #ffffff;	
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+}
+.rb-single-home-blog {
+	margin: 40px 0;
+	border-bottom: 1px solid #dddddd;
+}
+.rb-single-home-blog:not(:last-child) { border-bottom: none; }
+.rb-single-page-blog,
+.rb-single-attachment-blog {
+	margin: 40px 0;
+}
+.rb-home-post-thumbnail {
+	margin: 20px 0;
+}
+.rb-home-post-meta {
+	margin: 20px 0;
+	padding: 10px 0;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+}
+.rb-meta-categories,
+.rb-meta-author,
+.rb-meta-date,
+.rb-meta-views,
+.rb-meta-comments,
+.rb-meta-post-edit {
+	display: inline-block;
+	margin: 5px 20px 5px 0;
+}
+.rb-post-meta-text {
+	margin-left: 5px;
+}
+.rb-home-post-title a,
+.rb-post-meta-text a {
+	color: #333333;
+}
+.rb-home-post-content {
+	text-align: justify;
+}
+.rb-home-read-more {
+	margin: 40px 0;
+}
+.rb-home-read-more a {
+	padding: 10px 30px;
+	color: #ffffff;
+}
+.rb-home-read-more a:hover {
+	background: none;
+}
+.rb-home-post-tags {
+	margin: 20px 0;
+}
+.rb-home-post-tags a {
+	display: inline-block;
+	background: red;
+	border: 1px solid red;
+	color: #ffffff;
+	padding: 10px;
+	margin: 0 5px 5px;
+}
+.rb-home-post-tags a:hover {
+	background: none;
+}
+.error-page {
+	text-align: center;
+	text-transform: uppercase;
+}
+.error-page h1 {
+	font-size: 200px;
+}
+.error-page a {
+	display: inline-block;
+	margin: 20px 0;
+	padding: 10px 30px;
+	color: #ffffff;
+}
+.error-page a:hover {
+	background: none;
+}
+.contact-left,
+.contact-right {
+	background: #ffffff;
+	padding: 20px;
+}
+.contact-left input,
+.contact-left textarea {
+	width: 100%;
+	margin: 10px 0;
+	padding: 10px;
+}
+.contact-left button {
+	color: #ffffff;
+	cursor: pointer;
+	padding: 10px 30px;
+}
+.contact-left button:hover {
+	background: none;
+}
+.contact-right {
+	font-size: 20px;
+}
+.contact-phone,
+.contact-email,
+.contact-address {
+	margin: 25px 0;
+}
+
+/* 3.2 Sidebar */
+.rb-sidebar-area {
+	background: #ffffff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;	
+}
+.rb-sidebar-item {
+	margin: 20px 0;
+}
+.rb-sidebar-item a {
+	color: #333333;
+}
+.rb-sidebar-item-title {
+	color: #ffffff;
+	margin: 20px 0;
+	padding: 10px 0;
+	text-align: center;
+	font-size: 20px;
+}
+.rb-search-form {
+	position: relative;
+	margin: 20px 0;
+}
+.rb-search-form input {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #dddddd;
+}
+.rb-search-form button {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background: #333333;
+	color: #ffffff;
+	height: 100%;
+	padding: 0 10px;
+	border: none;
+	cursor: pointer;
+}
+/* End */
+
+/* 4. Footer */
+.rb-footer-area {
+	color: #ffffff;
+}
+.rb-footer-area .container {
+	background: #333333;
+	padding: 20px;
+}
+/* End */
+
+/* 5. Scroll to Top */
+.rb-scroll-to-top {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 9999;
+}
+.rb-scroll-to-top i {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);	
+	color: #ffffff;
+	font-size: 30px;
+}
+/* End */
