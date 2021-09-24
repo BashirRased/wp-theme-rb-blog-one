@@ -1,9 +1,9 @@
 /*
 Theme Name: RB Blog One
 Text Domain: rb-blog-one
-Version: 1.0.4
+Version: 1.0.5
 Requires at least: 4.7
-Tested up to: 5.0
+Tested up to: 5.5
 Requires PHP: 5.2.4
 Description: This is a personal free blog website.
 Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
@@ -28,7 +28,7 @@ Table of CSS Content End Here
 01. @media (min-width: 992px) CSS Content Start Here
 ==================================================*/
 @media (min-width: 992px) {
-    .rb-header-menu {
+    .rb-blog-one-header-menu {
         display: block !important;
     }
 }
@@ -41,69 +41,69 @@ Table of CSS Content End Here
 02. @media (max-width: 991px) CSS Content Start Here
 ==================================================*/
 @media (max-width: 991px) {
-    .rb-header-top-left {
+    .rb-blog-one-header-top-left {
         text-align: center;
     }
 
-    .rb-header-top-right {
+    .rb-blog-one-header-top-right {
         text-align: center;
         float: none !important;
     }
 
-    .rb-header-body-left {
+    .rb-blog-one-header-body-left {
         text-align: center;
         margin-bottom: 20px;
     }
 
-    .rb-mobile-menu-area {
+    .rb-blog-one-mobile-menu-area {
         display: block;
     }
 
-    .rb-header-menu {
+    .rb-blog-one-header-menu {
         display: none;
     }
 
-    .rb-header-desktop-menu ul li {
+    .rb-blog-one-header-desktop-menu ul li {
         float: none;
     }
 
-    .rb-header-desktop-menu ul li i {
+    .rb-blog-one-header-desktop-menu ul li i {
         cursor: pointer;
     }
 
-    .rb-header-desktop-menu ul li ul {
+    .rb-blog-one-header-desktop-menu ul .sub-menu {
         display: none;
         position: relative;
         top: 0;
         left: 0;
     }
 
-    .rb-header-desktop-menu ul li ul li:hover ul {
+    .rb-blog-one-header-desktop-menu ul li ul li:hover ul {
         left: 0;
     }
 
-    .rb-header-desktop-menu ul li ul li ul li {
+    .rb-blog-one-header-desktop-menu ul li ul li ul li {
         border-left: none;
     }
 
-    .rb-breadcrumbs-left {
+    .rb-blog-one-breadcrumbs-left {
         text-align: center;
     }
 
-    .rb-breadcrumbs-left h2 {
+    .rb-blog-one-breadcrumbs-left h2 {
         padding: 30px 0;
     }
 
-    .rb-breadcrumbs-right {
+    .rb-blog-one-breadcrumbs-right {
         float: none !important;
         text-align: center;
     }
 
-    .rb-breadcrumbs-right ul {
+    .rb-blog-one-breadcrumbs-right ul {
         padding: 15px 0;
     }
 
-    .rb-sidebar-area {
+    .rb-blog-one-sidebar-area {
         margin-top: 20px;
     }
 }
@@ -116,21 +116,30 @@ Table of CSS Content End Here
 03. @media (max-width: 575px) CSS Content Start Here
 ==================================================*/
 @media (max-width: 575px) {
-    .rb-error-area h1 {
+    .rb-blog-one-error-area h1 {
         font-size: 100px;
     }
 
-    .rb-post-content blockquote {
+    .rb-blog-one-post-content blockquote {
         margin-left: 0;
     }
 
-    .rb-post-content .wp-block-search {
+    .rb-blog-one-post-content .wp-block-search {
         margin: 20px 0 70px;
     }
 
-    .rb-post-content .wp-block-search button {
+    .rb-blog-one-post-content .wp-block-search button {
         bottom: -50px;
         width: 100%;
+    }
+    
+    .rb-blog-one-cart-content #coupon_code {
+        width: 100% !important;
+        margin-bottom: 5px;
+    }
+    
+    .rb-blog-one-cart-content .coupon button {
+        width: 100% !important;
     }
 }
 

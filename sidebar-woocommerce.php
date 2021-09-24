@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for the sidebar containing the main widget area
+ * The template for the sidebar containing the woocommerce widget area
  *
  * @package RB Blog
  * @subpackage RB Blog One
@@ -12,7 +12,7 @@
 <!--===== Website Body Right Area Start Here =====-->
 <div class="col-lg-4">
     <div class="rb-blog-one-sidebar-area">
-        <?php if(is_active_sidebar('rb-blog-one-right-sidebar')) : dynamic_sidebar('rb-blog-one-right-sidebar');
+        <?php if(is_active_sidebar('rb-blog-one-right-sidebar')) : dynamic_sidebar('rb-blog-one-woocommerce-sidebar');
         else :  ?>
         <div class="rb-blog-one-single-widget">
             <div class="rb-blog-one-widget-title">

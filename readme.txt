@@ -1,7 +1,7 @@
 === RB Blog One ===
-Theme Name: RB Blog One
-Text Domain: rb-blog-one
-Author: Bashir Rased
+Contributors: Bashir Rased
+Tested up to: 5.5
+Stable tag: 1.0.5
 Author URI: http://bashir-rased.com/
 Theme URI: https://bashir-rased.com/wp/rb-blog-one/
 
@@ -15,12 +15,6 @@ Theme URI: https://bashir-rased.com/wp/rb-blog-one/
 This is a personal free blog website.
 Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
 
-== Changelog ==
-Requires at least: 4.7
-Tested up to: 5.0
-Requires PHP: 5.2.4
-Version: 1.0.4
-
 == Copyright ==
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+RB Blog One WordPress Theme, Copyright 2020 Bashir Rased
+RB Blog One is distributed under the terms of the GNU GPL

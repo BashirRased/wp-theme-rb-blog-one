@@ -6,7 +6,7 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog 1.0.4
+ * @since RB Blog One 1.0.5
  */
 
 ?>
@@ -14,7 +14,7 @@
 <!--====================================
 ===== Website Body Area Start Here =====
 =====================================-->
-<div class="rb-website-body">
+<div class="rb-blog-one-website-body">
     <div class="container">
         <div class="row">
 
@@ -22,7 +22,7 @@
             <div class="col-lg-8">
 
                 <!--===== Blog Area Start Here =====-->
-                <div class="rb-blog-area">
+                <div class="rb-blog-one-blog-area">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
@@ -31,50 +31,48 @@
                                 while(have_posts()) : the_post(); ?>
 
                                 <!--===== Single Blog Area Start Here =====-->
-                                <article id="post-<?php the_ID(); ?>" <?php post_class("rb-single-blog"); ?>>
+                                <article id="post-<?php the_ID(); ?>" <?php post_class("rb-blog-one-single-blog"); ?>>
                                     <div class="container">
                                         <div class="row">
 
                                             <div class="col-lg-12">
-                                                <div class="rb-post-img rb-single-page">
+                                                <div class="rb-blog-one-post-img rb-blog-one-single-page">
                                                     <?php the_post_thumbnail('');?>
                                                 </div>
                                                 <?php 	
                                                 if (has_category()) : ?>
-                                                <div class="rb-post-cat">
+                                                <div class="rb-blog-one-post-cat">
                                                     <i class="fas fa-folder-open"></i>
                                                     <?php the_category(', '); ?>
                                                 </div>
                                                 <?php endif; ?>
-                                                <h2 class="rb-post-title">
-                                                    <a href="<?php echo esc_url(the_permalink()); ?>">
+                                                <h2 class="rb-blog-one-post-title">
                                                     <?php the_title(''); ?>
-                                                    </a>
                                                 </h2>
-                                                <div class="rb-post-meta">
-                                                    <div class="rb-post-author">
+                                                <div class="rb-blog-one-post-meta">
+                                                    <div class="rb-blog-one-post-author">
                                                         <i class="fas fa-user"></i>
                                                         <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>"><?php the_author(); ?></a>
                                                     </div>
-                                                    <div class="rb-post-date">
+                                                    <div class="rb-blog-one-post-date">
                                                         <i class="fas fa-clock"></i>
                                                         <?php 
-                                                            $rb_archive_year  = get_the_time('Y'); 
-                                                            $rb_archive_month = get_the_time('m'); 
-                                                            $rb_archive_day   = get_the_time('d'); 
+                                                            $rb_blog_one_archive_year  = get_the_time('Y'); 
+                                                            $rb_blog_one_archive_month = get_the_time('m'); 
+                                                            $rb_blog_one_archive_day   = get_the_time('d'); 
                                                         ?>
-                                                        <a href="<?php echo esc_url( get_day_link( $rb_archive_year, $rb_archive_month, $rb_archive_day) ); ?>"><?php echo esc_html( get_the_date('j F Y') ); ?></a>
+                                                        <a href="<?php echo esc_url( get_day_link( $rb_blog_one_archive_year, $rb_blog_one_archive_month, $rb_blog_one_archive_day) ); ?>"><?php echo get_the_date('j F Y'); ?></a>
                                                     </div>
-                                                    <div class="rb-post-comments">
+                                                    <div class="rb-blog-one-post-comments">
                                                         <i class="fas fa-comments"></i>
                                                         <?php comments_popup_link(0, 1, '%', '', 'Comments Off'); ?>
                                                     </div>
-                                                    <div class="rb-post-edit">
+                                                    <div class="rb-blog-one-post-edit">
                                                         <i class="fas fa-edit"></i>
                                                         <?php edit_post_link(__('Edit','rb-blog-one')); ?>
                                                     </div>
                                                 </div>
-                                                <div class="rb-post-content">
+                                                <div class="rb-blog-one-post-content">
                                                     <?php the_content(); ?>
                                                     <?php
                                                     wp_link_pages(
@@ -89,7 +87,7 @@
                                                 </div>
                                                 <?php 	
                                                 if (has_tag()) : ?>
-                                                <div class="rb-post-tag">
+                                                <div class="rb-blog-one-post-tag">
                                                     <i class="fas fa-tags"></i>
                                                     <?php the_tags('',', '); ?>
                                                 </div>

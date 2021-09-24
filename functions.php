@@ -4,18 +4,23 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog 1.0.4
+ * @since RB Blog One 1.0.5
  */
 
 // Prefix With File Directory
-define('RB_WP_CSS',get_stylesheet_uri());
-define('RB_URL',get_template_directory_uri());
-define('RB_CSS',RB_URL.'/assets/css/');
-define('RB_JS',RB_URL.'/assets/js/');
-define('RB_IMG',RB_URL.'/assets/img/');
+define('RB_BLOG_ONE_VERSION','1.0.5');
+define('RB_BLOG_ONE_WP_CSS',get_stylesheet_uri());
+define('RB_BLOG_ONE_URL',get_template_directory_uri());
+define('RB_BLOG_ONE_CSS',RB_BLOG_ONE_URL.'/assets/css/');
+define('RB_BLOG_ONE_JS',RB_BLOG_ONE_URL.'/assets/js/');
+define('RB_BLOG_ONE_IMG',RB_BLOG_ONE_URL.'/assets/img/');
 
 // after theme setup
-function rb_theme_setup(){
+if (!function_exists('nano_progga_setup')) :
+function rb_blog_one_theme_setup(){
+    
+    // Add default posts and comments RSS feed links to head.
+    add_theme_support('automatic-feed-links');
     
     // Website Title-Slug
 	add_theme_support('title-tag');
@@ -23,8 +28,8 @@ function rb_theme_setup(){
     // Feature Image
 	add_theme_support('post-thumbnails');
     
-    // RSS Link
-    add_theme_support('automatic-feed-links');
+    // woocommerce support
+    add_theme_support('woocommerce');
     
     // Logo Image Register
 	add_theme_support('custom-logo',array(
@@ -40,145 +45,147 @@ function rb_theme_setup(){
     ));
     
     // Set content-width.
-	global $content_width;
-	if ( ! isset( $content_width ) ) {
-		$content_width = 667;
-	}
+	$GLOBALS['content_width'] = apply_filters( 'rb_blog_one_content_width', 667 );
     
+    // Force the editor styles to match the theme's UI.
     add_editor_style();
 }
-add_action('after_setup_theme','rb_theme_setup');
+endif;
+add_action('after_setup_theme','rb_blog_one_theme_setup');
 
 // Include CSS & JS Files
-function rb_css_js_files_add(){
+function rb_blog_one_css_js_files_add(){
     
-    // Google Font v1.0.4
-	wp_enqueue_style('rb-google-fonts','href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap"','','1.0.4','all');
-    
-    // Normalize v8.0.1
-	wp_enqueue_style('rb-normalize',RB_CSS.'normalize-8.0.1.min.css','','8.0.1','all');
+    // Google Font v1.0.5
+	wp_enqueue_style('google-fonts','href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap"','','1.0.5','all');
     
     // Font Awesome v5.14.0
-	wp_enqueue_style('rb-font-awesome-all',RB_CSS.'font-awesome-5.14.0.min.css','','5.14.0','all');
-    wp_enqueue_style('rb-font-awesome-brands',RB_CSS.'font-awesome-brands-5.14.0.min.css','','5.14.0','all');
-    wp_enqueue_style('rb-font-awesome-solid',RB_CSS.'font-awesome-solid-5.14.0.min.css','','5.14.0','all');
+	wp_enqueue_style('font-awesome',RB_BLOG_ONE_CSS.'font-awesome-5.14.0.min.css','','5.14.0','all');
+    wp_enqueue_style('font-awesome-brands',RB_BLOG_ONE_CSS.'font-awesome-brands-5.14.0.min.css','','5.14.0','all');
+    wp_enqueue_style('rb-font-awesome-solid',RB_BLOG_ONE_CSS.'font-awesome-solid-5.14.0.min.css','','5.14.0','all');
     
     // Bootstrap 5 v4.5.0
-	wp_enqueue_style('rb-bootstrap',RB_CSS.'bootstrap-4.5.0.min.css','','4.5.0','all');
+	wp_enqueue_style('bootstrap-css',RB_BLOG_ONE_CSS.'bootstrap-4.5.0.min.css','','4.5.0','all');
+    wp_enqueue_script('popper-js',RB_BLOG_ONE_JS.'popper-1.16.0.min.js',array('jquery'),'1.16.0',true);
+    wp_enqueue_script('bootstrap-js',RB_BLOG_ONE_JS.'bootstrap-4.5.0.min.js',array('jquery'),'4.5.0',true);
     
-    // Template CSS v1.0.4
-	wp_enqueue_style('rb-style',RB_CSS.'style.css','','1.0.4','all');
-    wp_enqueue_style('rb-responsive',RB_CSS.'responsive.css','','1.0.4','all');
-
-	// Main Style
-	wp_enqueue_style('rb-wp-stylesheet',RB_WP_CSS,'','1.0.4','all');
+    // Nicescroll v3.5.4
+	wp_enqueue_script('nicescroll-js',RB_BLOG_ONE_JS.'jquery.nicescroll-3.5.4.min.js',array('jquery'),'3.5.4',true);
     
-    // html5shim conditional js
-	wp_enqueue_script('rb-html5shim',RB_JS.'html5shiv-printshiv-3.7.3.min.js', array(),'3.7.3',false);
-	wp_script_add_data('rb-html5shim','conditional','lt IE 9');
-	
-    // respond conditional js
-	wp_enqueue_script('rb-respond',RB_JS.'respond-1.4.2.min.js',array(),'1.4.2',false);
-	wp_script_add_data('rb-respond','conditional','lt IE 9');
+    // Normalize v8.0.1
+	wp_enqueue_style('normalize-css',RB_BLOG_ONE_CSS.'normalize-8.0.1.min.css','','8.0.1','all');
     
     // Modernizr v2.8.3
-	wp_enqueue_script('rb-modernizr',RB_JS.'modernizr-2.8.3.min.js',array('jquery'),'2.8.3',true);
+	wp_enqueue_script('modernizr-js',RB_BLOG_ONE_JS.'modernizr-2.8.3.min.js',array('jquery'),'2.8.3',true);
     
-    // Bootstrap 5 v4.5.0
-	wp_enqueue_script('rb-popper',RB_JS.'popper-1.16.0.min.js',array('jquery'),'1.16.0',true);
-    wp_enqueue_script('rb-bootstrap',RB_JS.'bootstrap-4.5.0.min.js',array('jquery'),'4.5.0',true);
+    // html5shim conditional js
+	wp_enqueue_script('html5shim-js',RB_BLOG_ONE_JS.'html5shiv-printshiv-3.7.3.min.js', array(),'3.7.3',false);
+	wp_script_add_data('html5shim-js','conditional','lt IE 9');
+	
+    // respond conditional js
+	wp_enqueue_script('respond-js',RB_BLOG_ONE_JS.'respond-1.4.2.min.js',array(),'1.4.2',false);
+	wp_script_add_data('respond-js','conditional','lt IE 9');
     
-    // Nrb-icescroll v3.5.4
-	wp_enqueue_script('rb-nicescroll',RB_JS.'jquery.nicescroll-3.5.4.min.js',array('jquery'),'3.5.4',true);
-    
-    // Custom v1.0.4	
-   wp_enqueue_script('rb-custom',RB_JS.'custom.js',array('jquery'),'1.0.4',true);
-    
-    // Comment Reply v1.0.4    
+    // Comment Reply v1.0.5    
     if ((! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script('comment-reply');
 	}
     
+    // Template CSS & JS v1.0.5
+	wp_enqueue_style('rb-blog-one-style',RB_BLOG_ONE_CSS.'style.css','',RB_BLOG_ONE_VERSION,'all');
+    wp_enqueue_style('rb-blog-one-responsive',RB_BLOG_ONE_CSS.'responsive.css','',RB_BLOG_ONE_VERSION,'all');
+    wp_enqueue_script('rb-blog-one-custom',RB_BLOG_ONE_JS.'custom.js',array('jquery'),RB_BLOG_ONE_VERSION,true);
+
+	// Main Style
+	wp_enqueue_style('rb-wp-stylesheet',RB_BLOG_ONE_WP_CSS,'','1.0.5','all');
+    
 }
-add_action('wp_enqueue_scripts','rb_css_js_files_add');
+add_action('wp_enqueue_scripts','rb_blog_one_css_js_files_add');
 
 // widget register
-function rb_sidebar_add(){
+function rb_blog_one_sidebar_add(){
 	register_sidebar(array(
 		'name' 			=> __('Header Sidebar','rb-blog-one'),
 		'description' 	=> __('Add your Header Sidebar Widgets Here', 'rb-blog-one'),
-		'id' 			=> 'rb-header-sidebar',
+		'id' 			=> 'rb-blog-one-header-sidebar',
 		'before_widget' => '<div>',
 		'after_widget' 	=> '</div>'
 	));
     register_sidebar(array(
 		'name' 			=> __('Right Sidebar','rb-blog-one'),
 		'description' 	=> __('Add your Right Sidebar Widgets Here', 'rb-blog-one'),
-		'id' 			=> 'rb-right-sidebar',
-		'before_widget' => '<div class="rb-single-widget">',
+		'id' 			=> 'rb-blog-one-right-sidebar',
+		'before_widget' => '<div class="rb-blog-one-single-widget">',
 		'after_widget' 	=> '</div>',
-        'before_title' 	=> '<div class="rb-widget-title"><h4>',
+        'before_title' 	=> '<div class="rb-blog-one-widget-title"><h4>',
+		'after_title' 	=> '</h4></div>'
+	));
+    register_sidebar(array(
+		'name' 			=> __('Woocommerce Sidebar','rb-blog-one'),
+		'description' 	=> __('Add your Woocommerce Sidebar Widgets Here', 'rb-blog-one'),
+		'id' 			=> 'rb-blog-one-woocommerce-sidebar',
+		'before_widget' => '<div class="rb-blog-one-single-widget">',
+		'after_widget' 	=> '</div>',
+        'before_title' 	=> '<div class="rb-blog-one-widget-title"><h4>',
 		'after_title' 	=> '</h4></div>'
 	));
 }
-add_action('widgets_init', 'rb_sidebar_add');
+add_action('widgets_init', 'rb_blog_one_sidebar_add');
 
 // post excerpt setup
-function rb_custom_excerpt_length($length) {
+function rb_blog_one_custom_excerpt_length($length) {
     return 20;
 }
-add_filter( 'excerpt_length', 'rb_custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'rb_blog_one_custom_excerpt_length', 999 );
 
 //Comment Field Order
-function rb_comment_fields_custom_order( $rb_fields ) {
-    $rb_comment_field = $rb_fields['comment'];
-    $rb_author_field = $rb_fields['author'];
-    $rb_email_field = $rb_fields['email'];
-    $rb_url_field = $rb_fields['url'];
-    $rb_cookies_field = $rb_fields['cookies'];
-    unset( $rb_fields['comment'] );
-    unset( $rb_fields['author'] );
-    unset( $rb_fields['email'] );
-    unset( $rb_fields['url'] );
-    unset( $rb_fields['cookies'] );
+function rb_blog_one_comment_fields_custom_order( $rb_blog_one_fields ) {
+    $rb_blog_one_comment_field = $rb_blog_one_fields['comment'];
+    $rb_blog_one_author_field = $rb_blog_one_fields['author'];
+    $rb_blog_one_email_field = $rb_blog_one_fields['email'];
+    $rb_blog_one_cookies_field = $rb_blog_one_fields['cookies'];
+    unset( $rb_blog_one_fields['comment'] );
+    unset( $rb_blog_one_fields['author'] );
+    unset( $rb_blog_one_fields['email'] );
+    unset( $rb_blog_one_fields['url'] );
+    unset( $rb_blog_one_fields['cookies'] );
     // the order of fields is the order below, change it as needed:
-    $rb_fields['author'] = $rb_author_field;
-    $rb_fields['email'] = $rb_email_field;
-    $rb_fields['url'] = $rb_url_field;
-    $rb_fields['comment'] = $rb_comment_field;
-    $rb_fields['cookies'] = $rb_cookies_field;
+    $rb_blog_one_fields['author'] = $rb_blog_one_author_field;
+    $rb_blog_one_fields['email'] = $rb_blog_one_email_field;
+    $rb_blog_one_fields['comment'] = $rb_blog_one_comment_field;
+    $rb_blog_one_fields['cookies'] = $rb_blog_one_cookies_field;
     // done ordering, now return the fields:
-    return $rb_fields;
+    return $rb_blog_one_fields;
 }
-add_filter( 'comment_form_fields', 'rb_comment_fields_custom_order' );
+add_filter( 'comment_form_fields', 'rb_blog_one_comment_fields_custom_order' );
 
 //Comment List collback function
-if (!function_exists('rb_comment_list')):
-function rb_comment_list($comment, $args, $depth){
+if (!function_exists('rb_blog_one_comment_list')):
+function rb_blog_one_comment_list($comment, $args, $depth){
 ?>
 
 <ul>
-    <li id="rb-comment-<?php comment_ID(); ?>" class="rb-comment-body">
+    <li id="rb-blog-one-comment-<?php comment_ID(); ?>" class="rb-blog-one-comment-body">
 
         <!--===== Comment Author Left Area Start Here =====-->
-        <div class="rb-comment-author-left">
-           <?php echo get_avatar($comment); ?>
+        <div class="rb-blog-one-comment-author-left">
+            <?php echo get_avatar($comment); ?>
         </div>
         <!--===== Comment Author Left Area End Here =====-->
 
         <!--===== Comment Author Right Area Start Here =====-->
-        <div class="rb-comment-author-right">
-            <div class="rb-comment-author-bio">
+        <div class="rb-blog-one-comment-author-right">
+            <div class="rb-blog-one-comment-author-bio">
 
                 <?php
                 printf(
                 /* translators: comment author */
-                __('<h5 class="rb-comment-author">%s</h5>', 'rb-blog-one'),get_comment_author_link()
+                __('<h5 class="rb-blog-one-comment-author">%s</h5>', 'rb-blog-one'),get_comment_author_link()
                 );
                 ?>
 
-                <div class="rb-comment-reply">
-                <?php 
+                <div class="rb-blog-one-comment-reply">
+                    <?php 
 				// Display comment reply link
 				comment_reply_link( array_merge( $args, array(
 					'reply_text' => __('<i class="fas fa-reply"></i> Reply', 'rb-blog-one'),
@@ -189,25 +196,30 @@ function rb_comment_list($comment, $args, $depth){
 
             </div>
 
-            <div class="rb-comment-meta">
-                
-                <div class="rb-comment-time">
+            <div class="rb-blog-one-comment-meta">
+
+                <div class="rb-blog-one-comment-time">
                     <a href="<?php echo esc_url(get_comment_link()); ?>">
                         <span class="fas fa-calendar-alt"></span>
                         <span><?php echo get_comment_date('l, d F, Y H:i A'); ?></span>
                     </a>
                 </div>
 
-                <?php edit_comment_link('<i class="fas fa-edit"></i> Edit', '<div class="rb-comment-edit">', '</div>'); ?>
+                <?php edit_comment_link('<i class="fas fa-edit"></i> Edit', '<div class="rb-blog-one-comment-edit">', '</div>'); ?>
             </div>
 
-            <div class="rb-comment-desc">
+            <div class="rb-blog-one-comment-desc">
+               
                 <?php comment_text(); ?>
+                
                 <?php
-				// Display comment moderation text
-				if ( $comment->comment_approved == '0' ) { ?>
-					<div class="comment-awaiting-moderation"><?php echo esc_html__( 'Your comment is awaiting moderation.', 'rb-blog-one' ); ?></div><?php
-				} ?>
+				// If comments are closed and there are comments, let's leave a little note, shall we?
+		        if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
+                <div class="comment-awaiting-moderation">
+                    <?php echo esc_html__( 'Your comment is awaiting moderation.', 'rb-blog-one' ); ?>
+                </div>
+                <?php endif; ?>
+                
             </div>
 
         </div>
@@ -218,3 +230,29 @@ function rb_comment_list($comment, $args, $depth){
 
 <?php
 } endif;
+
+
+// Woocommerce functions
+function rb_blog_one_woo_remove(){
+   remove_action('woocommerce_before_shop_loop','woocommerce_result_count',20,0);
+    remove_action('woocommerce_before_shop_loop','woocommerce_catalog_ordering',30,0);
+}
+add_action('init','rb_blog_one_woo_remove');
+
+// Woocommerce page title remove
+add_filter( 'woocommerce_show_page_title', '__return_false' );
+
+// Change number or products per row to 3
+if (!function_exists('rb_blog_one_loop_columns')) {
+	function rb_blog_one_loop_columns() {
+		return 3; // 3 products per row
+	}
+}
+add_filter('loop_shop_columns', 'rb_blog_one_loop_columns');
+
+// shop page pagination
+function rb_blog_one_products_per_page($per_page) {
+  $per_page = 5;
+  return $per_page;
+}
+add_filter('loop_shop_per_page','rb_blog_one_products_per_page',9999);

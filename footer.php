@@ -4,7 +4,7 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog 1.0.4
+ * @since RB Blog One 1.0.5
  */
 
 ?>
@@ -12,11 +12,11 @@
     <!--==============================
     ===== Footer Area Start Here =====
     ===============================-->
-    <div class="rb-footer-area">
+    <div class="rb-blog-one-footer-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="rb-copyright-text">
+                    <div class="rb-blog-one-copyright-text">
                         <p>&copy;
                         <?php echo esc_html__(' Copyright ','rb-blog-one');?>
                         <?php echo date_i18n(__('Y','rb-blog-one')); ?>
@@ -38,7 +38,7 @@
     <!--=====================================
     ===== Scroll To Top Area Start Here =====
     ======================================-->
-    <div class="rb-scroll-top"><a href="#rb-body"><i class="fas fa-chevron-up"></i></a></div>
+    <div class="rb-blog-one-scroll-top"><a href="#rb-blog-one-body"><i class="fas fa-chevron-up"></i></a></div>
     <!--===================================
     ===== Scroll To Top Area End Here =====
     ====================================-->

@@ -4,7 +4,7 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog 1.0.4
+ * @since RB Blog One 1.0.5
  */
 
 get_header();

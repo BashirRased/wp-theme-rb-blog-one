@@ -1,9 +1,9 @@
 /*
 Theme Name: RB Blog One
 Text Domain: rb-blog-one
-Version: 1.0.4
+Version: 1.0.5
 Requires at least: 4.7
-Tested up to: 5.0
+Tested up to: 5.5
 Requires PHP: 5.2.4
 Description: This is a personal free blog website.
 Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
@@ -34,11 +34,11 @@ Table of JS Content End Here
     ===== 01. Preloader jQuery Start Here =====
     =========================================*/
     jQuery(window).on("load", function () {
-        jQuery(".rb-folding-cube").delay(700).fadeOut(),
+        jQuery(".rb-blog-one-folding-cube").delay(700).fadeOut(),
             setTimeout(function () {
-                jQuery("#rb-preloader").addClass("rb-loading-end"),
+                jQuery("#rb-blog-one-preloader").addClass("rb-blog-one-loading-end"),
                     setTimeout(function () {
-                        jQuery("#rb-preloader").hide()
+                        jQuery("#rb-blog-one-preloader").hide()
                     }, 1500)
             }, 800)
     });
@@ -67,7 +67,7 @@ Table of JS Content End Here
         /*==================================================
 		===== 03. Link Smooth Effect jQuery Start Here =====
 		==================================================*/
-        jQuery('a').on("click", function (e) {
+        jQuery('.rb-blog-one-scroll-top a').on("click", function (e) {
             var anchor = jQuery(this);
             jQuery('html, body').stop().animate({
                 scrollTop: jQuery(anchor.attr('href')).offset().top
@@ -81,12 +81,12 @@ Table of JS Content End Here
         /*================================================================
         ===== 04. Icon Add With Dropdown Menu Item jQuery Start Here =====
         ================================================================*/
-        jQuery(".rb-header-desktop-menu .sub-menu:first").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
+        jQuery(".rb-blog-one-header-desktop-menu .sub-menu:first").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
 
         if (jQuery(window).width() > 991) {
-            jQuery(".rb-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-right"></i>');
+            jQuery(".rb-blog-one-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-right"></i>');
         } else {
-            jQuery(".rb-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
+            jQuery(".rb-blog-one-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
         }
         /*==============================================================
         ===== 04. Icon Add With Dropdown Menu Item jQuery End Here =====
@@ -95,12 +95,12 @@ Table of JS Content End Here
         /*===========================================
         ===== 05. Mobile Menu jQuery Start Here =====
         ===========================================*/
-        jQuery(".rb-mobile-menu").click(function () {
-            jQuery(".rb-header-menu").slideToggle();
+        jQuery(".rb-blog-one-mobile-menu").click(function () {
+            jQuery(".rb-blog-one-header-menu").slideToggle();
         });
 
-        jQuery(".rb-header-desktop-menu i").click(function () {
-            jQuery(this).siblings("ul").slideToggle(500);
+        jQuery(".rb-blog-one-header-desktop-menu i").click(function () {
+            jQuery(this).siblings("ul").slideToggle();
         });
         /*=========================================
         ===== 05. Mobile Menu jQuery End Here =====
@@ -111,9 +111,9 @@ Table of JS Content End Here
         ======================================== */
         jQuery(window).scroll(function () {
             if (jQuery(this).scrollTop() > 500) {
-                jQuery(".rb-scroll-top").fadeIn();
+                jQuery(".rb-blog-one-scroll-top").fadeIn();
             } else {
-                jQuery(".rb-scroll-top").fadeOut();
+                jQuery(".rb-blog-one-scroll-top").fadeOut();
             }
         });
         /* ======================================

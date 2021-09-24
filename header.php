@@ -4,7 +4,7 @@
  *
  * @package RB Blog
  * @subpackage RB Blog One
- * @since RB Blog 1.0.4
+ * @since RB Blog One 1.0.5
  */
 
 ?>
@@ -15,21 +15,30 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="<?php bloginfo('charset');?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <?php wp_head();?>
 </head>
 
-<body <?php body_class();?> id="rb-body">
-    <?php wp_body_open();?>
+<body <?php body_class();?> id="rb-blog-one-body">
+    <?php
+        if ( function_exists('wp_body_open')) :
+        wp_body_open();
+        else :
+            do_action('wp_body_open');
+        endif;
+    ?>
 
     <!--=================================
     ===== Preloader Area Start Here =====
     ==================================-->
-    <div id="rb-preloader">
-        <div class="rb-folding-cube">
-            <div class="rb-cube1 rb-cube"></div>
-            <div class="rb-cube2 rb-cube"></div>
-            <div class="rb-cube4 rb-cube"></div>
-            <div class="rb-cube3 rb-cube"></div>
+    <div id="rb-blog-one-preloader">
+        <div class="rb-blog-one-folding-cube">
+            <div class="rb-blog-one-cube1 rb-blog-one-cube"></div>
+            <div class="rb-blog-one-cube2 rb-blog-one-cube"></div>
+            <div class="rb-blog-one-cube4 rb-blog-one-cube"></div>
+            <div class="rb-blog-one-cube3 rb-blog-one-cube"></div>
         </div>
     </div>
     <!--===============================
@@ -39,13 +48,13 @@
     <!--==================================
     ===== Header Top Area Start Here =====
     ===================================-->
-    <div class="rb-header-top">
+    <div class="rb-blog-one-header-top">
         <div class="container">
             <div class="row">
 
                 <!--===== Header Top Left Area Start Here =====-->
                 <div class="col-lg-6">
-                    <div class="rb-header-top-left">
+                    <div class="rb-blog-one-header-top-left">
                         <span class="fas fa-calendar-alt"></span>
                         <span>
                             <?php
@@ -61,7 +70,7 @@
 
                 <!--===== Header Top Right Area Start Here =====-->
                 <div class="col-lg-6">
-                    <div class="rb-header-top-right float-right">
+                    <div class="rb-blog-one-header-top-right float-right">
                         <?php
                     if (has_nav_menu('social_icons_menu')) :
                         wp_nav_menu(array(
@@ -69,12 +78,12 @@
                         ));
                     elseif (!has_nav_menu('social_icons_menu') && is_user_logged_in()) : ?>
                         <ul>
-                            <li class="rb-logged-social-menu"><a href="<?php echo esc_url(home_url('/wp-admin/nav-menus.php')); ?>"><?php echo esc_html__('add social icons menu','rb-blog-one') ?></a></li>
+                            <li class="rb-blog-one-logged-social-menu"><a href="<?php echo esc_url(home_url('/wp-admin/nav-menus.php')); ?>"><?php echo esc_html__('add social icons menu','rb-blog-one') ?></a></li>
                         </ul>
                         <?php else : ?>
                         <ul>
                             <li>
-                                <a href="https://www.facebook.com/bashir.rased/" target="_blank">
+                                <a href="<?php echo esc_url('https://www.facebook.com/bashir.rased/'); ?>" target="_blank">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
@@ -95,18 +104,18 @@
     <!--===================================
     ===== Header Body Area Start Here =====
     ====================================-->
-    <div class="rb-header-body">
+    <div class="rb-blog-one-header-body">
         <div class="container">
             <div class="row">
 
                 <!--===== Header Body Left Area Start Here =====-->
                 <div class="col-lg-6">
-                    <div class="rb-header-body-left">
+                    <div class="rb-blog-one-header-body-left">
                         <?php
                             if (has_custom_logo()) : ?>
-                        <div class="rb-header-logo"><a href="<?php echo esc_url(home_url('/'));?>"><?php the_custom_logo(); ?></a></div>
+                        <div class="rb-blog-one-header-logo"><a href="<?php echo esc_url(home_url('/'));?>"><?php the_custom_logo(); ?></a></div>
                         <?php endif; ?>
-                        <div class="rb-header-title">
+                        <div class="rb-blog-one-header-title">
                             <h1>
                                 <a href="<?php echo esc_url(home_url('/')); ?>">
                                 <?php bloginfo('name'); ?>
@@ -121,12 +130,7 @@
                 <!--===== Header Body Left Area End Here =====-->
 
                 <!--===== Header Body Right Area Start Here =====-->
-                <div class="col-lg-6">
-                    <div class="rb-header-body-right">
-                        <?php if(is_active_sidebar('rb-header-sidebar')) : dynamic_sidebar('rb-header-sidebar');
-                        else :  ?><p class="rb-google-ads"><?php echo esc_html__('Add Advertisement','rb-blog-one'); ?></p><?php endif; ?>
-                    </div>
-                </div>
+                <?php get_sidebar('header'); ?>
                 <!--===== Header Body Right Area End Here =====-->
 
             </div><!-- row end -->
@@ -139,13 +143,13 @@
     <!--==========================================
     ===== Header Mobile Menu Area Start Here =====
     ===========================================-->
-    <div class="rb-mobile-menu-area">
+    <div class="rb-blog-one-mobile-menu-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
 
                     <!--===== Header Mobile Menu Area Start Here =====-->
-                    <div class="rb-mobile-menu"><i class="fas fa-bars"></i></div>
+                    <div class="rb-blog-one-mobile-menu"><i class="fas fa-bars"></i></div>
                     <!--===== Header Mobile Menu Area End Here =====-->
 
                 </div>
@@ -159,11 +163,11 @@
     <!--===========================================
     ===== Header Desktop Menu Area Start Here =====
     ============================================-->
-    <div class="rb-header-menu">
+    <div class="rb-blog-one-header-menu">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="rb-header-desktop-menu">
+                    <div class="rb-blog-one-header-desktop-menu">
                         <?php
                     if (has_nav_menu('header_menu')) :
                         wp_nav_menu(array(
@@ -171,11 +175,11 @@
                         ));
                     elseif (!has_nav_menu('header_menu') && is_user_logged_in()) : ?>
                         <ul>
-                            <li class="rb-logged-header-menu"><a href="<?php echo esc_url(home_url('/wp-admin/nav-menus.php')); ?>"><?php echo esc_html__('add header menu','rb-blog-one') ?></a></li>
+                            <li class="rb-blog-one-logged-header-menu"><a href="<?php echo esc_url(home_url('/wp-admin/nav-menus.php')); ?>"><?php echo esc_html__('add header menu','rb-blog-one') ?></a></li>
                         </ul>
                         <?php else : ?>
                         <ul>
-                            <li class="rb-unset-header-menu">
+                            <li class="rb-blog-one-unset-header-menu">
                                 <a href="<?php echo esc_url(home_url('/'));?>"><?php echo esc_html__('home','rb-blog-one') ?></a>
                             </li>
                         </ul>
@@ -193,16 +197,34 @@
     <!--===================================
     ===== Breadcrumbs Area Start Here =====
     ====================================-->
-    <div class="rb-breadcrumbs">
+    <div class="rb-blog-one-breadcrumbs">
         <div class="container">
             <div class="row">
 
                 <!--===== Breadcrumbs Left Area Start Here =====-->
                 <div class="col-lg-6">
-                    <div class="rb-breadcrumbs-left">
+                    <div class="rb-blog-one-breadcrumbs-left">
 
                         <?php if (is_front_page() && is_home()): ?>
                         <h2><?php echo esc_html__('home page','rb-blog-one');?></h2>
+                        
+                        <?php elseif (is_shop()): ?>
+                        <h2><?php echo esc_html__('shop page','rb-blog-one');?></h2>
+                        
+                        <?php elseif (is_product()): ?>
+                        <h2><?php echo esc_html__('single product','rb-blog-one');?></h2>
+                        
+                        <?php elseif (is_product_category()): ?>
+                        <h2><?php echo esc_html__('product category','rb-blog-one');?></h2>
+                        
+                        <?php elseif (is_product_tag()): ?>
+                        <h2><?php echo esc_html__('product tag','rb-blog-one');?></h2>
+                        
+                        <?php elseif (is_cart()): ?>
+                        <h2><?php echo esc_html__('cart page','rb-blog-one');?></h2>
+                        
+                        <?php elseif (is_cart() || is_checkout()): ?>
+                        <h2><?php echo esc_html__('chackout page','rb-blog-one');?></h2>
 
                         <?php elseif (is_singular()): ?>
                         <h2><?php echo esc_html__('single page','rb-blog-one');?></h2>
@@ -238,13 +260,36 @@
 
                 <!--===== Breadcrumbs Right Area Start Here =====-->
                 <div class="col-lg-6">
-                    <div class="rb-breadcrumbs-right float-right">
+                    <div class="rb-blog-one-breadcrumbs-right float-right">
                         <ul>
+                           
                             <li>
                                 <a href="<?php echo esc_url(home_url('/'));?>"><?php echo esc_html__('Home','rb-blog-one');?></a>
                             </li>
 
-                            <?php if (is_singular()): ?>
+                            <?php if (is_shop()): ?>
+                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
+                            <li><?php echo esc_html__('Shop','rb-blog-one');?></li>
+
+                            <?php elseif (is_product()): ?>
+                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
+                            <li><a href="<?php echo esc_url(home_url('/shop/'));?>"><?php echo esc_html__('Shop','rb-blog-one');?></a></li>
+                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
+                            <li><?php wp_title("",true); ?></li>
+                            
+                            <?php elseif (is_product_category()): ?>
+                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
+                            <li><a href="<?php echo esc_url(home_url('/shop/'));?>"><?php echo esc_html__('Shop','rb-blog-one');?></a></li>
+                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
+                            <li><?php single_cat_title(); ?></li>
+                            
+                            <?php elseif (is_product_tag()): ?>
+                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
+                            <li><a href="<?php echo esc_url(home_url('/shop/'));?>"><?php echo esc_html__('Shop','rb-blog-one');?></a></li>
+                            <li><i class="fas fa-long-arrow-alt-right"></i></li>
+                            <li><?php single_tag_title(); ?></li>
+
+                            <?php elseif (is_singular()): ?>
                             <li><i class="fas fa-long-arrow-alt-right"></i></li>
                             <li><?php wp_title("",true); ?></li>
 
