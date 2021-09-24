@@ -12,7 +12,7 @@ get_header(); ?>
 				<div class="col-lg-12">
 					<nav class="rb-breadcrumbs">
 						<ul>
-							<li><i class="fas fa-home"></i> <a href="<?php echo home_url('/'); ?>">Home</a></li>
+							<li><i class="fas fa-home"></i> <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
 							<li><i class="fas fa-long-arrow-alt-right"></i></li>
 							<li><?php wp_title(''); ?></li>
 						</ul>

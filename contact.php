@@ -13,7 +13,7 @@ Template Name: Contact Page
 				<div class="col-lg-12">
 					<nav class="rb-breadcrumbs">
 						<ul>
-							<li><i class="fas fa-home"></i> <a href="<?php echo home_url('/'); ?>">Home</a></li>
+							<li><i class="fas fa-home"></i> <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
 							<li><i class="fas fa-long-arrow-alt-right"></i></li>
 							<li><?php wp_title(''); ?></li>
 						</ul>
@@ -46,19 +46,19 @@ Template Name: Contact Page
 					<h3>Contact Me</h3>
 					<div class="contact-phone">
 						<strong>Phone:</strong><br />
-						<div><?php echo get_theme_mod('phone_1'); ?></div>
-						<div><?php echo get_theme_mod('phone_2'); ?></div>
+						<div><?php echo esc_attr(get_theme_mod('phone_1','+88 01934 109870')); ?></div>
+						<div><?php echo esc_attr(get_theme_mod('phone_2','+88 01841 109870')); ?></div>
 					</div>
 					
 					<div class="contact-email">
 						<strong>Email:</strong><br />
-						<div><?php echo get_theme_mod('email_address_1'); ?></div>
-						<div><?php echo get_theme_mod('email_address_2'); ?></div>
+						<div><?php echo esc_attr(get_theme_mod('email_address_1','info@bashir-rased.com')); ?></div>
+						<div><?php echo esc_attr(get_theme_mod('email_address_2','bashir.rased@gmail.com')); ?></div>
 					</div>
 					
 					<div class="contact-address">
 						<strong>Address:</strong><br />
-						<div><?php echo get_theme_mod('address_line_1'); ?><br /><?php echo get_theme_mod('address_line_2'); ?></div>
+						<div><?php echo esc_attr(get_theme_mod('address_line_1','Shonir Akhra, Jatrabari,')); ?><br /><?php echo esc_attr(get_theme_mod('address_line_2','Dhaka, Bangladesh.')); ?></div>
 					</div>
 					
 				</div>

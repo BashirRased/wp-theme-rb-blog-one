@@ -34,18 +34,18 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="rb-header-top-left">
-							<?php echo date_i18n( __( 'l, j F Y', 'rb-blog-one' ) ); ?>
+							<?php echo esc_attr(date_i18n( __( 'l, j F Y', 'rb-blog-one' ) )); ?>
 						</div>
 					</div>
 					<div class="col-lg-6">
 						<div class="rb-header-top-right float-right">
 							<nav class="rb-header-social-links">
 								<ul>
-									<li><a href="<?php echo get_theme_mod('facebook_links'); ?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="<?php echo get_theme_mod('twitter_links'); ?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
-									<li><a href="<?php echo get_theme_mod('linkedin_links'); ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-									<li><a href="<?php echo get_theme_mod('instagram_links'); ?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
-									<li><a href="<?php echo get_theme_mod('pinterest_links'); ?>" target="_blank"><i class="fab fa-pinterest-p"></i></a></li>
+									<li><a href="<?php echo esc_attr(get_theme_mod('facebook_links','https://www.facebook.com/bashir.rased')); ?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="<?php echo esc_attr(get_theme_mod('twitter_links','https://twitter.com/BashirRased')); ?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
+									<li><a href="<?php echo esc_attr(get_theme_mod('linkedin_links','https://www.linkedin.com/in/bashir-rased-a28306a4/')); ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+									<li><a href="<?php echo esc_attr(get_theme_mod('instagram_links','https://www.instagram.com/md.rashedmollik/')); ?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="<?php echo esc_attr(get_theme_mod('pinterest_links','https://www.pinterest.com/bashir4907/')); ?>" target="_blank"><i class="fab fa-pinterest-p"></i></a></li>
 								</ul>
 							</nav>
 						</div>
@@ -60,7 +60,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-4">
-						<h1 class="rb-blog-title"><a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a></h1>
+						<h1 class="rb-blog-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo('name'); ?></a></h1>
 						<div class="rb-blog-subtitle"><?php bloginfo('description'); ?></div>
 					</div>
 					<div class="col-lg-8">

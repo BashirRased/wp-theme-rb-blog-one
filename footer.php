@@ -5,7 +5,7 @@
 				
 				<div class="col-lg-6">
 					<div class="rb-footer-left">
-						&copy; Copyright 2018-2019 <a href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a>. All rights reserved.
+						&copy; Copyright 2018-2019 <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo('name'); ?></a>. All rights reserved.
 					</div>						
 				</div>
 				

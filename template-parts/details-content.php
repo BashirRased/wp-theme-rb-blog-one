@@ -4,7 +4,7 @@
 		<?php if ( has_post_thumbnail() ) {
 			the_post_thumbnail('',array('class' => 'img-fluid', 'alt' => 'the_title();'));
 			} else { ?>
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/noimage.png" alt="<?php the_title(); ?>" />
+			<img src="<?php echo esc_attr( get_template_directory_uri() ); ?>/assets/img/noimage.png" alt="<?php the_title(); ?>" />
 		<?php } ?>
 	</div>
 														
@@ -17,7 +17,7 @@
 								
 		<div class="rb-meta-author">
 			<span class="rb-post-meta-icon"><i class="fas fa-user"></i></span>
-			<span class="rb-post-meta-text"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a></span>
+			<span class="rb-post-meta-text"><a href="<?php echo esc_attr(  get_author_posts_url( get_the_author_meta( 'ID' ) ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a></span>
 		</div>
 								
 		<div class="rb-meta-date">
@@ -35,7 +35,7 @@
 		?>
 			<div class="rb-meta-post-edit">
 				<span class="rb-post-meta-icon"><i class="fas fa-pencil-alt"></i></span>
-				<span class="rb-post-meta-text"><?php echo edit_post_link('Edit This Post'); ?></span>			
+				<span class="rb-post-meta-text"><?php echo esc_attr (edit_post_link('Edit This Post') ); ?></span>			
 			</div>
 		<?php
 			}

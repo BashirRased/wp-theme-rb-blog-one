@@ -18,6 +18,8 @@
 function rb_google_font_style(){
 
 	// Google Fonts
-	wp_enqueue_style('fonts', get_rb_fonts());
+	wp_register_style('fonts', get_rb_fonts(),'','1.0.1','all');
+	wp_enqueue_style('fonts');
+	
 }
 add_action('wp_enqueue_scripts', 'rb_google_font_style');
