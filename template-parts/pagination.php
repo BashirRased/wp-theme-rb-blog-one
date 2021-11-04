@@ -1,0 +1,29 @@
+<?php
+/**
+ * Used for pagination.
+ *
+ * @package WordPress
+ * @subpackage RB Blog One
+ * @since RB Blog One 1.0.9
+ */
+?>
+
+<!--===== Pagination Area Start Here =====-->
+<div class="rb-blog-one-pagination-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                
+                <div class="rb-blog-one-pagination">
+                    <?php the_posts_pagination( array(
+                        'mid_size'  => 1,
+                        'prev_text' => '<i class="fas fa-chevron-left"></i>',
+                        'next_text' => '<i class="fas fa-chevron-right"></i>'
+                    ) ); ?>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!--===== Pagination Area End Here =====-->

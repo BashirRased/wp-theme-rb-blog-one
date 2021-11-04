@@ -2,13 +2,13 @@
 /**
  * RB Blog One functions and definitions
  *
- * @package RB Blog
+ * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.8
+ * @since RB Blog One 1.0.9
  */
 
 // Prefix With File Directory
-define('RB_BLOG_ONE_VERSION','1.0.8');
+define('RB_BLOG_ONE_VERSION','1.0.9');
 define('RB_BLOG_ONE_WP_CSS',get_stylesheet_uri());
 define('RB_BLOG_ONE_URL',get_template_directory_uri());
 define('RB_BLOG_ONE_CSS',RB_BLOG_ONE_URL.'/assets/css/');
@@ -16,84 +16,152 @@ define('RB_BLOG_ONE_JS',RB_BLOG_ONE_URL.'/assets/js/');
 define('RB_BLOG_ONE_IMG',RB_BLOG_ONE_URL.'/assets/img/');
 
 // after theme setup
-if (!function_exists('rb_blog_one_theme_setup')) :
-function rb_blog_one_theme_setup(){
-    
-    // Add default posts and comments RSS feed links to head.
-    add_theme_support('automatic-feed-links');
-    
-    // Website Title-Slug
-	add_theme_support('title-tag');
-    
-    // Feature Image
-	add_theme_support('post-thumbnails');
-    
-    // Logo Image Register
-	add_theme_support('custom-logo',array(
-		'height'      => 80,
-        'flex-height' => true
-	));
-    
-    // Menu Register
-    register_nav_menus(array(
-        'social_icons_menu'  => __('Social Icons Menu','rb-blog-one'),
-        'header_menu' => __('Header Menu','rb-blog-one')
-    ));
-    
-    // Set content-width.
-	$GLOBALS['content_width'] = apply_filters( 'rb_blog_one_content_width', 667 );
-    
-    // Force the editor styles to match the theme's UI.
-    add_editor_style();
+if ( ! function_exists( 'twenty_twenty_one_setup' ) ) {
+    function rb_blog_one_theme_setup(){
+
+        /*
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on RB Blog One, use a find and replace
+		 * to change 'rb-blog-one' to the name of your theme in all the template files.
+		 */
+        load_theme_textdomain( 'rb-blog-one', get_template_directory() . '/languages' );
+
+        // Add default posts and comments RSS feed links to head.
+        add_theme_support('automatic-feed-links');
+
+        // Website Title-Slug
+        add_theme_support('title-tag');
+
+        // Feature Image
+        add_theme_support('post-thumbnails');
+
+        // Logo Image Register
+        add_theme_support('custom-logo',array(
+            'height'      => 80,
+            'flex-height' => true
+        ));
+
+        // Menu Register
+        register_nav_menu('header_menu', __('Header Menu','rb-blog-one'));
+
+        // Set content-width.
+        $GLOBALS['content_width'] = apply_filters( 'rb_blog_one_content_width', 667 );
+
+        // Force the editor styles to match the theme's UI.
+        add_editor_style('/assets/css/style-editor.css');
+
+        // Add support for Block Styles.
+		add_theme_support( 'wp-block-styles' );
+        
+        // Add support for responsive embedded content.
+		add_theme_support('responsive-embeds');
+        
+        // Add support for full and wide align images.
+		add_theme_support('align-wide');
+        
+        // Custom header.
+        $rb_blog_one_custom_header = array(
+            'width'              => 1000,
+            'height'             => 250,
+            'flex-width'         => true,
+            'flex-height'        => true,
+        );
+        add_theme_support("custom-header", $rb_blog_one_custom_header);
+        
+        // Custom background color.
+        $rb_blog_one_custom_bg = array(
+				'default-color' => 'd1e4dd',
+			);
+        add_theme_support("custom-background", $rb_blog_one_custom_bg);        
+        
+        add_theme_support("editor-color-palette");
+        
+        // Add support for Block Styles.
+		add_theme_support( 'wp-block-styles' );
+        
+        /**
+        * Add post-formats support.
+        */
+        add_theme_support(
+            'post-formats',
+            array(
+                'link',
+                'aside',
+                'gallery',
+                'image',
+                'quote',
+                'status',
+                'video',
+                'audio',
+                'chat',
+            )
+        );
+        
+        /*
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+        $rb_blog_one_html5 = array(
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+            'style',
+            'script',
+            'navigation-widgets'
+        );
+        add_theme_support("html5", $rb_blog_one_html5);        
+        
+    }
 }
-endif;
 add_action('after_setup_theme','rb_blog_one_theme_setup');
 
 // Include CSS & JS Files
 function rb_blog_one_css_js_files_add(){
     
-    // Google Font v1.0.7
-	wp_enqueue_style('google-fonts','http://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap','','1.0.7','all');
+    // Google Font v1.0.9
+	wp_enqueue_style('google-fonts','http://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap','',RB_BLOG_ONE_VERSION,'all');
     
     // Font Awesome v5.14.0
-	wp_enqueue_style('font-awesome',RB_BLOG_ONE_CSS.'font-awesome-5.14.0.min.css','','5.14.0','all');
-    wp_enqueue_style('font-awesome-brands',RB_BLOG_ONE_CSS.'font-awesome-brands-5.14.0.min.css','','5.14.0','all');
-    wp_enqueue_style('rb-font-awesome-solid',RB_BLOG_ONE_CSS.'font-awesome-solid-5.14.0.min.css','','5.14.0','all');
+	wp_enqueue_style('rb-blog-one-font-awesome',RB_BLOG_ONE_CSS.'font-awesome-5.14.0.min.css','','5.14.0','all');
+    wp_enqueue_style('rb-blog-one-font-awesome-brands',RB_BLOG_ONE_CSS.'font-awesome-brands-5.14.0.min.css','','5.14.0','all');
+    wp_enqueue_style('rb-blog-one-font-awesome-solid',RB_BLOG_ONE_CSS.'font-awesome-solid-5.14.0.min.css','','5.14.0','all');
     
     // Bootstrap 5 v4.5.0
-	wp_enqueue_style('bootstrap-css',RB_BLOG_ONE_CSS.'bootstrap-4.5.0.min.css','','4.5.0','all');
-    wp_enqueue_script('popper-js',RB_BLOG_ONE_JS.'popper-1.16.0.min.js',array('jquery'),'1.16.0',true);
-    wp_enqueue_script('bootstrap-js',RB_BLOG_ONE_JS.'bootstrap-4.5.0.min.js',array('jquery'),'4.5.0',true);
+	wp_enqueue_style('rb-blog-one-bootstrap-css',RB_BLOG_ONE_CSS.'bootstrap-4.5.0.min.css','','4.5.0','all');
+    wp_enqueue_script('rb-blog-one-popper-js',RB_BLOG_ONE_JS.'popper-1.16.0.min.js',array('jquery'),'1.16.0',true);
+    wp_enqueue_script('rb-blog-one-bootstrap-js',RB_BLOG_ONE_JS.'bootstrap-4.5.0.min.js',array('jquery'),'4.5.0',true);
     
     // Nicescroll v3.5.4
-	wp_enqueue_script('nicescroll-js',RB_BLOG_ONE_JS.'jquery.nicescroll-3.5.4.min.js',array('jquery'),'3.5.4',true);
+	wp_enqueue_script('rb-blog-one-nicescroll-js',RB_BLOG_ONE_JS.'jquery.nicescroll-3.5.4.min.js',array('jquery'),'3.5.4',true);
     
     // Normalize v8.0.1
-	wp_enqueue_style('normalize-css',RB_BLOG_ONE_CSS.'normalize-8.0.1.min.css','','8.0.1','all');
+	wp_enqueue_style('rb-blog-one-normalize-css',RB_BLOG_ONE_CSS.'normalize-8.0.1.min.css','','8.0.1','all');
     
     // Modernizr v2.8.3
-	wp_enqueue_script('modernizr-js',RB_BLOG_ONE_JS.'modernizr-2.8.3.min.js',array('jquery'),'2.8.3',true);
+	wp_enqueue_script('rb-blog-one-modernizr-js',RB_BLOG_ONE_JS.'modernizr-2.8.3.min.js',array('jquery'),'2.8.3',true);
     
     // html5shim conditional js
-	wp_enqueue_script('html5shim-js',RB_BLOG_ONE_JS.'html5shiv-printshiv-3.7.3.min.js', array(),'3.7.3',false);
-	wp_script_add_data('html5shim-js','conditional','lt IE 9');
+	wp_enqueue_script('rb-blog-one-html5shim-js',RB_BLOG_ONE_JS.'html5shiv-printshiv-3.7.3.min.js', array(),'3.7.3',false);
+	wp_script_add_data('rb-blog-one-html5shim-js','conditional','lt IE 9');
 	
     // respond conditional js
-	wp_enqueue_script('respond-js',RB_BLOG_ONE_JS.'respond-1.4.2.min.js',array(),'1.4.2',false);
-	wp_script_add_data('respond-js','conditional','lt IE 9');
+	wp_enqueue_script('rb-blog-one-respond-js',RB_BLOG_ONE_JS.'respond-1.4.2.min.js',array(),'1.4.2',false);
+	wp_script_add_data('rb-blog-one-respond-js','conditional','lt IE 9');
     
-    // Comment Reply v1.0.7    
+    // Comment Reply v1.0.9    
     if ((! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script('comment-reply');
 	}
     
-    // Template CSS & JS v1.0.7
+    // Template CSS & JS v1.0.9
 	wp_enqueue_style('rb-blog-one-style',RB_BLOG_ONE_CSS.'style.css','',RB_BLOG_ONE_VERSION,'all');
     wp_enqueue_style('rb-blog-one-responsive',RB_BLOG_ONE_CSS.'responsive.css','',RB_BLOG_ONE_VERSION,'all');
     wp_enqueue_script('rb-blog-one-custom',RB_BLOG_ONE_JS.'custom.js',array('jquery'),RB_BLOG_ONE_VERSION,true);
 
 	// Main Style
-	wp_enqueue_style('rb-wp-stylesheet',RB_BLOG_ONE_WP_CSS,'','1.0.7','all');
+	wp_enqueue_style('rb-blog-one-wp-stylesheet',RB_BLOG_ONE_WP_CSS,'',time(),'all');
     
 }
 add_action('wp_enqueue_scripts','rb_blog_one_css_js_files_add');
@@ -112,8 +180,14 @@ function rb_blog_one_sidebar_add(){
 }
 add_action('widgets_init', 'rb_blog_one_sidebar_add');
 
-// post excerpt setup
-function rb_blog_one_custom_excerpt_length($length) {
+// post excerpt text setup
+function rb_blog_one_excerpt_more($rb_blog_one_more) {
+    return false;
+}
+add_filter( 'excerpt_more', 'rb_blog_one_excerpt_more' );
+
+// post excerpt words setup
+function rb_blog_one_custom_excerpt_length($rb_blog_one_length) {
     return 20;
 }
 add_filter( 'excerpt_length', 'rb_blog_one_custom_excerpt_length', 999 );
@@ -141,7 +215,7 @@ add_filter( 'comment_form_fields', 'rb_blog_one_comment_fields_custom_order' );
 
 //Comment List collback function
 if (!function_exists('rb_blog_one_comment_list')):
-function rb_blog_one_comment_list($comment, $args, $depth){
+function rb_blog_one_comment_list($rb_blog_one_comment, $rb_blog_one_args, $rb_blog_one_depth){
 ?>
 
 <ul>
@@ -149,7 +223,7 @@ function rb_blog_one_comment_list($comment, $args, $depth){
 
         <!--===== Comment Author Left Area Start Here =====-->
         <div class="rb-blog-one-comment-author-left">
-            <?php echo get_avatar($comment); ?>
+            <?php echo get_avatar($rb_blog_one_comment); ?>
         </div>
         <!--===== Comment Author Left Area End Here =====-->
 
@@ -160,17 +234,18 @@ function rb_blog_one_comment_list($comment, $args, $depth){
                 <?php
                 printf(
                 /* translators: comment author */
-                __('<h5 class="rb-blog-one-comment-author">%s</h5>', 'rb-blog-one'),get_comment_author_link()
+                __('<h5 class="rb-blog-one-comment-author">%s</h5>', 'rb-blog-one'),
+                    esc_html(get_comment_author())
                 );
                 ?>
 
                 <div class="rb-blog-one-comment-reply">
                     <?php 
 				// Display comment reply link
-				comment_reply_link( array_merge( $args, array(
+				comment_reply_link( array_merge( $rb_blog_one_args, array(
 					'reply_text' => __('<i class="fas fa-reply"></i> Reply', 'rb-blog-one'),
-					'depth'     => $depth,
-					'max_depth' => $args['max_depth']
+					'depth'     => $rb_blog_one_depth,
+					'max_depth' => $rb_blog_one_args['max_depth']
 				)));  ?>
                 </div>
 

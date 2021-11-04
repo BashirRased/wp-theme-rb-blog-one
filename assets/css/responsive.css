@@ -1,11 +1,12 @@
 /*
 Theme Name: RB Blog One
+Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.0.8
-Requires at least: 4.7
-Tested up to: 5.5
-Requires PHP: 5.2.4
-Description: This is a personal free blog website.
+Version: 1.0.9
+Requires at least: 5.3
+Tested up to: 5.8
+Requires PHP: 5.6
+Description: This is a personal free blog website theme.
 Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
 Author: Bashir Rased
 Author URI: http://bashir-rased.com/
@@ -42,11 +43,6 @@ Table of CSS Content End Here
 @media (max-width: 991px) {
     .rb-blog-one-header-top-left {
         text-align: center;
-    }
-
-    .rb-blog-one-header-top-right {
-        text-align: center;
-        float: none !important;
     }
 
     .rb-blog-one-header-body-left {

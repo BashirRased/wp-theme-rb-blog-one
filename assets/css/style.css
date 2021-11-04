@@ -1,11 +1,12 @@
 /*
 Theme Name: RB Blog One
+Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.0.8
-Requires at least: 4.7
-Tested up to: 5.5
-Requires PHP: 5.2.4
-Description: This is a personal free blog website.
+Version: 1.0.9
+Requires at least: 5.3
+Tested up to: 5.8
+Requires PHP: 5.6
+Description: This is a personal free blog website theme.
 Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
 Author: Bashir Rased
 Author URI: http://bashir-rased.com/
@@ -16,22 +17,22 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*=============================
 Table of CSS Content Start Here
 ===============================
-	01. HTML Tag------------------------------------------->Line 39
-	02. Preloader------------------------------------------>Line 79
-	03. Header Top----------------------------------------->Line 214
-	04. Header Body---------------------------------------->Line 278
-	05. Mobile Menu---------------------------------------->Line 343
-	06. Header Menu---------------------------------------->Line 372
-	07. Breadcrumbs---------------------------------------->Line 461
-	08. Blog----------------------------------------------->Line 504
-	09. Post Content--------------------------------------->Line 632
-	10. Pagination----------------------------------------->Line 761
-	11. Comment-------------------------------------------->Line 799
-	12. 404 Page------------------------------------------->Line 935
-	13. Widget--------------------------------------------->Line 965
-	14. Footer--------------------------------------------->Line 1179
-	15. Scroll To Top-------------------------------------->Line 1203
-    16. woocommerce shop page------------------------------>Line 1232
+	01. HTML Tag
+	02. Preloader
+	03. Header Top
+	04. Header Body
+	05. Mobile Menu
+	06. Header Menu
+	07. Breadcrumbs
+	08. Blog
+	09. Post Content
+	10. Pagination
+	11. Comment
+	12. 404 Page
+	13. Widget
+	14. Footer
+	15. Scroll To Top
+    16. woocommerce shop page
 =============================
 Table of CSS Content End Here
 ===========================*/
@@ -64,11 +65,6 @@ figcaption,
 strong {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 700;
-}
-
-img {
-    max-width: 100% !important;
-    display: block !important;
 }
 
 a,
@@ -235,45 +231,6 @@ a:hover {
     margin-right: 10px;
 }
 
-.rb-blog-one-header-top-right {
-    font-size: 12px;
-}
-
-.rb-blog-one-header-top-right ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.rb-blog-one-header-top-right li {
-    width: 25px;
-    height: 25px;
-    line-height: 25px;
-    text-align: center;
-    display: inline-block;
-    margin: 0 10px 10px 0;
-    border-radius: 50%;
-    background-color: #333;
-}
-
-.rb-blog-one-header-top-right li:last-child {
-    margin: 0;
-}
-
-.rb-blog-one-header-top-right li:hover {
-    background-color: #f93601;
-}
-
-.rb-blog-one-header-top-right li a {
-    color: #fff;
-}
-
-.rb-blog-one-header-top-right li.rb-blog-one-logged-social-menu {
-    width: 100%;
-    border-radius: 0;
-    text-transform: capitalize;
-}
-
 /*====================================== 
 ===== 03. Header Top Area End Here =====
 ======================================*/
@@ -310,6 +267,7 @@ a:hover {
 
 .rb-blog-one-header-title h1 a {
     color: #f93601;
+    text-decoration: none;
 }
 
 .rb-blog-one-header-title p {
@@ -435,7 +393,6 @@ a:hover {
     float: none;
     border-bottom: 1px solid #555;
     position: relative;
-    padding: 15px;
 }
 
 .rb-blog-one-header-desktop-menu ul li ul li:last-child {

@@ -1,7 +1,9 @@
 === RB Blog One ===
-Contributors: Bashir Rased
-Tested up to: 5.5
-Stable tag: 1.0.8
+Contributors: bashirrased
+Requires at least: 5.3
+Tested up to: 5.8
+Requires PHP: 5.6
+Stable tag: 1.0.9
 Author URI: http://bashir-rased.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,43 +15,25 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 4. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
 == Description ==
-This is a personal free blog website.
+This is a personal free blog website theme.
 Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
 
 == Copyright ==
-RB Blog One WordPress Theme, Copyright 2020 Bashir Rased
+RB Blog One WordPress Theme, Copyright 2021 Bashir Rased
 RB Blog One is distributed under the terms of the GNU GPL
 
 == Resources ==
-Bootstrap v4.5.0
-Copyright (c) 2011-2020 Twitter, Inc.
-License: MIT License, https://github.com/twbs/bootstrap/blob/master/LICENSE
-Source: https://getbootstrap.com/
+* bootstrap-4.5.0.min.css © 2011-2020 Twitter, Inc., MIT, https://getbootstrap.com/
+* bootstrap-4.5.0.min.js © 2011-2020 Twitter, Inc., MIT, https://getbootstrap.com/
+* popper-1.16.0.min.js © Federico Zivolo 2019, MIT, http://opensource.org/licenses/MIT
 
-Font Awesome Free 5.14.0
-Copyright (c) fontawesome
-License: MIT License, https://fontawesome.com/license/free
-Source: https://fontawesome.com
+* font-awesome-5.14.0.min.css @fontawesome, MIT, https://fontawesome.com
+* font-awesome-brands-5.14.0.min.css @fontawesome, MIT, https://fontawesome.com
+* font-awesome-solid-5.14.0.min.css @fontawesome, MIT, https://fontawesome.com
 
-normalize.css v8.0.1
-Source: github.com/necolas/normalize.css
+* normalize-8.0.1.min.css, MIT, github.com/necolas/normalize.css
+* modernizr-2.8.3.min.js Custom Build, MIT, http://modernizr.com/download/
+* respond-1.4.2.min.js © 2013 Scott Jehl, MIT, https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT
+* html5shiv-printshiv-3.7.3.min.js, CC0
 
-jquery.nicescroll 3.5.4
-Copyright (c) 2013 InuYaksa
-Source: http://areaaperta.com/nicescroll
-
-Modernizr 2.8.3
-Source: http://modernizr.com/download/
-
-Respond.js v1.4.2
-Copyright (c) 2013 Scott Jehl
-License: MIT License, https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT
-
-Popper.js v1.16.0
-Copyright (c) Federico Zivolo 2019
-License: MIT License, http://opensource.org/licenses/MIT
-
-Images:
-* screenshot image by Bashir Rased, CC0. https://dribbble.com/shots/16228417-Screenshot-png
-
-* post default image by Bashir Rased, CC0. https://dribbble.com/shots/16228412-No-Image-Avaiable
+* jquery.nicescroll-3.5.4.min.js InuYaksa, MIT, http://areaaperta.com/nicescroll

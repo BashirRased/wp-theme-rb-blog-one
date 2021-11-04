@@ -3,9 +3,9 @@
  * The template file for displaying the comments and comment form for the
  * RB Blog One theme.
  *
- * @package RB Blog
+ * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.8
+ * @since RB Blog One 1.0.9
  */
 
 /*
@@ -14,11 +14,11 @@
  * return early without loading the comments.
  */
     
-if ( post_password_required() ) :
+if (post_password_required()) :
 	return;
 endif;
 
-if ( comments_open() || pings_open() ) : ?>
+if (comments_open() || pings_open()) : ?>
 
 <div class="rb-blog-one-comment-area">
     <div class="container">
@@ -29,11 +29,11 @@ if ( comments_open() || pings_open() ) : ?>
                 <div class="rb-blog-one-comment-count">
                     <h3>
                         <?php
-                            $comments_number = absint(get_comments_number());
+                            $rb_blog_one_comments_number = absint(get_comments_number());
                             if (! have_comments()) :
                                 /* translators: %s: Post title. */
                                 printf(_x('0 comment on %s','comments title','rb-blog-one'), get_the_title() );
-                            elseif (1 === $comments_number) :
+                            elseif (1 === $rb_blog_one_comments_number) :
                                 /* translators: %s: Post title. */
                                 printf(_x('1 comment on %s','comments title','rb-blog-one'), get_the_title() );
                             else :
@@ -42,11 +42,11 @@ if ( comments_open() || pings_open() ) : ?>
                                     _nx(
                                         '%1$s comment on %2$s',
                                         '%1$s comments on %2$s',
-                                        $comments_number,
+                                        $rb_blog_one_comments_number,
                                         'comments title',
                                         'rb-blog-one'
                                     ),
-                                    number_format_i18n($comments_number),
+                                    number_format_i18n($rb_blog_one_comments_number),
                                     get_the_title()
                                 );                        
                             endif;
@@ -66,8 +66,8 @@ if ( comments_open() || pings_open() ) : ?>
                 <div class="rb-blog-one-comment-pagination">
                     <?php paginate_comments_links(array(
                         'mid_size'  => 1,                    
-                        'prev_text'=> __('<i class="fas fa-chevron-left"></i>','rb-blog-one'),
-                        'next_text'=> __('<i class="fas fa-chevron-right"></i>','rb-blog-one')
+                        'prev_text'=> '<i class="fas fa-chevron-left"></i>',
+                        'next_text'=> '<i class="fas fa-chevron-right"></i>'
                     )); ?>
                 </div>
                 <!--===== Comment Pagination Area End Here =====-->

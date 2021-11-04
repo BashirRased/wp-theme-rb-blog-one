@@ -1,11 +1,14 @@
+@charset "UTF-8";
+
 /*
 Theme Name: RB Blog One
+Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.0.8
-Requires at least: 4.7
-Tested up to: 5.5
-Requires PHP: 5.2.4
-Description: This is a personal free blog website.
+Version: 1.0.9
+Requires at least: 5.3
+Tested up to: 5.8
+Requires PHP: 5.6
+Description: This is a personal free blog website theme.
 Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
 Author: Bashir Rased
 Author URI: http://bashir-rased.com/
@@ -15,10 +18,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 /* =WordPress Core
 -------------------------------------------------------------- */
-#wpadminbar #wp-admin-bar-my-account.with-avatar > a img {
-    display: inline !important;
-}
-
 .bypostauthor,
 .gallery-caption {
     display: block;
@@ -129,5 +128,27 @@ a img.aligncenter {
 	top: 5px;
 	width: auto;
 	z-index: 100000;
+}
+
+/* Skip Link --------------------------------- */
+
+.skip-link {
+	left: -9999rem;
+	top: 2.5rem;
+	z-index: 999999999;
+	text-decoration: underline;
+}
+
+.skip-link:focus {
+	display: block;
+	left: 6px;
+	top: 7px;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	z-index: 100000;
+	right: auto;
 }
 /* ends */

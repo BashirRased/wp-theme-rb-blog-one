@@ -7,9 +7,9 @@
  * @link https://developer.wordpress.org/reference/functions/wp_unique_id/
  * @link https://developer.wordpress.org/reference/functions/get_search_form/
  * 
- * @package RB Blog
+ * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.8
+ * @since RB Blog One 1.0.9
  */
 ?>
 

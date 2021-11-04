@@ -4,9 +4,9 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package RB Blog
+ * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.8
+ * @since RB Blog One 1.0.9
  */
 
 get_header();
