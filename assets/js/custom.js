@@ -2,7 +2,7 @@
 Theme Name: RB Blog One
 Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.0.9
+Version: 1.1.0
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -99,11 +99,26 @@ Table of JS Content End Here
             event.preventDefault();
             $(".rb-blog-one-header-menu").slideToggle();
         });
+        
+//        $(".rb-blog-one-mobile-menu").keydown(function (event) {
+//            event.preventDefault();
+//            $(".rb-blog-one-header-menu").slideToggle();
+//        });
 
         $(".rb-blog-one-header-desktop-menu i").click(function (event) {
             event.preventDefault();
             $(this).siblings("ul").slideToggle();
         });
+        
+//        $(".rb-blog-one-header-desktop-menu i").keydown(function (event) {
+//            event.preventDefault();
+//            $(this).siblings("ul").slideDown();
+//        });
+//        
+//        $(".rb-blog-one-header-desktop-menu i").keyup(function (event) {
+//            event.preventDefault();
+//            $(this).siblings("ul").slideUp();
+//        });
         /*=========================================
         ===== 05. Mobile Menu jQuery End Here =====
         =========================================*/

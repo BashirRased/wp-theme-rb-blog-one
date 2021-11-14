@@ -8,7 +8,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.0.9
+ * @since RB Blog One 1.1.0
  */
 
 ?>
@@ -18,7 +18,8 @@
 
 <head>
     <meta charset="<?php bloginfo('charset');?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    
     <?php wp_head();?>
 </head>
 

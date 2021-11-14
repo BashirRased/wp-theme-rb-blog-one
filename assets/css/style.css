@@ -2,7 +2,7 @@
 Theme Name: RB Blog One
 Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.0.9
+Version: 1.1.0
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -70,6 +70,15 @@ strong {
 a,
 a:hover {
     color: #f93601;
+}
+
+a,
+a:focus {
+	text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /*==================================== 
@@ -357,6 +366,7 @@ a:hover {
 }
 
 .rb-blog-one-header-desktop-menu ul li a:hover,
+.rb-blog-one-header-desktop-menu ul li a:focus,
 .rb-blog-one-header-desktop-menu ul li a[aria-current="page"] {
     color: #f93601 !important;
 }
