@@ -2,7 +2,7 @@
 Theme Name: RB Blog One
 Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.1.1
+Version: 1.1.2
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -20,9 +20,10 @@ Table of JS Content Start Here
 	01.	Preloader
 	02. Nice Scrollbar
     03. Link Smooth Effect
-    04. Icon Add With Dropdown Menu Item
-    05. Mobile Menu
-    06. Scroll to Top
+    04. Class Add With Dropdown Menu Item
+    05. Icon Add With Dropdown Menu Item
+    06. Mobile Menu
+    07. Scroll to Top
 ============================
 Table of JS Content End Here
 ==========================*/
@@ -46,8 +47,8 @@ Table of JS Content End Here
     ===== 01. Preloader jQuery End Here =====
     =======================================*/
 
-    $(document).ready(function () {
-
+    $(document).ready(function () {        
+        
         /*==============================================
         ===== 02. Nice Scrollbar jQuery Start Here =====
         ==============================================*/
@@ -78,53 +79,51 @@ Table of JS Content End Here
 		===== 03. Link Smooth Effect jQuery End Here =====
         ================================================*/
 
+        /*=================================================================
+        ===== 04. Class Add With Dropdown Menu Item jQuery Start Here =====
+        =================================================================*/
+        $(".sub-menu .sub-menu").addClass("rb-blog-one-multi-dropdown-menu");
+        $(".rb-blog-one-multi-dropdown-menu").removeClass("sub-menu");
+
+        $(".sub-menu").addClass("rb-blog-one-dropdown-menu");
+        $(".rb-blog-one-dropdown-menu").removeClass("sub-menu");
+        /*===============================================================
+        ===== 04. Class Add With Dropdown Menu Item jQuery End Here =====
+        ===============================================================*/
+
         /*================================================================
-        ===== 04. Icon Add With Dropdown Menu Item jQuery Start Here =====
+        ===== 05. Icon Add With Dropdown Menu Item jQuery Start Here =====
         ================================================================*/
-        $(".rb-blog-one-header-desktop-menu .sub-menu:first").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
+        $(".rb-blog-one-header-desktop-menu .rb-blog-one-dropdown-menu").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
 
         if ($(window).width() > 991) {
-            $(".rb-blog-one-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-right"></i>');
+            $(".rb-blog-one-header-desktop-menu .rb-blog-one-multi-dropdown-menu").siblings("a").parent("li").prepend('<i class="fas fa-chevron-right"></i>');
         } else {
-            $(".rb-blog-one-header-desktop-menu .sub-menu ul").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
+            $(".rb-blog-one-header-desktop-menu .rb-blog-one-multi-dropdown-menu").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
         }
         /*==============================================================
-        ===== 04. Icon Add With Dropdown Menu Item jQuery End Here =====
+        ===== 05. Icon Add With Dropdown Menu Item jQuery End Here =====
         ==============================================================*/
 
         /*===========================================
-        ===== 05. Mobile Menu jQuery Start Here =====
+        ===== 06. Mobile Menu jQuery Start Here =====
         ===========================================*/
         $(".rb-blog-one-mobile-menu").click(function (event) {
             event.preventDefault();
             $(".rb-blog-one-header-menu").slideToggle();
         });
-        
-//        $(".rb-blog-one-mobile-menu").keydown(function (event) {
-//            event.preventDefault();
-//            $(".rb-blog-one-header-menu").slideToggle();
-//        });
 
         $(".rb-blog-one-header-desktop-menu i").click(function (event) {
             event.preventDefault();
             $(this).siblings("ul").slideToggle();
         });
-        
-//        $(".rb-blog-one-header-desktop-menu i").keydown(function (event) {
-//            event.preventDefault();
-//            $(this).siblings("ul").slideDown();
-//        });
-//        
-//        $(".rb-blog-one-header-desktop-menu i").keyup(function (event) {
-//            event.preventDefault();
-//            $(this).siblings("ul").slideUp();
-//        });
+
         /*=========================================
-        ===== 05. Mobile Menu jQuery End Here =====
+        ===== 06. Mobile Menu jQuery End Here =====
         =========================================*/
 
         /* ========================================
-        ===== 06. Scroll to Top JS Start Here =====
+        ===== 07. Scroll to Top JS Start Here =====
         ======================================== */
         $(window).scroll(function () {
             if ($(this).scrollTop() > 500) {
@@ -134,7 +133,7 @@ Table of JS Content End Here
             }
         });
         /* ======================================
-        ===== 06. Scroll to Top JS End Here =====
+        ===== 07. Scroll to Top JS End Here =====
         ====================================== */
 
     });

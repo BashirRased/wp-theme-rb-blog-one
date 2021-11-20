@@ -2,7 +2,7 @@
 Theme Name: RB Blog One
 Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.1.1
+Version: 1.1.2
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -62,23 +62,17 @@ Table of CSS Content End Here
         float: none;
     }
 
-    .rb-blog-one-header-desktop-menu ul li i {
-        cursor: pointer;
+    .rb-blog-one-header-desktop-menu ul li a {
+        display: block;
+        border-bottom: 1px solid #ffffff;
     }
 
-    .rb-blog-one-header-desktop-menu ul .sub-menu {
-        display: none;
-        position: relative;
-        top: 0;
-        left: 0;
+    .rb-blog-one-header-desktop-menu ul li:last-child a {
+        border-bottom: none;
     }
 
-    .rb-blog-one-header-desktop-menu ul li ul li:hover ul {
-        left: 0;
-    }
-
-    .rb-blog-one-header-desktop-menu ul li ul li ul li {
-        border-left: none;
+    .rb-blog-one-header-desktop-menu ul li:hover ul {
+        position: static;
     }
 
     .rb-blog-one-breadcrumbs-left {

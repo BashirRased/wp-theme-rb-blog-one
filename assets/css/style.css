@@ -2,7 +2,7 @@
 Theme Name: RB Blog One
 Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.1.1
+Version: 1.1.2
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -76,12 +76,12 @@ a:hover {
     color: #f93601;
 }
 
-a,
-a:focus {
+a {
 	text-decoration: none;
 }
 
-a:hover {
+a:hover,
+a:focus {
     text-decoration: underline;
 }
 
@@ -283,6 +283,11 @@ a:hover {
     text-decoration: none;
 }
 
+.rb-blog-one-header-title h1 a:hover,
+.rb-blog-one-header-title h1 a:focus {
+    text-decoration: underline;
+}
+
 .rb-blog-one-header-title p {
     font-size: 20px;
     margin: 0;
@@ -338,6 +343,11 @@ a:hover {
     cursor: pointer;
 }
 
+.rb-blog-one-mobile-menu:hover,
+.rb-blog-one-mobile-menu:focus {
+    background-color: #f93601;
+}
+
 /*======================================= 
 ===== 05. Mobile Menu Area End Here =====
 =======================================*/
@@ -358,7 +368,6 @@ a:hover {
 .rb-blog-one-header-desktop-menu ul li {
     float: left;
     position: relative;
-
 }
 
 .rb-blog-one-header-desktop-menu ul li a {
@@ -366,28 +375,24 @@ a:hover {
     display: inline-block;
     text-transform: capitalize;
     color: #fff;
-    padding: 23px 15px;
+    padding: 15px;
 }
 
 .rb-blog-one-header-desktop-menu ul li a:hover,
 .rb-blog-one-header-desktop-menu ul li a:focus,
 .rb-blog-one-header-desktop-menu ul li a[aria-current="page"] {
-    color: #f93601 !important;
-}
-
-.rb-blog-one-logged-header-menu li a,
-.rb-blog-one-unset-header-menu li a {
-    color: #f93601 !important;
+    color: #f93601;
 }
 
 .rb-blog-one-header-desktop-menu ul li i {
     color: #fff;
     float: right;
-    height: 70px;
-    line-height: 70px;
+    height: 54px;
+    line-height: 54px;
     text-align: center;
     width: 40px;
-    margin-left: -20px;
+    background-color: #f93601;
+    cursor: pointer;
 }
 
 .rb-blog-one-header-desktop-menu ul li ul {
@@ -399,7 +404,8 @@ a:hover {
     z-index: 9;
 }
 
-.rb-blog-one-header-desktop-menu ul li:hover > ul {
+.rb-blog-one-header-desktop-menu ul li:hover > ul,
+.rb-blog-one-header-desktop-menu ul li a:focus + ul {
     left: 0;
 }
 
@@ -407,10 +413,6 @@ a:hover {
     float: none;
     border-bottom: 1px solid #555;
     position: relative;
-}
-
-.rb-blog-one-header-desktop-menu ul li ul li:last-child {
-    border-bottom: none;
 }
 
 .rb-blog-one-header-desktop-menu ul li ul li:hover ul {

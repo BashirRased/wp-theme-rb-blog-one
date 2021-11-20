@@ -4,14 +4,14 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.1
+ * @since RB Blog One 1.1.2
  */
 ?>
 
 <!--==================================
 ===== Header Top Area Start Here =====
 ===================================-->
-<div class="rb-blog-one-header-top">
+<div class="rb-blog-one-header-top" id="content">
     <div class="container">
         <div class="row">
 

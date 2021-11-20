@@ -4,11 +4,11 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.1
+ * @since RB Blog One 1.1.2
  */
 
 // Prefix With File Directory
-define('RB_BLOG_ONE_VERSION','1.1.1');
+define('RB_BLOG_ONE_VERSION','1.1.2');
 define('RB_BLOG_ONE_WP_CSS',get_stylesheet_uri());
 define('RB_BLOG_ONE_URL',get_template_directory_uri());
 define('RB_BLOG_ONE_CSS',RB_BLOG_ONE_URL.'/assets/css/');
@@ -120,7 +120,7 @@ add_action('after_setup_theme','rb_blog_one_theme_setup');
 // Include CSS & JS Files
 function rb_blog_one_css_js_files_add(){
     
-    // Google Font v1.1.1
+    // Google Font v1.1.2
 	wp_enqueue_style('google-fonts','//fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap','',RB_BLOG_ONE_VERSION,'all');
     
     // Font Awesome v5.14.0
@@ -150,12 +150,12 @@ function rb_blog_one_css_js_files_add(){
 	wp_enqueue_script('rb-blog-one-respond-js',RB_BLOG_ONE_JS.'respond-1.4.2.js',array(),'1.4.2',false);
 	wp_script_add_data('rb-blog-one-respond-js','conditional','lt IE 9');
     
-    // Comment Reply v1.1.1    
+    // Comment Reply v1.1.2    
     if ((! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script('comment-reply');
 	}
     
-    // Template CSS & JS v1.1.1
+    // Template CSS & JS v1.1.2
 	wp_enqueue_style('rb-blog-one-style',RB_BLOG_ONE_CSS.'style.css','',RB_BLOG_ONE_VERSION,'all');
 
     wp_enqueue_style('rb-blog-one-responsive',RB_BLOG_ONE_CSS.'responsive.css','',RB_BLOG_ONE_VERSION,'all');

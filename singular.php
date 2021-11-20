@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.1
+ * @since RB Blog One 1.1.2
  */
 
 get_header();

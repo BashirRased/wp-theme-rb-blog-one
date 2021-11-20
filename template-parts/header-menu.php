@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.1
+ * @since RB Blog One 1.1.2
  */
 ?>
 
@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <nav class="rb-blog-one-header-desktop-menu">
+                <nav id="site-navigation" class="rb-blog-one-header-desktop-menu">
                     <?php
                     if (has_nav_menu('header_menu')) {
                         wp_nav_menu(array(

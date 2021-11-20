@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.1
+ * @since RB Blog One 1.1.2
  */
 
 /* translators: Used between list items, there is a space after the comma. */
@@ -40,7 +40,7 @@ if ($rb_blog_one_categories_list) {
         <i class="fas fa-clock"></i>
         <?php $rb_blog_one_archive_year  = get_the_time('Y'); $rb_blog_one_archive_month = get_the_time('m'); 
         $rb_blog_one_archive_day   = get_the_time('d'); ?>       
-        <a href='esc_url( get_day_link( $rb_blog_one_archive_year, $rb_blog_one_archive_month, $rb_blog_one_archive_day) )'>
+        <a href="<?php echo esc_url(get_day_link( $rb_blog_one_archive_year, $rb_blog_one_archive_month, $rb_blog_one_archive_day)); ?>">
            <?php echo get_the_date("j F Y"); ?>
         </a>
         
