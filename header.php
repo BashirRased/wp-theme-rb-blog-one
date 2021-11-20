@@ -8,7 +8,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.0
+ * @since RB Blog One 1.1.1
  */
 
 ?>
@@ -28,6 +28,7 @@
 
     <?php get_template_part('template-parts/preloader'); ?>
 
+    <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#content"><?php echo esc_html ( 'Skip to content', 'rb-blog-one' ); ?></a>
 
     <?php get_template_part('template-parts/header-top'); ?>

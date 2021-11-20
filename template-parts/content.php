@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.0
+ * @since RB Blog One 1.1.1
  */
 ?>
 
@@ -38,15 +38,17 @@
 
                         <?php get_template_part('template-parts/post-meta'); ?>
 
+                        <?php $rb_blog_one_excerpt = get_the_excerpt();
+                        if (!empty($rb_blog_one_excerpt)): ?>
                         <div class="rb-blog-one-post-excerpt">
                             <?php the_excerpt(); ?>
                         </div>
-
                         <div class="rb-blog-one-post-read-btn">
                             <a href="<?php the_permalink();?>">
                                 <?php echo esc_html__('read more','rb-blog-one');?>
                             </a>
                         </div>
+                        <?php endif; ?>
 
                     </div>
                     <!--===== Single Blog Post Content Area End Here =====-->

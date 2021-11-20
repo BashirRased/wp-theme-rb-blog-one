@@ -8,7 +8,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.0
+ * @since RB Blog One 1.1.1
  */
 ?>
 
@@ -64,6 +64,8 @@
 <!--===================================
 ===== Scroll To Top Area End Here =====
 ====================================-->
+
+    </div>
 
 <?php wp_footer();?>
 </body>
