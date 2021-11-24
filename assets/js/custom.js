@@ -2,7 +2,7 @@
 Theme Name: RB Blog One
 Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.1.2
+Version: 1.1.3
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -90,17 +90,13 @@ Table of JS Content End Here
         /*===============================================================
         ===== 04. Class Add With Dropdown Menu Item jQuery End Here =====
         ===============================================================*/
-
+        
         /*================================================================
         ===== 05. Icon Add With Dropdown Menu Item jQuery Start Here =====
         ================================================================*/
-        $(".rb-blog-one-header-desktop-menu .rb-blog-one-dropdown-menu").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
+        $(".rb-blog-one-dropdown-menu").siblings("a").append('<i class="fas fa-chevron-down"></i>');
 
-        if ($(window).width() > 991) {
-            $(".rb-blog-one-header-desktop-menu .rb-blog-one-multi-dropdown-menu").siblings("a").parent("li").prepend('<i class="fas fa-chevron-right"></i>');
-        } else {
-            $(".rb-blog-one-header-desktop-menu .rb-blog-one-multi-dropdown-menu").siblings("a").parent("li").prepend('<i class="fas fa-chevron-down"></i>');
-        }
+        $(".rb-blog-one-multi-dropdown-menu").siblings("a").append('<i class="fas fa-chevron-right"></i>');
         /*==============================================================
         ===== 05. Icon Add With Dropdown Menu Item jQuery End Here =====
         ==============================================================*/
@@ -108,16 +104,17 @@ Table of JS Content End Here
         /*===========================================
         ===== 06. Mobile Menu jQuery Start Here =====
         ===========================================*/
-        $(".rb-blog-one-mobile-menu").click(function (event) {
+        $('.rb-blog-one-mobile-menu').on("click", function (event) {
             event.preventDefault();
-            $(".rb-blog-one-header-menu").slideToggle();
+            $('.rb-blog-one-header-desktop-menu').toggleClass('rb-blog-one-menu-open');
         });
 
-        $(".rb-blog-one-header-desktop-menu i").click(function (event) {
-            event.preventDefault();
-            $(this).siblings("ul").slideToggle();
-        });
+        $(".menu-item-has-children").children("a").append('<button><i class="fas fa-chevron-down"></i></button>');
 
+        $('.menu-item-has-children button').on("click", function (event) {
+            event.preventDefault();
+            $(this).parent("a").siblings("ul").toggleClass('rb-blog-one-dropdown-menu-open');
+        });
         /*=========================================
         ===== 06. Mobile Menu jQuery End Here =====
         =========================================*/

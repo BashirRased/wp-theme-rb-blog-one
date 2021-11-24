@@ -2,7 +2,7 @@
 Theme Name: RB Blog One
 Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.1.2
+Version: 1.1.3
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -28,8 +28,17 @@ Table of CSS Content End Here
 01. @media (min-width: 992px) CSS Content Start Here
 ==================================================*/
 @media (min-width: 992px) {
-    .rb-blog-one-header-menu {
-        display: block !important;
+
+    .rb-blog-one-header-desktop-menu ul li:hover > ul,
+    .rb-blog-one-header-desktop-menu ul li:focus-within > ul,
+    .rb-blog-one-header-desktop-menu ul li a:focus + ul {
+        left: 0;
+    }
+
+    .rb-blog-one-header-desktop-menu ul li ul li:hover > ul,
+    .rb-blog-one-header-desktop-menu ul li ul li:focus-within > ul {
+        left: 100%;
+        top: 0;
     }
 }
 
@@ -54,8 +63,21 @@ Table of CSS Content End Here
         display: block;
     }
 
-    .rb-blog-one-header-menu {
+    .menu-item-has-children a > i {
         display: none;
+    }
+
+    .menu-item-has-children a button {
+        display: block;
+    }
+
+    .rb-blog-one-header-desktop-menu {
+        display: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .rb-blog-one-header-desktop-menu.rb-blog-one-menu-open {
+        display: block;
     }
 
     .rb-blog-one-header-desktop-menu ul li {
@@ -71,8 +93,8 @@ Table of CSS Content End Here
         border-bottom: none;
     }
 
-    .rb-blog-one-header-desktop-menu ul li:hover ul {
-        position: static;
+    .rb-blog-one-dropdown-menu-open {
+        position: static !important;
     }
 
     .rb-blog-one-breadcrumbs-left {

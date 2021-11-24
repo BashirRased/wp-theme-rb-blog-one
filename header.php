@@ -8,7 +8,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.2
+ * @since RB Blog One 1.1.3
  */
 
 ?>
@@ -69,7 +69,6 @@
     ==================================-->
 
     <?php
-        get_template_part('template-parts/header-mobile-menu');
         get_template_part('template-parts/header-menu');
         get_template_part('template-parts/breadcrumbs');
     ?>
