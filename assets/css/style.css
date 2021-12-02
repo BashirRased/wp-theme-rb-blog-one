@@ -2,7 +2,7 @@
 Theme Name: RB Blog One
 Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.1.3
+Version: 1.1.4
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
@@ -32,7 +32,6 @@ Table of CSS Content Start Here
 	13. Widget
 	14. Footer
 	15. Scroll To Top
-    16. woocommerce shop page
 =============================
 Table of CSS Content End Here
 ===========================*/
@@ -80,9 +79,12 @@ a {
 	text-decoration: none;
 }
 
-a:hover,
-a:focus {
+a:hover {
     text-decoration: underline;
+}
+
+a:focus {
+    text-decoration: 2px dashed underline;
 }
 
 /*==================================== 
@@ -1123,6 +1125,13 @@ a:focus {
     padding: 15px !important;
 }
 
+.wp-block-search .wp-block-search__button {
+    background-color: #f93601;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}
+
 /*================================== 
 ===== 13. Widget Area End Here =====
 ==================================*/
@@ -1178,211 +1187,3 @@ a:focus {
 /*========================================= 
 ===== 15. Scroll To Top Area End Here =====
 =========================================*/
-
-/*=================================================== 
-===== 16. Woocommerce Shop Page Area Start Here =====
-===================================================*/
-.rb-blog-one-shop-area .product {
-    padding: 20px 15px 15px !important;
-    background-color: #fff;
-    border: 1px solid #c1c1c1;
-}
-
-.rb-blog-one-shop-area .woocommerce-loop-product__title {
-    color: #212121;
-}
-
-.rb-blog-one-shop-area .add_to_cart_button {
-    background-color: #f93601 !important;
-    color: #fff !important;
-}
-
-.rb-blog-one-shop-area .woocommerce-Price-amount {
-    color: #f93601;
-}
-
-.rb-blog-one-shop-area del .woocommerce-Price-amount {
-    opacity: 1;
-    color: #555;
-}
-
-/*================================================= 
-===== 16. Woocommerce Shop Page Area End Here =====
-=================================================*/
-
-#tab-description p {
-    color: #555;
-}
-
-.rb-blog-one-shop-area #comment {
-    border: 1px solid #c1c1c1;
-    min-height: 100px;
-    padding: 10px;
-}
-
-.rb-blog-one-cart-content #coupon_code {
-    width: 110px !important;
-}
-
-.return-to-shop a,
-.coupon button,
-.single_add_to_cart_button,
-.form-submit #submit {
-    color: #fff !important;
-    background-color: #f93601 !important;
-}
-
-.checkout-button,
-#place_order {
-    background-color: #f93601 !important;
-}
-
-.woocommerce-message,
-.woocommerce-info {
-    border-top-color: #f93601 !important;
-}
-
-.woocommerce-message::before,
-.woocommerce-info::before {
-    color: #f93601 !important;
-}
-
-#customer_details .col-1,
-#customer_details .col-2 {
-    float: none !important;
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-.rb-blog-one-checkout-content .woocommerce-billing-fields__field-wrapper p,
-.rb-blog-one-checkout-content .woocommerce-billing-fields__field-wrapper span,
-.rb-blog-one-checkout-content .woocommerce-input-wrapper {
-    width: 100% !important;
-}
-
-.rb-blog-one-checkout-content .woocommerce-billing-fields__field-wrapper input,
-.rb-blog-one-checkout-content #order_comments {
-    padding: 10px !important;
-    border: 1px solid #c1c1c1 !important;
-}
-
-.rb-blog-one-checkout-content .woocommerce-billing-fields__field-wrapper input:focus,
-.rb-blog-one-checkout-content #order_comments:focus {
-    border: 1px solid #f93601 !important;
-}
-
-.rb-blog-one-checkout-content #order_comments:focus {
-    min-height: 200px !important;
-}
-
-.select2-selection__arrow b {
-    left: 95% !important;
-}
-
-.attachment-woocommerce_thumbnail {
-    float: none !important;
-}
-
-.woocommerce-order-overview li {
-    width: 100% !important;
-    float: none !important;
-    padding: 10px !important;
-    margin: 0 0 10px !important;
-    border: 1px solid #c1c1c1 !important;
-}
-
-.woocommerce-thankyou-order-received {
-    color: green !important;
-}
-
-.woocommerce-product-gallery__image {
-    margin: 0 10px 10px 0;
-}
-
-.woocommerce-pagination ul {
-    border: none !important;
-}
-
-.woocommerce-pagination li {
-    margin: 0 10px 10px 0 !important;
-    border-right: none !important;
-    text-align: center;
-}
-
-.woocommerce-pagination li a,
-.woocommerce-pagination li span,
-.woocommerce-pagination li a:hover,
-.woocommerce-pagination li span:hover {
-    background-color: #f93601 !important;
-    color: #fff !important;
-}
-
-.woocommerce-pagination li span.current {
-    background-color: #333 !important;
-    color: #fff !important;
-}
-
-.comment-form-author input,
-.comment-form-email input {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #c1c1c1;
-    margin-bottom: 20px;
-}
-
-.comment-form-author input:focus,
-.comment-form-email input:focus {
-    border: #f93601 !important;
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs li {
-    border: 1px solid #c1c1c1;
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs::before {
-    border-bottom: 1px solid #c1c1c1;
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-    background-color: #f93601;
-    color: #fff;
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs li {
-    background-color: #fff;
-}
-
-/*================================================ 
-===== 17. Woocommerce Widget Area Start Here =====
-================================================*/
-.woocommerce-product-search button {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    font-size: 14px;
-    background-color: #f93601;
-    color: #fff;
-    border: none;
-}
-
-.product-thumbnail .attachment-woocommerce_thumbnail {
-    width: 32px !important;
-}
-
-.attachment-woocommerce_thumbnail {
-    width: 100% !important;
-}
-
-.price_slider_amount .button {
-    background-color: #f93601 !important;
-    color: #fff !important;
-    margin-bottom: 10px !important;
-}
-
-/*============================================== 
-===== 17. Woocommerce Widget Area End Here =====
-==============================================*/

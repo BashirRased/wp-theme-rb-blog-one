@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.3
+ * @since RB Blog One 1.1.4
  */
 
 /* translators: Used between list items, there is a space after the comma. */

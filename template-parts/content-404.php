@@ -6,13 +6,13 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.3
+ * @since RB Blog One 1.1.4
  */
 
 ?>
 
 <!--===== Error Area Start Here =====-->
-<div class="rb-blog-one-error-area">
+<div class="rb-blog-one-error-area" id="content">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

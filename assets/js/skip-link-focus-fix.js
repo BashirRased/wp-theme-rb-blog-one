@@ -9,7 +9,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.3
+ * @since RB Blog One 1.1.4
  */
  ( function() {
 	var isIe = /(trident|msie)/i.test( navigator.userAgent );

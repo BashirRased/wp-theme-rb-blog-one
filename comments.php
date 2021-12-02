@@ -5,7 +5,7 @@
  *
  * @package WordPress
  * @subpackage RB Blog One
- * @since RB Blog One 1.1.3
+ * @since RB Blog One 1.1.4
  */
 
 /*
@@ -20,7 +20,7 @@ endif;
 
 if (comments_open() || pings_open()) : ?>
 
-<div class="rb-blog-one-comment-area">
+<div class="rb-blog-one-comment-area" id="rb-blog-one-comments">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
