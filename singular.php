@@ -2,8 +2,9 @@
 /**
  * The template for displaying single posts and pages.
  *
- * @package WordPress
+ * @package RB Free Theme
  * @subpackage RB Blog One
+ * @version RB Blog One 1.1.5
  * @since RB Blog One 1.1.4
  */
 

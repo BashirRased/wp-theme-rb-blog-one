@@ -2,14 +2,14 @@
 Theme Name: RB Blog One
 Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
 Text Domain: rb-blog-one
-Version: 1.1.4
+Version: 1.1.5
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
 Description: This is a personal free blog website theme.
 Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
 Author: Bashir Rased
-Author URI: http://bashir-rased.com/
+Author URI: https://profiles.wordpress.org/bashirrased2017/
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */

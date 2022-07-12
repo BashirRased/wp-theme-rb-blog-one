@@ -2,13 +2,14 @@
 /**
  * RB Blog One functions and definitions
  *
- * @package WordPress
+ * @package RB Free Theme
  * @subpackage RB Blog One
+ * @version RB Blog One 1.1.5
  * @since RB Blog One 1.1.4
  */
 
 // Prefix With File Directory
-define('RB_BLOG_ONE_VERSION','1.1.4');
+define('RB_BLOG_ONE_VERSION','1.1.5');
 define('RB_BLOG_ONE_WP_CSS',get_stylesheet_uri());
 define('RB_BLOG_ONE_URL',get_template_directory_uri());
 define('RB_BLOG_ONE_CSS',RB_BLOG_ONE_URL.'/assets/css/');
@@ -47,6 +48,21 @@ if ( !function_exists('rb_blog_one_theme_setup') ) {
 
         // Set content-width.
         $GLOBALS['content_width'] = apply_filters( 'rb_blog_one_content_width', 667 );
+
+        // Add support for editor styles.
+        add_theme_support( 'editor-styles' );
+
+        $editor_stylesheet_path = './assets/css/style-editor.css';
+
+		// Note, the is_IE global variable is defined by WordPress and is used
+		// to detect if the current browser is internet explorer.
+		global $is_IE;
+		if ( $is_IE ) {
+			$editor_stylesheet_path = './assets/css/ie-editor.css';
+		}
+
+		// Enqueue editor styles.
+		add_editor_style( $editor_stylesheet_path );
 
         // Force the editor styles to match the theme's UI.
         add_editor_style('/assets/css/style-editor.css');
@@ -118,102 +134,110 @@ if ( !function_exists('rb_blog_one_theme_setup') ) {
 add_action('after_setup_theme','rb_blog_one_theme_setup');
 
 // Include CSS & JS Files
-function rb_blog_one_css_js_files_add(){
+if ( !function_exists('rb_blog_one_css_js_files_add') ) {
+    function rb_blog_one_css_js_files_add(){
     
-    // Google Font v1.1.4
-	wp_enqueue_style('google-fonts','//fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap','',RB_BLOG_ONE_VERSION,'all');
+        // Google Font v1.1.4
+        wp_enqueue_style('google-font','//fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Roboto&display=swap','',RB_BLOG_ONE_VERSION,'all');
+        
+        // Font Awesome v6.1.1
+        wp_enqueue_style('font-awesome',RB_BLOG_ONE_CSS.'font-awesome-6.1.1.min.css','','6.1.1','all');
+        
+        // Bootstrap 5 v5.2.0
+        wp_enqueue_style('bootstrap',RB_BLOG_ONE_CSS.'bootstrap-5.2.0.min.css','','5.2.0','all');
+        wp_enqueue_script('popper',RB_BLOG_ONE_JS.'popper-2.11.5.js',array('jquery'),'2.11.5',true);
+        wp_enqueue_script('bootstrap',RB_BLOG_ONE_JS.'bootstrap-5.2.0.min.js',array('jquery'),'5.2.0',true);
+        
+        // Nicescroll v3.5.4
+        wp_enqueue_script('jquery-nicescroll',RB_BLOG_ONE_JS.'jquery.nicescroll-3.5.4.js',array('jquery'),'3.5.4',true);
+        
+        // Normalize v8.0.1
+        wp_enqueue_style('normalize',RB_BLOG_ONE_CSS.'normalize-8.0.1.css','','8.0.1','all');
+        
+        // Modernizr v2.8.3
+        wp_enqueue_script('modernizr',RB_BLOG_ONE_JS.'modernizr-2.8.3.js',array('jquery'),'2.8.3',true);
+        
+        // html5shiv-printshiv conditional js
+        wp_enqueue_script('html5shiv-printshiv',RB_BLOG_ONE_JS.'html5shiv-printshiv-3.7.3.js', array(),'3.7.3',false);
+        wp_script_add_data('html5shiv-printshiv','conditional','lt IE 9');
+        
+        // respond conditional js
+        wp_enqueue_script('respond',RB_BLOG_ONE_JS.'respond-1.4.2.js',array(),'1.4.2',false);
+        wp_script_add_data('respond','conditional','lt IE 9');
+        
+        // Comment Reply v1.1.4    
+        if ((! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+            wp_enqueue_script('comment-reply');
+        }
+        
+        // Template CSS & JS v1.1.4
+        wp_enqueue_style('rb-blog-one-style',RB_BLOG_ONE_CSS.'style.css','',RB_BLOG_ONE_VERSION,'all');
     
-    // Font Awesome v5.14.0
-	wp_enqueue_style('rb-blog-one-font-awesome',RB_BLOG_ONE_CSS.'font-awesome-5.14.0.css','','5.14.0','all');
-    wp_enqueue_style('rb-blog-one-font-awesome-brands',RB_BLOG_ONE_CSS.'font-awesome-brands-5.14.0.css','','5.14.0','all');
-    wp_enqueue_style('rb-blog-one-font-awesome-solid',RB_BLOG_ONE_CSS.'font-awesome-solid-5.14.0.css','','5.14.0','all');
+        wp_enqueue_style('rb-blog-one-responsive',RB_BLOG_ONE_CSS.'responsive.css','',RB_BLOG_ONE_VERSION,'all');
     
-    // Bootstrap 5 v4.5.0
-	wp_enqueue_style('rb-blog-one-bootstrap-css',RB_BLOG_ONE_CSS.'bootstrap-4.5.0.css','','4.5.0','all');
-    wp_enqueue_script('rb-blog-one-popper-js',RB_BLOG_ONE_JS.'popper-1.16.0.js',array('jquery'),'1.16.0',true);
-    wp_enqueue_script('rb-blog-one-bootstrap-js',RB_BLOG_ONE_JS.'bootstrap-4.5.0.js',array('jquery'),'4.5.0',true);
+        wp_enqueue_script( 'rb-blog-one-skip-link-focus-fix',RB_BLOG_ONE_JS.'skip-link-focus-fix.js', array(),RB_BLOG_ONE_VERSION,true);
     
-    // Nicescroll v3.5.4
-	wp_enqueue_script('rb-blog-one-nicescroll-js',RB_BLOG_ONE_JS.'jquery.nicescroll-3.5.4.js',array('jquery'),'3.5.4',true);
+        wp_enqueue_script('rb-blog-one-custom',RB_BLOG_ONE_JS.'custom.js',array('jquery'),RB_BLOG_ONE_VERSION,true);
     
-    // Normalize v8.0.1
-	wp_enqueue_style('rb-blog-one-normalize-css',RB_BLOG_ONE_CSS.'normalize-8.0.1.css','','8.0.1','all');
-    
-    // Modernizr v2.8.3
-	wp_enqueue_script('rb-blog-one-modernizr-js',RB_BLOG_ONE_JS.'modernizr-2.8.3.js',array('jquery'),'2.8.3',true);
-    
-    // html5shim conditional js
-	wp_enqueue_script('rb-blog-one-html5shim-js',RB_BLOG_ONE_JS.'html5shiv-printshiv-3.7.3.js', array(),'3.7.3',false);
-	wp_script_add_data('rb-blog-one-html5shim-js','conditional','lt IE 9');
-	
-    // respond conditional js
-	wp_enqueue_script('rb-blog-one-respond-js',RB_BLOG_ONE_JS.'respond-1.4.2.js',array(),'1.4.2',false);
-	wp_script_add_data('rb-blog-one-respond-js','conditional','lt IE 9');
-    
-    // Comment Reply v1.1.4    
-    if ((! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script('comment-reply');
-	}
-    
-    // Template CSS & JS v1.1.4
-	wp_enqueue_style('rb-blog-one-style',RB_BLOG_ONE_CSS.'style.css','',RB_BLOG_ONE_VERSION,'all');
-
-    wp_enqueue_style('rb-blog-one-responsive',RB_BLOG_ONE_CSS.'responsive.css','',RB_BLOG_ONE_VERSION,'all');
-
-    wp_enqueue_script( 'rb-blog-one-skip-link-focus-fix',RB_BLOG_ONE_JS.'skip-link-focus-fix.js', array(),RB_BLOG_ONE_VERSION,true);
-
-    wp_enqueue_script('rb-blog-one-custom',RB_BLOG_ONE_JS.'custom.js',array('jquery'),RB_BLOG_ONE_VERSION,true);
-
-	// Main Style
-	wp_enqueue_style('rb-blog-one-wp-stylesheet',RB_BLOG_ONE_WP_CSS,'',time(),'all');
-    
+        // Main Style
+        wp_enqueue_style('rb-blog-one-wp-stylesheet',RB_BLOG_ONE_WP_CSS,'',time(),'all');
+        
+    }
 }
 add_action('wp_enqueue_scripts','rb_blog_one_css_js_files_add');
 
 // widget register
-function rb_blog_one_sidebar_add(){
-	register_sidebar(array(
-		'name' 			=> __('Right Sidebar','rb-blog-one'),
-		'description' 	=> __('Add your Right Sidebar Widgets Here', 'rb-blog-one'),
-		'id' 			=> 'rb-blog-one-right-sidebar',
-		'before_widget' => '<div class="rb-blog-one-single-widget">',
-		'after_widget' 	=> '</div>',
-        'before_title' 	=> '<div class="rb-blog-one-widget-title"><h4>',
-		'after_title' 	=> '</h4></div>'
-	));
+if ( !function_exists('rb_blog_one_sidebar_add') ) {
+    function rb_blog_one_sidebar_add(){
+        register_sidebar(array(
+            'name' 			=> __('Right Sidebar','rb-blog-one'),
+            'description' 	=> __('Add your Right Sidebar Widgets Here', 'rb-blog-one'),
+            'id' 			=> 'rb-blog-one-right-sidebar',
+            'before_widget' => '<div class="rb-blog-one-single-widget">',
+            'after_widget' 	=> '</div>',
+            'before_title' 	=> '<div class="rb-blog-one-widget-title"><h4>',
+            'after_title' 	=> '</h4></div>'
+        ));
+    }
 }
 add_action('widgets_init', 'rb_blog_one_sidebar_add');
 
 // post excerpt text setup
-function rb_blog_one_excerpt_more($rb_blog_one_more) {
-    return false;
+if ( !function_exists('rb_blog_one_excerpt_more') ) {
+    function rb_blog_one_excerpt_more($rb_blog_one_more) {
+        return false;
+    }
 }
 add_filter( 'excerpt_more', 'rb_blog_one_excerpt_more' );
 
 // post excerpt words setup
-function rb_blog_one_custom_excerpt_length($rb_blog_one_length) {
-    return 20;
+if ( !function_exists('rb_blog_one_custom_excerpt_length') ) {
+    function rb_blog_one_custom_excerpt_length($rb_blog_one_length) {
+        return 20;
+    }
 }
 add_filter( 'excerpt_length', 'rb_blog_one_custom_excerpt_length', 999 );
 
 //Comment Field Order
-function rb_blog_one_comment_fields_custom_order( $rb_blog_one_fields ) {
-    $rb_blog_one_comment_field = $rb_blog_one_fields['comment'];
-    $rb_blog_one_author_field = $rb_blog_one_fields['author'];
-    $rb_blog_one_email_field = $rb_blog_one_fields['email'];
-    $rb_blog_one_cookies_field = $rb_blog_one_fields['cookies'];
-    unset( $rb_blog_one_fields['comment'] );
-    unset( $rb_blog_one_fields['author'] );
-    unset( $rb_blog_one_fields['email'] );
-    unset( $rb_blog_one_fields['url'] );
-    unset( $rb_blog_one_fields['cookies'] );
-    // the order of fields is the order below, change it as needed:
-    $rb_blog_one_fields['author'] = $rb_blog_one_author_field;
-    $rb_blog_one_fields['email'] = $rb_blog_one_email_field;
-    $rb_blog_one_fields['comment'] = $rb_blog_one_comment_field;
-    $rb_blog_one_fields['cookies'] = $rb_blog_one_cookies_field;
-    // done ordering, now return the fields:
-    return $rb_blog_one_fields;
+if ( !function_exists('rb_blog_one_comment_fields_custom_order') ) {
+    function rb_blog_one_comment_fields_custom_order( $rb_blog_one_fields ) {
+        $rb_blog_one_comment_field = $rb_blog_one_fields['comment'];
+        $rb_blog_one_author_field = $rb_blog_one_fields['author'];
+        $rb_blog_one_email_field = $rb_blog_one_fields['email'];
+        $rb_blog_one_cookies_field = $rb_blog_one_fields['cookies'];
+        unset( $rb_blog_one_fields['comment'] );
+        unset( $rb_blog_one_fields['author'] );
+        unset( $rb_blog_one_fields['email'] );
+        unset( $rb_blog_one_fields['url'] );
+        unset( $rb_blog_one_fields['cookies'] );
+        // the order of fields is the order below, change it as needed:
+        $rb_blog_one_fields['author'] = $rb_blog_one_author_field;
+        $rb_blog_one_fields['email'] = $rb_blog_one_email_field;
+        $rb_blog_one_fields['comment'] = $rb_blog_one_comment_field;
+        $rb_blog_one_fields['cookies'] = $rb_blog_one_cookies_field;
+        // done ordering, now return the fields:
+        return $rb_blog_one_fields;
+    }
 }
 add_filter( 'comment_form_fields', 'rb_blog_one_comment_fields_custom_order' );
 

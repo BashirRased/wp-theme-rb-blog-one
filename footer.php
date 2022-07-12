@@ -6,8 +6,9 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package WordPress
+ * @package RB Free Theme
  * @subpackage RB Blog One
+ * @version RB Blog One 1.1.5
  * @since RB Blog One 1.1.4
  */
 ?>

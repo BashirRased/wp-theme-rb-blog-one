@@ -3,39 +3,78 @@ Contributors: bashirrased
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.1.4
-Author URI: http://bashir-rased.com/
+Stable tag: 1.1.5
+Author URI: https://profiles.wordpress.org/bashirrased2017/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-== Installation ==
-1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
-2. Type in RB Blog One in the search form and press the 'Enter' key on your keyboard.
-3. Click on the 'Activate' button to use your new theme right away.
-4. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
 == Description ==
 This is a personal free blog website theme.
 Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
 
+== Installation ==
+1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
+2. Type in RB Blog One in the search form and press the 'Enter' key on your keyboard.
+3. Click on the 'Activate' button to use your new theme right away.
+
+== Frequently Asked Questions ==
+
+== Upgrade Notice ==
+
+== Resources ==
+
+= Font Awesome Free 6.1.1 =
+  - Author: @fontawesome
+  - License: (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+  - License URL: https://fontawesome.com/license/free
+  - Source: https://fontawesome.com
+  - Copyright 2022 Fonticons, Inc.
+
+= Bootstrap v5.1.3 =
+  - License: MIT
+  - License URL: https://github.com/twbs/bootstrap/blob/main/LICENSE
+  - Source: https://getbootstrap.com/
+  - Copyright 2011-2021 The Bootstrap Authors.
+  - Copyright 2011-2021 Twitter, Inc.
+
+= @popperjs/core v2.10.2 =
+- License: MIT
+
+= jquery.nicescroll v3.7.6 =
+  - Author: InuYaksa
+  - License: MIT
+  - Source: https://nicescroll.areaaperta.com
+
+= HTML5 Shiv 3.7.3 =
+  - @afarkas @jdalton @jon_neal @rem
+  - License: MIT/GPL2
+
+= Respond.js v1.4.2 =
+  - min/max-width media query polyfilll
+  - License: MIT
+  - License URL: https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT
+
+= normalize.css v8.0.1 =
+  - License: MIT
+  - Source: github.com/necolas/normalize.css
+
+= Modernizr 2.8.3 (Custom Build) =
+  - License: MIT & BSD
+  - Source: http://modernizr.com/download/  
+
+= Images =
+Image used in Screenshot
+License: Creative Commons Zero (CC0) license.
+License URL : https://www.pexels.com/license/
+Sources:
+https://www.pexels.com/photo/a-woman-using-her-laptop-7691707/
+https://www.pexels.com/photo/anonymous-female-employee-checking-information-on-computer-in-office-4491430/
+
 == Copyright ==
 RB Blog One WordPress Theme, Copyright 2019-2021 Bashir Rased.
 RB Blog One is distributed under the terms of the GNU GPL.
 
-== Resources ==
-* bootstrap-4.5.0.css © 2011-2020 Twitter, Inc., MIT, https://getbootstrap.com/
-* bootstrap-4.5.0.js © 2011-2020 Twitter, Inc., MIT, https://getbootstrap.com/
-* popper-1.16.0.js © Federico Zivolo 2019, MIT, http://opensource.org/licenses/MIT
+== Changelog ==
 
-* font-awesome-5.14.0.css @fontawesome, MIT, https://fontawesome.com
-* font-awesome-brands-5.14.0.css @fontawesome, MIT, https://fontawesome.com
-* font-awesome-solid-5.14.0.css @fontawesome, MIT, https://fontawesome.com
-
-* normalize-8.0.1.css, MIT, github.com/necolas/normalize.css
-* modernizr-2.8.3.js Custom Build, MIT, http://modernizr.com/download/
-* respond-1.4.2.js © 2013 Scott Jehl, MIT, https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT
-* html5shiv-printshiv-3.7.3.js, CC0
-
-* jquery.nicescroll-3.5.4.js InuYaksa, MIT, http://areaaperta.com/nicescroll
-
-* screenshot.png © Bashir Rased, CC0
+= 1.1.4 - December 2, 2021 =
+* Initial 1st Publish Version.
