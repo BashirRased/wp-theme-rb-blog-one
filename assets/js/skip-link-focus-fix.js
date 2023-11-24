@@ -3,14 +3,13 @@
  *
  * Helps with accessibility for keyboard only users.
  *
- * This is the source file for what is minified in the twentytwenty_skip_link_focus_fix() PHP function.
+ * This is the source file for what is minified in the rb_blog_one_focus_fix() PHP function.
  *
  * Learn more: https://git.io/vWdr2
  *
- * @package RB Free Theme
- * @subpackage RB Blog One
- * @version RB Blog One 1.1.5
- * @since RB Blog One 1.1.4
+ * @package RB Blog One
+ * @version RB Blog One 1.1.6
+ * @since RB Blog One 1.1.6
  */
  ( function() {
 	var isIe = /(trident|msie)/i.test( navigator.userAgent );

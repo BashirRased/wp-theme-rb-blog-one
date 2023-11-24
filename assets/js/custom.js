@@ -1,29 +1,29 @@
 /*
 Theme Name: RB Blog One
-Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
+Theme URI: https://bashirrased.com/theme/rb-blog-one/
 Text Domain: rb-blog-one
-Version: 1.1.5
-Requires at least: 5.3
-Tested up to: 5.8
+Version: 1.1.6
+Requires at least: 6.1
+Tested up to: 6.2
 Requires PHP: 5.6
-Description: This is a personal free blog website theme.
-Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
+Description: RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a WordPress theme specifically crafted for crafting professional blog websites. It is built upon the latest web technologies. Live Preview: https://bashirrased.com/theme/rb-blog-one/
+Tags: blog, custom-background, custom-logo, custom-menu, featured-images, full-width-template, right-sidebar, one-column, sticky-post, threaded-comments
 Author: Bashir Rased
-Author URI: https://profiles.wordpress.org/bashirrased2017/
+Author URI: https://bashirrased.com/
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+RB Blog One WordPress Theme, (C) 2021-2023 Bashir Rased.
+RB Blog One is distributed under the terms of the GNU GPL.
 */
 
 /*============================
 Table of JS Content Start Here
 ==============================
-	01.	Preloader
-	02. Nice Scrollbar
-    03. Link Smooth Effect
-    04. Class Add With Dropdown Menu Item
-    05. Icon Add With Dropdown Menu Item
-    06. Mobile Menu
-    07. Scroll to Top
+	01. Preloader
+	02. Header Memu
+    03. Nice Select
+    04. Scroll to Top
 ============================
 Table of JS Content End Here
 ==========================*/
@@ -35,103 +35,60 @@ Table of JS Content End Here
     ===== 01. Preloader jQuery Start Here =====
     =========================================*/
     $(window).on("load", function () {
-        $(".rb-blog-one-folding-cube").delay(700).fadeOut(),
+        $(".folding-cube").delay(700).fadeOut(),
+        setTimeout(function () {
             setTimeout(function () {
-                $("#rb-blog-one-preloader").addClass("rb-blog-one-loading-end"),
-                    setTimeout(function () {
-                        $("#rb-blog-one-preloader").hide()
-                    }, 1500)
-            }, 800)
+                $("#preloader").hide()
+            }, 1500)
+        }, 800)
     });
     /*=======================================
     ===== 01. Preloader jQuery End Here =====
     =======================================*/
 
-    $(document).ready(function () {        
-        
-        /*==============================================
-        ===== 02. Nice Scrollbar jQuery Start Here =====
-        ==============================================*/
-        $("body").niceScroll({
-            cursorwidth: 8,
-            cursorcolor: '#f93601',
-            cursorborder: "none",
-            cursorborderradius: 15,
-            zindex: 9999,
-            autohidemode: false,
-            cursorminheight: 200,
-        });
-        /*============================================
-        ===== 02. Nice Scrollbar jQuery End Here =====
-        ============================================*/
-
-        /*==================================================
-		===== 03. Link Smooth Effect jQuery Start Here =====
-		==================================================*/
-        $('.rb-blog-one-scroll-top a').on("click", function (event) {
-            event.preventDefault();
-            var anchor = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $(anchor.attr('href')).offset().top
-            }, 3000);           
-        });
-        /*================================================
-		===== 03. Link Smooth Effect jQuery End Here =====
-        ================================================*/
-
-        /*=================================================================
-        ===== 04. Class Add With Dropdown Menu Item jQuery Start Here =====
-        =================================================================*/
-        $(".sub-menu .sub-menu").addClass("rb-blog-one-multi-dropdown-menu");
-        $(".rb-blog-one-multi-dropdown-menu").removeClass("sub-menu");
-
-        $(".sub-menu").addClass("rb-blog-one-dropdown-menu");
-        $(".rb-blog-one-dropdown-menu").removeClass("sub-menu");
-        /*===============================================================
-        ===== 04. Class Add With Dropdown Menu Item jQuery End Here =====
-        ===============================================================*/
-        
-        /*================================================================
-        ===== 05. Icon Add With Dropdown Menu Item jQuery Start Here =====
-        ================================================================*/
-        $(".rb-blog-one-dropdown-menu").siblings("a").append('<i class="fas fa-chevron-down"></i>');
-
-        $(".rb-blog-one-multi-dropdown-menu").siblings("a").append('<i class="fas fa-chevron-right"></i>');
-        /*==============================================================
-        ===== 05. Icon Add With Dropdown Menu Item jQuery End Here =====
-        ==============================================================*/
+    $(document).ready(function () {
 
         /*===========================================
-        ===== 06. Mobile Menu jQuery Start Here =====
+        ===== 02. Header Memu jQuery Start Here =====
         ===========================================*/
-        $('.rb-blog-one-mobile-menu').on("click", function (event) {
-            event.preventDefault();
-            $('.rb-blog-one-header-desktop-menu').toggleClass('rb-blog-one-menu-open');
-        });
-
-        $(".menu-item-has-children").children("a").append('<button><i class="fas fa-chevron-down"></i></button>');
-
-        $('.menu-item-has-children button').on("click", function (event) {
-            event.preventDefault();
-            $(this).parent("a").siblings("ul").toggleClass('rb-blog-one-dropdown-menu-open');
-        });
+        $('.header-menu-container').meanmenu({
+			meanMenuContainer: '.header-menu-area .container',
+			meanScreenWidth: "991",
+			meanMenuOpen: '<span></span><span></span><span></span>',
+		});
         /*=========================================
-        ===== 06. Mobile Menu jQuery End Here =====
+        ===== 02. Header Memu jQuery End Here =====
         =========================================*/
 
-        /* ========================================
-        ===== 07. Scroll to Top JS Start Here =====
-        ======================================== */
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 500) {
-                $(".rb-blog-one-scroll-top").fadeIn();
-            } else {
-                $(".rb-blog-one-scroll-top").fadeOut();
-            }
-        });
-        /* ======================================
-        ===== 07. Scroll to Top JS End Here =====
-        ====================================== */
+        /*===========================================
+        ===== 03. Nice Select jQuery Start Here =====
+        ===========================================*/
+        $('select').niceSelect();
+        /*=========================================
+        ===== 03. Nice Select jQuery End Here =====
+        =========================================*/
+
+        /*=============================================
+        ===== 04. Scroll to Top jQuery Start Here =====
+        =============================================*/
+		/*===== 4.1 Scroll to Top Button Display =====*/
+		$(window).scroll(function(){		  
+			var scrollTopBtn = $(window).scrollTop();		  
+			if( scrollTopBtn > 100 ){
+				$(".scroll-to-top").fadeIn();
+			}else {
+				$(".scroll-to-top").fadeOut();
+			}
+		});
+		  
+		/*===== 4.2 Scroll to Top Button Clickable =====*/
+		$(".scroll-to-top").on('click', function(){
+			$("html, body").animate({'scrollTop' : 0}, 1500);
+			return false;
+		});	  
+		/*===========================================
+        ===== 04. Scroll to Top jQuery End Here =====
+        ===========================================*/
 
     });
 

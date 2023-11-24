@@ -1,159 +1,107 @@
 /*
 Theme Name: RB Blog One
-Theme URI: https://github.com/BashirRased/wp-theme-rb-blog-one
+Theme URI: https://bashirrased.com/theme/rb-blog-one/
 Text Domain: rb-blog-one
-Version: 1.1.5
-Requires at least: 5.3
-Tested up to: 5.8
+Version: 1.1.6
+Requires at least: 6.1
+Tested up to: 6.2
 Requires PHP: 5.6
-Description: This is a personal free blog website theme.
-Tags: one-column, blog, custom-logo, custom-menu, featured-images, right-sidebar
+Description: RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a WordPress theme specifically crafted for crafting professional blog websites. It is built upon the latest web technologies. Live Preview: https://bashirrased.com/theme/rb-blog-one/
+Tags: blog, custom-background, custom-logo, custom-menu, featured-images, full-width-template, right-sidebar, one-column, sticky-post, threaded-comments
 Author: Bashir Rased
-Author URI: https://profiles.wordpress.org/bashirrased2017/
+Author URI: https://bashirrased.com/
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+RB Blog One WordPress Theme, (C) 2021-2023 Bashir Rased.
+RB Blog One is distributed under the terms of the GNU GPL.
 */
 
 /*=============================
 Table of CSS Content Start Here
 ===============================
-	01. @media (min-width: 992px)-------------->Line 27
-	02. @media (max-width: 991px)-------------->Line 40
-	03. @media (max-width: 575px)-------------->Line 115
+	01. Default HTML CSS
+	02. Common Class CSS
+	03. Nice Select Customize CSS
+	04. Mean Menu Customize CSS
+	05. WordPress Core CSS
+	06. WordPress Widget CSS
+	07. WordPress Block CSS
+    08. Preloader CSS Area
+    09. Header Top CSS Area
+    10. Header Site Branding CSS Area
+    11. Header Menu CSS Area
+    12. Breadcrumbs CSS Area
+    13. Blog Item CSS Area
+    14. Blog Single Item CSS
+    15. Pagination CSS Area
+    16. Comment Template CSS Area
+    17. Error Page CSS Area
+    18. Footer CSS Area
+    19. Scroll To Top CSS Area
 =============================
 Table of CSS Content End Here
 ===========================*/
 
-/*==================================================
-01. @media (min-width: 992px) CSS Content Start Here
-==================================================*/
-@media (min-width: 992px) {
-
-    .rb-blog-one-header-desktop-menu ul li:hover > ul,
-    .rb-blog-one-header-desktop-menu ul li:focus-within > ul,
-    .rb-blog-one-header-desktop-menu ul li a:focus + ul {
-        left: 0;
-    }
-
-    .rb-blog-one-header-desktop-menu ul li ul li:hover > ul,
-    .rb-blog-one-header-desktop-menu ul li ul li:focus-within > ul {
-        left: 100%;
-        top: 0;
-    }
-}
-
-/*================================================
-01. @media (min-width: 992px) CSS Content End Here
-================================================*/
-
-/*==================================================
-02. @media (max-width: 991px) CSS Content Start Here
-==================================================*/
-@media (max-width: 991px) {
-    .rb-blog-one-header-top-left {
+@media only screen and (max-width: 991px) {
+    .header-top-area,
+    .site-branding-area,
+    .copyright-text,
+    .powered-by-text,
+    .breadcrumbs-title,
+    .breadcrumbs-right-area {
         text-align: center;
     }
 
-    .rb-blog-one-header-body-left {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .rb-blog-one-mobile-menu-area {
+    .site-branding-area,
+    .header-logo,
+    .site-title-and-tagline,
+    .breadcrumbs-right-area {
         display: block;
     }
 
-    .menu-item-has-children a > i {
+    .header-logo {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .header-menu .menu-item-has-children > a::after,
+    .header-menu .menu-item-has-children > a.submenu-item-link::after {
         display: none;
     }
 
-    .menu-item-has-children a button {
-        display: block;
+    .submenu {
+        background-color: var(--black-color);
     }
 
-    .rb-blog-one-header-desktop-menu {
-        display: none;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .rb-blog-one-header-desktop-menu.rb-blog-one-menu-open {
-        display: block;
-    }
-
-    .rb-blog-one-header-desktop-menu ul li {
-        float: none;
-    }
-
-    .rb-blog-one-header-desktop-menu ul li a {
-        display: block;
-        border-bottom: 1px solid #ffffff;
-    }
-
-    .rb-blog-one-header-desktop-menu ul li:last-child a {
+    .submenu li {
         border-bottom: none;
     }
 
-    .rb-blog-one-dropdown-menu-open {
-        position: static !important;
+    .submenu li:hover > .submenu, .submenu li:focus-within > .submenu {
+        left: 0;
+        top: 100%;
     }
 
-    .rb-blog-one-breadcrumbs-left {
-        text-align: center;
+    .submenu .submenu li {
+        border-left: none;
     }
 
-    .rb-blog-one-breadcrumbs-left h2 {
-        padding: 30px 0;
+    .breadcrumbs-right-area ul {
+        padding: 0;
     }
 
-    .rb-blog-one-breadcrumbs-right {
-        float: none !important;
-        text-align: center;
-    }
-
-    .rb-blog-one-breadcrumbs-right ul {
-        padding: 15px 0;
-    }
-
-    .rb-blog-one-sidebar-area {
-        margin-top: 20px;
-    }
-}
-
-/*================================================
-02. @media (max-width: 991px) CSS Content End Here
-================================================*/
-
-/*==================================================
-03. @media (max-width: 575px) CSS Content Start Here
-==================================================*/
-@media (max-width: 575px) {
-    .rb-blog-one-error-area h1 {
+    .error-page .page-header-title {
         font-size: 100px;
     }
 
-    .rb-blog-one-post-content blockquote {
-        margin-left: 0;
-    }
-
-    .rb-blog-one-post-content .wp-block-search {
-        margin: 20px 0 70px;
-    }
-
-    .rb-blog-one-post-content .wp-block-search button {
-        bottom: -50px;
-        width: 100%;
-    }
-    
-    .rb-blog-one-cart-content #coupon_code {
-        width: 100% !important;
-        margin-bottom: 5px;
-    }
-    
-    .rb-blog-one-cart-content .coupon button {
-        width: 100% !important;
+    .widget-area {
+        margin-top: 30px;
     }
 }
 
-/*================================================
-03. @media (max-width: 575px) CSS Content End Here
-================================================*/
+@media only screen and (max-width: 600px) {
+    .admin-bar header {
+        padding-top: 45px;
+    }
+}

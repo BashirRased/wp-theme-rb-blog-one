@@ -1,6 +1,7 @@
 <?php
 /**
- * The template for displaying single posts and pages.
+ * Template Name: Full Width Page
+ * Template Post Type: post, page
  *
  * @package RB Blog One
  * @version RB Blog One 1.1.6
@@ -17,7 +18,7 @@ get_header();
     <div class="container">
         <div class="row">
 
-        <div class="col-lg-8">
+        <div class="col-lg-12">
             <div class="content-area">
 
                 <main id="primary" class="site-main">
@@ -51,5 +52,5 @@ get_header();
             </div><!-- .content-area -->
         </div>
 
-        <?php get_sidebar();            
+<?php
 get_footer();

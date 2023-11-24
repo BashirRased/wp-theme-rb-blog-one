@@ -6,86 +6,69 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package RB Free Theme
- * @subpackage RB Blog One
- * @version RB Blog One 1.1.5
- * @since RB Blog One 1.1.4
+ * @package RB Blog One
+ * @version RB Blog One 1.1.6
+ * @since RB Blog One 1.1.6
  */
 
 ?>
-
 <!DOCTYPE html>
-<html <?php language_attributes();?>>
+<html class="no-js" <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="<?php bloginfo('charset');?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" >
+	<link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head();?>
 </head>
 
-<body <?php body_class();?> id="rb-blog-one-body">
-    <?php wp_body_open(); ?>
+<body <?php body_class();?>>
+<?php wp_body_open(); ?>
 
-    <?php get_template_part('template-parts/preloader'); ?>
+<div id="page" class="site">
+    <a class="skip-link screen-reader-text" href="#page-content">
+        <?php esc_html_e( 'Skip to content', 'rb-blog-one' ); ?>
+    </a>
 
-    <div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#content"><?php echo esc_html ( 'Skip to content', 'rb-blog-one' ); ?></a>
+<?php
+    // Preloader Template
+    if ( function_exists( 'rbth_preloader_custom' ) ) {
+        do_action( "rbth_preloader" );
+    } else {
+        get_template_part( 'template-parts/header/preloader' );
+    }
+?>
 
-    <?php get_template_part('template-parts/header-top'); ?>
-
-    <!--===================================
-    ===== Header Body Area Start Here =====
-    ====================================-->
-    <div class="rb-blog-one-header-body">
-        <div class="container">
-            <div class="row">
-
-                <!--===== Header Body Left Area Start Here =====-->
-                <div class="col-lg-12">
-                    <div class="rb-blog-one-header-body-left text-center">
-                        <?php
-                            if (has_custom_logo()) : ?>
-                        <div class="rb-blog-one-header-logo"><?php the_custom_logo(); ?></div>
-                        <?php endif; ?>
-                        <div class="rb-blog-one-header-title">
-                            <h1>
-                                <a href="<?php echo esc_url(home_url('/')); ?>">
-                                <?php bloginfo('name'); ?>
-                                </a>
-                            </h1>
-                            <p>
-                                <?php bloginfo('description'); ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--===== Header Body Left Area End Here =====-->
-
-            </div><!-- row end -->
-        </div><!-- container end -->
-    </div>
-    <!--=================================
-    ===== Header Body Area End Here =====
-    ==================================-->
-
+<!--==============================
+===== Header Area Start Here =====
+===============================-->
+<header class="site-header">
     <?php
-        get_template_part('template-parts/header-menu');
-        get_template_part('template-parts/breadcrumbs');
-    ?>
-    
-    <!--====================================
-    ===== Website Body Area Start Here =====
-    =====================================-->
-    <div class="rb-blog-one-website-body">
-        <div class="container">
-            <div class="row">
+        // Header Top Template
+        if ( function_exists( 'rbth_header_top_custom' ) ) {
+            do_action( "rbth_header_top" );
+        } else {
+            get_template_part( 'template-parts/header/header-top' );
+        }
+        
+        // Header Site Branding Template
+        if ( function_exists( 'rbth_site_braning_custom' ) ) {
+            do_action( "rbth_site_braning" );
+        } else {
+            get_template_part( 'template-parts/header/site-branding' );
+        }
 
-                <!--===== Website Body Left Area Start Here =====-->
-                <?php if (is_active_sidebar('rb-blog-one-right-sidebar')):
-                    $rb_blog_one_site = "col-lg-8";
-                else : 
-                    $rb_blog_one_site = "col-lg-12";
-                endif; ?>
-                
-                <div class="<?php echo wp_kses_post($rb_blog_one_site); ?>">       
+        // Header Menu Template
+        get_template_part( 'template-parts/header/header-menu' );
+
+        // Breadcrumbs Template
+        if ( function_exists( 'rbth_breadcrumbs_custom' ) ) {
+            do_action( "rbth_breadcrumbs" );
+        } else {
+            get_template_part( 'template-parts/header/breadcrumbs' );
+        }
+    ?>        
+</header>
+<!--============================
+===== Header Area End Here =====
+=============================-->
