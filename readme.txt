@@ -3,7 +3,7 @@ Contributors: bashirrased
 Requires at least: 5.3
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 Author URI: https://bashirrased.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -92,8 +92,11 @@ RB Blog One is distributed under the terms of the GNU GPL.
 
 == Changelog ==
 
-= 1.1.6 - December 2, 2021 =
+= 1.1.7 - June 26, 2023 =
 * Initial 1st Publish Version.
 
 = 1.1.5 - July 12, 2022 =
 * 1st Updated.
+
+= 1.1.4 - December 2, 2021 =
+* Initial 1st Publish Version.

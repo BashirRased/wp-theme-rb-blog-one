@@ -2,7 +2,7 @@
 Theme Name: RB Blog One
 Theme URI: https://bashirrased.com/theme/rb-blog-one/
 Text Domain: rb-blog-one
-Version: 1.1.6
+Version: 1.1.7
 Requires at least: 6.1
 Tested up to: 6.2
 Requires PHP: 5.6

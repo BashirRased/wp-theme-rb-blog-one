@@ -5,8 +5,8 @@
  * The template loading under functions.php
  *
  * @package RB Blog One
- * @version RB Blog One 1.1.6
- * @since RB Blog One 1.1.6
+ * @version RB Blog One 1.1.7
+ * @since RB Blog One 1.1.7
  */
 
 /*=====================================
@@ -34,7 +34,7 @@ function rb_blog_one_can_show_post_thumbnail() {
 	/**
 	 * Filters whether post thumbnail can be displayed.
 	 *
-	 * @since RB Blog One 1.1.6
+	 * @since RB Blog One 1.1.7
 	 *
 	 * @param bool $show_post_thumbnail Whether to show post thumbnail.
 	 */
@@ -53,7 +53,7 @@ if ( !function_exists( 'rb_blog_one_post_thumbnail_cutom' ) ) {
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 *
-	 * @since RB Blog One 1.1.6
+	 * @since RB Blog One 1.1.7
 	 *
 	 * @return void
 	 */
@@ -88,7 +88,7 @@ if ( !function_exists( 'rb_blog_one_author_meta_custom' ) ) {
     /**
 	 * Current author.
 	 *
-	 * @since RB Blog One 1.1.6
+	 * @since RB Blog One 1.1.7
 	 *
 	 * @return void
 	 */
@@ -109,7 +109,7 @@ if ( !function_exists( 'rb_blog_one_date_meta_custom' ) ) {
     /**
 	 * Current post date.
 	 *
-	 * @since RB Blog One 1.1.6
+	 * @since RB Blog One 1.1.7
 	 *
 	 * @return void
 	 */
@@ -138,7 +138,7 @@ if ( !function_exists( 'rb_blog_one_cat_meta_custom' ) ) {
     /**
 	 * Current post categories.
 	 *
-	 * @since RB Blog One 1.1.6
+	 * @since RB Blog One 1.1.7
 	 *
 	 * @return void
 	 */
@@ -161,7 +161,7 @@ if ( !function_exists( 'rb_blog_one_tag_meta_custom' ) ) {
     /**
 	 * Prints HTML with meta information for the current tags.
 	 *
-	 * @since RB Blog One 1.1.6
+	 * @since RB Blog One 1.1.7
 	 *
 	 * @return void
 	 */
@@ -186,7 +186,7 @@ if ( !function_exists( 'rb_blog_one_comments_meta_custom' ) ) {
 	/**
 	 * Current post comments.
 	 *
-	 * @since RB Blog One 1.1.6
+	 * @since RB Blog One 1.1.7
 	 *
 	 * @return void
 	 */
@@ -216,7 +216,7 @@ if ( !function_exists( 'rb_blog_one_edit_meta_custom' ) ) {
     /**
 	 * Current post edit.
 	 *
-	 * @since RB Blog One 1.1.6
+	 * @since RB Blog One 1.1.7
 	 *
 	 * @return void
 	 */

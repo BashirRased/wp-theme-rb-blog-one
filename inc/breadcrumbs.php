@@ -5,8 +5,8 @@
  * The file loading under functions.php
  *
  * @package RB Blog One
- * @version RB Blog One 1.1.6
- * @since RB Blog One 1.1.6
+ * @version RB Blog One 1.1.7
+ * @since RB Blog One 1.1.7
  */
 
 /*============================================

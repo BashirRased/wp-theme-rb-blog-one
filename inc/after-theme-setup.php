@@ -7,8 +7,8 @@
  * The file loading under functions.php
  *
  * @package RB Blog One
- * @version RB Blog One 1.1.6
- * @since RB Blog One 1.1.6
+ * @version RB Blog One 1.1.7
+ * @since RB Blog One 1.1.7
  */
 
 if ( ! function_exists( 'rb_blog_one_theme_setup' ) ) {
@@ -19,7 +19,7 @@ if ( ! function_exists( 'rb_blog_one_theme_setup' ) ) {
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 *
-	 * @since RB Blog One 1.1.6
+	 * @since RB Blog One 1.1.7
 	 *
 	 * @return void
 	 */
