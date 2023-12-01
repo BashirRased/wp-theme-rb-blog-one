@@ -2,16 +2,29 @@
 /**
  * The breadcrumbs template file loaded under header.php
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
+$breadcrumb = get_field( 'rbth_breadcrumb_acf' );
+$breadcrumb_img = "";
+$breadcrumb_img_array = "";
+if ( $breadcrumb == 'on' ) {
+    $breadcrumb_img_array = get_field( 'rbth_breadcrumb_img_acf' );
+    $breadcrumb_img = $breadcrumb_img_array['url'];
+}
+else {
+    if ( true == get_theme_mod ( 'rbth_breadcrumb_switch' ) && get_theme_mod ( 'rbth_breadcrumb_img' ) ) {
+        $breadcrumb_img = get_theme_mod ( 'rbth_breadcrumb_img' );
+    }
+    else {
+        $breadcrumb_img =  get_header_image();
+    }
+}
 ?>
 
 <!--===================================
 ===== Breadcrumbs Area Start Here =====
 ====================================-->
-<div class='breadcrumbs-area' style='background-image:url(<?php header_image(); ?>);'>
+<div class='breadcrumbs-area' style='background-image:url(<?php echo esc_url($breadcrumb_img); ?>);'>
     <div class='container'>
         <div class='row'>
 

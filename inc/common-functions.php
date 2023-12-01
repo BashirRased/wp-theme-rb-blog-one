@@ -4,19 +4,16 @@
  * 
  * The file loading under functions.php
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
 
 /*=======================================
 Table of Common Functions List Start Here
 =========================================
-	01. 01. Skip Link Focus
-	02. Post Excerpt Length
-	03. Header Menu Navwalker
-    04. Custom Comment Form
-    05. Custom Comment List
+	01. Skip Link Focus
+	02. Header Menu Navwalker
+    03. Custom Comment Form
+    04. Custom Comment List
 =======================================
 Table of Common Functions List End Here
 =====================================*/
@@ -44,23 +41,8 @@ if ( !function_exists( 'rb_blog_one_focus_fix' ) ) {
     add_action('wp_print_footer_scripts', 'rb_blog_one_focus_fix');
 }
 
-/**********************************
-***** 02. Post Excerpt Length *****
-**********************************/
-if ( !function_exists('rb_blog_one_custom_excerpt_length') ) {
-    function rb_blog_one_custom_excerpt_length( $length ) {
-		if ( is_admin() ) {
-			return $length;
-		}
-		else {
-			return absint(30);
-		}
-	}
-}
-add_filter( 'excerpt_length', 'rb_blog_one_custom_excerpt_length', 999 );
-
 /************************************
-***** 03. Header Menu Navwalker *****
+***** 02. Header Menu Navwalker *****
 ************************************/
 if ( !function_exists( 'rb_blog_one_header_menu_custom' ) ) {
 	/**
@@ -86,7 +68,7 @@ if ( !function_exists( 'rb_blog_one_header_menu_custom' ) ) {
 }
 
 /**********************************
-***** 04. Custom Comment Form *****
+***** 03. Custom Comment Form *****
 **********************************/
 function rb_blog_one_custom_comment_form( $fields ) {
     // What fields you want to control.
@@ -116,7 +98,7 @@ function rb_blog_one_custom_comment_form( $fields ) {
 add_filter( 'comment_form_fields', 'rb_blog_one_custom_comment_form' );
 
 /**********************************
-***** 05. Custom Comment List *****
+***** 04. Custom Comment List *****
 **********************************/
 if ( ! function_exists( 'rb_blog_one_comment_list' ) ) {
     function rb_blog_one_comment_list( $comment, $args, $depth ) {

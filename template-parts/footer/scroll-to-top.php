@@ -2,9 +2,7 @@
 /**
  * The file loading under footer.php
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
 ?>
 

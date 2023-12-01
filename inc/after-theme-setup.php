@@ -6,29 +6,16 @@
  * 
  * The file loading under functions.php
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
 
 if ( ! function_exists( 'rb_blog_one_theme_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 *
-	 * @since RB Blog One 1.1.7
-	 *
-	 * @return void
 	 */
     function rb_blog_one_theme_setup() {        
         /*
 		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Twenty Twenty-One, use a find and replace
-		 * to change 'rb-blog-one' to the name of your theme in all the template files.
 		 */
 		load_theme_textdomain( 'rb-blog-one', get_template_directory(). '/languages' );
 
@@ -37,8 +24,6 @@ if ( ! function_exists( 'rb_blog_one_theme_setup' ) ) {
 
         /*
 		 * Let WordPress manage the document title.
-		 * This theme does not use a hard-coded <title> tag in the document head,
-		 * WordPress will provide it for us.
 		 */
 		add_theme_support( 'title-tag' );
 

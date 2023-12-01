@@ -3,9 +3,7 @@
  * The template file for displaying the comments and comment form for the
  * RB Blog One theme.
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
  
 /*

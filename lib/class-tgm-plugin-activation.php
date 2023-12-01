@@ -8,7 +8,7 @@
  * or theme author for support.
  *
  * @package   TGM-Plugin-Activation
- * @version   2.6.1 for parent theme Bashir Rased for publication on WordPress.org
+ * @version   2.6.1 for parent theme Rb Blog One for publication on WordPress.org
  * @link      http://tgmpluginactivation.com/
  * @author    Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright Copyright (c) 2011, Thomas Griffin
@@ -41,7 +41,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 	 * The plugins can be either bundled, downloaded from the WordPress
 	 * Plugin Repository or downloaded from another external source.
 	 *
-	 * @since 1.1.9
+	 * @since 1.0.0
 	 *
 	 * @package TGM-Plugin-Activation
 	 * @author  Thomas Griffin
@@ -78,7 +78,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		/**
 		 * Holds a copy of itself, so it can be referenced by the class name.
 		 *
-		 * @since 1.1.9
+		 * @since 1.0.0
 		 *
 		 * @var TGM_Plugin_Activation
 		 */
@@ -87,7 +87,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		/**
 		 * Holds arrays of plugin details.
 		 *
-		 * @since 1.1.9
+		 * @since 1.0.0
 		 * @since 2.5.0 the array has the plugin slug as an associative key.
 		 *
 		 * @var array
@@ -133,7 +133,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		/**
 		 * Name of the query-string argument for the admin page.
 		 *
-		 * @since 1.1.9
+		 * @since 1.0.0
 		 *
 		 * @var string
 		 */
@@ -248,7 +248,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 * haven't upgraded beyond v2.3.6 yet, this gives backward compatibility issues.
 		 * Reverted back to public for the time being.}}
 		 *
-		 * @since 1.1.9
+		 * @since 1.0.0
 		 *
 		 * @see TGM_Plugin_Activation::init()
 		 */
@@ -597,7 +597,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 *
 		 * This page disappears once the plugin has been installed and activated.
 		 *
-		 * @since 1.1.9
+		 * @since 1.0.0
 		 *
 		 * @see TGM_Plugin_Activation::init()
 		 * @see TGM_Plugin_Activation::install_plugins_page()
@@ -646,7 +646,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 * This displays the admin page and form area where the user can select to install and activate the plugin.
 		 * Aborts early if we're processing a plugin installation action.
 		 *
-		 * @since 1.1.9
+		 * @since 1.0.0
 		 *
 		 * @return null Aborts early if we're processing a plugin installation action.
 		 */
@@ -692,7 +692,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 * Uses WP_Filesystem to process and handle the plugin installation
 		 * method.
 		 *
-		 * @since 1.1.9
+		 * @since 1.0.0
 		 *
 		 * @uses WP_Filesystem
 		 * @uses WP_Error
@@ -1012,7 +1012,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 *
 		 * Returns early if we're on the Install page.
 		 *
-		 * @since 1.1.9
+		 * @since 1.0.0
 		 *
 		 * @global object $current_screen
 		 *
@@ -2682,7 +2682,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 					<td colspan="', absint( $this->get_column_count() ), '" class="plugin-update colspanchange">
 						<div class="update-message">',
 							esc_html__( 'Upgrade message from the plugin author:', 'rb-blog-one' ),
-							' <strong>', wp_kses_post_data( $item['upgrade_notice'] ), '</strong>
+							' <strong>', wp_kses_data( $item['upgrade_notice'] ), '</strong>
 						</div>
 					</td>
 				</tr>';
@@ -3242,7 +3242,7 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 
 						/*
 						[TGMPA - ]
-						 ( $plugins as $plugin )
+						foreach ( $plugins as $plugin )
 							$maintenance = $maintenance || ( is_plugin_active( $plugin ) && isset( $current->response[ $plugin] ) );
 						*/
 						if ( $maintenance ) {
@@ -3294,7 +3294,7 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 							if ( false === $result ) {
 								break;
 							}
-						} //end  $plugins
+						} //end foreach $plugins
 
 						$this->maintenance_mode( false );
 

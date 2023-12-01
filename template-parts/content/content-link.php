@@ -6,6 +6,9 @@
  *
  * @package rb_blog_one
  */
+
+$link_file = "";
+$link_file = get_field( 'rbth_post_link' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post-item' ); ?>>
@@ -67,7 +70,17 @@
 
                 <?php if ( get_the_content() ) : ?>
                     <div class="entry-content">
-                        <?php the_content(); ?>
+                    <?php
+                    if( !empty( $link_file ) ):
+                        $link_url = $link_file['url'];
+                        $link_title = $link_file['title'];
+                        $link_target = $link_file['target'] ? $link_file['target'] : '_self';
+                    ?>
+                        <a class="link-post" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                    <?php the_content(); else :
+                        the_content();
+                    endif;                  
+                    ?>
                     </div>
                 <?php endif; ?>
 

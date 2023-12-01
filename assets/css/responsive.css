@@ -1,56 +1,20 @@
-/*
-Theme Name: RB Blog One
-Theme URI: https://bashirrased.com/theme/rb-blog-one/
-Text Domain: rb-blog-one
-Version: 1.1.7
-Requires at least: 6.1
-Tested up to: 6.2
-Requires PHP: 5.6
-Description: RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a WordPress theme specifically crafted for crafting professional blog websites. It is built upon the latest web technologies. Live Preview: https://bashirrased.com/theme/rb-blog-one/
-Tags: blog, custom-background, custom-logo, custom-menu, featured-images, full-width-template, right-sidebar, one-column, sticky-post, threaded-comments
-Author: Bashir Rased
-Author URI: https://bashirrased.com/
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-RB Blog One WordPress Theme, (C) 2021-2023 Bashir Rased.
-RB Blog One is distributed under the terms of the GNU GPL.
-*/
-
-/*=============================
-Table of CSS Content Start Here
-===============================
-	01. Default HTML CSS
-	02. Common Class CSS
-	03. Nice Select Customize CSS
-	04. Mean Menu Customize CSS
-	05. WordPress Core CSS
-	06. WordPress Widget CSS
-	07. WordPress Block CSS
-    08. Preloader CSS Area
-    09. Header Top CSS Area
-    10. Header Site Branding CSS Area
-    11. Header Menu CSS Area
-    12. Breadcrumbs CSS Area
-    13. Blog Item CSS Area
-    14. Blog Single Item CSS
-    15. Pagination CSS Area
-    16. Comment Template CSS Area
-    17. Error Page CSS Area
-    18. Footer CSS Area
-    19. Scroll To Top CSS Area
-=============================
-Table of CSS Content End Here
-===========================*/
-
 @media only screen and (max-width: 991px) {
     .header-top-area,
+    .header-site-title,
     .site-branding-area,
     .copyright-text,
     .powered-by-text,
     .breadcrumbs-title,
     .breadcrumbs-right-area {
         text-align: center;
+    }
+
+    .header-menu-area.header-fixed {
+        position: static;
+    }
+
+    .site-branding-area {
+        margin-bottom: 20px;
     }
 
     .site-branding-area,
@@ -97,6 +61,17 @@ Table of CSS Content End Here
 
     .widget-area {
         margin-top: 30px;
+    }
+
+    .footer-widget-list {
+        display: block;
+    }
+
+    .footer-widget-col-2 .footer-single-widget,
+    .footer-widget-col-3 .footer-single-widget,
+    .footer-widget-col-4 .footer-single-widget,
+    .footer-widget-col-5 .footer-single-widget {
+        width: 100%;
     }
 }
 

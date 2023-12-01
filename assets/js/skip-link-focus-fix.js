@@ -1,15 +1,10 @@
 /**
- * File skip-link-focus-fix.js.
- *
  * Helps with accessibility for keyboard only users.
  *
  * This is the source file for what is minified in the rb_blog_one_focus_fix() PHP function.
  *
  * Learn more: https://git.io/vWdr2
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
  */
  ( function() {
 	var isIe = /(trident|msie)/i.test( navigator.userAgent );

@@ -6,9 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
 
 ?>
@@ -32,10 +30,13 @@
 
 <?php
     // Preloader Template
-    if ( function_exists( 'rbth_preloader_custom' ) ) {
-        do_action( "rbth_preloader" );
-    } else {
+    $preloader = get_field( 'rbth_preloader_acf' );
+    if ( $preloader == 'on' ) {
         get_template_part( 'template-parts/header/preloader' );
+    } else {
+        if ( true == get_theme_mod ( 'rbth_preloader' ) ) {
+            get_template_part( 'template-parts/header/preloader' );
+        }
     }
 ?>
 
@@ -45,28 +46,30 @@
 <header class="site-header">
     <?php
         // Header Top Template
-        if ( function_exists( 'rbth_header_top_custom' ) ) {
-            do_action( "rbth_header_top" );
-        } else {
+        $header_top = get_field( 'rbth_header_top_acf' );
+        if ( $header_top == 'on' ) {
             get_template_part( 'template-parts/header/header-top' );
-        }
-        
-        // Header Site Branding Template
-        if ( function_exists( 'rbth_site_braning_custom' ) ) {
-            do_action( "rbth_site_braning" );
         } else {
-            get_template_part( 'template-parts/header/site-branding' );
+            if ( true == get_theme_mod ( 'rbth_header_top_switch' ) ) {
+                get_template_part( 'template-parts/header/header-top' );
+            }
         }
+
+        // Header Site Branding Template
+        get_template_part( 'template-parts/header/site-branding' );
 
         // Header Menu Template
         get_template_part( 'template-parts/header/header-menu' );
 
         // Breadcrumbs Template
-        if ( function_exists( 'rbth_breadcrumbs_custom' ) ) {
-            do_action( "rbth_breadcrumbs" );
-        } else {
+        $breadcrumb = get_field( 'rbth_breadcrumb_acf' );
+        if ( $breadcrumb == 'on' ) {
             get_template_part( 'template-parts/header/breadcrumbs' );
-        }
+        } else {
+            if ( true == get_theme_mod ( 'rbth_breadcrumb_switch' ) ) {
+                get_template_part( 'template-parts/header/breadcrumbs' );
+            }
+        }      
     ?>        
 </header>
 <!--============================

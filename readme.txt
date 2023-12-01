@@ -1,9 +1,9 @@
 === RB Blog One ===
 Contributors: bashirrased
-Requires at least: 5.3
-Tested up to: 5.8
-Requires PHP: 5.6
-Stable tag: 1.1.7
+Requires at least: 6.4
+Tested up to: 6.4
+Requires PHP: 7.0
+Stable tag: 1.1.8
 Author URI: https://bashirrased.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,21 +22,26 @@ RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a
 
 == Resources ==
 
-= Font Awesome Free 6.4.0 =
+= Font Awesome Free 6.4.2 =
   - Author: @fontawesome
   - License: (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
   - License URL: https://fontawesome.com/license/free
   - Source: https://fontawesome.com
   - Copyright: 2023 Fonticons, Inc.
 
-= Bootstrap v5.3.0-alpha3 =
+= Bootstrap  v5.3.2 =
   - License: MIT
   - License URL: https://github.com/twbs/bootstrap/blob/main/LICENSE
   - Source: https://getbootstrap.com/
   - Copyright: 2011-2023 The Bootstrap Authors
 
-= @popperjs/core v2.11.7 =
+= @popperjs/core v2.11.8 =
     - License: MIT
+
+= Swiper 11.0.4 =
+  - License: MIT
+  - Source: https://swiperjs.com
+  - Copyright: 2014-2023 Vladimir Kharlampidi
 
 = jQuery Nice Select - v1.1.0 =
   - License: MIT
@@ -51,6 +56,7 @@ RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a
 = HTML5 Shiv 3.7.3 =
   - @afarkas @jdalton @jon_neal @rem
   - License: MIT/GPL2
+  - Source: https://github.com/aFarkas/html5shiv
 
 = Respond.js v1.4.2 =
   - min/max-width media query polyfilll
@@ -62,16 +68,15 @@ RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a
   - Source: github.com/necolas/normalize.css
 
 = Modernizr v2.8.3 =
-  - License: MIT & BSD
+  - License: Available under the BSD and MIT
   - License URL: www.modernizr.com/license/
   - Source: www.modernizr.com
-  - Copyright: Faruk Ates, Paul Irish, Alex Sexton
+  - Copyright: (c) Faruk Ates, Paul Irish, Alex Sexton
 
 = TGM Plugin Activation =
-  [![GitHub license](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://raw.githubusercontent.com/TGMPA/TGM-Plugin-Activation/develop/LICENSE.md)
-	[![Build Status](https://travis-ci.org/TGMPA/TGM-Plugin-Activation.svg?branch=develop)](https://travis-ci.org/TGMPA/TGM-Plugin-Activation)
-	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/TGMPA/TGM-Plugin-Activation/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/TGMPA/TGM-Plugin-Activation/?branch=develop)
-
+  - License: GPL-2.0
+  - License URL: https://raw.githubusercontent.com/TGMPA/TGM-Plugin-Activation/develop/LICENSE.md
+  
 = Bootstrap NavWalker =
   - License: GPL-3.0+
   - License URL: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -80,11 +85,9 @@ RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a
 
 = Images =
 Image used in Screenshot
-License: Creative Commons Zero (CC0) license.
-License URL : https://www.pexels.com/license/
-Sources:
-https://www.pexels.com/photo/a-woman-using-her-laptop-7691707/
-https://www.pexels.com/photo/anonymous-female-employee-checking-information-on-computer-in-office-4491430/
+https://www.pexels.com/photo/people-at-concert-1105666/
+https://www.pexels.com/photo/man-in-white-shirt-sitting-on-chair-3966781/
+
 
 == Copyright ==
 RB Blog One WordPress Theme, Copyright 2021-2023 Bashir Rased.
@@ -92,8 +95,17 @@ RB Blog One is distributed under the terms of the GNU GPL.
 
 == Changelog ==
 
+= 1.1.8 - November 19, 2023 =
+* 4th Updated.
+* css & js latest version add
+* theme options add
+* custom post meta add
+
 = 1.1.7 - June 26, 2023 =
-* Initial 1st Publish Version.
+* 3rd Updated only readme.txt file.
+
+= 1.1.6 - June 26, 2023 =
+* 2nd Updated full theme.
 
 = 1.1.5 - July 12, 2022 =
 * 1st Updated.

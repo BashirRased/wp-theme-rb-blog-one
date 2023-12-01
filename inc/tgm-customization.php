@@ -4,12 +4,10 @@
  * 
  * The template loading under functions.php
  * 
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
  
-function rb_blog_one_required_plugins() {
+function rb_blog_one_plugins() {
 
 	$plugins = array(
 
@@ -17,6 +15,27 @@ function rb_blog_one_required_plugins() {
 		array(
 			'name'      => __( 'Breadcrumb NavXT', 'rb-blog-one' ),
 			'slug'      => 'breadcrumb-navxt',
+			'recommend'  => true,
+		),
+
+		// Kirki Customizer Framework
+		array(
+			'name'      => __( 'Kirki Customizer Framework', 'rb-blog-one' ),
+			'slug'      => 'kirki',
+			'recommend'  => true,
+		),
+
+		// Advanced Custom Fields (ACF)
+		array(
+			'name'      => __( 'Advanced Custom Fields (ACF)', 'rb-blog-one' ),
+			'slug'      => 'advanced-custom-fields',
+			'recommend'  => true,
+		),
+
+		// Download
+		array(
+			'name'      => __( 'Advanced Ads – Ad Manager & AdSense', 'rb-blog-one' ),
+			'slug'      => 'advanced-ads',
 			'recommend'  => true,
 		),
 
@@ -38,4 +57,4 @@ function rb_blog_one_required_plugins() {
 	tgmpa( $plugins, $config );
 
 }
-add_action( 'tgmpa_register', 'rb_blog_one_required_plugins' );
+add_action( 'tgmpa_register', 'rb_blog_one_plugins' );

@@ -3,9 +3,7 @@
  * Template Name: Full Width Page
  * Template Post Type: post, page
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
 
 get_header();

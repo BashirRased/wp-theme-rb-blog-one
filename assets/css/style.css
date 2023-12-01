@@ -1,662 +1,30 @@
-/*
-Theme Name: RB Blog One
-Theme URI: https://bashirrased.com/theme/rb-blog-one/
-Text Domain: rb-blog-one
-Version: 1.1.7
-Requires at least: 6.1
-Tested up to: 6.2
-Requires PHP: 5.6
-Description: RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a WordPress theme specifically crafted for crafting professional blog websites. It is built upon the latest web technologies. Live Preview: https://bashirrased.com/theme/rb-blog-one/
-Tags: blog, custom-background, custom-logo, custom-menu, featured-images, full-width-template, right-sidebar, one-column, sticky-post, threaded-comments
-Author: Bashir Rased
-Author URI: https://bashirrased.com/
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-RB Blog One WordPress Theme, (C) 2021-2023 Bashir Rased.
-RB Blog One is distributed under the terms of the GNU GPL.
+/***** Table of CSS Content ****
+--------------------------------
+    01. Preloader
+    02. Header Top
+    03. Header Site Branding
+    04. Header Menu
+    05. Breadcrumbs
+    06. Blog Item
+    07. Blog Single Item
+    08. Pagination
+    09. Comment Template
+    10. Error Page
+    11. Footer
+    12. Scroll To Top
 */
 
-/*=============================
-Table of CSS Content Start Here
-===============================
-	01. Default HTML CSS
-	02. Common Class CSS
-	03. Nice Select Customize CSS
-	04. Mean Menu Customize CSS
-	05. WordPress Core CSS
-	06. WordPress Widget CSS
-	07. WordPress Block CSS
-    08. Preloader CSS Area
-    09. Header Top CSS Area
-    10. Header Site Branding CSS Area
-    11. Header Menu CSS Area
-    12. Breadcrumbs CSS Area
-    13. Blog Item CSS Area
-    14. Blog Single Item CSS
-    15. Pagination CSS Area
-    16. Comment Template CSS Area
-    17. Error Page CSS Area
-    18. Footer CSS Area
-    19. Scroll To Top CSS Area
-=============================
-Table of CSS Content End Here
-===========================*/
-
-/*=========================================
-===== 01. Default HTML CSS Start Here =====
-=========================================*/
-:root {
-    --primary-color: #f93601;    
-    --dark-grey: #333333;
-    --light-grey: #eeeeee;
-    --grey-text: #777777;
-    --border-color: #c1c1c1;
-    --black-color: #000000;
-    --white-color: #ffffff;
-	--transition: all 0.3s ease-out 0s;
-    --body-font: 'Roboto', sans-serif;
-    --body-font-weight: 400;
-    --heading-font: 'Josefin Sans', sans-serif;
-    --heading-font-weight: 700;
-    --h1-font-size: 40px;
-    --h2-font-size: 35px;
-    --h3-font-size: 30px;
-    --h4-font-size: 25px;
-    --h5-font-size: 22px;
-    --h6-font-size: 20px;
-    --p-font-size: 16px;
-}
-
-blockquote {
-    padding: 15px;
-    padding-left: 40px;
-	background-color: var(--light-grey);
-}
-
-blockquote::before {
-	content: '\f10d';
-	font-family: "FontAwesome";
-	font-size: 30px;
-	color: var(--primary-color);
-	opacity: 0.5;
-	left: 10px;
-	top: 2px;
-}
-
-button {
-    color: var(--primary-color);
-    border-color: 1px solid var(--primary-color);
-    border-radius: 5px;
-}
-
-button:hover,
-button:focus {
-    color: var(--white-color);
-    background-color: var(--primary-color);
-}
-/*=======================================
-===== 01. Default HTML CSS End Here =====
-=======================================*/
-
-/*=========================================
-===== 02. Common Class CSS Start Here =====
-=========================================*/
-.theme-btn {
-    display: inline-block;
-    color: var(--primary-color);
-    text-transform: capitalize;
-    text-align: center;
-    width: 140px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 5px;
-    border: 1px solid var(--primary-color);
-    background-color: transparent;
-}
-
-.theme-btn:hover,
-.theme-btn:focus {
-    color: var(--white-color);
-    background-color: var(--primary-color);
-}
-/*=========================================
-===== 02. Common Class CSS Start Here =====
-=========================================*/
-
-/*==================================================
-===== 03. Nice Select Customize CSS Start Here =====
-==================================================*/
-.nice-select {
-	padding-left: 30px;
-}
-
-.nice-select .option {
-	padding-left: 30px;
-}
-/*================================================
-===== 03. Nice Select Customize CSS End Here =====
-================================================*/
-
-/*================================================
-===== 04. Mean Menu Customize CSS Start Here =====
-================================================*/
-.mean-container .mean-bar {
-	padding: 0;
-	background-color: transparent;
-	min-height: 34px;
-	margin: 10px 0;
-}
-
-.mean-container .mean-nav {
-	margin-top: 54px;
-	background-color: transparent;
-}
-
-.mean-container a.meanmenu-reveal {
-	border: 1px solid var(--primary-color);
-}
-
-.mean-container a.meanmenu-reveal span {
-	background-color: var(--primary-color);
-}
-
-.mean-container a.meanmenu-reveal:hover span,
-.mean-container a.meanmenu-reveal:focus span {
-	background-color: var(--white-color);
-}
-
-.mean-container .mean-nav ul li a:hover,
-.mean-container .mean-nav ul li a:focus {
-	color: var(--primary-color);
-	background-color: transparent;
-}
-
-.mean-container .mean-nav ul li a.mean-expand {
-    color: var(--primary-color);
-	background-color: transparent;
-    height: 20px;
-    width: 20px;
-    line-height: 20px;
-    margin: 5px 5px 5px 0;
-	border: 1px solid var(--primary-color) !important;
-	opacity: 1;
-}
-
-.mean-container .mean-nav ul li a.mean-expand:hover,
-.mean-container .mean-nav ul li a.mean-expand:focus {
-	color: var(--white-color);
-	background-color: var(--primary-color);
-}
-/*================================================
-===== 04. Mean Menu Customize CSS Start Here =====
-================================================*/
-
-/*===========================================
-===== 05. WordPress Core CSS Start Here =====
-===========================================*/
-/* Skip Link --------------------------------- */
-.skip-link,
-.logged-in .screen-reader-shortcut {
-	padding: 10px 30px;
-	color: var(--primary-color);
-	border: 1px solid var(--primary-color);
-	border-radius: 5px;
-	background-color: transparent;
-}
-
-.skip-link:focus,
-.logged-in .screen-reader-shortcut:focus {
-	color: var(--white-color);
-    background-color: var(--primary-color);
-}
-/*=========================================
-===== 05. WordPress Core CSS End Here =====
-=========================================*/
-
-/*============================================= 
-===== 06. WordPress Widget CSS Start Here =====
-=============================================*/
-.widget {
-    padding: 20px 15px 15px;
-    background-color: var(--white-color);
-    border: 1px solid var(--border-color);
-    margin-bottom: 25px;
-}
-
-.widget-title {
-	display: block;
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.widget-title::before {
-    content: "";
-    position: absolute;
-    bottom: -9px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--border-color);
-}
-
-.widget-title::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 70px;
-    height: 3px;
-    background-color: var(--primary-color);
-}
-
-/** 01. Archive Widget List Format */
-.widget_archive ul li,
-.wp-block-archives-list li {
-    padding: 15px 0;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.widget_archive ul li:last-child,
-.wp-block-archives-list li:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.widget_archive ul li a,
-.wp-block-archives-list li a {
-	padding-left: 30px;
-}
-
-.widget_archive ul li a::before,
-.wp-block-archives-list li a::before {
-	left: 10px;
-}
-
-/** 04. Categroy Widget List Format */
-.wp-block-categories-list li,
-.widget_categories ul li {    
-    padding: 15px 0;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.wp-block-categories-list li:last-child,
-.widget_categories ul li:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.wp-block-categories-list li a,
-.widget_categories ul li a {
-	padding-left: 30px;
-}
-
-.wp-block-categories-list li a::before,
-.widget_categories ul li a::before {
-	left: 10px;
-}
-
-.wp-block-categories-list ul li:first-child,
-.widget_categories ul ul li:first-child {
-    margin-top: 10px;
-    border-top: 1px solid var(--primary-color);
-}
-
-.wp-block-categories-list ul li:not():first-child,
-.widget_categories ul ul li:not():first-child {
-    margin-top: 10px;
-}
-
-/** 05. Lastest Comments Widget */
-.wp-block-latest-comments__comment,
-.recentcomments {
-	padding: 15px 0;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.wp-block-latest-comments__comment:last-child,
-.recentcomments:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-/** 06. Lastest Post Widget */
-.wp-block-latest-posts.wp-block-latest-posts__list li,
-.widget_recent_entries li {
-	padding: 15px 0;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.wp-block-latest-posts.wp-block-latest-posts__list li:last-child,
-.widget_recent_entries li:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.wp-block-latest-posts.wp-block-latest-posts__list li a,
-.widget_recent_entries li a {
-	color: var(--black-color);
-}
-
-.wp-block-latest-posts.wp-block-latest-posts__list.has-dates li a, 
-.wp-block-latest-posts.wp-block-latest-posts__list.has-author li a {
-	color: var(--primary-color);
-}
-
-.wp-block-latest-posts.wp-block-latest-posts__list li a:hover,
-.wp-block-latest-posts.wp-block-latest-posts__list li a:focus,
-.widget_recent_entries li a:hover,
-.widget_recent_entries li a:focus {
-	color: var(--primary-color);
-    background-color: transparent;
-}
-
-/** 07. Page List Widget */
-.wp-block-page-list li,
-.widget_pages ul li {
-    padding: 15px 0;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.wp-block-page-list li:last-child,
-.widget_pages ul li:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.wp-block-page-list li a,
-.widget_pages li a {
-    color: var(--black-color);
-	padding-left: 30px;
-}
-
-.wp-block-page-list li a:hover,
-.wp-block-page-list li a:focus,
-.widget_pages li a:hover,
-.widget_pages li a:focus {
-    color: var(--primary-color);    
-    background-color: transparent;
-}
-
-.wp-block-page-list li a::before,
-.widget_pages li a::before {
-	left: 10px;
-}
-
-.wp-block-page-list li li:first-child,
-.widget_pages li ul li:first-child {
-    margin-top: 10px;
-    border-top: 1px solid var(--primary-color);
-}
-
-.wp-block-page-list li li:not():first-child,
-.widget_pages li ul li:not():first-child {
-    margin-top: 10px;
-}
-
-/** 08. RSS Widget */
-.wp-block-rss__item,
-.widget_rss li {
-    padding: 15px 0;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.wp-block-rss__item:last-child,
-.widget_rss li:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-/** 09. Search Widget */
-.wp-block-search__input,
-input#s[type="text"] {
-    border: 1px solid var(--border-color);
-}
-
-.wp-block-search__input:hover,
-.wp-block-search__input:focus,
-input#s[type="text"]:hover,
-input#s[type="text"]:focus {
-    border: 1px solid var(--primary-color);
-}
-
-.wp-block-search__button,
-#searchsubmit {
-    color: var(--primary-color);
-    background-color: transparent;
-    border: 1px solid var(--primary-color);    
-}
-
-.wp-block-search__button:hover,
-.wp-block-search__button:focus,
-#searchsubmit:hover,
-#searchsubmit:focus {
-    color: var(--white-color);
-    background-color: var(--primary-color);
-}
-
-/** 10. Social Links Widget */
-
-/** 11. Tag Widget */
-.widget_tag_cloud a,
-.wp-block-tag-cloud a {
-	color: var(--primary-color);
-    background-color: transparent;
-    border: 1px solid var(--primary-color);
-    margin: 5px 2px;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.widget_tag_cloud a:hover,
-.widget_tag_cloud a:focus,
-.wp-block-tag-cloud a:hover,
-.wp-block-tag-cloud a:focus {
-    color: var(--white-color);
-	background-color: var(--primary-color);
-}
-
-/** 12. Meta Widget */
-.widget_meta ul li {
-    padding: 15px 0;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.widget_meta ul li:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.widget_meta ul li a {
-	padding-left: 30px;
-}
-
-.widget_meta ul li a::before {
-	left: 10px;
-}
-
-/** 13. Nav Menu Widget */
-.widget_nav_menu ul li {
-    padding: 15px 0;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-.widget_nav_menu ul li:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.widget_nav_menu ul li a {
-	padding-left: 30px;
-}
-
-.widget_nav_menu ul li a::before {
-	left: 10px;
-}
-
-.widget_nav_menu ul ul li:first-child {
-    margin-top: 10px;
-    border-top: 1px solid var(--primary-color);
-}
-
-.widget_nav_menu ul ul li:not():first-child {
-    margin-top: 10px;
-}
-
-/** 14. WordPress LogInOut Button */
-.wp-block-loginout #user_login,
-.wp-block-loginout #user_pass {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--border-color);
-}
-
-.wp-block-loginout #user_login:hover,
-.wp-block-loginout #user_login:focus,
-.wp-block-loginout #user_pass:hover,
-.wp-block-loginout #user_pass:focus {
-    border: 1px solid var(--primary-color);
-}
-
-.wp-block-loginout a,
-.wp-block-loginout #wp-submit {
-    color: var(--primary-color);
-    padding: 5px 10px;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    background-color: transparent;
-}
-
-.wp-block-loginout a:hover,
-.wp-block-loginout a:focus,
-.wp-block-loginout #wp-submit:hover,
-.wp-block-loginout #wp-submit:focus {
-    color: var(--white-color);
-    background-color: var(--primary-color);
-}
-/*=========================================== 
-===== 06. WordPress Widget CSS End Here =====
-===========================================*/
-
-/*============================================
-===== 07. WordPress Block CSS Start Here =====
-============================================*/
-/** 01. Image Block */
-.wp-block-image figcaption {
-	font-size: 16px;
-}
-
-/** 02. Button Block */
-.wp-block-button__link {
-    color: var(--white-color);
-    font-size: 16px;
-    padding: 10px 30px;
-    border-radius: 5px;
-    border: 1px solid var(--primary-color);
-	background-color: var(--primary-color);
-}
-
-.wp-block-button__link:hover,
-.wp-block-button__link:focus {
-    color: var(--primary-color);
-	background-color: transparent;
-}
-
-.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color),
-.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color) {
-    color: var(--primary-color);
-    background-color: transparent;
-    border: 1px solid var(--primary-color);
-}
-
-.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color):hover,
-.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color):focus,
-.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color):hover,
-.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color):focus {
-    color: var(--white-color);
-	background-color: var(--primary-color);
-}
-
-.wp-block-file a {    
-	font-size: 16px;
-	padding: 10px 30px;
-	border-radius: 5px;
-    border: 1px solid var(--primary-color);	
-}
-
-.wp-block-file a:hover,
-.wp-block-file a:focus,
-.wp-block-file .wp-block-file__button {
-    color: var(--white-color);
-	background-color: var(--primary-color);
-}
-
-.wp-block-file .wp-block-file__button:hover,
-.wp-block-file .wp-block-file__button:focus {
-    color: var(--primary-color);
-    background-color: transparent;
-    border: 1px solid var(--primary-color);
-}
-
-/** 03. Cover Block */
-
-/** 04. Gallery Block */
-
-/** 05. Blockquote Block */
-.wp-block-quote {
-    padding: 15px;
-    padding-left: 40px;
-	background-color: var(--light-grey);    
-}
-
-.wp-block-quote::before {
-	content: '\f10d';
-	font-family: "FontAwesome";
-	position: absolute;
-	font-size: 30px;
-	color: var(--primary-color);
-	opacity: 0.5;
-	left: 10px;
-	top: 2px;
-}
-
-.wp-block-quote cite,
-.wp-block-quote footer {
-	float: right;
-}
-
-.wp-block-quote cite::before,
-.wp-block-quote footer::before {
-	content: "";
-	position: absolute;
-	width: 30px;
-	height: 1px;
-	background-color: var(--primary-color);
-	left: -35px;
-	top: 50%;
-}
-
-.wp-block-quote.is-style-large {
-    padding-top: 10px;
-    padding-left: 40px;
-}
-
-/** 06. Code Block */
-
-/** 07. Preformatted Block */
-.wp-block-preformatted,
-.wp-block-verse {
-	padding: 15px;
-}
-/*==========================================
-===== 07. WordPress Block CSS End Here =====
-==========================================*/
-
-/*=========================================== 
-===== 08. Preloader CSS Area Start Here =====
-===========================================*/
+/*=======================
+===== 01. Preloader =====
+=======================*/
 #preloader {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999999;
+    clear: none;
     background-color: var(--white-color);
 }
 
@@ -771,20 +139,21 @@ input#s[type="text"]:focus {
         opacity: 0;
     }
 }
-/*========================================= 
-===== 08. Preloader CSS Area End Here =====
-=========================================*/
 
-/*============================================ 
-===== 09. Header Top CSS Area Start Here =====
-============================================*/
+/*========================
+===== 02. Header Top =====
+========================*/
 .header-top-area {
+    width: 100%;
+    height: 100%;
     min-height: 50px;
     line-height: 50px;
     background-color: var(--black-color);
 }
 
 .header-top-left {
+    width: 100%;
+    padding-left: 16px;
     color: var(--white-color);
     font-size: 14px;
 }
@@ -792,29 +161,132 @@ input#s[type="text"]:focus {
 .header-top-left .fa-calendar-days {
     margin-right: 10px;
 }
-/*========================================== 
-===== 09. Header Top CSS Area End Here =====
-==========================================*/
 
-/*====================================================== 
-===== 10. Header Site Branding CSS Area Start Here =====
-======================================================*/
+.header-top-right {
+    width: 100%;
+}
+
+.header-top-right ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header-top-right ul li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.header-top-right ul li:first-child {
+    margin-left: 0;
+}
+
+.header-top-right ul a {
+    display: inline-block;
+    color: var(--white-color);
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: var(--dark-grey);
+    transition: var(--transition);
+}
+
+.header-top-right ul a:hover,
+.header-top-right ul a:focus {
+    background-color: var(--primary-color);
+}
+
+/*================================== 
+===== 03. Header Site Branding =====
+==================================*/
 .header-site-branding {
+    width: 100%;
+    height: 100%;
     min-height: 130px;
     padding: 25px 0;
     background-color: var(--white-color);
 }
 
+.site-branding-area {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+}
+
+.header-logo,
+.site-title-and-tagline {
+    display: inline-block;
+}
+
+.custom-logo-link {
+    display: block;
+}
+
+.header-logo img {
+    width: auto;
+    height: 80px;
+}
+
+.header-site-title {
+	font-size: var(--h1-font-size);
+    margin: 0 0 5px 0;
+}
+
+.header-site-title a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.header-site-title a:hover,
+.header-site-title a:focus {
+    background-color: transparent;
+    text-decoration: underline;    
+}
+
 .header-site-tagline {
+    margin: 0;
     font-size: 20px;
 }
-/*==================================================== 
-===== 10. Header Site Branding CSS Area End Here =====
-====================================================*/
 
-/*============================================= 
-===== 11. Header Menu CSS Area Start Here =====
-=============================================*/
+.header-ads-area {
+    width: 100%;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 5px;
+    background-color: var(--light-grey);    
+    overflow: hidden;
+}
+
+.header-ads-area img {
+    width: 100%;
+    height: 80px;
+}
+
+/*=========================
+===== 04. Header Menu =====
+=========================*/
+.header-transparent-area {
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+}
+
+.header-menu-area.header-fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    z-index: 9999;
+}
+
+.admin-bar .header-menu-area.header-fixed {
+    top: 32px;
+}
+
 .header-menu-area {
     background-color: var(--black-color);
 }
@@ -835,16 +307,16 @@ input#s[type="text"]:focus {
 }
 
 .header-menu a {
-    font-size: 16px;
     display: block;
     text-decoration: none;
+    font-size: 16px;
     color: var(--white-color);
-    padding: 15px;
+    padding: 16px;
 }
 
 .header-menu a:hover,
 .header-menu a:focus,
-.header-menu a[aria-current="page"] {
+.header-menu .current-menu-item a {
     color: var(--primary-color);
     background-color: transparent;
 }
@@ -879,11 +351,11 @@ input#s[type="text"]:focus {
 .submenu {
     position: absolute;
     top: 100%;
-    left: -999999px;
+    left: -99999px;
     min-width: 250px;
-    background-color: var(--dark-grey);
-    z-index: 999999;
+    z-index: 99999;
     padding: 0;
+    background-color: var(--dark-grey);
 }
 
 .header-menu li:hover > .submenu,
@@ -896,6 +368,12 @@ input#s[type="text"]:focus {
     float: none;
     list-style: none;
     border-bottom: 1px solid var(--border-color);
+}
+
+.submenu li:hover > .submenu,
+.submenu li:focus-within > .submenu {
+    top: 0;
+    left: 100%;
 }
 
 .submenu li:last-child {
@@ -911,48 +389,86 @@ input#s[type="text"]:focus {
     top: -99999px;
 }
 
-.submenu li:hover > .submenu,
-.submenu li:focus-within > .submenu {
-    top: 0;
-    left: 100%;
-}
-
 .submenu .submenu li {
     border-left: 1px solid var(--border-color);
 }
-/*=========================================== 
-===== 11. Header Menu CSS Area End Here =====
-===========================================*/
 
-/*============================================= 
-===== 12. Breadcrumbs CSS Area Start Here =====
-=============================================*/
+/*=========================
+===== 05. Breadcrumbs =====
+=========================*/
 .breadcrumbs-area {
-    min-height: 120px;
+    display: flex;
+    align-items: center;
+    position: relative;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+    min-height: 250px;
     background-color: var(--light-grey);
     border-bottom: 1px solid var(--border-color);
 }
 
-.breadcrumbs-left-area {
-    padding: 45px 0;
+.breadcrumbs-area::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.85);
+	z-index: 1;
 }
 
-.breadcrumbs-title {
-    font-size: 24px;
-    text-transform: uppercase;
-    margin: 0;   
+.breadcrumbs-content {
+	position: relative;
+	color: var(--white-color);
+	z-index: 2;
+}
+
+.breadcrumbs-left-area {
+    position: relative;
+    color: var(--white-color);
+    padding: 45px 0;
+    z-index: 2;
 }
 
 .breadcrumbs-right-area {
+    color: var(--grey-text);
+}
+
+.breadcrumbs-title {
+    color: var(--white-color);
+    font-size: 24px;
+    text-transform: uppercase;
+    margin: 0;
+    padding-left: 16px;
+}
+
+.breadcrumbs-right-area {
+    position: relative;
+    color: var(--white-color);
 	display: flex;
 	width: 100%;
     height: 100%;	
 	justify-content: end;	
 	align-items: center;
+    z-index: 2;
 }
-/*=========================================== 
-===== 12. Breadcrumbs CSS Area End Here =====
-===========================================*/
+
+.breadcrumbs-nav ul {
+	padding: 0;
+}
+
+.breadcrumbs-nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumbs-nav a:hover,
+.breadcrumbs-nav a:focus {
+    text-decoration: underline;
+    background-color: transparent;
+}
 
 .site-content {
     margin-top: 70px;
@@ -964,9 +480,17 @@ input#s[type="text"]:focus {
     padding: 15px 3px;    
 }
 
-/*=========================================== 
-===== 13. Blog Item CSS Area Start Here =====
-===========================================*/
+.site-main div {
+	clear: both;
+}
+
+/*=======================
+===== 06. Blog Item =====
+=======================*/
+.single-post-item:first-child {
+    padding-top: 0;
+}
+
 .single-post-item {
     padding: 20px 0;
     border-bottom: 1px solid var(--border-color);  
@@ -987,10 +511,64 @@ input#s[type="text"]:focus {
     margin-bottom: 15px;
 }
 
+.entry-cat-meta i {
+    margin-right: 5px;
+}
+
+.entry-cat-meta a:hover,
+.entry-cat-meta a:focus {
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.entry-cat-meta a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.entry-title a {
+    color: var(--black-color);
+    background-color: transparent;
+    text-decoration: none;    
+}
+
+.entry-title a:hover,
+.entry-title a:focus {
+    color: var(--primary-color);
+    text-decoration: underline;
+} 
+
 .entry-meta {
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
+    color: var(--dark-grey);
+}
+
+.entry-meta i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.entry-meta a {
+    color: var(--dark-grey);
+    text-decoration: none;
+}
+
+.entry-meta a:hover,
+.entry-meta a:focus {
+    color: var(--primary-color);
+    background-color: transparent;
+    text-decoration: underline; 
+}
+
+.entry-author-meta,
+.entry-date-meta,
+.entry-cat-meta,
+.entry-comments-meta,
+.entry-meta-edit {
+    display: inline-block;
+    margin: 10px 20px 0 0;
 }
 
 .entry-meta-footer {
@@ -1000,8 +578,61 @@ input#s[type="text"]:focus {
     background-color: var(--white-color);
 }
 
+.entry-tag-meta a {
+    color: var(--dark-grey);
+    text-decoration: none;
+}
+
+.entry-tag-meta a:hover,
+.entry-tag-meta a:focus {
+    color: var(--primary-color);
+    background-color: transparent;
+    text-decoration: underline;
+}
+
 .entry-content {
     margin-top: 15px;
+}
+
+.link-post {
+    display: block;
+    padding: 10px 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.quote-author {
+    position: relative;
+    float: right;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.quote-author:hover,
+.quote-author:focus {
+    text-decoration: underline;
+}
+
+.quote-author::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -60px;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.post-img-gallery {
+    width: 100%;
+    height: 500px;
+}
+
+.post-img-gallery img {
+    width: 100%;
+    height: 500px;
 }
 
 .no-results {
@@ -1016,18 +647,24 @@ input#s[type="text"]:focus {
 .page-content input[type="submit"] {
     padding: 10px;
 }
-/*========================================= 
-===== 13. Blog Item CSS Area End Here =====
-=========================================*/
 
-/*==================================================
-===== 14. Blog Single Item CSS Area Start Here =====
-==================================================*/
+/*==============================
+===== 07. Blog Single Item =====
+==============================*/
 .post-password-form input[type="password"] {
+    width: 100%;
+    border: 1px solid var(--border-color);
 	padding: 10px;
 }
 
+.post-password-form input[type="password"]:hover,
+.post-password-form input[type="password"]:focus {
+    border: 1px solid var(--primary-color);
+}
+
 .post-password-form input[type="submit"] {
+    display: inline-block;
+	text-decoration: none;
     padding: 11px 30px;
 	color: var(--primary-color);
     border: 1px solid var(--primary-color);
@@ -1040,19 +677,24 @@ input#s[type="text"]:focus {
     color: var(--white-color);
 	background-color: var(--primary-color);
 }
-/*================================================
-===== 14. Blog Single Item CSS Area End Here =====
-================================================*/
 
-/*============================================ 
-===== 15. Pagination CSS Area Start Here =====
-============================================*/
+/*========================
+===== 08. Pagination =====
+========================*/
+.navigation.pagination .screen-reader-text {
+    display: none;
+}
+
 .navigation.pagination {
     margin-top: 30px;
 }
 
 .post-page-numbers,
 .page-numbers {
+    text-align: center;
+	display: inline-block;
+	text-decoration: none;
+	cursor: pointer;
     max-width: 100%;
     width: 40px;
     height: 40px;
@@ -1074,19 +716,21 @@ input#s[type="text"]:focus {
     color: var(--white-color);
     background-color: var(--primary-color);
 }
-/*========================================== 
-===== 15. Pagination CSS Area End Here =====
-==========================================*/
 
-/*==================================================
-===== 16. Comment Template CSS Area Start Here =====
-==================================================*/
+/*==============================
+===== 09. Comment Template =====
+==============================*/
 /** 01. Total Comments */
 .total-comments {
     margin-top: 10px;
 	padding: 15px;
 	background-color: var(--white-color);
 	border: 1px solid var(--border-color);
+}
+
+.total-comments .comment-title,
+.total-comments .comment-count {
+	color: var(--primary-color);
 }
 
 /** 02. Comments Form */
@@ -1100,15 +744,42 @@ input#s[type="text"]:focus {
 .comments-form input#author,
 .comments-form input#email,
 .comments-form input#url {
+    display: block;
+    width: 100%;
     padding: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.comments-form textarea,
+.comment-form-comment textarea {
+    display: block;
+    width: 100%;
+    height: 180px;
+    resize: none;
+    border: 1px solid var(--border-color);
+}
+
+.comments-form input#author:hover,
+.comments-form input#author:focus,
+.comments-form input#email:hover,
+.comments-form input#email:focus,
+.comments-form input#url:hover,
+.comments-form input#url:focus,
+.comments-form textarea:hover,
+.comments-form textarea:focus,
+.comment-form-comment textarea:hover,
+.comment-form-comment textarea:focus {
+    border: 1px solid var(--primary-color);
 }
 
 .form-submit input[type="submit"] {
-    padding: 15px 30px;
-    border-radius: 5px;
+    display: inline-block;
 	color: var(--primary-color);
+    padding: 15px 30px;
     border: 1px solid var(--primary-color);
+    border-radius: 5px;
 	background-color: transparent;
+	text-decoration: none;
 }
 
 .form-submit input[type="submit"]:hover,
@@ -1118,7 +789,12 @@ input#s[type="text"]:focus {
 }
 
 /** 03. Comments List */
+.comments-list li {
+    list-style: none;
+}
+
 .comments-box {
+    list-style: none;
 	margin-top: 10px;
     padding: 15px;
 	background-color: var(--white-color);
@@ -1126,7 +802,21 @@ input#s[type="text"]:focus {
 }
 
 .comments-avatar {
+    float: left;
+    margin-right: 15px;
     border: 1px solid var(--primary-color);
+}
+
+.avatar-name a {
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+.avatar-name:hover a,
+.avatar-name:focus a {
+    text-decoration: underline;
+    color: var(--primary-color);
+    background-color: transparent;
 }
 
 .comments-meta {
@@ -1136,13 +826,24 @@ input#s[type="text"]:focus {
     margin-bottom: 10px;
 }
 
+.comments-meta-icon {
+    color: var(--primary-color);
+}
+
+.comments-text {
+	overflow: hidden;
+	clear: none;
+}
+
 .comment-reply-link,
 #cancel-comment-reply-link {
+    display: inline-block;
     padding: 10px 30px;
     border-radius: 5px;
 	color: var(--primary-color);
 	background-color: transparent;
     border: 1px solid var(--primary-color);
+	text-decoration: none;
 }
 
 #cancel-comment-reply-link {
@@ -1162,52 +863,103 @@ input#s[type="text"]:focus {
 .comments-pagination {
     margin-top: 30px;
 }
-/*================================================
-===== 16. Comment Template CSS Area End Here =====
-================================================*/
 
-/*============================================ 
-===== 17. Error Page CSS Area Start Here =====
-============================================*/
+/*========================
+===== 10. Error Page =====
+========================*/
 .error-page {
     padding: 15px;
 }
 
 .error-page .page-header-title {
     font-size: 200px;
-    margin: 0;
+    margin: 0; 
+    text-align: center;
 }
-/*========================================== 
-===== 17. Error Page CSS Area End Here =====
-==========================================*/
 
-/*======================================== 
-===== 18. Footer CSS Area Start Here =====
-========================================*/
-.site-footer {
-    margin-top: 20px;
+.error-page .header-subtitle {
+    text-align: center;
+}
+
+/*================================ 
+===== 11. Footer Widget Area =====
+================================*/
+.footer-widget-area {
     background-color: var(--black-color);
+    padding: 70px 0;
+}
+
+.footer-widget-list {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.footer-widget-col-1 .footer-single-widget {
+    width: 100%;
+}
+
+.footer-widget-col-2 .footer-single-widget {
+    width: 50%;
+}
+
+.footer-widget-col-3 .footer-single-widget {
+    width: 33.33%;
+}
+
+.footer-widget-col-4 .footer-single-widget {
+    width: 25%;
+}
+
+.footer-widget-col-5 .footer-single-widget {
+    width: 20%;
+}
+
+/*==================== 
+===== 12. Footer =====
+====================*/
+.site-footer {
     color: var(--white-color);
     min-height: 50px;
+    border-top: 1px solid var(--dark-grey);
+    background-color: var(--black-color);
 }
 
 .site-footer p {
+    margin-bottom: 0;
     line-height: 50px;
 }
-/*====================================== 
-===== 18. Footer CSS Area End Here =====
-======================================*/
 
-/*=============================================== 
-===== 19. Scroll To Top CSS Area Start Here =====
-===============================================*/
+.site-footer a {
+    text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+    color: var(--primary-color);
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.copyright-text {
+    text-align: left;
+}
+
+.powered-by-text {
+    text-align: right;
+}
+
+/*===========================
+===== 13. Scroll To Top =====
+===========================*/
 .scroll-to-top {
+	position: absolute;
 	bottom: 70px;
 	right: 70px;
 	width: 40px;
 	height: 40px;
 	border-radius: 5px;
-	background-color: transparent;
+	background-color: var(--white-color);
 	color: var(--primary-color);
 	border: 1px solid var(--primary-color);
 }
@@ -1221,6 +973,3 @@ input#s[type="text"]:focus {
 .scroll-to-top i {
     line-height: 40px;    
 }
-/*============================================= 
-===== 19. Scroll To Top CSS Area End Here =====
-=============================================*/

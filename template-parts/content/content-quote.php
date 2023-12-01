@@ -6,6 +6,15 @@
  *
  * @package rb_blog_one
  */
+
+$quote_text = "";
+$quote_text = get_field( 'rbth_post_quote_text' );
+
+$quote_author = "";
+$quote_author = get_field( 'rbth_post_quote_author' );
+
+$quote_author_url = "";
+$quote_author_url = get_field( 'rbth_post_quote_author_url' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post-item' ); ?>>
@@ -67,7 +76,15 @@
 
                 <?php if ( get_the_content() ) : ?>
                     <div class="entry-content">
-                        <?php the_content(); ?>
+                    <?php if( !empty( $quote_text ) ): ?>
+                        <blockquote>
+                            <p><?php echo esc_html($quote_text, 'rb-blog-one'); ?></p>
+                            <a class="quote-author" href="<?php echo esc_url($quote_author_url); ?>"><?php echo esc_html($quote_author, 'rb-blog-one'); ?></a>
+                        </blockquote>
+                    <?php the_content(); else :
+                        the_content();
+                    endif;                  
+                    ?>
                     </div>
                 <?php endif; ?>
 

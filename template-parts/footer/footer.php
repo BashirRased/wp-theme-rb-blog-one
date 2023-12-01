@@ -2,18 +2,23 @@
 /**
  * The file loading under footer.php
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
 ?>
-
 <!--==============================
 ===== Footer Area Start Here =====
 ===============================-->
 <footer class="site-footer">
     <div class="container">
         <div class="row">
+            
+            <?php if ( true == get_theme_mod( 'rbth_copyright_switch' ) ) : ?>
+            <div class="col-lg-6">
+                <p>
+                    <?php echo wp_kses_post ( get_theme_mod( 'rbth_copyright_text' ), 'rb-blog-one' ); ?>
+                </p>
+            </div>
+            <?php else : ?>
             <div class="col-lg-6">
                 <?php
                     $fromYear = (int)esc_html('2021','rb-blog-one');
@@ -43,6 +48,15 @@
                     );
                 ?>
             </div>
+            <?php endif; ?>
+
+            <?php if ( true == get_theme_mod( 'rbth_poweredby_switch' ) ) : ?>
+            <div class="col-lg-6">
+                <p>
+                    <?php echo wp_kses_post ( get_theme_mod( 'rbth_poweredby_text' ), 'rb-blog-one' ); ?>
+                </p>            
+            </div>
+            <?php else : ?>
             <div class="col-lg-6">
                 <?php
                     printf(
@@ -62,6 +76,7 @@
                     );
                 ?>
             </div>
+            <?php endif; ?>
         </div><!-- .row -->
     </div><!-- .container -->
 </footer>

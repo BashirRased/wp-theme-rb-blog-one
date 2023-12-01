@@ -2,9 +2,7 @@
 /**
  * RB Blog One functions and definitions
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
 
 // After Theme Setup
@@ -48,8 +46,8 @@ if( file_exists( dirname( __FILE__ ) . '/lib/bootstrap-navwalker.php' ) ) {
 }
 
 // TGM Plugin Activation
-if( file_exists( dirname( __FILE__ ) . '/lib/tgm-activation.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/lib/tgm-activation.php' );
+if( file_exists( dirname( __FILE__ ) . '/lib/class-tgm-plugin-activation.php' ) ) {
+	require_once( dirname( __FILE__ ) . '/lib/class-tgm-plugin-activation.php' );
 }
 
 // TGM Plugin Customization

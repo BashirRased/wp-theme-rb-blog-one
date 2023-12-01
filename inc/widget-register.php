@@ -6,13 +6,11 @@
  * 
  * The file loading under functions.php
  *
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
- */
- 
-// widget register
+ * @package rb_blog_one
+ */ 
+
 function rb_blog_one_widget_area() {
+	// Blog Widget
 	register_sidebar(array(
 		'name' 			=> __( 'Sidebar 1', 'rb-blog-one' ),
 		'description' 	=> __( 'Add your widgets in sidebar 1',  'rb-blog-one' ),
@@ -24,7 +22,18 @@ function rb_blog_one_widget_area() {
 		'after_widget' 	=> '</div>',
 		'before_title' 	=> '<h2 class="widget-title">',
 		'after_title' 	=> '</h2>'
-	)); 
-    
+	));
+
+	// Footer Widgets
+    for ( $num = 1; $num <= 5; $num++ ) {
+        register_sidebar( [
+            'name'          => sprintf( esc_html__( 'Footer %1$s', 'rb-blog-one' ), $num ),
+            'id'            => 'footer-' . $num,
+            'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ] );
+    }
 }
 add_action( 'widgets_init', 'rb_blog_one_widget_area' );

@@ -1,40 +1,21 @@
-/*
-Theme Name: RB Blog One
-Theme URI: https://bashirrased.com/theme/rb-blog-one/
-Text Domain: rb-blog-one
-Version: 1.1.7
-Requires at least: 6.1
-Tested up to: 6.2
-Requires PHP: 5.6
-Description: RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a WordPress theme specifically crafted for crafting professional blog websites. It is built upon the latest web technologies. Live Preview: https://bashirrased.com/theme/rb-blog-one/
-Tags: blog, custom-background, custom-logo, custom-menu, featured-images, full-width-template, right-sidebar, one-column, sticky-post, threaded-comments
-Author: Bashir Rased
-Author URI: https://bashirrased.com/
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-RB Blog One WordPress Theme, (C) 2021-2023 Bashir Rased.
-RB Blog One is distributed under the terms of the GNU GPL.
-*/
-
 /*============================
 Table of JS Content Start Here
 ==============================
 	01. Preloader
-	02. Header Memu
-    03. Nice Select
-    04. Scroll to Top
-============================
-Table of JS Content End Here
-==========================*/
+	02. Header Sticky Menu
+    03. MeanMenu
+    04. Swiper
+    05. Nice Select
+    06. Scroll to Top
+*/
 
 (function ($) {
     'use strict';
-
-    /*=========================================
-    ===== 01. Preloader jQuery Start Here =====
-    =========================================*/
+    
     $(window).on("load", function () {
+        /*=======================
+        ===== 01. Preloader =====
+        =======================*/
         $(".folding-cube").delay(700).fadeOut(),
         setTimeout(function () {
             setTimeout(function () {
@@ -42,36 +23,53 @@ Table of JS Content End Here
             }, 1500)
         }, 800)
     });
-    /*=======================================
-    ===== 01. Preloader jQuery End Here =====
-    =======================================*/
 
     $(document).ready(function () {
+        $(window).scroll(function(){
+            /*================================
+            ===== 02. Header Sticky Menu =====
+            ================================*/
+            if ($(window).scrollTop() >= 50) {
+                $('.header-fixed-area').addClass('header-fixed');
+            }
+            else {
+                $('.header-fixed-area').removeClass('header-fixed');
+            }
+        });
 
-        /*===========================================
-        ===== 02. Header Memu jQuery Start Here =====
-        ===========================================*/
+        /*======================
+        ===== 03. MeanMenu =====
+        ======================*/
         $('.header-menu-container').meanmenu({
 			meanMenuContainer: '.header-menu-area .container',
 			meanScreenWidth: "991",
 			meanMenuOpen: '<span></span><span></span><span></span>',
 		});
-        /*=========================================
-        ===== 02. Header Memu jQuery End Here =====
-        =========================================*/
 
-        /*===========================================
-        ===== 03. Nice Select jQuery Start Here =====
-        ===========================================*/
+        /*====================
+        ===== 04. Swiper =====
+        ====================*/
+        var swiper = new Swiper(".post-img-gallery", {
+            autoplay: true,
+            loop: true,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+              el: ".swiper-pagination",
+            },
+          });
+
+        /*=========================
+        ===== 05. Nice Select =====
+        =========================*/
         $('select').niceSelect();
-        /*=========================================
-        ===== 03. Nice Select jQuery End Here =====
-        =========================================*/
 
-        /*=============================================
-        ===== 04. Scroll to Top jQuery Start Here =====
-        =============================================*/
-		/*===== 4.1 Scroll to Top Button Display =====*/
+        /*===========================
+        ===== 06. Scroll to Top =====
+        ===========================*/
+		/*===== 6.1 Scroll to Top Button Display =====*/
 		$(window).scroll(function(){		  
 			var scrollTopBtn = $(window).scrollTop();		  
 			if( scrollTopBtn > 100 ){
@@ -81,14 +79,11 @@ Table of JS Content End Here
 			}
 		});
 		  
-		/*===== 4.2 Scroll to Top Button Clickable =====*/
+		/*===== 6.2 Scroll to Top Button Clickable =====*/
 		$(".scroll-to-top").on('click', function(){
-			$("html, body").animate({'scrollTop' : 0}, 1500);
+			$("html, body").animate({'scrollTop' : 0}, 2000);
 			return false;
-		});	  
-		/*===========================================
-        ===== 04. Scroll to Top jQuery End Here =====
-        ===========================================*/
+		});
 
     });
 

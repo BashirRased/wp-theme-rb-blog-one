@@ -6,12 +6,10 @@
  * 
  * The template loading under functions.php
  * 
- * @package RB Blog One
- * @version RB Blog One 1.1.7
- * @since RB Blog One 1.1.7
+ * @package rb_blog_one
  */
 
- /*==================================
+/*==================================
 Table of Theme Assets List Start Here
 =====================================
 	01. Prefix with file directory
