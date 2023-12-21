@@ -11,7 +11,9 @@ $post_meta_list_blog = "";
 $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_blog' );
 
 $link_file = "";
-$link_file = get_field( 'rbth_post_link' );
+if ( function_exists('get_field') && get_field('rbth_post_link') ) {
+    $link_file = get_field( 'rbth_post_link' );
+}
 
 if ( has_post_thumbnail() && empty( $link_file ) ) {
     $article_col = "col-lg-7";

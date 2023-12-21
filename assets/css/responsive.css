@@ -9,7 +9,9 @@
         text-align: center;
     }
 
-    .header-menu-area.header-fixed {
+    .header-menu-area.header-fixed,
+    .submenu,
+    .submenu .submenu {
         position: static;
     }
 
@@ -40,12 +42,7 @@
 
     .submenu li {
         border-bottom: none;
-    }
-
-    .submenu li:hover > .submenu, .submenu li:focus-within > .submenu {
-        left: 0;
-        top: 100%;
-    }
+    }    
 
     .submenu .submenu li {
         border-left: none;
@@ -72,6 +69,10 @@
     .footer-widget-col-4 .footer-single-widget,
     .footer-widget-col-5 .footer-single-widget {
         width: 100%;
+    }
+
+    h2.breadcrumbs-title {
+        text-align: center;
     }
 }
 

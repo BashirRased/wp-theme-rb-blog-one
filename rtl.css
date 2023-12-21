@@ -198,3 +198,9 @@ ol.wp-block-latest-comments,
 .entry-tag-meta {
     float: right;
 }
+
+@media only screen and (max-width: 991px) {
+    .submenu .submenu li {
+        border-right: none;
+    }
+}

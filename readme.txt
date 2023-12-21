@@ -3,7 +3,7 @@ Contributors: bashirrased
 Requires at least: 6.4
 Tested up to: 6.4
 Requires PHP: 7.0
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 Author URI: https://bashirrased.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -92,6 +92,11 @@ RB Blog One WordPress Theme, Copyright 2021-2023 Bashir Rased.
 RB Blog One is distributed under the terms of the GNU GPL.
 
 == Changelog ==
+
+= 1.2.1 - December 21, 2023 =
+* 7th Updated.
+* rtl responsive css
+* variable feter error slove again
 
 = 1.2.0 - December 19, 2023 =
 * 6th Updated.

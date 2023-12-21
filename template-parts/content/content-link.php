@@ -10,7 +10,9 @@
 $post_meta_list_blog = "";
 $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single' );
 $link_file = "";
-$link_file = get_field( 'rbth_post_link' );
+if ( function_exists('get_field') && get_field('rbth_post_link') ) {
+    $link_file = get_field( 'rbth_post_link' );
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post-item' ); ?>>

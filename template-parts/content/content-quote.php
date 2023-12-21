@@ -11,13 +11,19 @@ $post_meta_list_blog = "";
 $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single' );
 
 $quote_text = "";
-$quote_text = get_field( 'rbth_post_quote_text' );
+if ( function_exists('get_field') && get_field('rbth_post_quote_text') ) {
+    $quote_text = get_field( 'rbth_post_quote_text' );
+}
 
 $quote_author = "";
-$quote_author = get_field( 'rbth_post_quote_author' );
+if ( function_exists('get_field') && get_field('rbth_post_quote_author') ) {
+    $quote_author = get_field( 'rbth_post_quote_author' );
+}
 
 $quote_author_url = "";
-$quote_author_url = get_field( 'rbth_post_quote_author_url' );
+if ( function_exists('get_field') && get_field('rbth_post_quote_author_url') ) {
+    $quote_author_url = get_field( 'rbth_post_quote_author_url' );
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post-item' ); ?>>

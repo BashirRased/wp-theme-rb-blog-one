@@ -7,22 +7,22 @@
 
 get_header();
 
-$sidebar_acf = "";
-$sidebar = "";
-$main_col = "";
+get_header();
+$sidebar ="";
+$main_class = "";
 $sidebar_display = "";
-$sidebar_acf = get_field( 'rbth_choose_sidebar' );
 $sidebar = get_theme_mod( 'rbth_sidebar_blog' );
+
 if( $sidebar == "left-sidebar" ) {
-    $main_col = "col-lg-8";
+    $main_class = "col-lg-8";
     $sidebar_display = "left";
 }
 elseif( $sidebar == "right-sidebar" ) {
-    $main_col = "col-lg-8";
+    $main_class = "col-lg-8";
     $sidebar_display = "right";
 }
 else {
-    $main_col = "col-lg-12";
+    $main_class = "col-lg-12";
 }
 ?>
 

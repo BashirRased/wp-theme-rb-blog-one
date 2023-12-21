@@ -9,25 +9,21 @@
 $header_menu_fixed_kirki = "";
 $header_menu_fixed_acf = "";
 $menu_fixed_class = "";
-$header_menu_transparent_kirki = "";
-$header_menu_transparent_acf = "";
-$menu_transparent_class = "";
 
 $header_menu_fixed_kirki = get_theme_mod ( 'rbth_menu_fixed' );
-$header_menu_fixed_acf = get_field( 'rbth_memu_fixed_disable' );
 if ( $header_menu_fixed_kirki ) {
-    if ( $header_menu_fixed_acf ) {
-
+    if ( function_exists('get_field') && get_field('rbth_memu_fixed_disable') ) {
+        $header_menu_fixed_acf = get_field( 'rbth_memu_fixed_disable' );
     } else {
         $menu_fixed_class = "header-fixed-area";
     }    
 }
 
 $header_menu_transparent_kirki = get_theme_mod ( 'rbth_menu_transparent' );
-$header_menu_transparent_acf = get_field( 'rbth_memu_transparent_disable' );
+$menu_transparent_class = "";
 if ( $header_menu_transparent_kirki ) {
-    if ( $header_menu_transparent_acf ) {
-
+    if ( function_exists('get_field') && get_field('rbth_memu_transparent_disable') ) {
+        $header_menu_transparent_acf = get_field( 'rbth_memu_transparent_disable' );
     } else {
         $menu_transparent_class = "header-transparent-area";
     }    

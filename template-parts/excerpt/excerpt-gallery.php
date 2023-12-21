@@ -11,19 +11,29 @@ $post_meta_list_blog = "";
 $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_blog' );
 
 $gallery_img_1 = "";
-$gallery_img_1 = get_field( 'rbth_post_gallery_img_1' );
+if ( function_exists('get_field') && get_field('rbth_post_gallery_img_1') ) {
+    $gallery_img_1 = get_field( 'rbth_post_gallery_img_1' );
+}
 
 $gallery_img_2 = "";
-$gallery_img_2 = get_field( 'rbth_post_gallery_img_2' );
+if ( function_exists('get_field') && get_field('rbth_post_gallery_img_2') ) {
+    $gallery_img_2 = get_field( 'rbth_post_gallery_img_2' );
+}
 
 $gallery_img_3 = "";
-$gallery_img_3 = get_field( 'rbth_post_gallery_img_3' );
+if ( function_exists('get_field') && get_field('rbth_post_gallery_img_3') ) {
+    $gallery_img_3 = get_field( 'rbth_post_gallery_img_3' );
+}
 
 $gallery_img_4 = "";
-$gallery_img_4 = get_field( 'rbth_post_gallery_img_4' );
+if ( function_exists('get_field') && get_field('rbth_post_gallery_img_4') ) {
+    $gallery_img_4 = get_field( 'rbth_post_gallery_img_4' );
+}
 
 $gallery_img_5 = "";
-$gallery_img_5 = get_field( 'rbth_post_gallery_img_5' );
+if ( function_exists('get_field') && get_field('rbth_post_gallery_img_5') ) {
+    $gallery_img_5 = get_field( 'rbth_post_gallery_img_5' );
+}
 
 if ( $gallery_img_1 || $gallery_img_2 || $gallery_img_3 || $gallery_img_4 || $gallery_img_5 ) {
     $gallery_img = "1";

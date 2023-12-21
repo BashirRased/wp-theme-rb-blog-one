@@ -12,9 +12,18 @@ $video_file = "";
 $video_oembed = "";
 
 $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_blog' );
-$video_post = get_field( 'rbth_post_video_file_format' );
-$video_file = get_field( 'rbth_post_video_file' );
-$video_oembed = get_field( 'rbth_post_video_iframe' );
+
+if ( function_exists('get_field') && get_field('rbth_post_video_file_format') ) {
+    $video_post = get_field( 'rbth_post_video_file_format' );
+}
+
+if ( function_exists('get_field') && get_field('rbth_post_video_file') ) {
+    $video_file = get_field( 'rbth_post_video_file' );
+}
+
+if ( function_exists('get_field') && get_field('rbth_post_video_iframe') ) {
+    $video_oembed = get_field( 'rbth_post_video_iframe' );
+}
 
 if ( has_post_thumbnail() && empty( $video_post ) ) {
     $article_col = "col-lg-7";

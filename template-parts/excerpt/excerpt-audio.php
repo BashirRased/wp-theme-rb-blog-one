@@ -12,9 +12,18 @@ $audio_file = "";
 $audio_oembed = "";
 
 $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_blog' );
-$audio_post = get_field( 'rbth_post_audio_file_format' );
-$audio_file = get_field( 'rbth_post_audio_file' );
-$audio_oembed = get_field( 'rbth_post_audio_iframe' );
+
+if ( function_exists('get_field') && get_field('rbth_post_audio_file_format') ) {
+    $audio_post = get_field( 'rbth_post_audio_file_format' );
+}
+
+if ( function_exists('get_field') && get_field('rbth_post_audio_file') ) {
+    $audio_file = get_field( 'rbth_post_audio_file' );
+}
+
+if ( function_exists('get_field') && get_field('rbth_post_audio_iframe') ) {
+    $audio_oembed = get_field( 'rbth_post_audio_iframe' );
+}
 
 if ( has_post_thumbnail() && empty( $audio_post ) ) {
     $article_col = "col-lg-7";
