@@ -165,7 +165,7 @@ if ( !function_exists( 'rb_blog_one_edit_meta_custom' ) ) {
 				/* translators: %s: Post title. Only visible to screen readers. */
 				esc_html__( 'Edit', 'rb-blog-one' )
 			),
-			'<span class="edit-meta"><i class="fa-solid fa-user-pen"></i> ',
+			'<span class="entry-meta-edit"><i class="fa-solid fa-user-pen"></i> ',
 			'</span>'
 		);
 	}

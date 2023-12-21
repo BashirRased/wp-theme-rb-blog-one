@@ -3,7 +3,7 @@ Contributors: bashirrased
 Requires at least: 6.4
 Tested up to: 6.4
 Requires PHP: 7.0
-Stable tag: 1.1.9
+Stable tag: 1.2.0
 Author URI: https://bashirrased.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a
 
 == Resources ==
 
-= Font Awesome Free 6.4.2 =
+= Font Awesome Free 6.5.1 =
   - Author: @fontawesome
   - License: (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
   - License URL: https://fontawesome.com/license/free
@@ -81,15 +81,21 @@ RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a
 
 = Images =
 Image used in Screenshot
+License: Creative Commons Zero (CC0) license.
+License URL : https://www.pexels.com/license/
+Source:
 https://www.pexels.com/photo/people-at-concert-1105666/
 https://www.pexels.com/photo/man-in-white-shirt-sitting-on-chair-3966781/
-
 
 == Copyright ==
 RB Blog One WordPress Theme, Copyright 2021-2023 Bashir Rased.
 RB Blog One is distributed under the terms of the GNU GPL.
 
 == Changelog ==
+
+= 1.2.0 - December 19, 2023 =
+* 6th Updated.
+* rtl support
 
 = 1.1.9 - December 05, 2023 =
 * 5th Updated.

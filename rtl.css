@@ -1,0 +1,200 @@
+ol,
+ul {
+    padding-right: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+div,
+.site-main div,
+.header-top-left,
+.header-site-title,
+.header-site-tagline,
+.breadcrumbs-title,
+.entry-meta-top,
+.entry-title,
+.wp-block-heading,
+aside li,
+.entry-meta,
+.copyright-text,
+.wp-block-archives-dropdown label,
+.wp-block-search__label,
+.wp-block-loginout,
+.widget-title,
+.has-avatars .wp-block-latest-comments__comment,
+.wp-block-latest-comments__comment,
+.recentcomments,
+.wp-block-latest-posts.wp-block-latest-posts__list li,
+.widget_recent_entries li,
+.wp-block-latest-posts.wp-block-latest-posts__list li,
+.widget_recent_entries li,
+.wp-block-rss__item,
+.widget_rss li,
+.wp-block-rss__item-publish-date,
+.wp-block-rss__item-author,
+.rss-date,
+.widget_meta ul,
+.widget_tag_cloud,
+.wp-block-tag-cloud,
+.mean-container .mean-nav ul li a,
+.comment-reply-title,
+.total-comments,
+.wp-block-post-title,
+.wp-block-site-title,
+.avatar-name,
+.comments-replay {
+    text-align: right;
+}
+
+.header-top-left .fa-calendar-days {
+	margin-right: 0;
+    margin-left: 10px;
+}
+
+.header-top-right ul li:first-child {
+    margin-left: 10px;
+}
+
+.header-top-right ul li:last-child {
+    margin-left: 0;
+}
+
+.header-menu li {
+    float: right;
+}
+
+.header-menu li:first-child a {
+    padding-right: 0;
+}
+
+.submenu {
+    left: 9999px;
+}
+
+.header-menu .menu-item-has-children > a::after {
+	margin-left: 0;
+    margin-right: 5px;
+}
+
+.submenu li {
+    float: none;
+    text-align: right;
+}
+
+.submenu .submenu li {
+    border-left: none;
+    border-right: 1px solid var(--border-color);
+}
+
+.submenu li:hover > .submenu,
+.submenu li:focus-within > .submenu {
+    left: -100%;
+}
+
+.entry-cat-meta i {
+	margin-right: 0;
+    margin-left: 5px;
+}
+
+.entry-meta i {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+.entry-author-meta, .entry-date-meta, .entry-comments-meta, .entry-meta-edit {
+    margin: 10px 0 0 20px;
+}
+
+.copyright-text,
+.powered-by-text {
+    direction: ltr;
+}
+
+.widget_archive ul,
+.wp-block-archives-list,
+ol.wp-block-latest-comments,
+.widget_recent_comments nav > ul {
+    padding-right: 0;
+}
+
+.widget_archive ul li a,
+.wp-block-archives-list li a,
+.wp-block-categories-list li a,
+.widget_categories ul li a {
+    float: right;
+    padding-right: 30px;
+    padding-left: 10px;
+}
+
+.widget-title::after,
+.widget_archive ul li a::before,
+.wp-block-archives-list li a::before,
+.wp-block-categories-list li a::before,
+.widget_categories ul li a::before,
+.wp-block-page-list li a::before,
+.widget_pages li a::before,
+.widget_nav_menu ul li a::before,
+.widget_meta ul li a::before {
+    right: 0;
+}
+
+.widget_archive ul li a::before,
+.wp-block-archives-list li a::before,
+.wp-block-page-list li a::before,
+.widget_pages li a::before,
+.widget_meta ul li a::before {
+	-webkit-transform: translate(0, -50%);
+	-moz-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	-o-transform: translate(0, -50%);
+	transform: translate(0, -50%);    
+}
+
+.wp-calendar-nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.nice-select .option {
+    padding-left: 0;
+    padding-right: 30px;
+    text-align: right;
+}
+
+.nice-select .current {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.wp-block-page-list li a,
+.widget_pages li a,
+.widget_nav_menu ul li a,
+.widget_meta ul li a {
+    text-align: right;
+    padding-right: 30px;
+    padding-left: 0;
+}
+
+.widget_search input {
+    float: right;
+}
+
+.mean-container .mean-nav ul li a.mean-expand {
+    right: calc(100% - 46px);
+    margin: 5px 0;
+}
+
+.mean-container .mean-nav ul li a {
+    padding: 15px 50px 15px 0;
+}
+
+.entry-tag-meta {
+    float: right;
+}

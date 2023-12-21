@@ -314,6 +314,10 @@
     padding: 16px;
 }
 
+.header-menu li:first-child a {
+    padding-left: 0;
+}
+
 .header-menu a:hover,
 .header-menu a:focus,
 .header-menu .current-menu-item a {
@@ -381,6 +385,10 @@
 }
 
 .submenu li a {
+    padding: 15px;
+}
+
+.header-menu .submenu li:first-child a {
     padding: 15px;
 }
 
@@ -564,7 +572,6 @@
 
 .entry-author-meta,
 .entry-date-meta,
-.entry-cat-meta,
 .entry-comments-meta,
 .entry-meta-edit {
     display: inline-block;
@@ -576,6 +583,7 @@
     padding: 15px;
     border: 1px solid var(--border-color);
     background-color: var(--white-color);
+    overflow: hidden;
 }
 
 .entry-tag-meta a {
