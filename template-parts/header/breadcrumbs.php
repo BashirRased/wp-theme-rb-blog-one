@@ -4,9 +4,10 @@
  *
  * @package rb_blog_one
  */
-$breadcrumb = get_field( 'rbth_breadcrumb_acf' );
+$breadcrumb = "";
 $breadcrumb_img = "";
 $breadcrumb_img_array = "";
+$breadcrumb = get_field( 'rbth_breadcrumb_acf' );
 if ( $breadcrumb == 'on' ) {
     $breadcrumb_img_array = get_field( 'rbth_breadcrumb_img_acf' );
     $breadcrumb_img = $breadcrumb_img_array['url'];

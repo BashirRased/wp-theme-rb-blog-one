@@ -6,6 +6,9 @@
  */
 
 $site_branding_class = "";
+$site_title    = "";
+$site_tagline  = "";
+
 if ( true == get_theme_mod ( 'rbth_ads' ) && has_custom_logo() ) {
     $site_branding_class = "col-lg-6";
 } elseif ( true == get_theme_mod ( 'rbth_ads' ) && display_header_text() ) {

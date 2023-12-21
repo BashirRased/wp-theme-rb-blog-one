@@ -6,6 +6,16 @@
  *
  * @package rb_blog_one
  */
+
+$post_meta_list_blog = "";
+$audio_post = "";
+$audio_file = "";
+$audio_oembed = "";
+
+$post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single' );
+$audio_post = get_field( 'rbth_post_audio_file_format' );
+$audio_file = get_field( 'rbth_post_audio_file' );
+$audio_oembed = get_field( 'rbth_post_audio_iframe' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post-item' ); ?>>
@@ -31,9 +41,6 @@
 
                     <?php
                         if ( true == get_theme_mod( 'rbth_post_meta_single' ) ) :
-
-                        // Post Meta List
-                        $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single' );
                     ?>                    
                     <div class="entry-meta">
                     <?php
@@ -68,9 +75,7 @@
                 <?php if ( get_the_content() ) : ?>
                     <div class="entry-content">
                     <?php
-                    $audio_post = get_field( 'rbth_post_audio_file_format' );
-                    $audio_file = get_field( 'rbth_post_audio_file' );
-                    $audio_oembed = get_field( 'rbth_post_audio_iframe' );
+                    
 
                     if ( $audio_post == 'file' ) : ?>
                         <audio controls>

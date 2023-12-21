@@ -6,36 +6,38 @@
  */
 
 get_header();
+$sidebar_acf ="";
+$sidebar = "";
+$main_col = "";
+$sidebar_display = "";
 
 $sidebar_acf = get_field( 'rbth_choose_sidebar' );
 $sidebar = get_theme_mod( 'rbth_sidebar_single' );
-$sidebar_class = "";
-$sidebar_display = "";
 if ( $sidebar_acf == 'left-sidebar' ) {
-    $sidebar_class = "col-lg-8";
+    $main_col = "col-lg-8";
     $sidebar_display = "left";
 }
 
 elseif ( $sidebar_acf == 'right-sidebar' ) {
-    $sidebar_class = "col-lg-8";
+    $main_col = "col-lg-8";
     $sidebar_display = "right";
 }
 
 elseif ( $sidebar_acf == 'no-sidebar' ) {
-    $sidebar_class = "col-lg-12";
+    $main_col = "col-lg-12";
 }
 
 else {
     if( $sidebar == "left-sidebar" ) {
-        $sidebar_class = "col-lg-8";
+        $main_col = "col-lg-8";
         $sidebar_display = "left";
     }
     elseif( $sidebar == "right-sidebar" ) {
-        $sidebar_class = "col-lg-8";
+        $main_col = "col-lg-8";
         $sidebar_display = "right";
     }
     else {
-        $sidebar_class = "col-lg-12";
+        $main_col = "col-lg-12";
     }
 }
 ?>
@@ -53,7 +55,7 @@ else {
             }
             ?>
 
-            <div class="<?php echo esc_attr( $sidebar_class ); ?>">
+            <div class="<?php echo esc_attr( $main_col ); ?>">
                 <div class="content-area">
 
                     <main id="primary" class="site-main">

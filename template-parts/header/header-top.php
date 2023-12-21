@@ -7,6 +7,17 @@
 
 $header_top_class = "";
 $align_right_class = "";
+$facebook_link = "";
+$twitter_link = "";
+$instagram_link = "";
+$linkedin_link = "";
+$pinterest_link = "";
+$youtube_link = "";
+$behance_link = "";
+$dribbble_link = "";
+$github_link = "";
+$codepen_link = "";
+
 if ( true == get_theme_mod ( 'rbth_date_show' ) && true == get_theme_mod ( 'rbth_social_link' ) ) {
     $header_top_class = "col-lg-6";
     $align_right_class = "text-lg-end";
@@ -14,6 +25,17 @@ if ( true == get_theme_mod ( 'rbth_date_show' ) && true == get_theme_mod ( 'rbth
     $header_top_class = "col-lg-12";
     $align_right_class = "text-lg-end";
 }
+
+$facebook_link = get_theme_mod ( 'rbth_facebook_link' );
+$twitter_link = get_theme_mod ( 'rbth_twitter_link' );
+$instagram_link = get_theme_mod ( 'rbth_instagram_link' );
+$linkedin_link = get_theme_mod ( 'rbth_linkedin_link' );
+$pinterest_link = get_theme_mod ( 'rbth_pinterest_link' );
+$youtube_link = get_theme_mod ( 'rbth_youtube_link' );
+$behance_link = get_theme_mod ( 'rbth_behance_link' );
+$dribbble_link = get_theme_mod ( 'rbth_dribbble_link' );
+$github_link = get_theme_mod ( 'rbth_github_link' );
+$codepen_link = get_theme_mod ( 'rbth_codepen_link' );
 ?>
 
 <!--==================================
@@ -37,18 +59,7 @@ if ( true == get_theme_mod ( 'rbth_date_show' ) && true == get_theme_mod ( 'rbth
             <!--===== Header Top Left Area End Here =====-->
 
             <!--===== Header Top Right Area Start Here =====-->
-            <?php if ( true == get_theme_mod ( 'rbth_social_link' ) ) :
-                $facebook_link = get_theme_mod ( 'rbth_facebook_link' );
-                $twitter_link = get_theme_mod ( 'rbth_twitter_link' );
-                $instagram_link = get_theme_mod ( 'rbth_instagram_link' );
-                $linkedin_link = get_theme_mod ( 'rbth_linkedin_link' );
-                $pinterest_link = get_theme_mod ( 'rbth_pinterest_link' );
-                $youtube_link = get_theme_mod ( 'rbth_youtube_link' );
-                $behance_link = get_theme_mod ( 'rbth_behance_link' );
-                $dribbble_link = get_theme_mod ( 'rbth_dribbble_link' );
-                $github_link = get_theme_mod ( 'rbth_github_link' );
-                $codepen_link = get_theme_mod ( 'rbth_codepen_link' );
-            ?>
+            <?php if ( true == get_theme_mod ( 'rbth_social_link' ) ) : ?>
             <div class="<?php echo esc_attr( $header_top_class ); ?>">
                 <div class="header-top-right">
                     <ul class="<?php echo esc_attr( $align_right_class ); ?>">

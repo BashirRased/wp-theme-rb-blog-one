@@ -5,9 +5,10 @@
  * @package rb_blog_one
  */
 
-$count = 1;
+$count = 0;
+$footer_widget_class = "footer-widget-col-1";
 if ( is_active_sidebar( 'footer-1' ) ) {
-    $count;
+    $count++;
     $footer_widget_class = "footer-widget-col-" . $count;
 }
 if ( is_active_sidebar( 'footer-2' ) ) {

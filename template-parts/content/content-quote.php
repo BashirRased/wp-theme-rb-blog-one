@@ -7,6 +7,9 @@
  * @package rb_blog_one
  */
 
+$post_meta_list_blog = "";
+$post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single' );
+
 $quote_text = "";
 $quote_text = get_field( 'rbth_post_quote_text' );
 
@@ -40,9 +43,6 @@ $quote_author_url = get_field( 'rbth_post_quote_author_url' );
 
                     <?php
                         if ( true == get_theme_mod( 'rbth_post_meta_single' ) ) :
-
-                        // Post Meta List
-                        $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single' );
                     ?>                    
                     <div class="entry-meta">
                     <?php

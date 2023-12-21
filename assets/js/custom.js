@@ -59,7 +59,7 @@ Table of JS Content Start Here
             pagination: {
               el: ".swiper-pagination",
             },
-          });
+        });
 
         /*=========================
         ===== 05. Nice Select =====

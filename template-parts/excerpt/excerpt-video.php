@@ -6,7 +6,12 @@
  *
  * @package rb_blog_one
  */
+$post_meta_list_blog = "";
+$video_post = "";
+$video_file = "";
+$video_oembed = "";
 
+$post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_blog' );
 $video_post = get_field( 'rbth_post_video_file_format' );
 $video_file = get_field( 'rbth_post_video_file' );
 $video_oembed = get_field( 'rbth_post_video_iframe' );
@@ -44,10 +49,7 @@ else {
                     <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
                     <?php
-                        if ( true == get_theme_mod( 'rbth_post_meta_blog' ) ) {
-
-                        // Post Meta List
-                        $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_blog' );
+                        if ( true == get_theme_mod( 'rbth_post_meta_blog' ) ) {                        
                         if ( $post_meta_list_blog ) {
                     ?>
                     <div class="entry-meta">

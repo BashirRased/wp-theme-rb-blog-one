@@ -3,7 +3,7 @@ Contributors: bashirrased
 Requires at least: 6.4
 Tested up to: 6.4
 Requires PHP: 7.0
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 Author URI: https://bashirrased.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,10 +15,6 @@ RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a
 1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
 2. Type in RB Blog One in the search form and press the 'Enter' key on your keyboard.
 3. Click on the 'Activate' button to use your new theme right away.
-
-== Frequently Asked Questions ==
-
-== Upgrade Notice ==
 
 == Resources ==
 
@@ -94,6 +90,10 @@ RB Blog One WordPress Theme, Copyright 2021-2023 Bashir Rased.
 RB Blog One is distributed under the terms of the GNU GPL.
 
 == Changelog ==
+
+= 1.1.9 - December 05, 2023 =
+* 5th Updated.
+* variable feter error slove
 
 = 1.1.8 - November 19, 2023 =
 * 4th Updated.

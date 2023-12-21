@@ -8,6 +8,24 @@
  */
 
 get_header();
+
+$sidebar_acf = "";
+$sidebar = "";
+$main_col = "";
+$sidebar_display = "";
+$sidebar_acf = get_field( 'rbth_choose_sidebar' );
+$sidebar = get_theme_mod( 'rbth_sidebar_blog' );
+if( $sidebar == "left-sidebar" ) {
+    $main_col = "col-lg-8";
+    $sidebar_display = "left";
+}
+elseif( $sidebar == "right-sidebar" ) {
+    $main_col = "col-lg-8";
+    $sidebar_display = "right";
+}
+else {
+    $main_col = "col-lg-12";
+}
 ?>
 
 <!--====================================
@@ -16,8 +34,14 @@ get_header();
 <div id="page-content" class="site-content">        
     <div class="container">
         <div class="row">
+
+            <?php
+            if ( $sidebar_display == 'left' ) {
+                get_sidebar();
+            }
+            ?>
             
-            <div class="col-lg-8">
+            <div class="<?php echo esc_attr( $main_col ); ?>">
                 <div class="content-area">
 
                     <main id="primary" class="site-main">
@@ -49,5 +73,8 @@ get_header();
                 </div><!-- .content-area -->
             </div>
 
-            <?php get_sidebar();            
+            <?php
+            if ( $sidebar_display == 'right' ) {
+                get_sidebar();
+            }
 get_footer();

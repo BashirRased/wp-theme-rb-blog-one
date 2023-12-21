@@ -7,6 +7,9 @@
  * @package rb_blog_one
  */
 
+$post_meta_list_blog = "";
+$post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_blog' );
+
 $gallery_img_1 = "";
 $gallery_img_1 = get_field( 'rbth_post_gallery_img_1' );
 
@@ -62,9 +65,6 @@ else {
 
                     <?php
                         if ( true == get_theme_mod( 'rbth_post_meta_blog' ) ) {
-
-                        // Post Meta List
-                        $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_blog' );
                         if ( $post_meta_list_blog ) {
                     ?>
                     <div class="entry-meta">
@@ -149,7 +149,6 @@ else {
                             the_excerpt();
                         }
                     ?>
-                        
                 </div>
 
             </div>

@@ -32,7 +32,7 @@ function rb_blog_one_plugins() {
 			'recommend'  => true,
 		),
 
-		// Download
+		// Advanced Ads – Ad Manager & AdSense
 		array(
 			'name'      => __( 'Advanced Ads – Ad Manager & AdSense', 'rb-blog-one' ),
 			'slug'      => 'advanced-ads',

@@ -7,6 +7,9 @@
  * @package rb_blog_one
  */
 
+$post_meta_list_blog = "";
+$post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single' );
+
 $gallery_img_1 = "";
 $gallery_img_1 = get_field( 'rbth_post_gallery_img_1' );
 
@@ -52,9 +55,6 @@ if ( $gallery_img_1 || $gallery_img_2 || $gallery_img_3 || $gallery_img_4 || $ga
 
                     <?php
                         if ( true == get_theme_mod( 'rbth_post_meta_single' ) ) :
-
-                        // Post Meta List
-                        $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single' );
                     ?>                    
                     <div class="entry-meta">
                     <?php
