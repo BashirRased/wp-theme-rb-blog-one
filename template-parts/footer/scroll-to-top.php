@@ -1,11 +1,3 @@
-<?php
-/**
- * The file loading under footer.php
- *
- * @package rb_blog_one
- */
-?>
-
 <!--===================================== 
 ===== Scroll to Top Area Strat Here =====
 ======================================-->

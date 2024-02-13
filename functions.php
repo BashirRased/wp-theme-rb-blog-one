@@ -1,13 +1,11 @@
 <?php
 /**
- * RB Blog One functions and definitions
- *
- * @package rb_blog_one
+ * functions and definitions
  */
 
-// After Theme Setup
-if( file_exists( dirname ( __FILE__ ) . '/inc/after-theme-setup.php' ) ) {
-	require_once ( dirname ( __FILE__ ) . '/inc/after-theme-setup.php' );
+// Common Functions
+if( file_exists ( dirname( __FILE__ ) . '/inc/common-functions.php' ) ) {
+	require_once(dirname( __FILE__ ) . '/inc/common-functions.php' );
 }
 
 // Third Party Assets
@@ -20,27 +18,12 @@ if( file_exists( dirname( __FILE__ ) . '/inc/theme-assets.php' ) ) {
 	require_once( dirname( __FILE__ ) . '/inc/theme-assets.php' );
 }
 
-// Theme Widgets
-if( file_exists( dirname( __FILE__ ) . '/inc/widget-register.php') ) {
-	require_once( dirname( __FILE__ ) . '/inc/widget-register.php' );
+// Theme Functions
+if( file_exists ( dirname( __FILE__ ) . '/inc/theme-functions.php' ) ) {
+	require_once(dirname( __FILE__ ) . '/inc/theme-functions.php' );
 }
 
-// Common Functions
-if( file_exists ( dirname( __FILE__ ) . '/inc/common-functions.php' ) ) {
-	require_once(dirname( __FILE__ ) . '/inc/common-functions.php' );
-}
-
-// Post Functions
-if( file_exists ( dirname( __FILE__ ) . '/inc/post-functions.php' ) ) {
-	require_once(dirname( __FILE__ ) . '/inc/post-functions.php' );
-}
-
-// Breadcrumbs
-if( file_exists ( dirname( __FILE__ ) . '/inc/breadcrumbs.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/inc/breadcrumbs.php' );
-}
-
-// Bootstrap NavWalker
+// WP Bootstrap Navwalker
 if( file_exists( dirname( __FILE__ ) . '/lib/bootstrap-navwalker.php' ) ) {
 	require_once( dirname( __FILE__ ) . '/lib/bootstrap-navwalker.php' );
 }
@@ -48,9 +31,4 @@ if( file_exists( dirname( __FILE__ ) . '/lib/bootstrap-navwalker.php' ) ) {
 // TGM Plugin Activation
 if( file_exists( dirname( __FILE__ ) . '/lib/class-tgm-plugin-activation.php' ) ) {
 	require_once( dirname( __FILE__ ) . '/lib/class-tgm-plugin-activation.php' );
-}
-
-// TGM Plugin Customization
-if( file_exists( dirname(__FILE__) . '/inc/tgm-customization.php' ) ) {
-	require_once(dirname(__FILE__) . '/inc/tgm-customization.php' );
 }

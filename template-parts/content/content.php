@@ -1,79 +1,80 @@
-<?php
-/**
- * Template part for displaying single post
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package rb_blog_one
- */
-?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-single-item' ); ?>>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post-item' ); ?>>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
+    <!-- Post Meta Top -->
+    <?php if ( true == get_theme_mod( 'rbth_post_meta_blog_top' ) ) : ?>
+        <div class="post-meta-top">
+            <?php do_action ( 'rb_blog_one_post_meta_top' ); ?>
+        </div>
+    <?php endif; ?>
 
-                <?php if ( has_post_thumbnail() ) : ?>
-                    <div class="entry-feature">
-                        <?php do_action ( 'rb_blog_one_post_thumbnail' ); ?>
-                    </div>
-                <?php endif; ?>
+    <!-- Post Thumbnail -->
+    <?php
+        if ( has_post_thumbnail() ) {
+            do_action ( 'rb_blog_one_post_thumbnail' );
+        }
+    ?>
 
-                <header class="entry-header">
+    <!-- Post Title -->
+    <?php the_title( '<h1 class="post-title">', '</h1>' ); ?>
 
-                    <?php if ( true == get_theme_mod( 'rbth_post_meta_single_top' ) ) : ?>
-                    <div class="entry-meta-top">
-                        <?php do_action ( 'rb_blog_one_cat_meta' ); ?>
-                    </div>
-                    <?php endif; ?>
+    <!-- Enable/Disable Post Meta -->
+    <?php if ( true == get_theme_mod( 'rbth_post_meta_single' ) ) :
 
-                    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+    // Post Meta List
+    $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single_post' );
+    if ( $post_meta_list_blog ) :
+    ?>
+    <div class="post-meta">
+    <?php
+        foreach ( $post_meta_list_blog as $post_meta_item_blog ) {
+            if( $post_meta_item_blog == "author-meta" ) {
+                do_action ( 'rb_blog_one_author_meta' );
+            }
+            if( $post_meta_item_blog == "date-meta" ) {
+                do_action ( 'rb_blog_one_date_meta' );
+            }
+            if( $post_meta_item_blog == "comments-meta" ) {
+                do_action ( 'rb_blog_one_comments_meta' );
+            }
+            if( $post_meta_item_blog == "edit-meta" && is_user_logged_in() && current_user_can( 'edit_posts' ) ) {
+                do_action ( 'rb_blog_one_edit_meta' );
+            }
+        }                   
+    ?>
+    </div>
+    <?php endif; else: ?>
+    <div class="post-meta">
+        <?php
+            do_action ( 'rb_blog_one_author_meta' );
+            do_action ( 'rb_blog_one_date_meta' );
+            do_action ( 'rb_blog_one_comments_meta' );
+            do_action ( 'rb_blog_one_edit_meta' );
+        ?>
+    </div>
+    <?php endif; ?>
 
-                    <?php
-                        if ( true == get_theme_mod( 'rbth_post_meta_single' ) ) :
+    <!-- Post Content -->
+    <?php if ( get_the_content() ) : ?>
+        <div class="post-content">
+            <?php the_content(); ?>
+        </div>
+    <?php endif; ?>
 
-                        // Post Meta List
-                        $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single' );
-                    ?>                    
-                    <div class="entry-meta">
-                    <?php
-                        foreach ( $post_meta_list_blog as $post_meta_item_blog ) {
-                            if( $post_meta_item_blog == "author-meta" ) {
-                                do_action ( 'rb_blog_one_author_meta' );
-                            }
-                            if( $post_meta_item_blog == "date-meta" ) {
-                                do_action ( 'rb_blog_one_date_meta' );
-                            }
-                            if( $post_meta_item_blog == "comments-meta" ) {
-                                do_action ( 'rb_blog_one_comments_meta' );
-                            }
-                            if( $post_meta_item_blog == "edit-meta" && is_user_logged_in() && current_user_can( 'edit_posts' ) ) {
-                                do_action ( 'rb_blog_one_edit_meta' );
-                            }
-                        }
-                    ?>
-                    </div>
-                    <?php else : ?>
-                    <div class="entry-meta">
-                        <?php
-                            do_action ( 'rb_blog_one_author_meta' );
-                            do_action ( 'rb_blog_one_date_meta' );
-                            do_action ( 'rb_blog_one_comments_meta' );
-                            do_action ( 'rb_blog_one_edit_meta' );
-                        ?>
-                    </div>
-                    <?php endif; ?>
-                </header>
-
-                <?php if ( get_the_content() ) : ?>
-                    <div class="entry-content">
-                        <?php the_content(); ?>
-                    </div>
-                <?php endif; ?>
-
-                <?php do_action( 'rb_blog_one_single_post_pagination' ); ?>
-
-            </div>
-        </div><!-- .row -->
-    </div><!-- .container -->
+    <!-- Post Page List -->
+    <?php do_action( 'rb_blog_one_single_page_pagination' );
+    ?>
 </article>
+
+<?php if(has_tag()): ?>
+<!-- Post Meta Bottom -->
+<div class="post-meta-bottom">
+    <?php do_action( 'rb_blog_one_post_meta_bottom' ); ?>
+</div>
+<?php endif; ?>
+
+<?php
+// If comments are open or we have at least one comment, load up the comment template.
+if ( comments_open() || get_comments_number() ) {
+    comments_template();
+}
+?>

@@ -30,10 +30,10 @@ Table of JS Content Start Here
             ===== 02. Header Sticky Menu =====
             ================================*/
             if ($(window).scrollTop() >= 50) {
-                $('.header-fixed-area').addClass('header-fixed');
+                $('.header-fixed-active').addClass('header-fixed-menu');
             }
             else {
-                $('.header-fixed-area').removeClass('header-fixed');
+                $('.header-fixed-active').removeClass('header-fixed-menu');
             }
         });
 

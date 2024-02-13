@@ -2,8 +2,6 @@
 /**
  * Template Name: Full Width Page
  * Template Post Type: post, page
- *
- * @package rb_blog_one
  */
 
 get_header();
@@ -12,43 +10,33 @@ get_header();
 <!--====================================
 ===== Site Content Area Start Here =====
 =====================================-->
-<div id="content" class="site-content">        
-    <div class="container">
-        <div class="row">
+<main class="site-content">
+    <div id="page-content">
+        <div class="container">
+            <div class="row">
 
-        <div class="col-lg-12">
-            <div class="content-area">
-
-                <main id="primary" class="site-main">
-                <?php
-                if ( have_posts() ) {
-                    // Load posts loop.
-                    while ( have_posts() ) {
-                        the_post();
-                        get_template_part( 'template-parts/content/content', 'single' );
+                <div id="primary" class="col-lg-12">
+                    <?php
+                    if ( have_posts() ) {
+                        // Load posts loop.
+                        while ( have_posts() ) {
+                            the_post();
+                            get_template_part( 'template-parts/content/content', get_post_format() );
+                        }
+                    } else {        
+                        // If no content, include the "No posts found" template.
+                        get_template_part( 'template-parts/content/content', 'none' );
                     }
-                } else {        
-                    // If no content, include the "No posts found" template.
-                    get_template_part( 'template-parts/content/content', 'none' );
-                }
-                ?>
-                </main><!-- .site-main -->
+                    ?>
 
-                <?php if( has_tag() ) : ?>
-                <div class="entry-meta-footer">
-                    <?php do_action( "rb_blog_one_tag_meta" ); ?>
                 </div>
-                <?php endif; ?>
 
-                <?php
-                // If comments are open or we have at least one comment, load up the comment template.
-                if ( comments_open() || get_comments_number() ) {
-                    comments_template();
-                }
-                ?>
-
-            </div><!-- .content-area -->
-        </div>
-
-<?php
-get_footer();
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div>
+</main>
+<!--==================================
+===== Site Content Area End Here =====
+===================================-->
+            
+<?php get_footer();

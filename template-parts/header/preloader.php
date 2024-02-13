@@ -1,11 +1,3 @@
-<?php
-/**
- * The preloader template file loaded under header.php
- *
- * @package rb_blog_one
- */
-?>
-
 <!--=================================
 ===== Preloader Area Start Here =====
 ==================================-->

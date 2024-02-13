@@ -1,26 +1,151 @@
 <?php
-/**
- * Common some functions for this theme
- * 
- * The file loading under functions.php
- *
- * @package rb_blog_one
- */
+/*=======================
+Table of Common Functions
+=========================
+    01. Theme Setup
+    02. Theme Widget
+	03. Skip Link Focus
+	04. Allowed HTML
+*/
 
-/*=======================================
-Table of Common Functions List Start Here
-=========================================
-	01. Skip Link Focus
-	02. Header Menu Navwalker
-    03. Custom Comment Form
-    04. Custom Comment List
-=======================================
-Table of Common Functions List End Here
-=====================================*/
+// 01. Theme Setup
+if ( ! function_exists( 'rb_blog_one_theme_setup' ) ) {
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 */
+    function rb_blog_one_theme_setup() {        
+        /*
+		 * Make theme available for translation.
+		 */
+		load_theme_textdomain( 'rb-blog-one', get_template_directory(). '/languages' );
 
-/******************************
-***** 01. Skip Link Focus *****
-*****************************/
+        // Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
+
+        /*
+		 * Let WordPress manage the document title.
+		 */
+		add_theme_support( 'title-tag' );
+
+        /**
+		 * Add post-formats support.
+		 */
+		add_theme_support(
+			'post-formats',
+			array(
+				'link',
+				'gallery',
+				'image',
+				'quote',
+				'video',
+				'audio',
+			)
+		);
+
+        /*
+		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+		 */
+		add_theme_support( 'post-thumbnails' );
+
+		// Menu Register
+        register_nav_menu( 'header_menu', __( 'Header Menu', 'rb-blog-one' ) );
+
+		// Set content-width.
+        $GLOBALS['content_width'] = apply_filters( 'rb_blog_one_content_width', 1080  );
+
+		/*
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+		$html = array(
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+            'style',
+            'script',
+            'navigation-widgets'
+        );
+        add_theme_support( 'html5', $html ); 
+
+        /*
+		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
+		 */
+		$logo_width  = 300;
+		$logo_height = 100;
+
+		$custom_logo = array(
+			'height'               => $logo_height,
+			'width'                => $logo_width,
+			'flex-width'           => true,
+			'flex-height'          => true,
+			'unlink-homepage-logo' => true,
+		);
+		add_theme_support( 'custom-logo', $custom_logo );
+
+		// Custom header.
+        $custom_header = array(
+            'width'              => 1110,
+            'height'             => 450,
+            'flex-width'         => true,
+            'flex-height'        => true,
+        );
+        add_theme_support( 'custom-header', $custom_header );
+
+		// Add support for Block Styles.
+		add_theme_support( 'wp-block-styles' );
+
+		// Add support for full and wide align images.
+		add_theme_support( 'align-wide' );
+
+        // Custom background color.		
+		$custom_bg = array(
+			'default-color' => 'd1e4dd',
+		);
+		add_theme_support( 'custom-background', $custom_bg ); 
+
+		// Add support for responsive embedded content.
+		add_theme_support( 'responsive-embeds' );
+
+	}
+}
+add_action( 'after_setup_theme', 'rb_blog_one_theme_setup' );
+
+// 02. Theme Widget
+function rb_blog_one_theme_widget() {
+	// Blog Widget
+	register_sidebar(array(
+		'name' 			=> __( 'Sidebar 1', 'rb-blog-one' ),
+		'description' 	=> __( 'Add your widgets in sidebar 1',  'rb-blog-one' ),
+		'id' 			=> 'sidebar-1',
+        'class'  		=> '',
+        'before_sidebar'=> '<aside id="secondary" class="widget-area col-lg-4">',
+		'after_sidebar' => '</aside>',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' 	=> '</div>',
+		'before_title' 	=> '<h2 class="widget-title">',
+		'after_title' 	=> '</h2>'
+	));
+
+	// Footer Widgets
+    for ( $num = 1; $num <= 5; $num++ ) {
+        register_sidebar( [
+            'name'          => sprintf( esc_html__( 'Footer %1$s', 'rb-blog-one' ), $num ),
+            'id'            => 'footer-' . $num,
+            'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        ] );
+    }
+}
+add_action( 'widgets_init', 'rb_blog_one_theme_widget' );
+
+// 03. Skip Link Focus
 if ( !function_exists( 'rb_blog_one_focus_fix' ) ) {
     function rb_blog_one_focus_fix() {
 
@@ -41,102 +166,18 @@ if ( !function_exists( 'rb_blog_one_focus_fix' ) ) {
     add_action('wp_print_footer_scripts', 'rb_blog_one_focus_fix');
 }
 
-/************************************
-***** 02. Header Menu Navwalker *****
-************************************/
-if ( !function_exists( 'rb_blog_one_header_menu_custom' ) ) {
-	/**
-	 * [rb_blog_one_header_menu_custom description]
-	 * @return [type] [description]
-	 */
-	function rb_blog_one_header_menu_custom() {
-		if ( has_nav_menu( 'header_menu' ) ) {
-			wp_nav_menu( [
-				'theme_location' 	=> 'header_menu',
-				'container'      	=> 'nav',
-				'container_id'   	=> 'site-navigation',
-				'container_class'   => 'header-menu-container',
-				'container'      	=> 'nav',
-				'menu'   		 	=> 'ul',
-				'menu_class'     	=> 'header-menu',
-				'fallback_cb'    	=> 'RB_Blog_One_Navwalker_Class::fallback',
-				'walker'         	=> new RB_Blog_One_Navwalker_Class,
-			] );
-		}		
+// 04. Allowed HTML
+if ( !function_exists( 'rb_blog_one_allowed_html' ) ) {
+	function rb_blog_one_allowed_html() {
+		$allowed_html = array(
+			'iframe' => array (
+				'src'             => true,
+				'height'          => true,
+				'width'           => true,
+				'frameborder'     => true,
+				'allowfullscreen' => true,
+			),
+		);
+		return $allowed_html;
 	}
-	add_action( 'rb_blog_one_header_menu', 'rb_blog_one_header_menu_custom' );
-}
-
-/**********************************
-***** 03. Custom Comment Form *****
-**********************************/
-function rb_blog_one_custom_comment_form( $fields ) {
-    // What fields you want to control.
-    $comment_field_author = $fields['author'];
-    $comment_field_email = $fields['email'];
-	$comment_field_url = $fields['url'];
-    $comment_field_massage = $fields['comment'];
-    $comment_field_cookies = $fields['cookies'];
-
-     // The fields you want to unset (remove).
-    unset($fields['author']);
-    unset($fields['email']);
-    unset($fields['url']);
-    unset($fields['comment']);
-    unset($fields['cookies']);
-
-	// Display the fields to your own taste.
-    // The order in which you place them will determine in what order they are displayed.
-    $fields['author'] = $comment_field_author;
-    $fields['email'] = $comment_field_email;
-    $fields['url'] = $comment_field_url;
-	$fields['comment'] = $comment_field_massage;	
-    $fields['cookies'] = $comment_field_cookies;
-
-    return $fields;
-}
-add_filter( 'comment_form_fields', 'rb_blog_one_custom_comment_form' );
-
-/**********************************
-***** 04. Custom Comment List *****
-**********************************/
-if ( ! function_exists( 'rb_blog_one_comment_list' ) ) {
-    function rb_blog_one_comment_list( $comment, $args, $depth ) {
-        $GLOBAL['comment'] = $comment;
-        $args['reply_text'] = 'Reply';
-        $replayClass = 'comment-depth-' . esc_attr( $depth );
-        ?>
-            <li id="comment-<?php comment_ID();?>" class="comment-item">
-                <div class="comments-box">
-                    <div class="comments-avatar">
-                        <?php echo get_avatar( $comment, '90' );?>
-                    </div>
-                    <div class="comments-text">
-
-                        <h5 class="avatar-name"><?php echo get_comment_author_link();?></h5>
-
-                        <div class="comments-meta">
-                            <span class="comments-meta-icon">
-                                <i class="fa-regular fa-calendar-days"></i>
-                            </span>
-                            <span>
-                                <?php comment_time( get_option( 'date_format' ) ); ?>
-                            </span>
-                            <span>
-                                <?php comment_time( get_option( 'time_format' ) ); ?>
-                            </span>
-                        </div>
-
-                        <div class="comments-content">
-                            <?php comment_text();?>
-                        </div>
-
-                        <div class="comments-replay">
-                            <?php comment_reply_link( array_merge( $args, [ 'depth' => $depth, 'max_depth' => $args['max_depth'] ] ) );?>
-                        </div>
-
-                    </div>
-                </div>
-        <?php
-    }
 }

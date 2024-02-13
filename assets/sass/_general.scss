@@ -1,0 +1,412 @@
+/*===========================
+===== 1.1. Default HTML =====
+===========================*/
+* {
+	word-break: break-all;
+	scroll-behavior: smooth;
+	outline: 0;
+}
+
+*:focus-visible {
+	outline: 0;
+}
+
+*::-moz-selection {
+	background-color: #008000;
+	color: var(--white-color);
+}
+
+*::selection {
+	background-color: #008000;
+	color: var(--white-color);
+}
+
+body {
+    @extend %text_1;
+    color: var(--black-color);
+	font-size: 16px;
+	background-color: var(--light-grey);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+caption,
+figcaption,
+strong,
+b,
+em {
+    @extend %text_2;
+}
+
+h1 {
+	font-size: 55px;
+    line-height: 1.15;
+}
+
+h2 {
+	font-size: 45px;
+    line-height: 1.15;
+}
+
+h3 {
+	font-size: 35px;
+    line-height: 1.15;
+}
+
+h4 {
+	font-size: 28px;
+    line-height: 1.15;
+}
+
+h5 {
+	font-size: 22px;
+    line-height: 1.15;
+}
+
+h6 {
+	font-size: 18px;
+    line-height: 1.15;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+select,
+option,
+audio,
+video {
+    width: 100%;
+}
+
+iframe,
+figure {
+	max-width: 100%;
+}
+
+table {
+	caption-side: top;
+	width: 100%;
+}
+
+hr {
+	opacity: 1;
+}
+
+a { 
+    color: var(--primary-color);
+	transition: var(--transition);
+}
+
+a:hover,
+a:focus,
+kbd {
+	color: var(--white-color);
+	background-color: var(--primary-color);
+}
+
+a img {
+	display: block;
+}
+
+strong,
+b,
+code,
+em,
+hr {
+	color: var(--primary-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+textarea {
+	transition: var(--transition);
+}
+
+button {
+	color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: transparent;
+	transition: var(--transition);
+    &:hover,
+    &:focus {
+        color: var(--white-color);
+        background-color: var(--primary-color);
+    }
+}
+
+figcaption {
+	margin-bottom: 10px;
+}
+
+blockquote {
+    position: relative;
+	padding: 15px;
+    padding-left: 40px;
+	background-color: var(--light-grey);
+    overflow: hidden;
+    &::before {
+        @include font_awesome_1( '\f10d' );
+        font-size: 30px;
+        left: 10px;
+        top: 2px;
+        color: var(--primary-color);
+        opacity: 0.5;
+    }
+    cite,
+    footer {
+        float: right;
+    }
+    cite::before,
+    footer::before {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 1px;
+        background-color: var(--primary-color);
+        left: -35px;
+        top: 50%;
+    }
+}
+
+pre {
+	padding: 15px;
+	color: var(--primary-color);
+	border: 1px solid var(--primary-color);
+	border-radius: 5px;
+	background-color: var(--light-grey);
+}
+
+/*=================================
+===== 1.2. WordPress Core CSS =====
+=================================*/
+.bypostauthor,
+.gallery-caption {
+    display: block;
+}
+
+.alignnone {
+    margin: 10px 10px 10px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 10px 0;
+}
+
+.alignright {
+    float:right;
+    margin: 10px 0 10px 10px;
+}
+
+.alignleft {
+    float: left;
+    margin: 10px 10px 10px 0;
+}
+
+a img {
+	&.alignright {
+		float: right;
+		margin: 10px 0 10px 10px;
+	}
+	&.alignnone {
+		margin: 10px 10px 10px 0;
+	}
+	&.alignleft {
+		float: left;
+		margin: 10px 10px 10px 0;
+	}
+	&.aligncenter {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.wp-caption {
+    text-align: center;
+	&.alignnone {
+		margin: 10px 10px 10px 0;
+	}
+	&.alignleft {
+		margin: 10px 10px 10px 0;
+	}
+	&.alignright {
+		margin: 10px 0 10px 10px;
+	}
+	& img {
+		border: 0 none;
+		height: auto;
+		margin: 0;
+		max-width: 100%;
+		padding: 0;
+		width: auto;
+	}
+	& p.wp-caption-text {
+		color: var(--primary-color);
+	}
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+	&:focus {
+		clip: auto !important;
+		clip-path: none;
+		color: var(--grey-text);
+		display: block;
+		font-size: 1em;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 16px 24px;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		background-color: var(--light-grey);
+		z-index: 9999999;
+	}
+}
+
+/* Skip Link */
+.skip-link {
+	color: var(--primary-color);
+	left: -9999rem;
+	top: 2.5rem;
+	padding: 10px 30px;
+	border: 1px solid var(--primary-color);
+	border-radius: 5px;
+	background-color: transparent;
+	text-decoration: none;
+	z-index: 999999;
+	&:focus {
+		width: 300px;
+		display: block;
+		color: var(--white-color);
+		left: 6px;
+		top: 7px;
+		font-size: 16px;
+		background-color: var(--primary-color);
+		text-align: center;
+	}
+}
+
+/*======================================
+===== 1.3. Common Classes & Styles =====
+======================================*/
+.header-top-right ul,
+.widget_recent_entries ul,
+.wp-block-page-list,
+.widget_pages nav > ul,
+.wp-block-page-list li .children .children .children,
+.widget_pages li .children .children .children,
+.widget_rss ul,
+.widget_meta ul,
+.widget_nav_menu nav > ul,
+.widget_nav_menu ul ul ul ul,
+.widget_archive ul,
+.wp-block-archives-list,
+.wp-block-categories-list,
+.widget_categories nav > ul,
+.widget_categories ul li .children .children .children,
+ol.wp-block-latest-comments,
+.widget_recent_comments nav > ul {
+    @extend %ul_none;
+}
+
+.wp-block-latest-posts.wp-block-latest-posts__list li,
+.widget_recent_entries li,
+.wp-block-page-list li,
+.widget_pages ul li,
+.wp-block-latest-comments__comment,
+.recentcomments {
+	@extend %list_item;
+}
+
+.theme-btn {
+	@extend %theme_btn;
+	padding: 10px 30px;
+    display: inline-block;
+    text-transform: capitalize;
+    text-align: center;
+	text-decoration: none;
+	&:hover,
+	&:focus {
+		@extend %theme_btn_hover;
+	}
+}
+
+/*=====================================
+===== 1.4. Nice Select Customizer =====
+=====================================*/
+.nice-select {
+    width: 100%;
+	float: none;
+	padding-left: 30px;
+	&:hover,
+	&:focus {
+		border-color: var(--primary-color);
+	}
+	&:after {
+		width: 10px;
+		height: 10px;
+		margin-top: -7px;
+		right: 20px;
+		border-bottom: 2px solid var(--primary-color);
+		border-right: 2px solid var(--primary-color);
+	}	
+	.current {
+		display: block;
+		overflow: hidden;
+	}	
+	.list {
+		width: 100%;
+	}	
+	.option {
+		padding: 0;
+		padding-left: 30px;
+		&:hover,
+		&:focus {
+			color: var(--white-color);
+			background-color: var(--primary-color);
+		}	
+		&.focus,
+		&.selected.focus {
+			background-color: var(--primary-color);
+		}
+	}
+}
+
+/*================================
+===== 1.5. Swiper Customizer =====
+================================*/
+.swiper-pagination-bullet {
+	background-color: var(--white-color);
+	opacity: .8;
+	&.swiper-pagination-bullet-active {
+		background-color: var(--primary-color);
+	}
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    color: var(--primary-color);
+}

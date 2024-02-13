@@ -215,7 +215,7 @@ if ( ! class_exists( 'RB_Blog_One_Navwalker_Class' ) ) :
 				$atts['href']          = '#';
 				$atts['data-toggle']   = 'dropdown';
 				$atts['aria-expanded'] = 'false';
-				$atts['class']         = 'menu-item-link';
+				$atts['class']         = 'dropmenu-item-link';
 				$atts['id']            = 'menu-item-dropdown-' . $item->ID;
 			} else {
 				if ( true === $this->has_schema ) {

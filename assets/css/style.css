@@ -1,771 +1,1740 @@
-/***** Table of CSS Content ****
---------------------------------
-    01. Preloader
-    02. Header Top
-    03. Header Site Branding
-    04. Header Menu
-    05. Breadcrumbs
-    06. Blog Item
-    07. Blog Single Item
-    08. Pagination
-    09. Comment Template
-    10. Error Page
-    11. Footer
-    12. Scroll To Top
-*/
+@charset "UTF-8";
+/************ TABLE OF CONTENTS ***************
+	---------------
+    01. General CSS
+	---------------
+		1.1. Default HTML
+		1.2. WordPress Core CSS
+		1.3. Common Classes & Styles
+        1.4. Nice Select Customizer
+        1.5. Swiper Customizer
+	--------------
+    02. Header CSS
+	--------------
+        2.1. Preloader
+        2.2. Header Top
+        2.3. Header Main
+        2.4. Header Menu
+        2.5. Mean Menu Customizer
+        2.6. Breadcrumb
+    ------------
+    03. Page CSS
+	------------
+        3.1. Blog Page
+            3.1.1. Blog List
+                3.1.1.1. Blog Item
+                3.1.1.2. Pagination
+            3.1.2. Sidebar
+        3.2. Single Page
+            3.2.1. WordPress Content Block
+            3.2.2. Comment Template
+        3.3. 404 Page
+    --------------
+    04. Footer CSS
+	--------------
+        4.1. Footer Widget
+        4.2. Footer
+        4.3. Scroll To Top
+**********************************************/
+:root {
+  --primary-color: #f93601;
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --dark-grey: #333333;
+  --light-grey: #eeeeee;
+  --grey-text: #777777;
+  --border-color: #c1c1c1;
+  --transition-1: all 0.3s ease-out 0s; }
 
-/*=======================
-===== 01. Preloader =====
-=======================*/
-#preloader {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 999999;
-    clear: none;
-    background-color: var(--white-color);
-}
+.post-list, .widget, .post-single-item, .post-meta-bottom, .total-comments, .comment-respond, .comments-box, .error-page {
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  background-color: var(--white-color); }
 
-.folding-cube {
-    margin: auto;
-    width: 40px;
-    height: 40px;
+.theme-btn, .link-post, .post-page-numbers,
+.page-numbers, .wp-block-search__button,
+#searchsubmit, .widget_tag_cloud a,
+.wp-block-tag-cloud a, .wp-block-loginout a,
+.wp-block-loginout #wp-submit {
+  display: inline-block;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: transparent;
+  transition: var(--transition-1);
+  text-decoration: none; }
+
+.theme-btn:hover, .theme-btn:focus, .link-post:hover, .link-post:focus, .page-numbers.current,
+.page-numbers:hover,
+.page-numbers:focus,
+.post-page-numbers.current,
+.post-page-numbers:hover,
+.post-page-numbers:focus, .wp-block-search__button:hover,
+.wp-block-search__button:focus,
+#searchsubmit:hover,
+#searchsubmit:focus, .widget_tag_cloud a:hover,
+.widget_tag_cloud a:focus,
+.wp-block-tag-cloud a:hover,
+.wp-block-tag-cloud a:focus, .wp-block-loginout a:hover,
+.wp-block-loginout a:focus,
+.wp-block-loginout #wp-submit:hover,
+.wp-block-loginout #wp-submit:focus {
+  color: var(--white-color);
+  background-color: var(--primary-color); }
+
+.wp-block-latest-posts.wp-block-latest-posts__list li,
+.widget_recent_entries li,
+.wp-block-page-list li,
+.widget_pages ul li,
+.wp-block-latest-comments__comment,
+.recentcomments {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--primary-color); }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+caption,
+figcaption,
+strong,
+b,
+em {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700; }
+
+.breadcrumb-area, .breadcrumb-right-area, .gallery-columns-1,
+.gallery-columns-2,
+.gallery-columns-3,
+.gallery-columns-4,
+.gallery-columns-5,
+.gallery-columns-6,
+.gallery-columns-7,
+.gallery-columns-8,
+.gallery-columns-9,
+.gallery-columns-10,
+.gallery-columns-11,
+.gallery-columns-12, .footer-widget-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.gallery-columns-1,
+.gallery-columns-2,
+.gallery-columns-3,
+.gallery-columns-4,
+.gallery-columns-5,
+.gallery-columns-6,
+.gallery-columns-7,
+.gallery-columns-8,
+.gallery-columns-9,
+.gallery-columns-10,
+.gallery-columns-11,
+.gallery-columns-12 {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.header-top-right ul,
+.widget_recent_entries ul,
+.wp-block-page-list,
+.widget_pages nav > ul,
+.wp-block-page-list li .children .children .children,
+.widget_pages li .children .children .children,
+.widget_rss ul,
+.widget_meta ul,
+.widget_nav_menu nav > ul,
+.widget_nav_menu ul ul ul ul,
+.widget_archive ul,
+.wp-block-archives-list,
+.wp-block-categories-list,
+.widget_categories nav > ul,
+.widget_categories ul li .children .children .children,
+ol.wp-block-latest-comments,
+.widget_recent_comments nav > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.folding-cube .cube:before, .breadcrumb-area::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.breadcrumb-area {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+/*===========================
+===== 1.1. Default HTML =====
+===========================*/
+* {
+  word-break: break-all;
+  scroll-behavior: smooth;
+  outline: 0; }
+
+*:focus-visible {
+  outline: 0; }
+
+*::-moz-selection {
+  background-color: #008000;
+  color: var(--white-color); }
+
+*::selection {
+  background-color: #008000;
+  color: var(--white-color); }
+
+body {
+  color: var(--black-color);
+  font-size: 16px;
+  background-color: var(--light-grey); }
+
+h1 {
+  font-size: 55px;
+  line-height: 1.15; }
+
+h2 {
+  font-size: 45px;
+  line-height: 1.15; }
+
+h3 {
+  font-size: 35px;
+  line-height: 1.15; }
+
+h4 {
+  font-size: 28px;
+  line-height: 1.15; }
+
+h5 {
+  font-size: 22px;
+  line-height: 1.15; }
+
+h6 {
+  font-size: 18px;
+  line-height: 1.15; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+select,
+option,
+audio,
+video {
+  width: 100%; }
+
+iframe,
+figure {
+  max-width: 100%; }
+
+table {
+  caption-side: top;
+  width: 100%; }
+
+hr {
+  opacity: 1; }
+
+a {
+  color: var(--primary-color);
+  transition: var(--transition); }
+
+a:hover,
+a:focus,
+kbd {
+  color: var(--white-color);
+  background-color: var(--primary-color); }
+
+a img {
+  display: block; }
+
+strong,
+b,
+code,
+em,
+hr {
+  color: var(--primary-color); }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+textarea {
+  transition: var(--transition); }
+
+button {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: transparent;
+  transition: var(--transition); }
+  button:hover, button:focus {
+    color: var(--white-color);
+    background-color: var(--primary-color); }
+
+figcaption {
+  margin-bottom: 10px; }
+
+blockquote {
+  position: relative;
+  padding: 15px;
+  padding-left: 40px;
+  background-color: var(--light-grey);
+  overflow: hidden; }
+  blockquote::before {
+    content: "";
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    -webkit-transform: rotateZ(45deg);
-    transform: rotateZ(45deg);
-}
-
-.folding-cube .cube {
-    float: left;
-    width: 50%;
-    height: 50%;
-    position: relative;
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-}
-
-.folding-cube .cube:before {
-    content: '';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 30px;
+    left: 10px;
+    top: 2px;
+    color: var(--primary-color);
+    opacity: 0.5; }
+  blockquote cite,
+  blockquote footer {
+    float: right; }
+  blockquote cite::before,
+  blockquote footer::before {
+    content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    width: 30px;
+    height: 1px;
     background-color: var(--primary-color);
-    -webkit-animation: foldCubeAngle 2.4s infinite linear both;
-    animation: foldCubeAngle 2.4s infinite linear both;
-    -webkit-transform-origin: 100% 100%;
-    transform-origin: 100% 100%;
-}
+    left: -35px;
+    top: 50%; }
 
-.folding-cube .cube2 {
-    -webkit-transform: scale(1.1) rotateZ(90deg);
-    transform: scale(1.1) rotateZ(90deg);
-}
+pre {
+  padding: 15px;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: var(--light-grey); }
 
-.folding-cube .cube3 {
-    -webkit-transform: scale(1.1) rotateZ(180deg);
-    transform: scale(1.1) rotateZ(180deg);
-}
+/*=================================
+===== 1.2. WordPress Core CSS =====
+=================================*/
+.bypostauthor,
+.gallery-caption {
+  display: block; }
 
-.folding-cube .cube4 {
-    -webkit-transform: scale(1.1) rotateZ(270deg);
-    transform: scale(1.1) rotateZ(270deg);
-}
+.alignnone {
+  margin: 10px 10px 10px 0; }
 
-.folding-cube .cube2:before {
-    -webkit-animation-delay: 0.3s;
-    animation-delay: 0.3s;
-}
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 10px 0; }
 
-.folding-cube .cube3:before {
-    -webkit-animation-delay: 0.6s;
-    animation-delay: 0.6s;
-}
+.alignright {
+  float: right;
+  margin: 10px 0 10px 10px; }
 
-.folding-cube .cube4:before {
-    -webkit-animation-delay: 0.9s;
-    animation-delay: 0.9s;
-}
+.alignleft {
+  float: left;
+  margin: 10px 10px 10px 0; }
 
-@-webkit-keyframes foldCubeAngle {
-    0%,
-    10% {
-        -webkit-transform: perspective(140px) rotateX(-180deg);
-        transform: perspective(140px) rotateX(-180deg);
-        opacity: 0;
-    }
+a img.alignright {
+  float: right;
+  margin: 10px 0 10px 10px; }
+a img.alignnone {
+  margin: 10px 10px 10px 0; }
+a img.alignleft {
+  float: left;
+  margin: 10px 10px 10px 0; }
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
 
-    25%,
-    75% {
-        -webkit-transform: perspective(140px) rotateX(0deg);
-        transform: perspective(140px) rotateX(0deg);
-        opacity: 1;
-    }
+.wp-caption {
+  text-align: center; }
+  .wp-caption.alignnone {
+    margin: 10px 10px 10px 0; }
+  .wp-caption.alignleft {
+    margin: 10px 10px 10px 0; }
+  .wp-caption.alignright {
+    margin: 10px 0 10px 10px; }
+  .wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+    width: auto; }
+  .wp-caption p.wp-caption-text {
+    color: var(--primary-color); }
 
-    90%,
-    100% {
-        -webkit-transform: perspective(140px) rotateY(180deg);
-        transform: perspective(140px) rotateY(180deg);
-        opacity: 0;
-    }
-}
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
+  .screen-reader-text:focus {
+    clip: auto !important;
+    clip-path: none;
+    color: var(--grey-text);
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 16px 24px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    background-color: var(--light-grey);
+    z-index: 9999999; }
 
-@keyframes foldCubeAngle {
-    0%,
-    10% {
-        -webkit-transform: perspective(140px) rotateX(-180deg);
-        transform: perspective(140px) rotateX(-180deg);
-        opacity: 0;
-    }
+/* Skip Link */
+.skip-link {
+  color: var(--primary-color);
+  left: -9999rem;
+  top: 2.5rem;
+  padding: 10px 30px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: transparent;
+  text-decoration: none;
+  z-index: 999999; }
+  .skip-link:focus {
+    width: 300px;
+    display: block;
+    color: var(--white-color);
+    left: 6px;
+    top: 7px;
+    font-size: 16px;
+    background-color: var(--primary-color);
+    text-align: center; }
 
-    25%,
-    75% {
-        -webkit-transform: perspective(140px) rotateX(0deg);
-        transform: perspective(140px) rotateX(0deg);
-        opacity: 1;
-    }
+/*======================================
+===== 1.3. Common Classes & Styles =====
+======================================*/
+.theme-btn {
+  padding: 10px 30px;
+  display: inline-block;
+  text-transform: capitalize;
+  text-align: center;
+  text-decoration: none; }
 
-    90%,
-    100% {
-        -webkit-transform: perspective(140px) rotateY(180deg);
-        transform: perspective(140px) rotateY(180deg);
-        opacity: 0;
-    }
-}
+/*=====================================
+===== 1.4. Nice Select Customizer =====
+=====================================*/
+.nice-select {
+  width: 100%;
+  float: none;
+  padding-left: 30px; }
+  .nice-select:hover, .nice-select:focus {
+    border-color: var(--primary-color); }
+  .nice-select:after {
+    width: 10px;
+    height: 10px;
+    margin-top: -7px;
+    right: 20px;
+    border-bottom: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color); }
+  .nice-select .current {
+    display: block;
+    overflow: hidden; }
+  .nice-select .list {
+    width: 100%; }
+  .nice-select .option {
+    padding: 0;
+    padding-left: 30px; }
+    .nice-select .option:hover, .nice-select .option:focus {
+      color: var(--white-color);
+      background-color: var(--primary-color); }
+    .nice-select .option.focus, .nice-select .option.selected.focus {
+      background-color: var(--primary-color); }
+
+/*================================
+===== 1.5. Swiper Customizer =====
+================================*/
+.swiper-pagination-bullet {
+  background-color: var(--white-color);
+  opacity: .8; }
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: var(--primary-color); }
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: var(--primary-color); }
 
 /*========================
-===== 02. Header Top =====
+===== 2.1. Preloader =====
 ========================*/
+#preloader {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999999;
+  clear: none;
+  background-color: var(--white-color); }
+
+.folding-cube {
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transform: rotateZ(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotateZ(45deg); }
+
+.folding-cube .cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1); }
+
+.folding-cube .cube:before {
+  background-color: var(--primary-color);
+  -webkit-animation: foldCubeAngle 2.4s infinite linear both;
+  animation: foldCubeAngle 2.4s infinite linear both;
+  -webkit-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  transform-origin: 100% 100%; }
+
+.folding-cube .cube2 {
+  -webkit-transform: scale(1.1) rotateZ(90deg);
+  -ms-transform: scale(1.1) rotateZ(90deg);
+  transform: scale(1.1) rotateZ(90deg); }
+
+.folding-cube .cube3 {
+  -webkit-transform: scale(1.1) rotateZ(180deg);
+  -ms-transform: scale(1.1) rotateZ(180deg);
+  transform: scale(1.1) rotateZ(180deg); }
+
+.folding-cube .cube4 {
+  -webkit-transform: scale(1.1) rotateZ(270deg);
+  -ms-transform: scale(1.1) rotateZ(270deg);
+  transform: scale(1.1) rotateZ(270deg); }
+
+.folding-cube .cube2:before {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s; }
+
+.folding-cube .cube3:before {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s; }
+
+.folding-cube .cube4:before {
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s; }
+
+@-webkit-keyframes foldCubeAngle {
+  0%,
+    10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; }
+  25%,
+    75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+    opacity: 1; }
+  90%,
+    100% {
+    -webkit-transform: perspective(140px) rotateX(180deg);
+    opacity: 0; } }
+@keyframes foldCubeAngle {
+  0%,
+    10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+    -ms-transform: perspective(140px) rotateX(-180deg);
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; }
+  25%,
+    75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+    -ms-transform: perspective(140px) rotateX(0deg);
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1; }
+  90%,
+    100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+    -ms-transform: perspective(140px) rotateY(180deg);
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0; } }
+/*=========================
+===== 2.2. Header Top =====
+=========================*/
 .header-top-area {
-    width: 100%;
-    height: 100%;
-    min-height: 50px;
-    line-height: 50px;
-    background-color: var(--black-color);
-}
+  width: 100%;
+  padding-top: 10px;
+  background-color: var(--black-color); }
 
 .header-top-left {
-    width: 100%;
-    padding-left: 16px;
-    color: var(--white-color);
-    font-size: 14px;
-}
-
-.header-top-left .fa-calendar-days {
-    margin-right: 10px;
-}
-
-.header-top-right {
-    width: 100%;
-}
-
-.header-top-right ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+  color: var(--white-color);
+  margin-bottom: 10px; }
+  .header-top-left i {
+    margin-right: 10px; }
 
 .header-top-right ul li {
-    display: inline-block;
-    margin-left: 10px;
-}
-
-.header-top-right ul li:first-child {
-    margin-left: 0;
-}
-
+  display: inline-block;
+  margin: 0 0 10px 10px; }
 .header-top-right ul a {
-    display: inline-block;
-    color: var(--white-color);
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    border-radius: 100%;
-    background-color: var(--dark-grey);
-    transition: var(--transition);
-}
+  display: inline-block;
+  color: var(--white-color);
+  border-radius: 100%;
+  background-color: var(--dark-grey);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  -webkit-transition: var(--transition);
+  -o-transition: var(--transition);
+  transition: var(--transition); }
+  .header-top-right ul a:hover, .header-top-right ul a:focus {
+    background-color: var(--primary-color); }
 
-.header-top-right ul a:hover,
-.header-top-right ul a:focus {
-    background-color: var(--primary-color);
-}
-
-/*================================== 
-===== 03. Header Site Branding =====
-==================================*/
+/*========================== 
+===== 2.3. Header Main =====
+==========================*/
 .header-site-branding {
-    width: 100%;
-    height: 100%;
-    min-height: 130px;
-    padding: 25px 0;
-    background-color: var(--white-color);
-}
+  width: 100%;
+  height: 100%;
+  min-height: 130px;
+  padding: 25px 0;
+  background-color: var(--white-color); }
+  .header-site-branding .custom-logo {
+    height: 120px;
+    width: auto; }
 
-.site-branding-area {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 20px;
-}
-
-.header-logo,
-.site-title-and-tagline {
-    display: inline-block;
-}
+.site-branding {
+  gap: 20px; }
 
 .custom-logo-link {
-    display: block;
-}
+  display: block; }
 
-.header-logo img {
-    width: auto;
-    height: 80px;
-}
+.header-logo,
+.site-title-tagline {
+  display: inline-block; }
 
-.header-site-title {
-	font-size: var(--h1-font-size);
-    margin: 0 0 5px 0;
-}
-
-.header-site-title a {
+.site-title {
+  margin: 0 0 5px 0; }
+  .site-title a {
     color: var(--primary-color);
-    text-decoration: none;
-}
+    text-decoration: none; }
+    .site-title a:hover, .site-title a:focus {
+      background-color: transparent;
+      text-decoration: underline; }
 
-.header-site-title a:hover,
-.header-site-title a:focus {
-    background-color: transparent;
-    text-decoration: underline;    
-}
+.site-tagline {
+  margin: 0;
+  font-size: 20px; }
 
-.header-site-tagline {
-    margin: 0;
-    font-size: 20px;
-}
-
-.header-ads-area {
+.header-ads {
+  width: 100%;
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: var(--light-grey);
+  overflow: hidden; }
+  .header-ads img {
     width: 100%;
-    text-align: center;
-    height: 80px;
-    line-height: 80px;
-    border-radius: 5px;
-    background-color: var(--light-grey);    
-    overflow: hidden;
-}
+    height: 120px; }
 
-.header-ads-area img {
-    width: 100%;
-    height: 80px;
-}
-
-/*=========================
-===== 04. Header Menu =====
-=========================*/
-.header-transparent-area {
+/*==========================
+===== 2.4. Header Menu =====
+==========================*/
+.header-menu-area {
+  background-color: var(--black-color); }
+  .header-menu-area.header-transparent-menu {
     position: absolute;
     width: 100%;
-    z-index: 999;
-}
-
-.header-menu-area.header-fixed {
-    position: fixed;
     top: 0;
+    left: 0;
+    z-index: 999; }
+  .header-menu-area.header-fixed-menu {
+    position: fixed;
     width: 100%;
-    padding: 10px;
-    z-index: 9999;
-}
+    top: 0;
+    left: 0;
+    z-index: 9999; }
+  .header-menu-area .dropdown-toggle::after {
+    display: none; }
 
-.admin-bar .header-menu-area.header-fixed {
-    top: 32px;
-}
-
-.header-menu-area {
-    background-color: var(--black-color);
-}
-
-.header-menu-area .dropdown-toggle::after {
-    display: none;
-}
+.admin-bar .header-menu-area.header-fixed-menu,
+.admin-bar .header-transparent-menu {
+  top: 32px; }
 
 .header-menu {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.header-menu li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .header-menu li {
     float: left;
-    position: relative;
-}
-
-.header-menu a {
+    position: relative; }
+    .header-menu li:first-child a {
+      padding-left: 0; }
+    .header-menu li.current-menu-item a {
+      color: var(--primary-color);
+      background-color: transparent; }
+    .header-menu li:hover > .submenu, .header-menu li:focus-within > .submenu {
+      left: 0; }
+  .header-menu a {
     display: block;
     text-decoration: none;
     font-size: 16px;
     color: var(--white-color);
-    padding: 16px;
-}
-
-.header-menu li:first-child a {
-    padding-left: 0;
-}
-
-.header-menu a:hover,
-.header-menu a:focus,
-.header-menu .current-menu-item a {
-    color: var(--primary-color);
-    background-color: transparent;
-}
-
-.header-menu .menu-item-has-children > a,
-.header-menu .menu-item-has-children > a.submenu-item-link {
+    padding: 15px; }
+    .header-menu a:hover, .header-menu a:focus {
+      color: var(--primary-color);
+      background-color: transparent; }
+  .header-menu .menu-item-has-children > a {
     position: relative;
-}
-
-.header-menu .menu-item-has-children > a::after {
-    content: '\f107';   
-    font-family: "FontAwesome";
-    position: absolute;
-    margin-left: 5px;
-    transition: var(--transition);
-}
-
-.header-menu .menu-item-has-children > a:hover::after,
-.header-menu .menu-item-has-children > a:focus::after {
-    content: '\f106'; 
-}
-
-.header-menu .menu-item-has-children > a.submenu-item-link::after {
-    content: '\f105'; 
-}
-
-.header-menu .menu-item-has-children > a.submenu-item-link:hover::after,
-.header-menu .menu-item-has-children > a.submenu-item-link:focus::after {
-    content: '\f104'; 
-}
+    padding-right: 30px; }
+    .header-menu .menu-item-has-children > a.submenu-item-link {
+      position: relative; }
+    .header-menu .menu-item-has-children > a::after {
+      content: "";
+      position: absolute;
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      -webkit-transition: var(--transition);
+      -o-transition: var(--transition);
+      transition: var(--transition);
+      margin-left: 5px; }
+    .header-menu .menu-item-has-children > a:hover::after, .header-menu .menu-item-has-children > a:focus::after {
+      content: '\f106'; }
+    .header-menu .menu-item-has-children > a.submenu-item-link::after {
+      content: '\f105'; }
+      .header-menu .menu-item-has-children > a.submenu-item-link::after:hover::after, .header-menu .menu-item-has-children > a.submenu-item-link::after:focus::after {
+        content: '\f104'; }
 
 .submenu {
-    position: absolute;
-    top: 100%;
-    left: -99999px;
-    min-width: 250px;
-    z-index: 99999;
-    padding: 0;
-    background-color: var(--dark-grey);
-}
-
-.header-menu li:hover > .submenu,
-.header-menu li:focus-within > .submenu {
-    left: 0;
-}
-
-.submenu li {
+  position: absolute;
+  top: 100%;
+  left: -99999px;
+  min-width: 250px;
+  z-index: 99999;
+  padding: 0;
+  background-color: var(--dark-grey); }
+  .submenu li {
     position: relative;
     float: none;
     list-style: none;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.submenu li:hover > .submenu,
-.submenu li:focus-within > .submenu {
-    top: 0;
-    left: 100%;
-}
-
-.submenu li:last-child {
-    border-bottom: none;
-}
-
-.submenu li a {
-    padding: 15px;
-}
+    border-bottom: 1px solid #414141; }
+    .submenu li:hover > .submenu, .submenu li:focus-within > .submenu {
+      top: 0;
+      left: 100%; }
+    .submenu li:last-child {
+      border-bottom: none; }
+    .submenu li a {
+      padding: 15px; }
+  .submenu .submenu {
+    position: absolute;
+    top: -99999px; }
+    .submenu .submenu li {
+      border-left: 1px solid #414141; }
 
 .header-menu .submenu li:first-child a {
+  padding-left: 15px; }
+
+/*===================================
+===== 2.5. Mean Menu Customizer =====
+===================================*/
+.mean-container a.meanmenu-reveal {
+  padding: 15px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px; }
+  .mean-container a.meanmenu-reveal span {
+    background-color: var(--primary-color); }
+  .mean-container a.meanmenu-reveal:hover span, .mean-container a.meanmenu-reveal:focus span {
+    background-color: var(--white-color); }
+.mean-container .mean-bar {
+  padding: 0;
+  background-color: transparent;
+  min-height: 34px;
+  margin: 10px 0; }
+.mean-container .mean-nav {
+  margin-top: 54px;
+  background-color: transparent; }
+  .mean-container .mean-nav ul li:last-child a {
+    border-bottom: none; }
+  .mean-container .mean-nav ul li a {
+    width: 96%;
     padding: 15px;
-}
+    border-top: none;
+    border-bottom: 1px solid var(--primary-color); }
+    .mean-container .mean-nav ul li a:hover, .mean-container .mean-nav ul li a:focus {
+      color: var(--primary-color);
+      background-color: transparent; }
+    .mean-container .mean-nav ul li a.mean-expand {
+      color: var(--primary-color);
+      background-color: transparent;
+      height: 20px;
+      width: 20px;
+      line-height: 20px;
+      margin: 4px 5px 5px 0;
+      border: 1px solid var(--primary-color) !important;
+      opacity: 1;
+      border-radius: 5px;
+      right: -5px;
+      z-index: 99; }
+      .mean-container .mean-nav ul li a.mean-expand:hover, .mean-container .mean-nav ul li a.mean-expand:focus {
+        color: var(--white-color);
+        background-color: var(--primary-color); }
+  .mean-container .mean-nav ul li li a {
+    width: 94%;
+    padding: 15px 15px 15px 30px;
+    opacity: 1;
+    border-top: none; }
+  .mean-container .mean-nav ul li li li a {
+    width: 92%;
+    padding: 15px 15px 15px 45px; }
+  .mean-container .mean-nav ul li li li li a {
+    width: 90%;
+    padding: 15px 15px 15px 60px; }
 
-.submenu .submenu {
-    position: absolute;
-    top: -99999px;
-}
+/*==========================
+===== 2.6. Breadcrumbs =====
+==========================*/
+.breadcrumb-area {
+  position: relative;
+  padding: 100px 0;
+  background-color: var(--light-grey);
+  z-index: 1; }
+  .breadcrumb-area::before {
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9; }
 
-.submenu .submenu li {
-    border-left: 1px solid var(--border-color);
-}
+.breadcrumb-content {
+  position: relative;
+  width: 100%;
+  color: var(--white-color);
+  z-index: 99; }
 
-/*=========================
-===== 05. Breadcrumbs =====
-=========================*/
-.breadcrumbs-area {
-    display: flex;
-    align-items: center;
-    position: relative;
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-    min-height: 250px;
-    background-color: var(--light-grey);
-    border-bottom: 1px solid var(--border-color);
-}
+.breadcrumb-left-area {
+  color: var(--white-color); }
 
-.breadcrumbs-area::before {
-	position: absolute;
-	content: "";
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0,0,0,.85);
-	z-index: 1;
-}
+.breadcrumb-title {
+  color: var(--white-color);
+  font-size: 24px;
+  text-transform: uppercase;
+  margin: 0; }
 
-.breadcrumbs-content {
-	position: relative;
-	color: var(--white-color);
-	z-index: 2;
-}
+.breadcrumb-description {
+  margin-top: 10px; }
+  .breadcrumb-description p {
+    margin-bottom: 0; }
 
-.breadcrumbs-left-area {
-    position: relative;
-    color: var(--white-color);
-    padding: 45px 0;
-    z-index: 2;
-}
+.breadcrumb-right-area {
+  position: relative;
+  color: var(--white-color);
+  width: 100%;
+  height: 100%;
+  justify-content: end;
+  align-items: center;
+  z-index: 2; }
 
-.breadcrumbs-right-area {
-    color: var(--grey-text);
-}
-
-.breadcrumbs-title {
-    color: var(--white-color);
-    font-size: 24px;
-    text-transform: uppercase;
-    margin: 0;
-    padding-left: 16px;
-}
-
-.breadcrumbs-right-area {
-    position: relative;
-    color: var(--white-color);
-	display: flex;
-	width: 100%;
-    height: 100%;	
-	justify-content: end;	
-	align-items: center;
-    z-index: 2;
-}
-
-.breadcrumbs-nav ul {
-	padding: 0;
-}
-
-.breadcrumbs-nav a {
+.breadcrumb-nav ul {
+  margin: 0;
+  padding: 0; }
+  .breadcrumb-nav ul a {
     color: var(--primary-color);
-    text-decoration: none;
-}
+    text-decoration: none; }
+    .breadcrumb-nav ul a:hover, .breadcrumb-nav ul a:focus {
+      text-decoration: underline;
+      background-color: transparent; }
 
-.breadcrumbs-nav a:hover,
-.breadcrumbs-nav a:focus {
-    text-decoration: underline;
-    background-color: transparent;
-}
-
+/*======================
+===== 03. Page CSS =====
+======================*/
 .site-content {
-    margin-top: 70px;
-}
+  margin: 70px 0; }
 
-.site-main {
-    background-color: var(--white-color);
-    border: 1px solid var(--border-color);
-    padding: 15px 3px;    
-}
+/*========================
+===== 3.1. Blog Page =====
+========================*/
+.post-list div {
+  clear: both; }
 
-.site-main div {
-	clear: both;
-}
-
-/*=======================
-===== 06. Blog Item =====
-=======================*/
-.single-post-item:first-child {
-    padding-top: 0;
-}
-
-.single-post-item {
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border-color);  
-}
-
-.single-post-item:last-child {
-    border-bottom: none;
-}
-
-.single-post-item.sticky {
+/*==========================
+===== 3.1.1. Blog List =====
+==========================*/
+.post-list-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color); }
+  .post-list-item:first-child {
+    padding-top: 0; }
+  .post-list-item:last-child {
+    border-bottom: none; }
+  .post-list-item.sticky {
     border: 5px solid var(--primary-color);
-    padding: 30px 20px;
-}
+    padding: 30px 20px; }
 
-.entry-meta-top {
-    font-size: 14px;
-    color: var(--dark-grey);
-    margin-bottom: 15px;
-}
-
-.entry-cat-meta i {
-    margin-right: 5px;
-}
-
-.entry-cat-meta a:hover,
-.entry-cat-meta a:focus {
-    text-decoration: underline;
-    background-color: transparent;
-}
-
-.entry-cat-meta a {
+.post-meta-top {
+  font-size: 12px;
+  color: var(--dark-grey);
+  margin-bottom: 15px; }
+  .post-meta-top .cat-post-meta i {
+    margin-right: 5px; }
+  .post-meta-top .cat-post-meta a {
     color: var(--primary-color);
-    text-decoration: none;
-}
+    text-decoration: none; }
+    .post-meta-top .cat-post-meta a:hover, .post-meta-top .cat-post-meta a:focus {
+      text-decoration: underline;
+      background-color: transparent; }
 
-.entry-title a {
+.post-title {
+  margin-top: 0;
+  margin-bottom: 15px; }
+  .post-title a {
     color: var(--black-color);
     background-color: transparent;
-    text-decoration: none;    
-}
+    text-decoration: none; }
+    .post-title a:hover, .post-title a:focus {
+      color: var(--primary-color);
+      text-decoration: underline; }
 
-.entry-title a:hover,
-.entry-title a:focus {
+.post-meta {
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  color: var(--dark-grey); }
+  .post-meta i {
     color: var(--primary-color);
-    text-decoration: underline;
-} 
-
-.entry-meta {
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
+    margin-right: 5px; }
+  .post-meta a {
     color: var(--dark-grey);
-}
+    text-decoration: none; }
+    .post-meta a:hover, .post-meta a:focus {
+      color: var(--primary-color);
+      background-color: transparent;
+      text-decoration: underline; }
 
-.entry-meta i {
-    color: var(--primary-color);
-    margin-right: 5px;
-}
+.author-post-meta,
+.date-post-meta,
+.comments-post-meta,
+.edit-post-meta {
+  display: inline-block;
+  margin: 10px 20px 0 0; }
 
-.entry-meta a {
-    color: var(--dark-grey);
-    text-decoration: none;
-}
+.comment-meta-off-text {
+  color: var(--border-color); }
 
-.entry-meta a:hover,
-.entry-meta a:focus {
-    color: var(--primary-color);
-    background-color: transparent;
-    text-decoration: underline; 
-}
-
-.entry-author-meta,
-.entry-date-meta,
-.entry-comments-meta,
-.entry-meta-edit {
-    display: inline-block;
-    margin: 10px 20px 0 0;
-}
-
-.entry-meta-footer {
-    margin-top: 10px;
-    padding: 15px;
-    border: 1px solid var(--border-color);
-    background-color: var(--white-color);
-    overflow: hidden;
-}
-
-.entry-tag-meta a {
-    color: var(--dark-grey);
-    text-decoration: none;
-}
-
-.entry-tag-meta a:hover,
-.entry-tag-meta a:focus {
-    color: var(--primary-color);
-    background-color: transparent;
-    text-decoration: underline;
-}
-
-.entry-content {
-    margin-top: 15px;
-}
+.post-img-gallery {
+  width: 100%;
+  height: 500px; }
+  .post-img-gallery img {
+    width: 100%;
+    height: 500px; }
 
 .link-post {
-    display: block;
-    padding: 10px 20px;
-    border: 1px solid var(--primary-color);
-    border-radius: 20px;
-    text-decoration: none;
-    margin-bottom: 20px;
-}
+  padding: 10px 30px;
+  margin-bottom: 20px; }
 
 .quote-author {
-    position: relative;
-    float: right;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.quote-author:hover,
-.quote-author:focus {
-    text-decoration: underline;
-}
-
-.quote-author::before {
+  position: relative;
+  float: right;
+  text-decoration: none;
+  transition: var(--transition); }
+  .quote-author:hover, .quote-author:focus {
+    text-decoration: underline; }
+  .quote-author::before {
     content: "";
     position: absolute;
     top: 50%;
     left: -60px;
     width: 50px;
     height: 2px;
-    background-color: var(--primary-color);
-}
+    background-color: var(--primary-color); }
 
-.post-img-gallery {
-    width: 100%;
-    height: 500px;
-}
+.post-excerpt {
+  margin-top: 15px; }
+  .post-excerpt p {
+    margin-bottom: 0; }
 
-.post-img-gallery img {
-    width: 100%;
-    height: 500px;
-}
+.read-more-btn {
+  margin-top: 15px; }
 
 .no-results {
-    padding: 15px;
-}
+  padding: 15px; }
 
 .page-title-span {
-    color: var(--primary-color);
-}
+  color: var(--primary-color); }
 
 .page-content input[type="text"],
 .page-content input[type="submit"] {
-    padding: 10px;
-}
+  padding: 10px; }
 
-/*==============================
-===== 07. Blog Single Item =====
-==============================*/
-.post-password-form input[type="password"] {
-    width: 100%;
-    border: 1px solid var(--border-color);
-	padding: 10px;
-}
-
-.post-password-form input[type="password"]:hover,
-.post-password-form input[type="password"]:focus {
-    border: 1px solid var(--primary-color);
-}
-
-.post-password-form input[type="submit"] {
-    display: inline-block;
-	text-decoration: none;
-    padding: 11px 30px;
-	color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-	background-color: transparent;
-}
-
-.post-password-form input[type="submit"]:hover,
-.post-password-form input[type="submit"]:focus {
-    color: var(--white-color);
-	background-color: var(--primary-color);
-}
-
-/*========================
-===== 08. Pagination =====
-========================*/
-.navigation.pagination .screen-reader-text {
-    display: none;
-}
-
+/*=============================
+===== 3.1.1.2. Pagination =====
+=============================*/
 .navigation.pagination {
-    margin-top: 30px;
-}
+  padding: 15px;
+  margin-top: 30px; }
+  .navigation.pagination .screen-reader-text {
+    display: none; }
 
 .post-page-numbers,
 .page-numbers {
-    text-align: center;
-	display: inline-block;
-	text-decoration: none;
-	cursor: pointer;
-    max-width: 100%;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 16px;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    background-color: transparent;
-    margin: 0 10px 10px 0;
-    transition: var(--transition);
-}
+  padding: 10px 20px;
+  margin: 0 2px 5px 0; }
 
-.page-numbers.current,
-.page-numbers:hover,
-.page-numbers:focus,
-.post-page-numbers.current,
-.post-page-numbers:hover,
-.post-page-numbers:focus {
+/*========================
+===== 3.1.2. Sidebar =====
+========================*/
+.widget {
+  margin-bottom: 25px; }
+  .widget.widget_search {
+    overflow: hidden; }
+
+.widget-title {
+  display: block;
+  position: relative;
+  margin-bottom: 30px; }
+  .widget-title::before {
+    content: "";
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color); }
+  .widget-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 70px;
+    height: 3px;
+    background-color: var(--primary-color); }
+
+/** 01. Archive Widget List Format */
+.widget_archive ul li,
+.wp-block-archives-list li {
+  display: block;
+  padding: 15px 0;
+  text-align: right;
+  border-bottom: 1px solid var(--primary-color);
+  overflow: hidden; }
+
+.widget_archive ul li:last-child,
+.wp-block-archives-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: none; }
+
+.widget_archive ul li a,
+.wp-block-archives-list li a {
+  position: relative;
+  float: left;
+  text-decoration: none;
+  padding-left: 30px;
+  color: var(--black-color); }
+
+.widget_archive ul li a:hover,
+.widget_archive ul li a:focus,
+.wp-block-archives-list li a:hover,
+.wp-block-archives-list li a:focus {
+  text-decoration: underline;
+  color: var(--primary-color);
+  background-color: transparent; }
+
+.widget_archive ul li a::before,
+.wp-block-archives-list li a::before {
+  content: "";
+  position: absolute;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: var(--primary-color);
+  left: 10px;
+  top: 50%; }
+
+/** 02. Archive Widget Dropdown Format */
+.single-post-item .wp-block-archives-dropdown {
+  margin-bottom: 10px; }
+  .single-post-item .wp-block-archives-dropdown li {
+    list-style: none; }
+
+.wp-block-archives__label {
+  display: block; }
+
+/** 03. Calendar Widget */
+.wp-block-calendar,
+.calendar_wrap {
+  list-style: none; }
+
+.wp-block-calendar table caption,
+.calendar_wrap table caption {
+  color: var(--white-color);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: var(--primary-color); }
+
+.wp-block-calendar table,
+.calendar_wrap table {
+  width: 100%;
+  text-align: center; }
+
+.wp-block-calendar table th,
+.calendar_wrap table th {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color); }
+
+.wp-block-calendar tbody td,
+.calendar_wrap tbody td {
+  color: var(--black-color);
+  border: 1px solid var(--primary-color); }
+
+.wp-block-calendar tbody td#today,
+.calendar_wrap tbody td#today {
+  color: var(--white-color);
+  background-color: var(--primary-color); }
+
+.wp-block-calendar tbody td#today a,
+.calendar_wrap tbody td#today a {
+  color: var(--white-color); }
+
+.wp-block-calendar a,
+.calendar_wrap a {
+  text-decoration: none;
+  color: var(--primary-color); }
+
+.wp-block-calendar a:hover,
+.wp-block-calendar a:focus,
+.calendar_wrap a:hover,
+.calendar_wrap a:focus {
+  background-color: transparent;
+  text-decoration: underline; }
+
+.wp-calendar-nav {
+  overflow: hidden;
+  margin-top: 10px; }
+
+.wp-calendar-nav-prev {
+  float: left; }
+
+.wp-calendar-nav-next {
+  float: right; }
+
+/** 04. Categroy Widget List Format */
+.wp-block-categories-list li,
+.widget_categories ul li {
+  display: block;
+  text-align: right;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--primary-color);
+  overflow: hidden; }
+
+.wp-block-categories-list li:last-child,
+.widget_categories ul li:last-child {
+  padding-bottom: 0;
+  border-bottom: none; }
+
+.wp-block-categories-list li a,
+.widget_categories ul li a {
+  position: relative;
+  float: left;
+  text-decoration: none;
+  padding-left: 30px;
+  color: var(--black-color); }
+
+.wp-block-categories-list li a:hover,
+.wp-block-categories-list li a:focus,
+.widget_categories ul li a:hover,
+.widget_categories ul li a:focus {
+  text-decoration: underline;
+  color: var(--primary-color);
+  background-color: transparent; }
+
+.wp-block-categories-list li a::before,
+.widget_categories ul li a::before {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 10px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--primary-color);
+  border-radius: 50%; }
+
+.wp-block-categories-list ul li:first-child,
+.widget_categories ul ul li:first-child {
+  margin-top: 10px;
+  border-top: 1px solid var(--primary-color); }
+
+.wp-block-categories-list ul li:not:first-child,
+.widget_categories ul ul li:not:first-child {
+  margin-top: 10px; }
+
+/** 05. Lastest Comments Widget */
+.wp-block-latest-comments__comment,
+.recentcomments {
+  margin-bottom: 0; }
+
+.wp-block-latest-comments__comment:last-child,
+.recentcomments:last-child {
+  padding-bottom: 0;
+  border-bottom: none; }
+
+.wp-block-latest-comments__comment a,
+.recentcomments a {
+  text-decoration: none; }
+
+.wp-block-latest-comments__comment a:hover,
+.wp-block-latest-comments__comment a:focus,
+.recentcomments a:hover,
+.recentcomments a:focus {
+  text-decoration: underline; }
+
+.wp-block-latest-comments__comment-date {
+  color: var(--grey-text); }
+
+/** 06. Lastest Post Widget */
+.wp-block-latest-posts.wp-block-latest-posts__list li:last-child,
+.widget_recent_entries li:last-child {
+  padding-bottom: 0;
+  border-bottom: none; }
+
+.wp-block-latest-posts.wp-block-latest-posts__list li a,
+.widget_recent_entries li a {
+  color: var(--black-color);
+  text-decoration: none; }
+
+.wp-block-latest-posts.wp-block-latest-posts__list.has-dates li a,
+.wp-block-latest-posts.wp-block-latest-posts__list.has-author li a {
+  color: var(--primary-color); }
+
+.wp-block-latest-posts.wp-block-latest-posts__list li a:hover,
+.wp-block-latest-posts.wp-block-latest-posts__list li a:focus,
+.widget_recent_entries li a:hover,
+.widget_recent_entries li a:focus {
+  color: var(--primary-color);
+  background-color: transparent;
+  text-decoration: underline; }
+
+.wp-block-latest-posts.wp-block-latest-posts__list.has-author li a.theme-btn:hover,
+.wp-block-latest-posts.wp-block-latest-posts__list.has-author li a.theme-btn:focus {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  text-decoration: none; }
+
+.wp-block-latest-posts__post-author,
+.wp-block-latest-posts__post-date {
+  color: var(--grey-text); }
+
+/** 07. Page List Widget */
+.wp-block-page-list li
+.widget_pages ul li {
+  list-style: none; }
+
+.wp-block-page-list li:last-child,
+.widget_pages ul li:last-child {
+  padding-bottom: 0;
+  border-bottom: none; }
+
+.wp-block-page-list li a,
+.widget_pages li a {
+  position: relative;
+  display: block;
+  color: var(--black-color);
+  padding-left: 30px;
+  text-decoration: none; }
+
+.wp-block-page-list li a:hover,
+.wp-block-page-list li a:focus,
+.widget_pages li a:hover,
+.widget_pages li a:focus {
+  color: var(--primary-color);
+  background-color: transparent;
+  text-decoration: underline; }
+
+.wp-block-page-list li a::before,
+.widget_pages li a::before {
+  content: "";
+  position: absolute;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: var(--primary-color);
+  top: 50%;
+  left: 10px; }
+
+.wp-block-page-list li li:first-child,
+.widget_pages li ul li:first-child {
+  margin-top: 10px;
+  border-top: 1px solid var(--primary-color); }
+
+.wp-block-page-list li li:not:first-child,
+.widget_pages li ul li:not:first-child {
+  margin-top: 10px; }
+
+.wp-block-navigation__submenu-container li,
+.page_item_has_children li {
+  list-style: none; }
+
+/** 08. RSS Widget */
+.wp-block-rss__item,
+.widget_rss li {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--primary-color); }
+
+.wp-block-rss__item:last-child,
+.widget_rss li:last-child {
+  padding-bottom: 0;
+  border-bottom: none; }
+
+.widget-title .rss-widget-feed,
+.widget-title .rss-widget-title {
+  display: inline-block;
+  color: var(--black-color); }
+
+.widget-title .rss-widget-title:hover,
+.widget-title .rss-widget-title:focus {
+  color: var(--primary-color); }
+
+.wp-block-rss__item-title a,
+.rsswidget {
+  display: block;
+  text-decoration: none; }
+
+.wp-block-rss__item-title a:hover,
+.wp-block-rss__item-title a:focus,
+.rsswidget:hover,
+.rsswidget:focus {
+  text-decoration: underline;
+  color: var(--primary-color);
+  background-color: transparent; }
+
+.wp-block-rss__item-publish-date,
+.wp-block-rss__item-author,
+.rss-date {
+  display: block;
+  color: var(--grey-text); }
+
+/** 09. Search Widget */
+.widget_search input#s {
+  margin-bottom: 10px; }
+
+.widget_search input {
+  width: 100%;
+  padding: 10px; }
+
+.wp-block-search__label {
+  display: block; }
+
+.wp-block-search__input,
+input#s[type="text"] {
+  border: 1px solid var(--border-color); }
+
+input#s[type="text"] {
+  margin-bottom: 10px; }
+
+:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) {
+  border: 1px solid var(--primary-color); }
+
+.wp-block-search__input:hover,
+.wp-block-search__input:focus,
+input#s[type="text"]:hover,
+input#s[type="text"]:focus {
+  border: 1px solid var(--primary-color); }
+
+.wp-block-search__button,
+#searchsubmit {
+  padding: 10px; }
+
+/** 10. Social Links Widget */
+/** 11. Tag Widget */
+.wp-block-tag-cloud.is-style-outline {
+  gap: 0 5px; }
+
+.widget_tag_cloud a,
+.wp-block-tag-cloud a {
+  padding: 10px;
+  margin: 5px 2px; }
+
+/** 12. Meta Widget */
+.widget_meta ul li {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--primary-color); }
+  .widget_meta ul li:last-child {
+    padding-bottom: 0;
+    border-bottom: none; }
+  .widget_meta ul li a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--black-color);
+    padding-left: 30px; }
+    .widget_meta ul li a:hover, .widget_meta ul li a:focus {
+      color: var(--primary-color);
+      background-color: transparent;
+      text-decoration: underline; }
+    .widget_meta ul li a::before {
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 10px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--primary-color); }
+
+/** 13. Nav Menu Widget */
+.widget_nav_menu ul li {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--primary-color); }
+  .widget_nav_menu ul li:last-child {
+    padding-bottom: 0;
+    border-bottom: none; }
+  .widget_nav_menu ul li a {
+    position: relative;
+    display: block;
+    color: var(--black-color);
+    padding-left: 30px;
+    text-decoration: none; }
+    .widget_nav_menu ul li a:hover, .widget_nav_menu ul li a:focus {
+      color: var(--primary-color);
+      background-color: transparent;
+      text-decoration: underline; }
+    .widget_nav_menu ul li a::before {
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 10px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--primary-color); }
+.widget_nav_menu i,
+.widget_nav_menu button {
+  display: none; }
+.widget_nav_menu ul ul li {
+  list-style: none; }
+.widget_nav_menu ul ul li:first-child {
+  margin-top: 10px;
+  border-top: 1px solid var(--primary-color); }
+.widget_nav_menu ul ul li:not:first-child {
+  margin-top: 10px; }
+
+/** 14. WordPress LogInOut Button */
+.wp-block-loginout a,
+.wp-block-loginout #wp-submit {
+  padding: 10px 30px; }
+
+.wp-block-loginout #user_login,
+.wp-block-loginout #user_pass {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color); }
+
+.wp-block-loginout #user_login:hover,
+.wp-block-loginout #user_login:focus,
+.wp-block-loginout #user_pass:hover,
+.wp-block-loginout #user_pass:focus {
+  border: 1px solid var(--primary-color); }
+
+.wp-block-loginout label {
+  display: block; }
+
+.wp-block-loginout .input {
+  width: 100%; }
+
+/** 15. Text Widget */
+.widget_text {
+  padding: 18px;
+  margin-bottom: 10px;
+  background-color: var(--white-color);
+  box-shadow: var(--light-shadow); }
+
+/** 16. Social Icon Widget */
+.wp-block-social-links .wp-social-link a,
+.wp-block-social-links .wp-social-link a:hover,
+.wp-block-social-links .wp-social-link a:focus {
+  background-color: transparent; }
+
+/*==========================
+===== 3.2. Single Page =====
+==========================*/
+.post-content {
+  margin-top: 15px; }
+
+.post-password-form input[type="password"] {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  padding: 10px; }
+  .post-password-form input[type="password"]:hover, .post-password-form input[type="password"]:focus {
+    border: 1px solid var(--primary-color); }
+.post-password-form input[type="submit"] {
+  display: inline-block;
+  text-decoration: none;
+  padding: 11px 30px;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: transparent; }
+  .post-password-form input[type="submit"]:hover, .post-password-form input[type="submit"]:focus {
     color: var(--white-color);
-    background-color: var(--primary-color);
-}
+    background-color: var(--primary-color); }
 
-/*==============================
-===== 09. Comment Template =====
-==============================*/
+.post-meta-bottom {
+  margin-top: 10px;
+  overflow: hidden; }
+
+.tag-post-meta i {
+  margin-right: 5px; }
+.tag-post-meta a {
+  color: var(--dark-grey);
+  text-decoration: none; }
+  .tag-post-meta a:hover, .tag-post-meta a:focus {
+    color: var(--primary-color);
+    background-color: transparent;
+    text-decoration: underline; }
+
+/*========================================
+===== 3.2.1. WordPress Content Block =====
+========================================*/
+/** 01. Image Block */
+.wp-block-image figcaption {
+  color: var(--primary-color);
+  font-size: 16px; }
+
+/** 02. Button Block */
+.wp-block-button__link {
+  color: var(--white-color);
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  margin-bottom: 10px; }
+  .wp-block-button__link:hover, .wp-block-button__link:focus {
+    color: var(--primary-color);
+    background-color: transparent;
+    text-decoration: none; }
+
+.wp-block-file__button {
+  display: inline-block;
+  text-decoration: none; }
+  .wp-block-file__button:hover, .wp-block-file__button:focus {
+    text-decoration: none; }
+
+.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color),
+.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color) {
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color); }
+
+.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color):hover,
+.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color):focus,
+.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover,
+.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):focus {
+  color: var(--white-color);
+  background-color: var(--primary-color); }
+
+.wp-block-file a {
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 1px solid var(--primary-color);
+  text-decoration: none; }
+  .wp-block-file a:hover, .wp-block-file a:focus {
+    color: var(--white-color);
+    background-color: var(--primary-color); }
+.wp-block-file .wp-block-file__button {
+  color: var(--white-color);
+  background-color: var(--primary-color); }
+  .wp-block-file .wp-block-file__button:hover, .wp-block-file .wp-block-file__button:focus {
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 1px solid var(--primary-color); }
+
+/** 03. Cover Block */
+.wp-block-cover .wp-block-cover-text,
+.wp-block-cover p:not(.has-text-color) {
+  color: var(--white-color);
+  background-color: var(--primary-color); }
+
+.wp-block-cover .wp-block-cover-text strong {
+  color: var(--white-color); }
+
+/** 04. Gallery Block */
+.wp-block-gallery:not(.has-nested-images).alignleft {
+  max-width: 100%; }
+
+.gallery-columns-2 .gallery-item {
+  width: 50%;
+  padding: 15px; }
+
+.gallery-columns-3 .gallery-item {
+  width: 33.33%;
+  padding: 15px; }
+
+.gallery-columns-4 .gallery-item {
+  width: 25%;
+  padding: 15px; }
+
+.gallery-columns-5 .gallery-item {
+  width: 20%;
+  padding: 15px; }
+
+.gallery-columns-6 .gallery-item {
+  width: 16.66%;
+  padding: 15px; }
+
+.gallery-columns-7 .gallery-item {
+  width: 14.28%;
+  padding: 15px; }
+
+.gallery-columns-8 .gallery-item {
+  width: 12.5%;
+  padding: 15px; }
+
+.gallery-columns-9 .gallery-item {
+  width: 11.11%;
+  padding: 15px; }
+
+.gallery-columns-10 .gallery-item {
+  width: 10%;
+  padding: 15px; }
+
+.gallery-columns-11 .gallery-item {
+  width: 9.09%;
+  padding: 15px; }
+
+.gallery-columns-12 .gallery-item {
+  width: 8.33%;
+  padding: 15px; }
+
+.blocks-gallery-caption {
+  color: var(--black-color);
+  font-size: 16px; }
+
+.blocks-gallery-grid:not(.has-nested-images),
+.wp-block-gallery:not(.has-nested-images) {
+  margin-bottom: 10px; }
+
+.blocks-gallery-grid:not(.has-nested-images):last-child,
+.wp-block-gallery:not(.has-nested-images):last-child {
+  margin-bottom: 0; }
+
+/** 05. Blockquote Block */
+.wp-block-quote {
+  position: relative;
+  padding: 15px;
+  padding-left: 40px;
+  border-color: var(--primary-color);
+  background-color: var(--light-grey);
+  overflow: hidden; }
+  .wp-block-quote::before {
+    content: "";
+    position: absolute;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 30px;
+    color: var(--primary-color);
+    opacity: 0.5;
+    left: 10px;
+    top: 2px; }
+
+.wp-block-quote cite,
+.wp-block-quote footer {
+  position: relative;
+  float: right;
+  color: var(--primary-color); }
+
+.wp-block-quote cite::before,
+.wp-block-quote footer::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 1px;
+  background-color: var(--primary-color);
+  left: -35px;
+  top: 50%; }
+
+.wp-block-quote.is-style-large {
+  padding-top: 10px;
+  padding-left: 40px; }
+.wp-block-quote.has-text-align-right {
+  border-color: var(--primary-color); }
+
+.wp-block-pullquote {
+  border-color: var(--primary-color); }
+
+/** 06. Code Block */
+.wp-block-code {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background-color: var(--light-grey); }
+
+/** 07. Preformatted Block */
+.wp-block-preformatted,
+.wp-block-verse {
+  padding: 15px;
+  color: var(--primary-color);
+  background-color: var(--light-grey); }
+
+/** 08. Table Block */
+.wp-block-table td,
+.wp-block-table th {
+  border-color: var(--primary-color); }
+
+/*=================================
+===== 3.2.2. Comment Template =====
+=================================*/
 /** 01. Total Comments */
 .total-comments {
-    margin-top: 10px;
-	padding: 15px;
-	background-color: var(--white-color);
-	border: 1px solid var(--border-color);
-}
-
-.total-comments .comment-title,
-.total-comments .comment-count {
-	color: var(--primary-color);
-}
+  margin-top: 10px; }
+  .total-comments .comment-title,
+  .total-comments .comment-count {
+    color: var(--primary-color); }
 
 /** 02. Comments Form */
 .comment-respond {
-	margin-top: 10px;
-    padding: 15px;
-	background-color: var(--white-color);
-	border: 1px solid var(--border-color);
-}
+  margin-top: 10px; }
 
 .comments-form input#author,
 .comments-form input#email,
 .comments-form input#url {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--border-color);
-}
-
-.comments-form textarea,
-.comment-form-comment textarea {
-    display: block;
-    width: 100%;
-    height: 180px;
-    resize: none;
-    border: 1px solid var(--border-color);
-}
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color); }
 
 .comments-form input#author:hover,
 .comments-form input#author:focus,
@@ -777,207 +1746,164 @@
 .comments-form textarea:focus,
 .comment-form-comment textarea:hover,
 .comment-form-comment textarea:focus {
-    border: 1px solid var(--primary-color);
-}
+  border: 1px solid var(--primary-color); }
+
+.comments-form textarea,
+.comment-form-comment textarea {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  height: 180px;
+  resize: none;
+  border: 1px solid var(--border-color); }
 
 .form-submit input[type="submit"] {
-    display: inline-block;
-	color: var(--primary-color);
-    padding: 15px 30px;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-	background-color: transparent;
-	text-decoration: none;
-}
-
-.form-submit input[type="submit"]:hover,
-.form-submit input[type="submit"]:focus {
+  display: inline-block;
+  color: var(--primary-color);
+  padding: 15px 30px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: transparent;
+  text-decoration: none; }
+  .form-submit input[type="submit"]:hover, .form-submit input[type="submit"]:focus {
     color: var(--white-color);
-	background-color: var(--primary-color);
-}
+    background-color: var(--primary-color); }
 
 /** 03. Comments List */
-.comments-list li {
-    list-style: none;
-}
-
 .comments-box {
-    list-style: none;
-	margin-top: 10px;
-    padding: 15px;
-	background-color: var(--white-color);
-    border: 1px solid var(--border-color);
-}
+  list-style: none;
+  margin-top: 10px; }
 
 .comments-avatar {
-    float: left;
-    margin-right: 15px;
-    border: 1px solid var(--primary-color);
-}
+  float: left;
+  margin-right: 15px;
+  border: 1px solid var(--primary-color); }
 
 .avatar-name a {
-    text-decoration: none;
-    color: var(--black-color);
-}
+  text-decoration: none;
+  color: var(--black-color); }
 
 .avatar-name:hover a,
 .avatar-name:focus a {
-    text-decoration: underline;
-    color: var(--primary-color);
-    background-color: transparent;
-}
+  text-decoration: underline;
+  color: var(--primary-color);
+  background-color: transparent; }
 
 .comments-meta {
-    padding: 10px 0;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 10px;
-}
+  padding: 10px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 10px; }
 
 .comments-meta-icon {
-    color: var(--primary-color);
-}
+  color: var(--primary-color); }
 
 .comments-text {
-	overflow: hidden;
-	clear: none;
-}
+  overflow: hidden;
+  clear: none; }
 
 .comment-reply-link,
 #cancel-comment-reply-link {
-    display: inline-block;
-    padding: 10px 30px;
-    border-radius: 5px;
-	color: var(--primary-color);
-	background-color: transparent;
-    border: 1px solid var(--primary-color);
-	text-decoration: none;
-}
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 5px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  text-decoration: none; }
 
 #cancel-comment-reply-link {
-    margin: 10px;
-    font-size: 16px;
-}
+  margin: 10px;
+  font-size: 16px; }
 
 .comment-reply-link:hover,
 .comment-reply-link:focus,
 #cancel-comment-reply-link:hover,
 #cancel-comment-reply-link:focus {
-	color: var(--white-color);
-	background-color: var(--primary-color);
-}
+  color: var(--white-color);
+  background-color: var(--primary-color); }
 
 /** 04. Comments List */
 .comments-pagination {
-    margin-top: 30px;
-}
+  margin-top: 30px; }
 
-/*========================
-===== 10. Error Page =====
-========================*/
+/*=======================
+===== 3.3. 404 Page =====
+=======================*/
 .error-page {
-    padding: 15px;
-}
-
-.error-page .page-header-title {
+  text-align: center; }
+  .error-page .error-page-title {
     font-size: 200px;
-    margin: 0; 
-    text-align: center;
-}
+    margin: 0; }
 
-.error-page .header-subtitle {
-    text-align: center;
-}
-
-/*================================ 
-===== 11. Footer Widget Area =====
-================================*/
+/*============================
+===== 4.1. Footer Widget =====
+============================*/
 .footer-widget-area {
-    background-color: var(--black-color);
-    padding: 70px 0;
-}
+  background-color: var(--black-color);
+  padding: 70px 0; }
 
 .footer-widget-list {
-    display: flex;
-    gap: 30px;
-    justify-content: space-between;
-}
+  justify-content: space-between;
+  gap: 30px; }
 
 .footer-widget-col-1 .footer-single-widget {
-    width: 100%;
-}
+  width: 100%; }
 
 .footer-widget-col-2 .footer-single-widget {
-    width: 50%;
-}
+  width: 50%; }
 
 .footer-widget-col-3 .footer-single-widget {
-    width: 33.33%;
-}
+  width: 33.33%; }
 
 .footer-widget-col-4 .footer-single-widget {
-    width: 25%;
-}
+  width: 25%; }
 
 .footer-widget-col-5 .footer-single-widget {
-    width: 20%;
-}
+  width: 20%; }
 
-/*==================== 
-===== 12. Footer =====
-====================*/
+/*===================== 
+===== 4.2. Footer =====
+=====================*/
 .site-footer {
-    color: var(--white-color);
-    min-height: 50px;
-    border-top: 1px solid var(--dark-grey);
-    background-color: var(--black-color);
-}
-
-.site-footer p {
+  color: var(--white-color);
+  min-height: 50px;
+  border-top: 1px solid var(--dark-grey);
+  background-color: var(--black-color); }
+  .site-footer p {
     margin-bottom: 0;
-    line-height: 50px;
-}
-
-.site-footer a {
-    text-decoration: none;
-}
-
-.site-footer a:hover,
-.site-footer a:focus {
-    color: var(--primary-color);
-    background-color: transparent;
-    text-decoration: underline;
-}
+    line-height: 50px; }
+  .site-footer a {
+    text-decoration: none; }
+    .site-footer a:hover, .site-footer a:focus {
+      color: var(--primary-color);
+      background-color: transparent;
+      text-decoration: underline; }
 
 .copyright-text {
-    text-align: left;
-}
+  text-align: left; }
 
 .powered-by-text {
-    text-align: right;
-}
+  text-align: right; }
 
-/*===========================
-===== 13. Scroll To Top =====
-===========================*/
+/*============================
+===== 4.3. Scroll To Top =====
+============================*/
 .scroll-to-top {
-	position: absolute;
-	bottom: 70px;
-	right: 70px;
-	width: 40px;
-	height: 40px;
-	border-radius: 5px;
-	background-color: var(--white-color);
-	color: var(--primary-color);
-	border: 1px solid var(--primary-color);
-}
-
-.scroll-to-top:hover,
-.scroll-to-top:focus {
+  display: none;
+  position: fixed;
+  bottom: 70px;
+  right: 70px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color); }
+  .scroll-to-top:hover, .scroll-to-top:focus {
     color: var(--white-color);
-    background-color: var(--primary-color);
-}
+    background-color: var(--primary-color); }
+  .scroll-to-top i {
+    line-height: 40px; }
 
-.scroll-to-top i {
-    line-height: 40px;    
-}
+/*# sourceMappingURL=style.css.map */

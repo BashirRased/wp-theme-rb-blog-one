@@ -1,0 +1,1245 @@
+/*======================
+===== 03. Page CSS =====
+======================*/
+.site-content {
+    margin: 70px 0;
+}
+
+/*========================
+===== 3.1. Blog Page =====
+========================*/
+.post-list {
+    @extend %item_bg;    
+}
+
+.post-list div {
+	clear: both;
+}
+
+/*==========================
+===== 3.1.1. Blog List =====
+==========================*/
+.post-list-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    &:first-child {
+        padding-top: 0;
+    }
+    &:last-child {
+        border-bottom: none;
+    }
+    &.sticky {
+        border: 5px solid var(--primary-color);
+        padding: 30px 20px;
+    }
+}
+
+.post-meta-top {
+    font-size: 12px;
+    color: var(--dark-grey);
+    margin-bottom: 15px;
+    .cat-post-meta {
+        i {
+            margin-right: 5px;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+                background-color: transparent;
+            }
+        }        
+    }
+}
+
+.post-title {
+    margin-top: 0;
+    margin-bottom: 15px;    
+    a {
+        color: var(--black-color);
+        background-color: transparent;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+    }
+}
+
+.post-meta {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    color: var(--dark-grey);
+    i {
+        color: var(--primary-color);
+        margin-right: 5px;
+    }
+    a {
+        color: var(--dark-grey);
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            color: var(--primary-color);
+            background-color: transparent;
+            text-decoration: underline; 
+        }
+    }
+}
+
+.author-post-meta,
+.date-post-meta,
+.comments-post-meta,
+.edit-post-meta {
+    display: inline-block;
+    margin: 10px 20px 0 0;
+}
+
+.comment-meta-off-text {
+    color: var(--border-color);
+}
+
+.post-img-gallery {
+    width: 100%;
+    height: 500px;
+    img {
+        width: 100%;
+        height: 500px;
+    }
+}
+
+.link-post {
+    @extend %theme_btn;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+    &:hover,
+    &:focus {
+        @extend %theme_btn_hover; 
+    }
+}
+
+.quote-author {
+    position: relative;
+    float: right;
+    text-decoration: none;
+    transition: var(--transition);
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -60px;
+        width: 50px;
+        height: 2px;
+        background-color: var(--primary-color);
+    }
+}
+
+.post-excerpt {
+    margin-top: 15px;
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.read-more-btn {
+    margin-top: 15px;
+}
+
+.no-results {
+    padding: 15px;
+}
+
+.page-title-span {
+    color: var(--primary-color);
+}
+
+.page-content input[type="text"],
+.page-content input[type="submit"] {
+    padding: 10px;
+}
+
+/*=============================
+===== 3.1.1.2. Pagination =====
+=============================*/
+.navigation.pagination {
+    padding: 15px;
+    margin-top: 30px;
+    .screen-reader-text {
+        display: none;
+    }
+}
+
+.post-page-numbers,
+.page-numbers {
+    @extend %theme_btn;
+    padding: 10px 20px;
+    margin: 0 2px 5px 0;
+}
+
+.page-numbers.current,
+.page-numbers:hover,
+.page-numbers:focus,
+.post-page-numbers.current,
+.post-page-numbers:hover,
+.post-page-numbers:focus {
+    @extend %theme_btn_hover;
+}
+
+/*========================
+===== 3.1.2. Sidebar =====
+========================*/
+.widget {
+    @extend %item_bg;
+    margin-bottom: 25px;
+    &.widget_search {
+        overflow: hidden;
+    }
+}
+
+.widget-title {
+	display: block;
+    position: relative;
+    margin-bottom: 30px;
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: -9px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: var(--border-color);
+    }    
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 70px;
+        height: 3px;
+        background-color: var(--primary-color);
+    }
+}
+
+/** 01. Archive Widget List Format */
+.widget_archive ul li,
+.wp-block-archives-list li {
+	display: block;
+	padding: 15px 0;
+	text-align: right;
+	border-bottom: 1px solid var(--primary-color);
+	overflow: hidden;
+}
+
+.widget_archive ul li:last-child,
+.wp-block-archives-list li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.widget_archive ul li a,
+.wp-block-archives-list li a {
+	position: relative;
+	float: left;
+    text-decoration: none;
+	padding-left: 30px;
+	color: var(--black-color);
+}
+
+.widget_archive ul li a:hover,
+.widget_archive ul li a:focus,
+.wp-block-archives-list li a:hover,
+.wp-block-archives-list li a:focus {
+	text-decoration: underline;
+	color: var(--primary-color);	
+    background-color: transparent;
+}
+
+.widget_archive ul li a::before,
+.wp-block-archives-list li a::before {
+	@include font_awesome_1( "\f07c" );
+    @include transform_3(-50%, -50%);
+	color: var(--primary-color);
+	left: 10px;
+	top: 50%;
+}
+
+/** 02. Archive Widget Dropdown Format */
+.single-post-item .wp-block-archives-dropdown {
+	margin-bottom: 10px;
+    li {
+        list-style: none;
+    }
+}
+
+.wp-block-archives__label {
+    display: block;
+}
+
+/** 03. Calendar Widget */
+.wp-block-calendar,
+.calendar_wrap {
+    list-style: none;
+}
+
+.wp-block-calendar table caption,
+.calendar_wrap table caption {
+	color: var(--white-color);
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+    border-radius: 5px;
+	background-color: var(--primary-color);
+}
+
+.wp-block-calendar table,
+.calendar_wrap table {
+	width: 100%;
+	text-align: center;
+}
+
+.wp-block-calendar table th,
+.calendar_wrap table th {
+	color: var(--white-color);
+	background-color: var(--primary-color);
+	border: 1px solid var(--primary-color);
+}
+
+.wp-block-calendar tbody td,
+.calendar_wrap tbody td {
+	color: var(--black-color);
+	border: 1px solid var(--primary-color);
+}
+
+.wp-block-calendar tbody td#today,
+.calendar_wrap tbody td#today {
+	color: var(--white-color);
+	background-color: var(--primary-color);
+}
+
+.wp-block-calendar tbody td#today a,
+.calendar_wrap tbody td#today a {
+	color: var(--white-color);
+}
+
+.wp-block-calendar a,
+.calendar_wrap a {
+	text-decoration: none;
+	color: var(--primary-color);
+}
+
+.wp-block-calendar a:hover,
+.wp-block-calendar a:focus,
+.calendar_wrap a:hover,
+.calendar_wrap a:focus {
+    background-color: transparent;
+	text-decoration: underline;
+}
+
+.wp-calendar-nav {
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.wp-calendar-nav-prev {
+	float: left;
+}
+
+.wp-calendar-nav-next {
+	float: right;
+}
+
+/** 04. Categroy Widget List Format */
+.wp-block-categories-list li,
+.widget_categories ul li {
+	display: block;
+	text-align: right;
+	padding: 15px 0;
+	border-bottom: 1px solid var(--primary-color);
+	overflow: hidden;
+}
+
+.wp-block-categories-list li:last-child,
+.widget_categories ul li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.wp-block-categories-list li a,
+.widget_categories ul li a {
+	position: relative;
+	float: left;
+    text-decoration: none;
+	padding-left: 30px;
+	color: var(--black-color);
+}
+
+.wp-block-categories-list li a:hover,
+.wp-block-categories-list li a:focus,
+.widget_categories ul li a:hover,
+.widget_categories ul li a:focus {
+	text-decoration: underline;
+	color: var(--primary-color);
+    background-color: transparent;
+}
+
+.wp-block-categories-list li a::before,
+.widget_categories ul li a::before {
+	@include transform_3(-50%, -50%);
+	position: absolute;
+	content: "";
+	top: 50%;
+	left: 10px;
+	width: 7px;
+	height: 7px;
+	background-color: var(--primary-color);
+	border-radius: 50%;
+}
+
+.wp-block-categories-list ul li:first-child,
+.widget_categories ul ul li:first-child {
+    margin-top: 10px;
+    border-top: 1px solid var(--primary-color);
+}
+
+.wp-block-categories-list ul li:not():first-child,
+.widget_categories ul ul li:not():first-child {
+    margin-top: 10px;
+}
+
+/** 05. Lastest Comments Widget */
+.wp-block-latest-comments__comment,
+.recentcomments {
+	margin-bottom: 0;
+}
+
+.wp-block-latest-comments__comment:last-child,
+.recentcomments:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.wp-block-latest-comments__comment a,
+.recentcomments a {
+    text-decoration: none;
+}
+
+.wp-block-latest-comments__comment a:hover,
+.wp-block-latest-comments__comment a:focus,
+.recentcomments a:hover,
+.recentcomments a:focus {
+    text-decoration: underline;
+}
+
+.wp-block-latest-comments__comment-date {
+    color: var(--grey-text);
+}
+
+/** 06. Lastest Post Widget */
+.wp-block-latest-posts.wp-block-latest-posts__list li:last-child,
+.widget_recent_entries li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.wp-block-latest-posts.wp-block-latest-posts__list li a,
+.widget_recent_entries li a {
+	color: var(--black-color);
+	text-decoration: none;
+}
+
+.wp-block-latest-posts.wp-block-latest-posts__list.has-dates li a, 
+.wp-block-latest-posts.wp-block-latest-posts__list.has-author li a {
+	color: var(--primary-color);
+}
+
+.wp-block-latest-posts.wp-block-latest-posts__list li a:hover,
+.wp-block-latest-posts.wp-block-latest-posts__list li a:focus,
+.widget_recent_entries li a:hover,
+.widget_recent_entries li a:focus {
+	color: var(--primary-color);
+    background-color: transparent;
+	text-decoration: underline;
+}
+
+.wp-block-latest-posts.wp-block-latest-posts__list.has-author li a.theme-btn:hover,
+.wp-block-latest-posts.wp-block-latest-posts__list.has-author li a.theme-btn:focus {
+	color: var(--white-color);
+	background-color: var(--primary-color);
+	text-decoration: none;
+}
+
+.wp-block-latest-posts__post-author,
+.wp-block-latest-posts__post-date {
+    color: var(--grey-text);
+}
+
+/** 07. Page List Widget */
+.wp-block-page-list li
+.widget_pages ul li {
+    list-style: none;
+}
+
+.wp-block-page-list li:last-child,
+.widget_pages ul li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.wp-block-page-list li a,
+.widget_pages li a {
+	position: relative;
+	display: block;
+    color: var(--black-color);
+	padding-left: 30px;
+    text-decoration: none;
+}
+
+.wp-block-page-list li a:hover,
+.wp-block-page-list li a:focus,
+.widget_pages li a:hover,
+.widget_pages li a:focus {
+    color: var(--primary-color);
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.wp-block-page-list li a::before,
+.widget_pages li a::before {
+    @include font_awesome_1( "\e494" );
+    @include transform_3(-50%, -50%);
+	color: var(--primary-color);
+	top: 50%;
+	left: 10px;
+}
+
+.wp-block-page-list li li:first-child,
+.widget_pages li ul li:first-child {
+    margin-top: 10px;
+    border-top: 1px solid var(--primary-color);
+}
+
+.wp-block-page-list li li:not():first-child,
+.widget_pages li ul li:not():first-child {
+    margin-top: 10px;
+}
+
+.wp-block-navigation__submenu-container li,
+.page_item_has_children li {
+    list-style: none;
+}
+
+/** 08. RSS Widget */
+.wp-block-rss__item,
+.widget_rss li {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.wp-block-rss__item:last-child,
+.widget_rss li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.widget-title .rss-widget-feed,
+.widget-title .rss-widget-title {
+	display: inline-block;
+	color: var(--black-color);
+}
+
+.widget-title .rss-widget-title:hover,
+.widget-title .rss-widget-title:focus {
+	color: var(--primary-color);
+}
+
+.wp-block-rss__item-title a,
+.rsswidget {
+	display: block;
+    text-decoration: none;	
+}
+
+.wp-block-rss__item-title a:hover,
+.wp-block-rss__item-title a:focus,
+.rsswidget:hover,
+.rsswidget:focus {
+	text-decoration: underline;
+	color: var(--primary-color);
+	background-color: transparent;
+}
+
+.wp-block-rss__item-publish-date,
+.wp-block-rss__item-author,
+.rss-date {
+	display: block;
+    color: var(--grey-text);
+}
+
+/** 09. Search Widget */
+.widget_search input#s {
+    margin-bottom: 10px;
+}
+
+.widget_search input {
+	width: 100%;
+	padding: 10px;
+}
+
+.wp-block-search__label {
+	display: block;
+}
+
+.wp-block-search__input,
+input#s[type="text"] {
+    border: 1px solid var(--border-color);
+}
+
+input#s[type="text"] {
+    margin-bottom: 10px;
+}
+
+:where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) {
+	border: 1px solid var(--primary-color);
+}
+
+.wp-block-search__input:hover,
+.wp-block-search__input:focus,
+input#s[type="text"]:hover,
+input#s[type="text"]:focus {
+    border: 1px solid var(--primary-color);
+}
+
+.wp-block-search__button,
+#searchsubmit {
+    @extend %theme_btn;
+    padding: 10px;
+}
+
+.wp-block-search__button:hover,
+.wp-block-search__button:focus,
+#searchsubmit:hover,
+#searchsubmit:focus {
+    @extend %theme_btn_hover;
+}
+
+/** 10. Social Links Widget */
+
+/** 11. Tag Widget */
+.wp-block-tag-cloud.is-style-outline {
+    gap: 0 5px;
+}
+
+.widget_tag_cloud a,
+.wp-block-tag-cloud a {
+    @extend %theme_btn;
+    padding: 10px;
+    margin: 5px 2px;
+}
+
+.widget_tag_cloud a:hover,
+.widget_tag_cloud a:focus,
+.wp-block-tag-cloud a:hover,
+.wp-block-tag-cloud a:focus {
+    @extend %theme_btn_hover;
+}
+
+/** 12. Meta Widget */
+.widget_meta ul {
+    li {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--primary-color);
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        a {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+            color: var(--black-color);
+            padding-left: 30px;
+            &:hover,
+            &:focus {
+                color: var(--primary-color);
+                background-color: transparent;
+                text-decoration: underline;
+            }
+            &::before {
+                @include transform_3(-50%, -50%);
+                position: absolute;
+                content: "";
+                top: 50%;
+                left: 10px;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background-color: var(--primary-color);
+            }
+        }
+    }
+}
+
+/** 13. Nav Menu Widget */
+.widget_nav_menu {
+    ul li {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--primary-color);
+        &:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        a {
+            position: relative;
+            display: block;
+            color: var(--black-color);
+            padding-left: 30px;
+            text-decoration: none;
+            &:hover,
+            &:focus {
+                color: var(--primary-color);
+                background-color: transparent;
+                text-decoration: underline;
+            }
+            &::before {
+                @include transform_3(-50%, -50%);
+                position: absolute;
+                content: "";
+                top: 50%;
+                left: 10px;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background-color: var(--primary-color);
+            }
+        }
+    }
+    i,
+    button {
+        display: none;
+    }
+    ul ul {
+        li {
+            list-style: none;
+        }
+        li:first-child {
+            margin-top: 10px;
+            border-top: 1px solid var(--primary-color);
+        }
+        li:not():first-child {
+            margin-top: 10px;
+        }
+    }
+}
+
+/** 14. WordPress LogInOut Button */
+.wp-block-loginout a,
+.wp-block-loginout #wp-submit {
+    @extend %theme_btn;
+    padding: 10px 30px;
+}
+
+.wp-block-loginout a:hover,
+.wp-block-loginout a:focus,
+.wp-block-loginout #wp-submit:hover,
+.wp-block-loginout #wp-submit:focus {
+    @extend %theme_btn_hover;
+}
+
+.wp-block-loginout #user_login,
+.wp-block-loginout #user_pass {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.wp-block-loginout #user_login:hover,
+.wp-block-loginout #user_login:focus,
+.wp-block-loginout #user_pass:hover,
+.wp-block-loginout #user_pass:focus {
+    border: 1px solid var(--primary-color);
+}
+
+.wp-block-loginout label {
+	display: block;
+}
+
+.wp-block-loginout .input {
+    width: 100%;
+}
+
+/** 15. Text Widget */
+.widget_text {
+	padding: 18px;
+	margin-bottom: 10px;
+	background-color: var(--white-color);
+	box-shadow: var(--light-shadow);
+}
+
+/** 16. Social Icon Widget */
+.wp-block-social-links .wp-social-link a,
+.wp-block-social-links .wp-social-link a:hover,
+.wp-block-social-links .wp-social-link a:focus {
+    background-color: transparent;
+}
+
+/*==========================
+===== 3.2. Single Page =====
+==========================*/
+.post-single-item {
+    @extend %item_bg;    
+}
+
+.post-content {
+    margin-top: 15px;
+}
+
+.post-password-form {
+    input[type="password"] {
+        width: 100%;
+        border: 1px solid var(--border-color);
+        padding: 10px;
+        &:hover,
+        &:focus {
+            border: 1px solid var(--primary-color);
+        }
+    }    
+    input[type="submit"] {
+        display: inline-block;
+        text-decoration: none;
+        padding: 11px 30px;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+        border-radius: 5px;
+        background-color: transparent;
+        &:hover,
+        &:focus {
+            color: var(--white-color);
+            background-color: var(--primary-color);
+        }
+    }
+}
+
+.post-meta-bottom {
+    @extend %item_bg;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.tag-post-meta {
+    i {
+        margin-right: 5px;
+    }
+    a {
+        color: var(--dark-grey);
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            color: var(--primary-color);
+            background-color: transparent;
+            text-decoration: underline;
+        }
+    }
+}
+
+/*========================================
+===== 3.2.1. WordPress Content Block =====
+========================================*/
+/** 01. Image Block */
+.wp-block-image figcaption {
+	color: var(--primary-color);
+	font-size: 16px;
+}
+
+/** 02. Button Block */
+.wp-block-button__link {
+	color: var(--white-color);
+    font-size: 16px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+	background-color: var(--primary-color);
+	margin-bottom: 10px;
+    &:hover,
+    &:focus {
+        color: var(--primary-color);
+        background-color: transparent;
+        text-decoration: none;
+    }
+}
+
+.wp-block-file__button {
+	display: inline-block;
+	text-decoration: none;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color),
+.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color) {
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+}
+
+.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color):hover,
+.wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color):focus,
+.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color):hover,
+.wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color):focus {
+    color: var(--white-color);
+	background-color: var(--primary-color);
+}
+
+.wp-block-file {
+    a {    
+        font-size: 16px;
+        padding: 10px 30px;
+        border-radius: 5px;
+        border: 1px solid var(--primary-color);	
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            color: var(--white-color);
+            background-color: var(--primary-color);
+        }
+    }
+    .wp-block-file__button {
+        color: var(--white-color);
+        background-color: var(--primary-color);
+        &:hover,
+        &:focus {
+            color: var(--primary-color);
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+        }
+    }
+}
+
+/** 03. Cover Block */
+.wp-block-cover .wp-block-cover-text,
+.wp-block-cover p:not(.has-text-color) {
+	color: var(--white-color);
+	background-color: var(--primary-color);
+}
+
+.wp-block-cover .wp-block-cover-text strong {
+	color: var(--white-color);
+}
+
+/** 04. Gallery Block */
+.wp-block-gallery:not(.has-nested-images).alignleft {
+	max-width: 100%;
+}
+
+.gallery-columns-1,
+.gallery-columns-2,
+.gallery-columns-3,
+.gallery-columns-4,
+.gallery-columns-5,
+.gallery-columns-6,
+.gallery-columns-7,
+.gallery-columns-8,
+.gallery-columns-9,
+.gallery-columns-10,
+.gallery-columns-11,
+.gallery-columns-12 {
+	@extend %d_flex;
+	@extend %flex_wrap;
+}
+
+.gallery-columns-2 .gallery-item {
+	width: 50%;
+	padding: 15px;
+}
+
+.gallery-columns-3 .gallery-item {
+	width: 33.33%;
+	padding: 15px;
+}
+
+.gallery-columns-4 .gallery-item {
+	width: 25%;
+	padding: 15px;
+}
+
+.gallery-columns-5 .gallery-item {
+	width: 20%;
+	padding: 15px;
+}
+
+.gallery-columns-6 .gallery-item {
+	width: 16.66%;
+	padding: 15px;
+}
+
+.gallery-columns-7 .gallery-item {
+	width: 14.28%;
+	padding: 15px;
+}
+
+.gallery-columns-8 .gallery-item {
+	width: 12.5%;
+	padding: 15px;
+}
+
+.gallery-columns-9 .gallery-item {
+	width: 11.11%;
+	padding: 15px;
+}
+
+.gallery-columns-10 .gallery-item {
+	width: 10%;
+	padding: 15px;
+}
+
+.gallery-columns-11 .gallery-item {
+	width: 9.09%;
+	padding: 15px;
+}
+
+.gallery-columns-12 .gallery-item {
+	width: 8.33%;
+	padding: 15px;
+}
+
+.blocks-gallery-caption {
+	color: var(--black-color);
+	font-size: 16px;	
+}
+
+.blocks-gallery-grid:not(.has-nested-images),
+.wp-block-gallery:not(.has-nested-images) {
+	margin-bottom: 10px;
+}
+
+.blocks-gallery-grid:not(.has-nested-images):last-child,
+.wp-block-gallery:not(.has-nested-images):last-child {
+	margin-bottom: 0;
+}
+
+/** 05. Blockquote Block */
+.wp-block-quote {
+	position: relative;
+	padding: 15px;
+    padding-left: 40px;
+	border-color: var(--primary-color);
+	background-color: var(--light-grey);
+	overflow: hidden;
+    &::before {
+        @include font_awesome_1( '\f10d' );
+        font-size: 30px;
+        color: var(--primary-color);
+        opacity: 0.5;
+        left: 10px;
+        top: 2px;
+    }
+}
+
+.wp-block-quote cite,
+.wp-block-quote footer {
+	position: relative;
+	float: right;
+	color: var(--primary-color);
+}
+
+.wp-block-quote cite::before,
+.wp-block-quote footer::before {
+	content: "";
+	position: absolute;
+	width: 30px;
+	height: 1px;
+	background-color: var(--primary-color);
+	left: -35px;
+	top: 50%;
+}
+
+.wp-block-quote {
+    &.is-style-large {
+        padding-top: 10px;
+        padding-left: 40px;
+    }
+    &.has-text-align-right {
+        border-color: var(--primary-color);
+    }
+}
+
+.wp-block-pullquote {
+	border-color: var(--primary-color);
+}
+
+/** 06. Code Block */
+.wp-block-code {
+	color: var(--primary-color);
+	border-color: var(--primary-color);
+	background-color: var(--light-grey);
+}
+
+/** 07. Preformatted Block */
+.wp-block-preformatted,
+.wp-block-verse {
+	padding: 15px;
+	color: var(--primary-color);
+    background-color: var(--light-grey);
+}
+
+/** 08. Table Block */
+.wp-block-table td,
+.wp-block-table th {
+	border-color: var(--primary-color);
+}
+
+/*=================================
+===== 3.2.2. Comment Template =====
+=================================*/
+/** 01. Total Comments */
+.total-comments {
+    @extend %item_bg;
+    margin-top: 10px;
+    .comment-title,
+    .comment-count {
+        color: var(--primary-color);
+    }
+}
+
+/** 02. Comments Form */
+.comment-respond {
+    @extend %item_bg;
+	margin-top: 10px;
+}
+
+.comments-form input#author,
+.comments-form input#email,
+.comments-form input#url {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.comments-form input#author:hover,
+.comments-form input#author:focus,
+.comments-form input#email:hover,
+.comments-form input#email:focus,
+.comments-form input#url:hover,
+.comments-form input#url:focus,
+.comments-form textarea:hover,
+.comments-form textarea:focus,
+.comment-form-comment textarea:hover,
+.comment-form-comment textarea:focus {
+    border: 1px solid var(--primary-color);
+}
+
+.comments-form textarea,
+.comment-form-comment textarea {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    height: 180px;
+    resize: none;
+    border: 1px solid var(--border-color);
+}
+
+.form-submit input[type="submit"] {
+    display: inline-block;
+	color: var(--primary-color);
+    padding: 15px 30px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+	background-color: transparent;
+	text-decoration: none;
+    &:hover,
+    &:focus {
+        color: var(--white-color);
+        background-color: var(--primary-color);
+    }
+}
+
+/** 03. Comments List */
+.comments-box {
+    @extend %item_bg;
+    list-style: none;
+	margin-top: 10px;
+}
+
+.comments-avatar {
+    float: left;
+    margin-right: 15px;
+    border: 1px solid var(--primary-color);
+}
+
+.avatar-name a {
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+.avatar-name:hover a,
+.avatar-name:focus a {
+    text-decoration: underline;
+    color: var(--primary-color);
+    background-color: transparent;
+}
+
+.comments-meta {
+    padding: 10px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 10px;
+}
+
+.comments-meta-icon {
+    color: var(--primary-color);
+}
+
+.comments-text {
+	overflow: hidden;
+	clear: none;
+}
+
+.comment-reply-link,
+#cancel-comment-reply-link {
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 5px;
+	color: var(--primary-color);
+	background-color: transparent;
+    border: 1px solid var(--primary-color);
+	text-decoration: none;
+}
+
+#cancel-comment-reply-link {
+    margin: 10px;
+    font-size: 16px;
+}
+
+.comment-reply-link:hover,
+.comment-reply-link:focus,
+#cancel-comment-reply-link:hover,
+#cancel-comment-reply-link:focus {
+	color: var(--white-color);
+	background-color: var(--primary-color);
+}
+
+/** 04. Comments List */
+.comments-pagination {
+    margin-top: 30px;
+}
+
+/*=======================
+===== 3.3. 404 Page =====
+=======================*/
+.error-page {
+    @extend %item_bg;
+    text-align: center;
+    .error-page-title {
+        font-size: 200px;
+        margin: 0;
+    }
+}

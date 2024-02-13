@@ -1,0 +1,473 @@
+/*========================
+===== 2.1. Preloader =====
+========================*/
+#preloader {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999999;
+    clear: none;
+    background-color: var(--white-color);
+}
+
+.folding-cube {
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @include transform_rotate_1(45deg);
+}
+
+.folding-cube .cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    @include transform_1( scale(1.1) );
+}
+
+.folding-cube .cube:before {
+    @extend %overlay_full;
+    background-color: var(--primary-color);
+    @include animation_5( foldCubeAngle, 2.4s, infinite, linear, both );
+    @include transform_origin_2( 100%, 100% );
+}
+
+.folding-cube .cube2 {
+    @include transform_2( scale(1.1), rotateZ(90deg) );
+}
+
+.folding-cube .cube3 {
+    @include transform_2( scale(1.1), rotateZ(180deg) );
+
+}
+
+.folding-cube .cube4 {
+    @include transform_2( scale(1.1), rotateZ(270deg) );
+}
+
+.folding-cube .cube2:before {
+    @include animation_delay_1( 0.3s );
+}
+
+.folding-cube .cube3:before {
+    @include animation_delay_1( 0.6s );
+}
+
+.folding-cube .cube4:before {
+    @include animation_delay_1( 0.9s );
+}
+
+@-webkit-keyframes foldCubeAngle {
+    0%,
+    10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        -webkit-transform: perspective(140px) rotateX(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes foldCubeAngle {
+    0%,
+    10% {
+        @include transform_2( perspective(140px), rotateX(-180deg) );
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        @include transform_2( perspective(140px), rotateX(0deg) );
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        @include transform_2( perspective(140px), rotateY(180deg) );
+        opacity: 0;
+    }
+}
+
+/*=========================
+===== 2.2. Header Top =====
+=========================*/
+.header-top-area {
+    width: 100%;
+    padding-top: 10px;
+    background-color: var(--black-color);
+}
+
+.header-top-left {
+    color: var(--white-color);
+    margin-bottom: 10px;
+    i {
+        margin-right: 10px;
+    }
+}
+
+.header-top-right ul {
+    li {
+        display: inline-block;
+        margin: 0 0 10px 10px;
+    }
+    a {
+        display: inline-block;
+        color: var(--white-color);
+        border-radius: 100%;
+        background-color: var(--dark-grey);
+        @include center_1( 30px );
+        @include transition_1( var(--transition) );
+        &:hover,
+        &:focus {
+            background-color: var(--primary-color);
+        }
+    }
+}
+
+/*========================== 
+===== 2.3. Header Main =====
+==========================*/
+.header-site-branding {
+    width: 100%;
+    height: 100%;
+    min-height: 130px;
+    padding: 25px 0;
+    background-color: var(--white-color);
+    .custom-logo {
+        height: 120px;
+        width: auto;
+    }
+}
+
+.site-branding {
+    gap: 20px;
+}
+
+.custom-logo-link {
+    display: block;
+}
+
+.header-logo,
+.site-title-tagline {
+    display: inline-block;
+}
+
+.site-title {
+    margin: 0 0 5px 0;
+    a {
+        color: var(--primary-color);
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            background-color: transparent;
+            text-decoration: underline;    
+        }
+    }
+}
+
+.site-tagline {
+    margin: 0;
+    font-size: 20px;
+}
+
+.header-ads {
+    width: 100%;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: var(--light-grey);    
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 120px;
+    }
+}
+
+/*==========================
+===== 2.4. Header Menu =====
+==========================*/
+.header-menu-area {
+    background-color: var(--black-color);
+    &.header-transparent-menu {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+    }
+    &.header-fixed-menu {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+    }
+    .dropdown-toggle::after {
+        display: none;
+    }
+}
+
+.admin-bar {
+    .header-menu-area.header-fixed-menu,
+    .header-transparent-menu {
+        top: 32px;
+    }
+}
+
+.header-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+        float: left;
+        position: relative;
+        &:first-child a {
+            padding-left: 0;
+        }
+        &.current-menu-item a {
+            color: var(--primary-color);
+            background-color: transparent;
+        }        
+        &:hover > .submenu,
+        &:focus-within > .submenu {
+            left: 0;
+        }
+    }
+    a {
+        display: block;
+        text-decoration: none;
+        font-size: 16px;
+        color: var(--white-color);
+        padding: 15px;
+        &:hover,
+        &:focus {
+            color: var(--primary-color);
+            background-color: transparent;
+        }
+    }
+    .menu-item-has-children > a {
+        position: relative;
+        padding-right: 30px;
+        &.submenu-item-link {
+            position: relative;
+        }
+        &::after {
+            @include font_awesome_1( '\f107' );
+            @include transition_1( var(--transition) );
+            margin-left: 5px;
+        }
+        &:hover::after,
+        &:focus::after {
+            content: '\f106'; 
+        }
+        &.submenu-item-link::after {
+            content: '\f105';
+            &:hover::after,
+            &:focus::after {
+                content: '\f104'; 
+            }
+        }        
+    }       
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: -99999px;
+    min-width: 250px;
+    z-index: 99999;
+    padding: 0;
+    background-color: var(--dark-grey);
+    li {
+        position: relative;
+        float: none;
+        list-style: none;
+        border-bottom: 1px solid #414141;
+        &:hover > .submenu,
+        &:focus-within > .submenu {
+            top: 0;
+            left: 100%;
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+        a {
+            padding: 15px;
+        }
+    }
+    .submenu {
+        position: absolute;
+        top: -99999px;
+        li {
+            border-left: 1px solid #414141;
+        }
+    }
+}
+
+.header-menu .submenu li:first-child a {
+    padding-left: 15px;
+}
+
+/*===================================
+===== 2.5. Mean Menu Customizer =====
+===================================*/
+.mean-container {
+	a.meanmenu-reveal {
+		padding: 15px;
+		border: 1px solid var(--primary-color);
+		border-radius: 5px;
+		span {
+			background-color: var(--primary-color);
+		}
+		&:hover span,
+		&:focus span {
+			background-color: var(--white-color);
+		}
+	}
+	.mean-bar {
+		padding: 0;
+		background-color: transparent;
+		min-height: 34px;
+		margin: 10px 0;
+	}	
+	.mean-nav {
+		margin-top: 54px;
+		background-color: transparent;
+		ul li {
+            &:last-child a {
+                border-bottom: none;
+            }
+            a {
+                width: 96%;
+                padding: 15px;
+                border-top: none;
+                border-bottom: 1px solid var(--primary-color);
+                &:hover,
+                &:focus {
+                    color: var(--primary-color);
+                    background-color: transparent;
+                }	
+                &.mean-expand {
+                    color: var(--primary-color);
+                    background-color: transparent;
+                    height: 20px;
+                    width: 20px;
+                    line-height: 20px;
+                    margin: 4px 5px 5px 0;
+                    border: 1px solid var(--primary-color) !important;
+                    opacity: 1;
+                    border-radius: 5px;
+                    right: -5px;
+                    z-index: 99;
+                    &:hover,
+                    &:focus {
+                        color: var(--white-color);
+                        background-color: var(--primary-color);
+                    }
+                }
+            }
+            li {
+                a {
+                    width: 94%;
+                    padding: 15px 15px 15px 30px;
+                    opacity: 1;
+                    border-top: none;
+                }
+                li {
+                    a {
+                        width: 92%;
+                        padding: 15px 15px 15px 45px;
+                    }
+                    li a {
+                        width: 90%;
+                        padding: 15px 15px 15px 60px;
+                    }
+                }
+            }
+        }		
+	}
+}
+
+/*==========================
+===== 2.6. Breadcrumbs =====
+==========================*/
+.breadcrumb-area {
+    @extend %d_flex;
+    @extend %bg_attr;
+    position: relative;	
+    padding: 100px 0;
+    background-color: var(--light-grey);
+    z-index: 1;
+    &::before {
+        @extend %overlay_full;
+        background-color: rgba(0,0,0,.85);
+        z-index: 9;
+    }
+}
+
+.breadcrumb-content {
+	position: relative;
+    width: 100%;
+	color: var(--white-color);
+	z-index: 99;
+}
+
+.breadcrumb-left-area {
+    color: var(--white-color);
+}
+
+.breadcrumb-title {
+    color: var(--white-color);
+    font-size: 24px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.breadcrumb-description {
+    margin-top: 10px;
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.breadcrumb-right-area {
+	@extend %d_flex;    
+    position: relative;
+    color: var(--white-color);
+	width: 100%;
+    height: 100%;	
+	justify-content: end;	
+	align-items: center;
+    z-index: 2;
+}
+
+.breadcrumb-nav ul {
+    margin: 0;
+	padding: 0;    
+    a {
+        color: var(--primary-color);
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+            background-color: transparent;
+        }
+    }
+}

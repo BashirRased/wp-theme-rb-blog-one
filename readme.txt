@@ -3,13 +3,13 @@ Contributors: bashirrased
 Requires at least: 6.4
 Tested up to: 6.4
 Requires PHP: 7.0
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 Author URI: https://bashirrased.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-RB Blog One is a responsive WordPress personal blog theme for WordPress. It is a WordPress theme specifically crafted for crafting professional blog websites. It is built upon the latest web technologies. Live Preview: https://bashirrased.com/theme/rb-blog-one/
+RB Blog One is a responsive with rtl support WordPress personal blog theme. It is a WordPress theme specifically crafted for crafting professional blog websites. It is built upon the latest web technologies. Live Preview: https://bashirrased.com/theme/rb-blog-one/ Theme Documentation: https://bashirrased.com/doc/rb-blog-one/index.html
 
 == Installation ==
 1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
@@ -88,10 +88,15 @@ https://www.pexels.com/photo/people-at-concert-1105666/
 https://www.pexels.com/photo/man-in-white-shirt-sitting-on-chair-3966781/
 
 == Copyright ==
-RB Blog One WordPress Theme, Copyright 2021-2023 Bashir Rased.
+RB Blog One WordPress Theme, Copyright 2021-2024 Bashir Rased.
 RB Blog One is distributed under the terms of the GNU GPL.
 
 == Changelog ==
+
+= 1.2.2 - January 26, 2024 =
+* 8th Updated.
+* full theme updated
+* sass add
 
 = 1.2.1 - December 21, 2023 =
 * 7th Updated.

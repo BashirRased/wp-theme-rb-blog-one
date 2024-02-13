@@ -1,10 +1,4 @@
 <?php
-/**
- * The file loading under footer.php
- *
- * @package rb_blog_one
- */
-
 $count = 0;
 $footer_widget_class = "footer-widget-col-1";
 if ( is_active_sidebar( 'footer-1' ) ) {

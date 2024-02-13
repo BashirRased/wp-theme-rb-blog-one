@@ -1,0 +1,88 @@
+/*============================
+===== 4.1. Footer Widget =====
+============================*/
+.footer-widget-area {
+    background-color: var(--black-color);
+    padding: 70px 0;
+}
+
+.footer-widget-list {
+    @extend %d_flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-widget-col-1 .footer-single-widget {
+    width: 100%;
+}
+
+.footer-widget-col-2 .footer-single-widget {
+    width: 50%;
+}
+
+.footer-widget-col-3 .footer-single-widget {
+    width: 33.33%;
+}
+
+.footer-widget-col-4 .footer-single-widget {
+    width: 25%;
+}
+
+.footer-widget-col-5 .footer-single-widget {
+    width: 20%;
+}
+
+/*===================== 
+===== 4.2. Footer =====
+=====================*/
+.site-footer {
+    color: var(--white-color);
+    min-height: 50px;
+    border-top: 1px solid var(--dark-grey);
+    background-color: var(--black-color);
+    p {
+        margin-bottom: 0;
+        line-height: 50px;
+    }    
+    a {
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            color: var(--primary-color);
+            background-color: transparent;
+            text-decoration: underline;
+        }
+    }
+}
+
+.copyright-text {
+    text-align: left;
+}
+
+.powered-by-text {
+    text-align: right;
+}
+
+/*============================
+===== 4.3. Scroll To Top =====
+============================*/
+.scroll-to-top {
+    display: none;
+	position: fixed;
+	bottom: 70px;
+	right: 70px;
+	width: 40px;
+	height: 40px;
+	border-radius: 5px;
+	background-color: var(--white-color);
+	color: var(--primary-color);
+	border: 1px solid var(--primary-color);
+    &:hover,
+    &:focus {
+        color: var(--white-color);
+        background-color: var(--primary-color);
+    }
+    i {
+        line-height: 40px;    
+    }
+}

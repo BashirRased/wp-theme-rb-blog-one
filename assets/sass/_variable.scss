@@ -1,0 +1,152 @@
+// Root CSS
+:root {
+    --primary-color: #f93601;
+    --black-color: #000000;
+    --white-color: #ffffff;
+    --dark-grey: #333333;
+    --light-grey: #eeeeee;
+    --grey-text: #777777;
+    --border-color: #c1c1c1;
+	--transition-1: all 0.3s ease-out 0s;
+}
+
+%item_bg {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    background-color: var(--white-color);
+}
+
+%theme_btn {
+    display: inline-block;
+    color: var(--primary-color);    
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: transparent;
+    transition: var(--transition-1);
+    text-decoration: none;
+}
+
+%theme_btn_hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+%list_item {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+%text_1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+%text_2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+}
+
+%d_flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+%flex_wrap {
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+
+%ul_none {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+%overlay_full {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+%bg_attr {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// Mixin SASS
+@mixin font_awesome_1( $val_1 ) {
+    content: $val_1;
+	position: absolute;
+	font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+@mixin center_1( $val_1 ) {
+    width: $val_1;
+    height: $val_1;
+    line-height: $val_1;
+    text-align: center;
+}
+
+@mixin transform_1( $val_1 ) {
+    -webkit-transform: $val_1;
+    -ms-transform: $val_1;
+        transform: $val_1;
+}
+
+@mixin transform_2( $val_1, $val_2 ) {
+    -webkit-transform: $val_1 $val_2;
+    -ms-transform: $val_1 $val_2;
+        transform: $val_1 $val_2;
+}
+
+@mixin transform_3( $val_1, $val_2 ) {
+    -webkit-transform: translate($val_1, $val_2);
+    -ms-transform: translate($val_1, $val_2);
+        transform: translate($val_1, $val_2);
+}
+
+@mixin transform_rotate_1( $val_1 ) {
+    -webkit-transform: rotateZ($val_1);
+    -ms-transform: rotate($val_1);
+        transform: rotateZ($val_1);
+}
+
+@mixin transform_origin_2( $val_1, $val_2 ) {
+    -webkit-transform-origin: $val_1 $val_2;
+    -ms-transform-origin: $val_1 $val_2;
+        transform-origin: $val_1 $val_2;
+}
+
+@mixin transition_1( $val_1 ) {
+    -webkit-transition: $val_1;
+        -o-transition: $val_1;
+        transition: $val_1;
+}
+
+@mixin animation_5( $val_1, $val_2, $val_3, $val_4, $val_5 ) {
+    -webkit-animation: $val_1 $val_2 $val_3 $val_4 $val_5;
+    animation: $val_1 $val_2 $val_3 $val_4 $val_5;
+}
+
+@mixin animation_delay_1( $val_1 ) {
+    -webkit-animation-delay: $val_1;
+    animation-delay: $val_1;
+}
+
+@mixin align_items_1( $val_1 ) {
+    -webkit-box-align: $val_1;
+        -ms-flex-align: $val_1;
+            align-items: $val_1;
+}
+
+@mixin justify_content_1( $val_1 ) {
+    -webkit-box-pack: $val_1;
+        -ms-flex-pack: $val_1;
+            justify-content: $val_1;
+}

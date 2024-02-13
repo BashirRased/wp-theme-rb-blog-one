@@ -1,10 +1,3 @@
-<?php
-/**
- * The file loading under footer.php
- *
- * @package rb_blog_one
- */
-?>
 <!--==============================
 ===== Footer Area Start Here =====
 ===============================-->
@@ -14,7 +7,7 @@
             
             <?php if ( true == get_theme_mod( 'rbth_copyright_switch' ) ) : ?>
             <div class="col-lg-6">
-                <p>
+                <p class="copyright-text">
                     <?php echo wp_kses_post ( get_theme_mod( 'rbth_copyright_text' ), 'rb-blog-one' ); ?>
                 </p>
             </div>
@@ -52,7 +45,7 @@
 
             <?php if ( true == get_theme_mod( 'rbth_poweredby_switch' ) ) : ?>
             <div class="col-lg-6">
-                <p>
+                <p class="powered-by-text float-lg-end">
                     <?php echo wp_kses_post ( get_theme_mod( 'rbth_poweredby_text' ), 'rb-blog-one' ); ?>
                 </p>            
             </div>
@@ -62,16 +55,16 @@
                     printf(
                         '<p class="powered-by-text float-lg-end">%1$s <a href="%2$s" target="_blank">%3$s</a>%4$s</p>',
                         
-                        /* translators: %1$s: Copyright Text-1. */
+                        /* translators: %1$s: Powered by Text-1. */
                         esc_html('Powered by','rb-blog-one'),
 
                         /* translators: %2$s: Powered By URL. */
                         esc_url( 'https://bashirrased.com/' ),
 
-                        /* translators: %3$s: Copyright Text-2. */
+                        /* translators: %3$s: Powered by Text-2. */
                         esc_html('Bashir Rased','rb-blog-one'),
 
-                        /* translators: %4$s: Copyright Text-2. */
+                        /* translators: %4$s: Powered by Text-3. */
                         esc_html('.','rb-blog-one')
                     );
                 ?>

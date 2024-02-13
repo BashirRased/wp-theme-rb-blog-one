@@ -1,13 +1,7 @@
 <?php
-/**
- * The template for displaying single posts and pages.
- *
- * @package rb_blog_one
- */
-
 get_header();
 
-$main_class = "";
+$post_area_col = "";
 $sidebar_display = "";
 $sidebar_acf = "";
 $sidebar = "";
@@ -18,30 +12,30 @@ if ( function_exists('get_field') && get_field('rbth_choose_sidebar') ) {
 
 $sidebar = get_theme_mod( 'rbth_sidebar_single' );
 if ( $sidebar_acf == 'left-sidebar' ) {
-    $main_class = "col-lg-8";
+    $post_area_col = "col-lg-8";
     $sidebar_display = "left";
 }
 
 elseif ( $sidebar_acf == 'right-sidebar' ) {
-    $main_class = "col-lg-8";
+    $post_area_col = "col-lg-8";
     $sidebar_display = "right";
 }
 
 elseif ( $sidebar_acf == 'no-sidebar' ) {
-    $main_class = "col-lg-12";
+    $post_area_col = "col-lg-12";
 }
 
 else {
     if( $sidebar == "left-sidebar" ) {
-        $main_class = "col-lg-8";
+        $post_area_col = "col-lg-8";
         $sidebar_display = "left";
     }
     elseif( $sidebar == "right-sidebar" ) {
-        $main_class = "col-lg-8";
+        $post_area_col = "col-lg-8";
         $sidebar_display = "right";
     }
     else {
-        $main_class = "col-lg-12";
+        $post_area_col = "col-lg-12";
     }
 }
 ?>
@@ -49,20 +43,18 @@ else {
 <!--====================================
 ===== Site Content Area Start Here =====
 =====================================-->
-<div id="content" class="site-content">        
-    <div class="container">
-        <div class="row">
+<main class="site-content">
+    <div id="page-content">
+        <div class="container">
+            <div class="row">                
 
-            <?php
-            if ( $sidebar_display == 'left' ) {
-                get_sidebar();
-            }
-            ?>
+                <?php
+                if ( $sidebar_display == 'left' ) {
+                    get_sidebar();
+                }
+                ?>
 
-            <div class="<?php echo esc_attr( $main_col ); ?>">
-                <div class="content-area">
-
-                    <main id="primary" class="site-main">
+                <div id="primary" class="<?php echo esc_attr( $post_area_col ); ?>">
                     <?php
                     if ( have_posts() ) {
                         // Load posts loop.
@@ -75,27 +67,21 @@ else {
                         get_template_part( 'template-parts/content/content', 'none' );
                     }
                     ?>
-                    </main><!-- .site-main -->
 
-                    <?php if( has_tag() ) : ?>
-                    <div class="entry-meta-footer">
-                        <?php do_action( "rb_blog_one_tag_meta" ); ?>
-                    </div>
-                    <?php endif; ?>
+                </div>
 
-                    <?php
-                    // If comments are open or we have at least one comment, load up the comment template.
-                    if ( comments_open() || get_comments_number() ) {
-                        comments_template();
-                    }
-                    ?>
+                <?php
+                if ( $sidebar_display == 'right' ) {
+                    get_sidebar();
+                }
+                ?>
 
-                </div><!-- .content-area -->
-            </div>
-
-            <?php
-            if ( $sidebar_display == 'right' ) {
-                get_sidebar();
-            }
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div>
+</main>
+<!--==================================
+===== Site Content Area End Here =====
+===================================-->
             
-get_footer();
+<?php get_footer();

@@ -1,13 +1,3 @@
-<?php
-/**
- * Template part for displaying no content
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package rb_blog_one
- */
-?>
-
 <section class="no-results text-center">
 	<header class="page-header">
 		<?php if ( is_search() ) : ?>

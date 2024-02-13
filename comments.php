@@ -1,11 +1,4 @@
-<?php
-/**
- * The template file for displaying the comments and comment form for the
- * RB Blog One theme.
- *
- * @package rb_blog_one
- */
- 
+<?php 
 /*
  * If the current post is protected by a password and
  * the visitor has not yet entered the password,
