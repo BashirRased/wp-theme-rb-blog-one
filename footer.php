@@ -1,5 +1,8 @@
 <?php
-    do_action ( 'rb_blog_one_footer' );
+    get_template_part( 'template-parts/footer/footer' );
+	if ( function_exists( 'rbth_scroll_to_top' ) ) {
+		rbth_scroll_to_top();
+	}
     wp_footer();
 ?>
 

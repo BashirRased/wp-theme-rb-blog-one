@@ -60,7 +60,7 @@ else {
                         // Load posts loop.
                         while ( have_posts() ) {
                             the_post();
-                            get_template_part( 'template-parts/content/content', get_post_format() );
+                           echo '1';
                         }
                     } else {        
                         // If no content, include the "No posts found" template.

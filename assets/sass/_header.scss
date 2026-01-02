@@ -9,7 +9,7 @@
     bottom: 0;
     z-index: 999999;
     clear: none;
-    background-color: var(--white-color);
+    background-color: var(--color-white);
 }
 
 .folding-cube {
@@ -34,7 +34,7 @@
 
 .folding-cube .cube:before {
     @extend %overlay_full;
-    background-color: var(--primary-color);
+    background-color: var(--color-primary);
     @include animation_5( foldCubeAngle, 2.4s, infinite, linear, both );
     @include transform_origin_2( 100%, 100% );
 }
@@ -104,17 +104,46 @@
     }
 }
 
+.admin-bar {
+    .sticky-header,
+    .transparent-header {
+        top: 32px;
+    }
+}
+
+.sticky-header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	.header-top-area {
+		display: none;
+	}
+}
+
+.transparent-header {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	.header-top-area {
+		display: none;
+	}
+}
+
 /*=========================
 ===== 2.2. Header Top =====
 =========================*/
 .header-top-area {
     width: 100%;
     padding-top: 10px;
-    background-color: var(--black-color);
+    background-color: var(--color-black);
 }
 
 .header-top-left {
-    color: var(--white-color);
+    color: var(--color-white);
     margin-bottom: 10px;
     i {
         margin-right: 10px;
@@ -128,14 +157,15 @@
     }
     a {
         display: inline-block;
-        color: var(--white-color);
+        color: var(--color-white);
         border-radius: 100%;
-        background-color: var(--dark-grey);
+        background-color: var(--text-on-light);
         @include center_1( 30px );
         @include transition_1( var(--transition) );
+		text-decoration: none;
         &:hover,
         &:focus {
-            background-color: var(--primary-color);
+            background-color: var(--color-primary);
         }
     }
 }
@@ -146,11 +176,10 @@
 .header-site-branding {
     width: 100%;
     height: 100%;
-    min-height: 130px;
     padding: 25px 0;
-    background-color: var(--white-color);
+    background-color: var(--color-white);
     .custom-logo {
-        height: 120px;
+        height: 80px;
         width: auto;
     }
 }
@@ -169,21 +198,22 @@
 }
 
 .site-title {
-    margin: 0 0 5px 0;
+    margin: 0;
     a {
-        color: var(--primary-color);
+        color: var(--color-black);
         text-decoration: none;
+		transition: var(--transition-normal);
         &:hover,
         &:focus {
-            background-color: transparent;
-            text-decoration: underline;    
+            color: var(--color-primary);   
         }
     }
 }
 
 .site-tagline {
     margin: 0;
-    font-size: 20px;
+    font-size: 16px;
+	color: var(--text-on-white);
 }
 
 .header-ads {
@@ -192,7 +222,7 @@
     line-height: 120px;
     text-align: center;
     border-radius: 5px;
-    background-color: var(--light-grey);    
+    background-color: var(--color-light);    
     overflow: hidden;
     img {
         width: 100%;
@@ -204,30 +234,9 @@
 ===== 2.4. Header Menu =====
 ==========================*/
 .header-menu-area {
-    background-color: var(--black-color);
-    &.header-transparent-menu {
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 999;
-    }
-    &.header-fixed-menu {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 9999;
-    }
+    background-color: var(--color-black);
     .dropdown-toggle::after {
         display: none;
-    }
-}
-
-.admin-bar {
-    .header-menu-area.header-fixed-menu,
-    .header-transparent-menu {
-        top: 32px;
     }
 }
 
@@ -242,11 +251,11 @@
             padding-left: 0;
         }
         &.current-menu-item a {
-            color: var(--primary-color);
+            color: var(--color-primary);
             background-color: transparent;
         }        
-        &:hover > .submenu,
-        &:focus-within > .submenu {
+        &:hover > .sub-menu,
+        &:focus-within > .sub-menu {
             left: 0;
         }
     }
@@ -254,11 +263,11 @@
         display: block;
         text-decoration: none;
         font-size: 16px;
-        color: var(--white-color);
+        color: var(--color-white);
         padding: 15px;
         &:hover,
         &:focus {
-            color: var(--primary-color);
+            color: var(--color-primary);
             background-color: transparent;
         }
     }
@@ -287,21 +296,21 @@
     }       
 }
 
-.submenu {
+.sub-menu {
     position: absolute;
     top: 100%;
     left: -99999px;
     min-width: 250px;
     z-index: 99999;
     padding: 0;
-    background-color: var(--dark-grey);
+    background-color: var(--text-on-light);
     li {
         position: relative;
         float: none;
         list-style: none;
         border-bottom: 1px solid #414141;
-        &:hover > .submenu,
-        &:focus-within > .submenu {
+        &:hover > .sub-menu-2,
+        &:focus-within > .sub-menu-2 {
             top: 0;
             left: 100%;
         }
@@ -312,16 +321,20 @@
             padding: 15px;
         }
     }
-    .submenu {
+    .sub-menu-2 {
         position: absolute;
         top: -99999px;
+		min-width: 250px;
+		z-index: 99999;
+		padding: 0;
+		background-color: var(--text-on-light);
         li {
             border-left: 1px solid #414141;
         }
     }
 }
 
-.header-menu .submenu li:first-child a {
+.header-menu .sub-menu li:first-child a {
     padding-left: 15px;
 }
 
@@ -331,14 +344,14 @@
 .mean-container {
 	a.meanmenu-reveal {
 		padding: 15px;
-		border: 1px solid var(--primary-color);
+		border: 1px solid var(--color-primary);
 		border-radius: 5px;
 		span {
-			background-color: var(--primary-color);
+			background-color: var(--color-primary);
 		}
 		&:hover span,
 		&:focus span {
-			background-color: var(--white-color);
+			background-color: var(--color-white);
 		}
 	}
 	.mean-bar {
@@ -358,28 +371,28 @@
                 width: 96%;
                 padding: 15px;
                 border-top: none;
-                border-bottom: 1px solid var(--primary-color);
+                border-bottom: 1px solid var(--color-primary);
                 &:hover,
                 &:focus {
-                    color: var(--primary-color);
+                    color: var(--color-primary);
                     background-color: transparent;
                 }	
                 &.mean-expand {
-                    color: var(--primary-color);
+                    color: var(--color-primary);
                     background-color: transparent;
                     height: 20px;
                     width: 20px;
                     line-height: 20px;
                     margin: 4px 5px 5px 0;
-                    border: 1px solid var(--primary-color) !important;
+                    border: 1px solid var(--color-primary) !important;
                     opacity: 1;
                     border-radius: 5px;
                     right: -5px;
                     z-index: 99;
                     &:hover,
                     &:focus {
-                        color: var(--white-color);
-                        background-color: var(--primary-color);
+                        color: var(--color-white);
+                        background-color: var(--color-primary);
                     }
                 }
             }
@@ -413,7 +426,7 @@
     @extend %bg_attr;
     position: relative;	
     padding: 100px 0;
-    background-color: var(--light-grey);
+    background-color: var(--color-light);
     z-index: 1;
     &::before {
         @extend %overlay_full;
@@ -425,16 +438,16 @@
 .breadcrumb-content {
 	position: relative;
     width: 100%;
-	color: var(--white-color);
+	color: var(--color-white);
 	z-index: 99;
 }
 
 .breadcrumb-left-area {
-    color: var(--white-color);
+    color: var(--color-white);
 }
 
 .breadcrumb-title {
-    color: var(--white-color);
+    color: var(--color-white);
     font-size: 24px;
     text-transform: uppercase;
     margin: 0;
@@ -450,7 +463,7 @@
 .breadcrumb-right-area {
 	@extend %d_flex;    
     position: relative;
-    color: var(--white-color);
+    color: var(--color-white);
 	width: 100%;
     height: 100%;	
 	justify-content: end;	
@@ -462,7 +475,7 @@
     margin: 0;
 	padding: 0;    
     a {
-        color: var(--primary-color);
+        color: var(--color-primary);
         text-decoration: none;
         &:hover,
         &:focus {

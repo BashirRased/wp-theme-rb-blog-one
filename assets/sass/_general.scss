@@ -13,19 +13,19 @@
 
 *::-moz-selection {
 	background-color: #008000;
-	color: var(--white-color);
+	color: var(--color-white);
 }
 
 *::selection {
 	background-color: #008000;
-	color: var(--white-color);
+	color: var(--color-white);
 }
 
 body {
     @extend %text_1;
-    color: var(--black-color);
+    color: var(--color-black);
 	font-size: 16px;
-	background-color: var(--light-grey);
+	background-color: var(--color-light);
 }
 
 h1,
@@ -43,33 +43,33 @@ em {
 }
 
 h1 {
-	font-size: 55px;
-    line-height: 1.15;
+    font-size: 40px;
+    line-height: 1.2em;
 }
 
 h2 {
-	font-size: 45px;
-    line-height: 1.15;
+    font-size: 32px;
+    line-height: 1.25em;
 }
 
 h3 {
-	font-size: 35px;
-    line-height: 1.15;
+    font-size: 28px;
+    line-height: 1.3em;
 }
 
 h4 {
-	font-size: 28px;
-    line-height: 1.15;
+    font-size: 24px;
+    line-height: 1.35em;
 }
 
 h5 {
-	font-size: 22px;
-    line-height: 1.15;
+    font-size: 20px;
+    line-height: 1.4em;
 }
 
 h6 {
-	font-size: 18px;
-    line-height: 1.15;
+    font-size: 16px;
+    line-height: 1.5em;
 }
 
 img {
@@ -98,16 +98,19 @@ hr {
 	opacity: 1;
 }
 
-a { 
-    color: var(--primary-color);
+a {
+    color: var(--color-primary);
 	transition: var(--transition);
 }
 
 a:hover,
-a:focus,
+a:focus {
+	text-decoration: underline;
+}
+
 kbd {
-	color: var(--white-color);
-	background-color: var(--primary-color);
+	color: var(--color-white);
+	background-color: var(--color-primary);
 }
 
 a img {
@@ -119,7 +122,7 @@ b,
 code,
 em,
 hr {
-	color: var(--primary-color);
+	color: var(--color-primary);
 }
 
 input[type="text"],
@@ -131,15 +134,15 @@ textarea {
 }
 
 button {
-	color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+	color: var(--color-primary);
+    border: 1px solid var(--color-primary);
     border-radius: 5px;
     background-color: transparent;
 	transition: var(--transition);
     &:hover,
     &:focus {
-        color: var(--white-color);
-        background-color: var(--primary-color);
+        color: var(--color-white);
+        background-color: var(--color-primary);
     }
 }
 
@@ -151,14 +154,14 @@ blockquote {
     position: relative;
 	padding: 15px;
     padding-left: 40px;
-	background-color: var(--light-grey);
+	background-color: var(--color-light);
     overflow: hidden;
     &::before {
         @include font_awesome_1( '\f10d' );
         font-size: 30px;
         left: 10px;
         top: 2px;
-        color: var(--primary-color);
+        color: var(--color-primary);
         opacity: 0.5;
     }
     cite,
@@ -171,7 +174,7 @@ blockquote {
         position: absolute;
         width: 30px;
         height: 1px;
-        background-color: var(--primary-color);
+        background-color: var(--color-primary);
         left: -35px;
         top: 50%;
     }
@@ -179,10 +182,10 @@ blockquote {
 
 pre {
 	padding: 15px;
-	color: var(--primary-color);
-	border: 1px solid var(--primary-color);
+	color: var(--color-primary);
+	border: 1px solid var(--color-primary);
 	border-radius: 5px;
-	background-color: var(--light-grey);
+	background-color: var(--color-light);
 }
 
 /*=================================
@@ -252,7 +255,7 @@ a img {
 		width: auto;
 	}
 	& p.wp-caption-text {
-		color: var(--primary-color);
+		color: var(--color-primary);
 	}
 }
 
@@ -271,7 +274,7 @@ a img {
 	&:focus {
 		clip: auto !important;
 		clip-path: none;
-		color: var(--grey-text);
+		color: var(--text-on-white);
 		display: block;
 		font-size: 1em;
 		height: auto;
@@ -281,18 +284,18 @@ a img {
 		text-decoration: none;
 		top: 5px;
 		width: auto;
-		background-color: var(--light-grey);
+		background-color: var(--color-light);
 		z-index: 9999999;
 	}
 }
 
 /* Skip Link */
 .skip-link {
-	color: var(--primary-color);
+	color: var(--color-primary);
 	left: -9999rem;
 	top: 2.5rem;
 	padding: 10px 30px;
-	border: 1px solid var(--primary-color);
+	border: 1px solid var(--color-primary);
 	border-radius: 5px;
 	background-color: transparent;
 	text-decoration: none;
@@ -300,11 +303,11 @@ a img {
 	&:focus {
 		width: 300px;
 		display: block;
-		color: var(--white-color);
+		color: var(--color-white);
 		left: 6px;
 		top: 7px;
 		font-size: 16px;
-		background-color: var(--primary-color);
+		background-color: var(--color-primary);
 		text-align: center;
 	}
 }
@@ -363,15 +366,15 @@ ol.wp-block-latest-comments,
 	padding-left: 30px;
 	&:hover,
 	&:focus {
-		border-color: var(--primary-color);
+		border-color: var(--color-primary);
 	}
 	&:after {
 		width: 10px;
 		height: 10px;
 		margin-top: -7px;
 		right: 20px;
-		border-bottom: 2px solid var(--primary-color);
-		border-right: 2px solid var(--primary-color);
+		border-bottom: 2px solid var(--color-primary);
+		border-right: 2px solid var(--color-primary);
 	}	
 	.current {
 		display: block;
@@ -385,12 +388,12 @@ ol.wp-block-latest-comments,
 		padding-left: 30px;
 		&:hover,
 		&:focus {
-			color: var(--white-color);
-			background-color: var(--primary-color);
+			color: var(--color-white);
+			background-color: var(--color-primary);
 		}	
 		&.focus,
 		&.selected.focus {
-			background-color: var(--primary-color);
+			background-color: var(--color-primary);
 		}
 	}
 }
@@ -399,14 +402,14 @@ ol.wp-block-latest-comments,
 ===== 1.5. Swiper Customizer =====
 ================================*/
 .swiper-pagination-bullet {
-	background-color: var(--white-color);
+	background-color: var(--color-white);
 	opacity: .8;
 	&.swiper-pagination-bullet-active {
-		background-color: var(--primary-color);
+		background-color: var(--color-primary);
 	}
 }
 
 .swiper-button-prev:after,
 .swiper-button-next:after {
-    color: var(--primary-color);
+    color: var(--color-primary);
 }

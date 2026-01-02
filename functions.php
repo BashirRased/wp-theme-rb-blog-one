@@ -1,34 +1,58 @@
 <?php
 /**
- * functions and definitions
+ * Functions and definitions for this theme
+ *
+ * Sets up theme defaults, registers support for WordPress features,
+ * and loads additional files to extend functionality.
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package RB_Themes
+ * @subpackage RB_Blog_One
  */
 
-// Common Functions
-if( file_exists ( dirname( __FILE__ ) . '/inc/common-functions.php' ) ) {
-	require_once(dirname( __FILE__ ) . '/inc/common-functions.php' );
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-// Third Party Assets
-if( file_exists( dirname( __FILE__ ) . '/inc/third-party-assets.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/inc/third-party-assets.php' );
+// Define theme base path for includes.
+define( 'HELPEST_INC_PATH', get_template_directory() . '/inc/' );
+define( 'HELPEST_LIB_PATH', get_template_directory() . '/assets/lib/php/' );
+
+/**
+ * Load theme includes if files exist.
+ *
+ * Keeping each functionality in separate files helps maintain clean code.
+ */
+$file_includes = array(
+	'theme-setup.php', // Core setup and supports.
+	'theme-assets.php',    // Styles and scripts.
+	'theme-widgets.php',   // Widget areas.
+	'theme-menus.php',   // Theme menus.
+	'theme-plugins.php', // Required plugins.
+	'breadcrumbs.php', // Breadcrumbs.
+	'post-functions.php', // Post functions.
+);
+
+foreach ( $file_includes as $file ) {
+	$filepath = HELPEST_INC_PATH . $file;
+	if ( file_exists( $filepath ) ) {
+		require_once $filepath;
+	}
 }
 
-// Theme Assets
-if( file_exists( dirname( __FILE__ ) . '/inc/theme-assets.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/inc/theme-assets.php' );
-}
+/**
+ * Load the required library.
+ */
+$file_libs = array(
+	'class-rb-blog-one-header-menu-walker.php', // Header Menu Nav Walker.
+	'class-tgm-plugin-activation.php', // TGM Plugin.
+);
 
-// Theme Functions
-if( file_exists ( dirname( __FILE__ ) . '/inc/theme-functions.php' ) ) {
-	require_once(dirname( __FILE__ ) . '/inc/theme-functions.php' );
-}
-
-// WP Bootstrap Navwalker
-if( file_exists( dirname( __FILE__ ) . '/lib/bootstrap-navwalker.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/lib/bootstrap-navwalker.php' );
-}
-
-// TGM Plugin Activation
-if( file_exists( dirname( __FILE__ ) . '/lib/class-tgm-plugin-activation.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/lib/class-tgm-plugin-activation.php' );
+foreach ( $file_libs as $file ) {
+	$filepath = HELPEST_LIB_PATH . $file;
+	if ( file_exists( $filepath ) ) {
+		require_once $filepath;
+	}
 }

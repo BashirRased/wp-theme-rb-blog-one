@@ -3,9 +3,6 @@ Table of JS Content Start Here
 ==============================
 	01. Preloader
 	02. Header Sticky Menu
-    03. MeanMenu
-    04. Swiper
-    05. Nice Select
     06. Scroll to Top
 */
 
@@ -30,41 +27,12 @@ Table of JS Content Start Here
             ===== 02. Header Sticky Menu =====
             ================================*/
             if ($(window).scrollTop() >= 50) {
-                $('.header-fixed-active').addClass('header-fixed-menu');
+                $('.sticky-header-enable').addClass('sticky-header');
             }
             else {
-                $('.header-fixed-active').removeClass('header-fixed-menu');
+                $('.sticky-header-enable').removeClass('sticky-header');
             }
         });
-
-        /*======================
-        ===== 03. MeanMenu =====
-        ======================*/
-        $('.header-menu-container').meanmenu({
-			meanMenuContainer: '.header-menu-area .container',
-			meanScreenWidth: "991",
-			meanMenuOpen: '<span></span><span></span><span></span>',
-		});
-
-        /*====================
-        ===== 04. Swiper =====
-        ====================*/
-        var swiper = new Swiper(".post-img-gallery", {
-            autoplay: true,
-            loop: true,
-            navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-              el: ".swiper-pagination",
-            },
-        });
-
-        /*=========================
-        ===== 05. Nice Select =====
-        =========================*/
-        $('select').niceSelect();
 
         /*===========================
         ===== 06. Scroll to Top =====

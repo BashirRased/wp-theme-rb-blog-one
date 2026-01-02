@@ -21,7 +21,7 @@
 ==========================*/
 .post-list-item {
     padding: 20px 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-on-white);
     &:first-child {
         padding-top: 0;
     }
@@ -29,21 +29,21 @@
         border-bottom: none;
     }
     &.sticky {
-        border: 5px solid var(--primary-color);
+        border: 5px solid var(--color-primary);
         padding: 30px 20px;
     }
 }
 
 .post-meta-top {
     font-size: 12px;
-    color: var(--dark-grey);
+    color: var(--text-on-light);
     margin-bottom: 15px;
     .cat-post-meta {
         i {
             margin-right: 5px;
         }
         a {
-            color: var(--primary-color);
+            color: var(--color-primary);
             text-decoration: none;
             &:hover,
             &:focus {
@@ -58,32 +58,32 @@
     margin-top: 0;
     margin-bottom: 15px;    
     a {
-        color: var(--black-color);
+        color: var(--color-black);
         background-color: transparent;
         text-decoration: none;
         &:hover,
         &:focus {
-            color: var(--primary-color);
+            color: var(--color-primary);
             text-decoration: underline;
         }
     }
 }
 
 .post-meta {
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-on-white);
+    border-bottom: 1px solid var(--border-on-white);
     padding-bottom: 10px;
-    color: var(--dark-grey);
+    color: var(--text-on-light);
     i {
-        color: var(--primary-color);
+        color: var(--color-primary);
         margin-right: 5px;
     }
     a {
-        color: var(--dark-grey);
+        color: var(--text-on-light);
         text-decoration: none;
         &:hover,
         &:focus {
-            color: var(--primary-color);
+            color: var(--color-primary);
             background-color: transparent;
             text-decoration: underline; 
         }
@@ -99,7 +99,7 @@
 }
 
 .comment-meta-off-text {
-    color: var(--border-color);
+    color: var(--border-on-white);
 }
 
 .post-img-gallery {
@@ -137,7 +137,7 @@
         left: -60px;
         width: 50px;
         height: 2px;
-        background-color: var(--primary-color);
+        background-color: var(--color-primary);
     }
 }
 
@@ -157,7 +157,7 @@
 }
 
 .page-title-span {
-    color: var(--primary-color);
+    color: var(--color-primary);
 }
 
 .page-content input[type="text"],
@@ -214,7 +214,7 @@
         left: 0;
         width: 100%;
         height: 1px;
-        background-color: var(--border-color);
+        background-color: var(--border-on-white);
     }    
     &::after {
         content: "";
@@ -223,7 +223,7 @@
         left: 0;
         width: 70px;
         height: 3px;
-        background-color: var(--primary-color);
+        background-color: var(--color-primary);
     }
 }
 
@@ -233,7 +233,7 @@
 	display: block;
 	padding: 15px 0;
 	text-align: right;
-	border-bottom: 1px solid var(--primary-color);
+	border-bottom: 1px solid var(--color-primary);
 	overflow: hidden;
 }
 
@@ -249,7 +249,7 @@
 	float: left;
     text-decoration: none;
 	padding-left: 30px;
-	color: var(--black-color);
+	color: var(--color-black);
 }
 
 .widget_archive ul li a:hover,
@@ -257,7 +257,7 @@
 .wp-block-archives-list li a:hover,
 .wp-block-archives-list li a:focus {
 	text-decoration: underline;
-	color: var(--primary-color);	
+	color: var(--color-primary);	
     background-color: transparent;
 }
 
@@ -265,7 +265,7 @@
 .wp-block-archives-list li a::before {
 	@include font_awesome_1( "\f07c" );
     @include transform_3(-50%, -50%);
-	color: var(--primary-color);
+	color: var(--color-primary);
 	left: 10px;
 	top: 50%;
 }
@@ -290,12 +290,12 @@
 
 .wp-block-calendar table caption,
 .calendar_wrap table caption {
-	color: var(--white-color);
+	color: var(--color-white);
 	text-align: center;
 	text-transform: uppercase;
 	margin-bottom: 10px;
     border-radius: 5px;
-	background-color: var(--primary-color);
+	background-color: var(--color-primary);
 }
 
 .wp-block-calendar table,
@@ -306,32 +306,32 @@
 
 .wp-block-calendar table th,
 .calendar_wrap table th {
-	color: var(--white-color);
-	background-color: var(--primary-color);
-	border: 1px solid var(--primary-color);
+	color: var(--color-white);
+	background-color: var(--color-primary);
+	border: 1px solid var(--color-primary);
 }
 
 .wp-block-calendar tbody td,
 .calendar_wrap tbody td {
-	color: var(--black-color);
-	border: 1px solid var(--primary-color);
+	color: var(--color-black);
+	border: 1px solid var(--color-primary);
 }
 
 .wp-block-calendar tbody td#today,
 .calendar_wrap tbody td#today {
-	color: var(--white-color);
-	background-color: var(--primary-color);
+	color: var(--color-white);
+	background-color: var(--color-primary);
 }
 
 .wp-block-calendar tbody td#today a,
 .calendar_wrap tbody td#today a {
-	color: var(--white-color);
+	color: var(--color-white);
 }
 
 .wp-block-calendar a,
 .calendar_wrap a {
 	text-decoration: none;
-	color: var(--primary-color);
+	color: var(--color-primary);
 }
 
 .wp-block-calendar a:hover,
@@ -361,7 +361,7 @@
 	display: block;
 	text-align: right;
 	padding: 15px 0;
-	border-bottom: 1px solid var(--primary-color);
+	border-bottom: 1px solid var(--color-primary);
 	overflow: hidden;
 }
 
@@ -377,7 +377,7 @@
 	float: left;
     text-decoration: none;
 	padding-left: 30px;
-	color: var(--black-color);
+	color: var(--color-black);
 }
 
 .wp-block-categories-list li a:hover,
@@ -385,7 +385,7 @@
 .widget_categories ul li a:hover,
 .widget_categories ul li a:focus {
 	text-decoration: underline;
-	color: var(--primary-color);
+	color: var(--color-primary);
     background-color: transparent;
 }
 
@@ -398,14 +398,14 @@
 	left: 10px;
 	width: 7px;
 	height: 7px;
-	background-color: var(--primary-color);
+	background-color: var(--color-primary);
 	border-radius: 50%;
 }
 
 .wp-block-categories-list ul li:first-child,
 .widget_categories ul ul li:first-child {
     margin-top: 10px;
-    border-top: 1px solid var(--primary-color);
+    border-top: 1px solid var(--color-primary);
 }
 
 .wp-block-categories-list ul li:not():first-child,
@@ -438,7 +438,7 @@
 }
 
 .wp-block-latest-comments__comment-date {
-    color: var(--grey-text);
+    color: var(--text-on-white);
 }
 
 /** 06. Lastest Post Widget */
@@ -450,34 +450,34 @@
 
 .wp-block-latest-posts.wp-block-latest-posts__list li a,
 .widget_recent_entries li a {
-	color: var(--black-color);
+	color: var(--color-black);
 	text-decoration: none;
 }
 
 .wp-block-latest-posts.wp-block-latest-posts__list.has-dates li a, 
 .wp-block-latest-posts.wp-block-latest-posts__list.has-author li a {
-	color: var(--primary-color);
+	color: var(--color-primary);
 }
 
 .wp-block-latest-posts.wp-block-latest-posts__list li a:hover,
 .wp-block-latest-posts.wp-block-latest-posts__list li a:focus,
 .widget_recent_entries li a:hover,
 .widget_recent_entries li a:focus {
-	color: var(--primary-color);
+	color: var(--color-primary);
     background-color: transparent;
 	text-decoration: underline;
 }
 
 .wp-block-latest-posts.wp-block-latest-posts__list.has-author li a.theme-btn:hover,
 .wp-block-latest-posts.wp-block-latest-posts__list.has-author li a.theme-btn:focus {
-	color: var(--white-color);
-	background-color: var(--primary-color);
+	color: var(--color-white);
+	background-color: var(--color-primary);
 	text-decoration: none;
 }
 
 .wp-block-latest-posts__post-author,
 .wp-block-latest-posts__post-date {
-    color: var(--grey-text);
+    color: var(--text-on-white);
 }
 
 /** 07. Page List Widget */
@@ -496,7 +496,7 @@
 .widget_pages li a {
 	position: relative;
 	display: block;
-    color: var(--black-color);
+    color: var(--color-black);
 	padding-left: 30px;
     text-decoration: none;
 }
@@ -505,7 +505,7 @@
 .wp-block-page-list li a:focus,
 .widget_pages li a:hover,
 .widget_pages li a:focus {
-    color: var(--primary-color);
+    color: var(--color-primary);
     background-color: transparent;
     text-decoration: underline;
 }
@@ -514,7 +514,7 @@
 .widget_pages li a::before {
     @include font_awesome_1( "\e494" );
     @include transform_3(-50%, -50%);
-	color: var(--primary-color);
+	color: var(--color-primary);
 	top: 50%;
 	left: 10px;
 }
@@ -522,7 +522,7 @@
 .wp-block-page-list li li:first-child,
 .widget_pages li ul li:first-child {
     margin-top: 10px;
-    border-top: 1px solid var(--primary-color);
+    border-top: 1px solid var(--color-primary);
 }
 
 .wp-block-page-list li li:not():first-child,
@@ -539,7 +539,7 @@
 .wp-block-rss__item,
 .widget_rss li {
     padding: 15px 0;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--color-primary);
 }
 
 .wp-block-rss__item:last-child,
@@ -551,12 +551,12 @@
 .widget-title .rss-widget-feed,
 .widget-title .rss-widget-title {
 	display: inline-block;
-	color: var(--black-color);
+	color: var(--color-black);
 }
 
 .widget-title .rss-widget-title:hover,
 .widget-title .rss-widget-title:focus {
-	color: var(--primary-color);
+	color: var(--color-primary);
 }
 
 .wp-block-rss__item-title a,
@@ -570,7 +570,7 @@
 .rsswidget:hover,
 .rsswidget:focus {
 	text-decoration: underline;
-	color: var(--primary-color);
+	color: var(--color-primary);
 	background-color: transparent;
 }
 
@@ -578,7 +578,7 @@
 .wp-block-rss__item-author,
 .rss-date {
 	display: block;
-    color: var(--grey-text);
+    color: var(--text-on-white);
 }
 
 /** 09. Search Widget */
@@ -597,7 +597,7 @@
 
 .wp-block-search__input,
 input#s[type="text"] {
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-on-white);
 }
 
 input#s[type="text"] {
@@ -605,14 +605,14 @@ input#s[type="text"] {
 }
 
 :where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) {
-	border: 1px solid var(--primary-color);
+	border: 1px solid var(--color-primary);
 }
 
 .wp-block-search__input:hover,
 .wp-block-search__input:focus,
 input#s[type="text"]:hover,
 input#s[type="text"]:focus {
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--color-primary);
 }
 
 .wp-block-search__button,
@@ -653,7 +653,7 @@ input#s[type="text"]:focus {
 .widget_meta ul {
     li {
         padding: 15px 0;
-        border-bottom: 1px solid var(--primary-color);
+        border-bottom: 1px solid var(--color-primary);
         &:last-child {
             padding-bottom: 0;
             border-bottom: none;
@@ -662,11 +662,11 @@ input#s[type="text"]:focus {
             position: relative;
             display: inline-block;
             text-decoration: none;
-            color: var(--black-color);
+            color: var(--color-black);
             padding-left: 30px;
             &:hover,
             &:focus {
-                color: var(--primary-color);
+                color: var(--color-primary);
                 background-color: transparent;
                 text-decoration: underline;
             }
@@ -679,7 +679,7 @@ input#s[type="text"]:focus {
                 width: 7px;
                 height: 7px;
                 border-radius: 50%;
-                background-color: var(--primary-color);
+                background-color: var(--color-primary);
             }
         }
     }
@@ -689,7 +689,7 @@ input#s[type="text"]:focus {
 .widget_nav_menu {
     ul li {
         padding: 15px 0;
-        border-bottom: 1px solid var(--primary-color);
+        border-bottom: 1px solid var(--color-primary);
         &:last-child {
             padding-bottom: 0;
             border-bottom: none;
@@ -697,12 +697,12 @@ input#s[type="text"]:focus {
         a {
             position: relative;
             display: block;
-            color: var(--black-color);
+            color: var(--color-black);
             padding-left: 30px;
             text-decoration: none;
             &:hover,
             &:focus {
-                color: var(--primary-color);
+                color: var(--color-primary);
                 background-color: transparent;
                 text-decoration: underline;
             }
@@ -715,7 +715,7 @@ input#s[type="text"]:focus {
                 width: 7px;
                 height: 7px;
                 border-radius: 50%;
-                background-color: var(--primary-color);
+                background-color: var(--color-primary);
             }
         }
     }
@@ -729,7 +729,7 @@ input#s[type="text"]:focus {
         }
         li:first-child {
             margin-top: 10px;
-            border-top: 1px solid var(--primary-color);
+            border-top: 1px solid var(--color-primary);
         }
         li:not():first-child {
             margin-top: 10px;
@@ -756,14 +756,14 @@ input#s[type="text"]:focus {
     display: block;
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-on-white);
 }
 
 .wp-block-loginout #user_login:hover,
 .wp-block-loginout #user_login:focus,
 .wp-block-loginout #user_pass:hover,
 .wp-block-loginout #user_pass:focus {
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--color-primary);
 }
 
 .wp-block-loginout label {
@@ -778,7 +778,7 @@ input#s[type="text"]:focus {
 .widget_text {
 	padding: 18px;
 	margin-bottom: 10px;
-	background-color: var(--white-color);
+	background-color: var(--color-white);
 	box-shadow: var(--light-shadow);
 }
 
@@ -803,25 +803,25 @@ input#s[type="text"]:focus {
 .post-password-form {
     input[type="password"] {
         width: 100%;
-        border: 1px solid var(--border-color);
+        border: 1px solid var(--border-on-white);
         padding: 10px;
         &:hover,
         &:focus {
-            border: 1px solid var(--primary-color);
+            border: 1px solid var(--color-primary);
         }
     }    
     input[type="submit"] {
         display: inline-block;
         text-decoration: none;
         padding: 11px 30px;
-        color: var(--primary-color);
-        border: 1px solid var(--primary-color);
+        color: var(--color-primary);
+        border: 1px solid var(--color-primary);
         border-radius: 5px;
         background-color: transparent;
         &:hover,
         &:focus {
-            color: var(--white-color);
-            background-color: var(--primary-color);
+            color: var(--color-white);
+            background-color: var(--color-primary);
         }
     }
 }
@@ -837,11 +837,11 @@ input#s[type="text"]:focus {
         margin-right: 5px;
     }
     a {
-        color: var(--dark-grey);
+        color: var(--text-on-light);
         text-decoration: none;
         &:hover,
         &:focus {
-            color: var(--primary-color);
+            color: var(--color-primary);
             background-color: transparent;
             text-decoration: underline;
         }
@@ -853,22 +853,22 @@ input#s[type="text"]:focus {
 ========================================*/
 /** 01. Image Block */
 .wp-block-image figcaption {
-	color: var(--primary-color);
+	color: var(--color-primary);
 	font-size: 16px;
 }
 
 /** 02. Button Block */
 .wp-block-button__link {
-	color: var(--white-color);
+	color: var(--color-white);
     font-size: 16px;
     padding: 10px 30px;
     border-radius: 5px;
-    border: 1px solid var(--primary-color);
-	background-color: var(--primary-color);
+    border: 1px solid var(--color-primary);
+	background-color: var(--color-primary);
 	margin-bottom: 10px;
     &:hover,
     &:focus {
-        color: var(--primary-color);
+        color: var(--color-primary);
         background-color: transparent;
         text-decoration: none;
     }
@@ -885,17 +885,17 @@ input#s[type="text"]:focus {
 
 .wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color),
 .wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color) {
-    color: var(--primary-color);
+    color: var(--color-primary);
     background-color: transparent;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--color-primary);
 }
 
 .wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color):hover,
 .wp-block-button .wp-block-button__link.is-style-outline:not(.has-text-color):focus,
 .wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color):hover,
 .wp-block-button.is-style-outline>.wp-block-button__link:not(.has-text-color):focus {
-    color: var(--white-color);
-	background-color: var(--primary-color);
+    color: var(--color-white);
+	background-color: var(--color-primary);
 }
 
 .wp-block-file {
@@ -903,22 +903,22 @@ input#s[type="text"]:focus {
         font-size: 16px;
         padding: 10px 30px;
         border-radius: 5px;
-        border: 1px solid var(--primary-color);	
+        border: 1px solid var(--color-primary);	
         text-decoration: none;
         &:hover,
         &:focus {
-            color: var(--white-color);
-            background-color: var(--primary-color);
+            color: var(--color-white);
+            background-color: var(--color-primary);
         }
     }
     .wp-block-file__button {
-        color: var(--white-color);
-        background-color: var(--primary-color);
+        color: var(--color-white);
+        background-color: var(--color-primary);
         &:hover,
         &:focus {
-            color: var(--primary-color);
+            color: var(--color-primary);
             background-color: transparent;
-            border: 1px solid var(--primary-color);
+            border: 1px solid var(--color-primary);
         }
     }
 }
@@ -926,12 +926,12 @@ input#s[type="text"]:focus {
 /** 03. Cover Block */
 .wp-block-cover .wp-block-cover-text,
 .wp-block-cover p:not(.has-text-color) {
-	color: var(--white-color);
-	background-color: var(--primary-color);
+	color: var(--color-white);
+	background-color: var(--color-primary);
 }
 
 .wp-block-cover .wp-block-cover-text strong {
-	color: var(--white-color);
+	color: var(--color-white);
 }
 
 /** 04. Gallery Block */
@@ -1011,7 +1011,7 @@ input#s[type="text"]:focus {
 }
 
 .blocks-gallery-caption {
-	color: var(--black-color);
+	color: var(--color-black);
 	font-size: 16px;	
 }
 
@@ -1030,13 +1030,13 @@ input#s[type="text"]:focus {
 	position: relative;
 	padding: 15px;
     padding-left: 40px;
-	border-color: var(--primary-color);
-	background-color: var(--light-grey);
+	border-color: var(--color-primary);
+	background-color: var(--color-light);
 	overflow: hidden;
     &::before {
         @include font_awesome_1( '\f10d' );
         font-size: 30px;
-        color: var(--primary-color);
+        color: var(--color-primary);
         opacity: 0.5;
         left: 10px;
         top: 2px;
@@ -1047,7 +1047,7 @@ input#s[type="text"]:focus {
 .wp-block-quote footer {
 	position: relative;
 	float: right;
-	color: var(--primary-color);
+	color: var(--color-primary);
 }
 
 .wp-block-quote cite::before,
@@ -1056,7 +1056,7 @@ input#s[type="text"]:focus {
 	position: absolute;
 	width: 30px;
 	height: 1px;
-	background-color: var(--primary-color);
+	background-color: var(--color-primary);
 	left: -35px;
 	top: 50%;
 }
@@ -1067,33 +1067,33 @@ input#s[type="text"]:focus {
         padding-left: 40px;
     }
     &.has-text-align-right {
-        border-color: var(--primary-color);
+        border-color: var(--color-primary);
     }
 }
 
 .wp-block-pullquote {
-	border-color: var(--primary-color);
+	border-color: var(--color-primary);
 }
 
 /** 06. Code Block */
 .wp-block-code {
-	color: var(--primary-color);
-	border-color: var(--primary-color);
-	background-color: var(--light-grey);
+	color: var(--color-primary);
+	border-color: var(--color-primary);
+	background-color: var(--color-light);
 }
 
 /** 07. Preformatted Block */
 .wp-block-preformatted,
 .wp-block-verse {
 	padding: 15px;
-	color: var(--primary-color);
-    background-color: var(--light-grey);
+	color: var(--color-primary);
+    background-color: var(--color-light);
 }
 
 /** 08. Table Block */
 .wp-block-table td,
 .wp-block-table th {
-	border-color: var(--primary-color);
+	border-color: var(--color-primary);
 }
 
 /*=================================
@@ -1105,7 +1105,7 @@ input#s[type="text"]:focus {
     margin-top: 10px;
     .comment-title,
     .comment-count {
-        color: var(--primary-color);
+        color: var(--color-primary);
     }
 }
 
@@ -1121,7 +1121,7 @@ input#s[type="text"]:focus {
     display: block;
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-on-white);
 }
 
 .comments-form input#author:hover,
@@ -1134,7 +1134,7 @@ input#s[type="text"]:focus {
 .comments-form textarea:focus,
 .comment-form-comment textarea:hover,
 .comment-form-comment textarea:focus {
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--color-primary);
 }
 
 .comments-form textarea,
@@ -1144,21 +1144,21 @@ input#s[type="text"]:focus {
     width: 100%;
     height: 180px;
     resize: none;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-on-white);
 }
 
 .form-submit input[type="submit"] {
     display: inline-block;
-	color: var(--primary-color);
+	color: var(--color-primary);
     padding: 15px 30px;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--color-primary);
     border-radius: 5px;
 	background-color: transparent;
 	text-decoration: none;
     &:hover,
     &:focus {
-        color: var(--white-color);
-        background-color: var(--primary-color);
+        color: var(--color-white);
+        background-color: var(--color-primary);
     }
 }
 
@@ -1172,30 +1172,30 @@ input#s[type="text"]:focus {
 .comments-avatar {
     float: left;
     margin-right: 15px;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--color-primary);
 }
 
 .avatar-name a {
     text-decoration: none;
-    color: var(--black-color);
+    color: var(--color-black);
 }
 
 .avatar-name:hover a,
 .avatar-name:focus a {
     text-decoration: underline;
-    color: var(--primary-color);
+    color: var(--color-primary);
     background-color: transparent;
 }
 
 .comments-meta {
     padding: 10px 0;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-on-white);
+    border-bottom: 1px solid var(--border-on-white);
     margin-bottom: 10px;
 }
 
 .comments-meta-icon {
-    color: var(--primary-color);
+    color: var(--color-primary);
 }
 
 .comments-text {
@@ -1208,9 +1208,9 @@ input#s[type="text"]:focus {
     display: inline-block;
     padding: 10px 30px;
     border-radius: 5px;
-	color: var(--primary-color);
+	color: var(--color-primary);
 	background-color: transparent;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--color-primary);
 	text-decoration: none;
 }
 
@@ -1223,8 +1223,8 @@ input#s[type="text"]:focus {
 .comment-reply-link:focus,
 #cancel-comment-reply-link:hover,
 #cancel-comment-reply-link:focus {
-	color: var(--white-color);
-	background-color: var(--primary-color);
+	color: var(--color-white);
+	background-color: var(--color-primary);
 }
 
 /** 04. Comments List */
@@ -1238,8 +1238,12 @@ input#s[type="text"]:focus {
 .error-page {
     @extend %item_bg;
     text-align: center;
+	padding: 25px 15px 60px 15px;
     .error-page-title {
         font-size: 200px;
         margin: 0;
     }
+	.error-page-text {
+		color: var(--text-on-white);
+	}
 }

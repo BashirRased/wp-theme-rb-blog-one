@@ -1,49 +1,103 @@
 // Root CSS
 :root {
-    --primary-color: #f93601;
-    --black-color: #000000;
-    --white-color: #ffffff;
-    --dark-grey: #333333;
-    --light-grey: #eeeeee;
-    --grey-text: #777777;
-    --border-color: #c1c1c1;
-	--transition-1: all 0.3s ease-out 0s;
+    /* -----------------------------
+       THEME COLORS
+    ------------------------------*/
+    --color-primary: #ff4d1c;
+    --color-primary-light: #ff7a55;
+    --color-primary-dark: #d63a10;
+
+    --color-secondary: #0066ff;
+    --color-secondary-light: #4d8dff;
+    --color-secondary-dark: #004fcc;
+
+    /* -----------------------------
+       GENERAL COLORS
+    ------------------------------*/
+    --color-black: #000000;
+
+	/* -----------------------------
+		WHITE BACKGROUND SET
+	------------------------------*/
+    --color-white: #ffffff;
+    --text-on-white: #5e5e5e;
+    --border-on-white: #dcdcdc;
+	--text-muted-on-white: #777777;
+
+	/* -----------------------------
+		LIGHT GREY SECONDARY BACKGROUND SET
+	------------------------------*/
+    --color-light: #f7f7f7;
+	--text-on-light: #1a1a1a;
+	--border-on-light: #cccccc;
+    --text-muted-on-light: #888888;
+
+    /* -----------------------------
+       INFO / SYSTEM COLORS
+    ------------------------------*/
+    --color-success: #2ecc71;
+    --color-info: #3498db;
+    --color-warning: #f1c40f;
+    --color-danger: #e74c3c;
+
+    /* -----------------------------
+       TYPOGRAPHY
+    ------------------------------*/
+    --font-primary: 'Josefin Sans', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+	--font-awesome: "Font Awesome 7 Free";
+
+	--fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+	--fw-extra-bold: 800;
+	--fw-black: 900;
+
+    /* -----------------------------
+       TRANSITIONS
+    ------------------------------*/
+    --transition-fast: all 0.2s ease;
+    --transition-normal: all 0.3s ease-out;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 %item_bg {
     padding: 15px;
-    border: 1px solid var(--border-color);
-    background-color: var(--white-color);
+    border: 1px solid var(--border-on-white);
+    background-color: var(--color-white);
 }
 
 %theme_btn {
     display: inline-block;
-    color: var(--primary-color);    
-    border: 1px solid var(--primary-color);
+    color: var(--color-primary);    
+    border: 1px solid var(--color-primary);
     border-radius: 5px;
     background-color: transparent;
-    transition: var(--transition-1);
+    transition: var(--transition-normal);
     text-decoration: none;
 }
 
 %theme_btn_hover {
-    color: var(--white-color);
-    background-color: var(--primary-color);
+    color: var(--color-white);
+    background-color: var(--color-primary);
+	text-decoration: none;
 }
 
 %list_item {
     padding: 15px 0;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--color-primary);
 }
 
 %text_1 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+    font-family: var(--font-secondary);
+    font-weight: var(--fw-regular);
 }
 
 %text_2 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-primary);
+    font-weight: var(--fw-bold);
 }
 
 %d_flex {
@@ -82,8 +136,8 @@
 @mixin font_awesome_1( $val_1 ) {
     content: $val_1;
 	position: absolute;
-	font-family: "Font Awesome 6 Free";
-    font-weight: 900;
+	font-family: var(--font-awesome);
+    font-weight: var(--fw-black);
 }
 
 @mixin center_1( $val_1 ) {

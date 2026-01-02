@@ -1,80 +1,36 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'post-single-item' ); ?>>
-
-    <!-- Post Meta Top -->
-    <?php if ( true == get_theme_mod( 'rbth_post_meta_blog_top' ) ) : ?>
-        <div class="post-meta-top">
-            <?php do_action ( 'rb_blog_one_post_meta_top' ); ?>
-        </div>
-    <?php endif; ?>
-
-    <!-- Post Thumbnail -->
-    <?php
-        if ( has_post_thumbnail() ) {
-            do_action ( 'rb_blog_one_post_thumbnail' );
-        }
-    ?>
-
-    <!-- Post Title -->
-    <?php the_title( '<h1 class="post-title">', '</h1>' ); ?>
-
-    <!-- Enable/Disable Post Meta -->
-    <?php if ( true == get_theme_mod( 'rbth_post_meta_single' ) ) :
-
-    // Post Meta List
-    $post_meta_list_blog = get_theme_mod( 'rbth_post_meta_list_single_post' );
-    if ( $post_meta_list_blog ) :
-    ?>
-    <div class="post-meta">
-    <?php
-        foreach ( $post_meta_list_blog as $post_meta_item_blog ) {
-            if( $post_meta_item_blog == "author-meta" ) {
-                do_action ( 'rb_blog_one_author_meta' );
-            }
-            if( $post_meta_item_blog == "date-meta" ) {
-                do_action ( 'rb_blog_one_date_meta' );
-            }
-            if( $post_meta_item_blog == "comments-meta" ) {
-                do_action ( 'rb_blog_one_comments_meta' );
-            }
-            if( $post_meta_item_blog == "edit-meta" && is_user_logged_in() && current_user_can( 'edit_posts' ) ) {
-                do_action ( 'rb_blog_one_edit_meta' );
-            }
-        }                   
-    ?>
-    </div>
-    <?php endif; else: ?>
-    <div class="post-meta">
-        <?php
-            do_action ( 'rb_blog_one_author_meta' );
-            do_action ( 'rb_blog_one_date_meta' );
-            do_action ( 'rb_blog_one_comments_meta' );
-            do_action ( 'rb_blog_one_edit_meta' );
-        ?>
-    </div>
-    <?php endif; ?>
-
-    <!-- Post Content -->
-    <?php if ( get_the_content() ) : ?>
-        <div class="post-content">
-            <?php the_content(); ?>
-        </div>
-    <?php endif; ?>
-
-    <!-- Post Page List -->
-    <?php do_action( 'rb_blog_one_single_page_pagination' );
-    ?>
-</article>
-
-<?php if(has_tag()): ?>
-<!-- Post Meta Bottom -->
-<div class="post-meta-bottom">
-    <?php do_action( 'rb_blog_one_post_meta_bottom' ); ?>
-</div>
-<?php endif; ?>
-
 <?php
-// If comments are open or we have at least one comment, load up the comment template.
-if ( comments_open() || get_comments_number() ) {
-    comments_template();
+/**
+ * Load post and page content.
+ *
+ * @package RB_Themes
+ * @subpackage RB_Blog_One
+ */
+
+// Check if sidebar is active.
+if ( is_active_sidebar( 'sidebar-1' ) ) {
+	$blog_list_col = 'col-lg-8';
+} else {
+	$blog_list_col = 'col-lg-12';
 }
 ?>
+
+<div id="primary" class="<?php echo esc_attr( $blog_list_col ); ?>">
+	<div class="post-list">
+		<?php
+		if ( have_posts() ) :
+			/* Start the Loop */
+			while ( have_posts() ) :
+				the_post();
+				get_template_part( 'template-parts/excerpt/excerpt', get_post_format() );
+			endwhile;
+		else :
+			// If no content, include the "No posts found" template.
+			get_template_part( 'template-parts/content/content', 'none' );
+		endif;
+		?>
+	</div>
+	<?php
+	// Post Pagination.
+	do_action( 'rb_blog_one_pagination' );
+	?>
+</div><!-- #primary -->
