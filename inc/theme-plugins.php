@@ -60,4 +60,5 @@ if ( ! function_exists( 'rb_blog_one_required_and_recommended_plugins' ) ) {
 
 		tgmpa( $plugins, $config );
 	}
+	add_action( 'tgmpa_register', 'rb_blog_one_required_and_recommended_plugins' );
 }

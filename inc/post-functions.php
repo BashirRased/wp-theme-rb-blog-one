@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define theme base path for includes.
-define( 'HELPEST_POST_FUNCTIONS_PATH', get_template_directory() . '/inc/post-functions/' );
+define( 'RB_BLOG_ONE_POST_FUNCTIONS_PATH', get_template_directory() . '/inc/post-functions/' );
 
 /**
  * Load theme includes if files exist.
@@ -25,7 +25,7 @@ $file_includes = array(
 );
 
 foreach ( $file_includes as $file ) {
-	$filepath = HELPEST_POST_FUNCTIONS_PATH . $file;
+	$filepath = RB_BLOG_ONE_POST_FUNCTIONS_PATH . $file;
 	if ( file_exists( $filepath ) ) {
 		require_once $filepath;
 	}

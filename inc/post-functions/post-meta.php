@@ -17,6 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * ============================
  * +++++ 01. Post Category Meta
  * +++++ 02. Post Author Meta
+ * +++++ 03. Post Comment Meta
+ * +++++ 04. Post Date Meta
+ * +++++ 05. Post Category Meta
+ * +++++ 06. Post Tag Meta
+ * +++++ 07. Post View Meta
+ * +++++ 08. Post Read Meta
+ * +++++ 09. Post Edit Meta
  */
 
 /**
@@ -152,22 +159,26 @@ if ( ! function_exists( 'rb_blog_one_date_meta_output' ) ) {
 	/**
 	 * Display post date meta with icon.
 	 *
-	 * Outputs the date link with a user-date icon.
-	 * Respects RTL layouts for proper ordering.
-	 *
 	 * @return void
 	 */
 	function rb_blog_one_date_meta_output() {
-		$post_date_html = rbth_blogpage_date_format();
-		$archive_year   = get_the_time( 'Y' );
-		$archive_month  = get_the_time( 'm' );
-		$archive_date   = get_the_time( 'd' );
-		$meta_icon      = '<i class="fa-regular fa-clock"></i>';
-		$meta_link      = sprintf(
+
+		$post_date_html = function_exists( 'rbth_blogpage_date_format' )
+			? rbth_blogpage_date_format()
+			: get_the_date();
+
+		$archive_year  = get_the_time( 'Y' );
+		$archive_month = get_the_time( 'm' );
+		$archive_date  = get_the_time( 'd' );
+
+		$meta_icon = '<i class="fa-regular fa-clock"></i>';
+
+		$meta_link = sprintf(
 			'<a href="%1$s">%2$s</a>',
 			esc_url( get_day_link( $archive_year, $archive_month, $archive_date ) ),
 			esc_html( $post_date_html )
 		);
+
 		if ( is_rtl() ) {
 			printf(
 				'<div class="date-post-meta">%1$s %2$s</div>',
@@ -198,7 +209,7 @@ if ( ! function_exists( 'rb_blog_one_category_meta_output' ) ) {
 	 * @return void
 	 */
 	function rb_blog_one_category_meta_output() {
-		$cats_list = get_the_category_list( '', ', ' );
+		$cats_list = get_the_category_list( ', ' );
 		if ( has_category() ) {
 			?>
 			<div class="cat-post-meta">
@@ -355,12 +366,12 @@ if ( ! function_exists( 'rb_blog_one_read_meta_output' ) ) {
 
 		// Handle singular/plural labels.
 		if ( 0 === (int) $minutes ) {
-			$read_label = esc_html__( 'reading time 0 minute', 'helpest' );
+			$read_label = esc_html__( '0 minute', 'rb-blog-one' );
 		} elseif ( 1 === (int) $minutes ) {
-			$read_label = esc_html__( 'reading time 1 minute', 'helpest' );
+			$read_label = esc_html__( '1 minute', 'rb-blog-one' );
 		} else {
 			/* translators: %s: number of minutes */
-			$read_label = sprintf( esc_html__( 'reading time %s minutes', 'helpest' ), $minutes );
+			$read_label = sprintf( esc_html__( '%s minutes', 'rb-blog-one' ), $minutes );
 		}
 
 		// Prepare icon HTML.
@@ -368,7 +379,7 @@ if ( ! function_exists( 'rb_blog_one_read_meta_output' ) ) {
 
 		// Wrap in span for styling.
 		$read_html = sprintf(
-			'<span class="read-meta">%s</span>',
+			'<span class="read-post-meta-text">%s</span>',
 			$read_label
 		);
 
@@ -387,9 +398,13 @@ if ( ! function_exists( 'rb_blog_one_read_meta_output' ) ) {
 
 		// RTL-aware output.
 		if ( is_rtl() ) {
+			echo '<div class="read-post-meta">';
 			echo wp_kses( $read_html . $icon_html, $allowed_tags );
+			echo '</div>';
 		} else {
+			echo '<div class="read-post-meta">';
 			echo wp_kses( $icon_html . $read_html, $allowed_tags );
+			echo '</div>';
 		}
 	}
 	add_action( 'rb_blog_one_read_meta', 'rb_blog_one_read_meta_output' );
@@ -415,11 +430,11 @@ if ( ! function_exists( 'rb_blog_one_edit_meta_output' ) ) {
 		}
 
 		$edit_url  = get_edit_post_link( $post->ID );
-		$icon_html = '<i class="fa-solid fa-user-pen"></i>';
+		$icon_html = '<i class="fa-regular fa-pen-to-square"></i>';
 		$link_html = sprintf(
 			'<a href="%s">%s</a>',
 			esc_url( $edit_url ),
-			esc_html__( 'Edit Post', 'textdomain' )
+			esc_html__( 'Edit Post', 'rb-blog-one' )
 		);
 
 		if ( is_rtl() ) {

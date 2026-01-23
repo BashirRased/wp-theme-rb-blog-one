@@ -6,20 +6,12 @@
  * @subpackage RB_Blog_One
  */
 
-get_header();
-
-// Site Column & Sitebar Display.
-$sidebar_display = '';
-$sidebar         = get_theme_mod( 'rbth_sidebar_blog' );
-if ( $sidebar == 'left-sidebar' ) {
-	$post_area_col   = 'col-lg-8';
-	$sidebar_display = 'left';
-} elseif ( $sidebar == 'right-sidebar' ) {
-	$post_area_col   = 'col-lg-8';
-	$sidebar_display = 'right';
-} else {
-	$post_area_col = 'col-lg-12';
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
+
+get_header();
 ?>
 
 <!--====================================
@@ -29,14 +21,12 @@ if ( $sidebar == 'left-sidebar' ) {
 	<div id="page-content">
 		<div class="container">
 			<div class="row">
-
 				<?php
-				if ( $sidebar_display == 'left' ) {
-					get_sidebar();
+				if ( function_exists( 'rbth_left_sidebar' ) ) {
+					rbth_left_sidebar();
 				}
 				?>
-
-				<div id="primary" class="<?php echo esc_attr( $post_area_col ); ?>">
+				<div id="primary" class="<?php echo esc_attr( rb_blog_one_column_class() ); ?>">
 					<div class="error-page">
 						<h1 class="error-page-title">
 							<?php esc_html_e( '404', 'rb-blog-one' ); ?>
@@ -52,10 +42,9 @@ if ( $sidebar == 'left-sidebar' ) {
 						</a>
 					</div>
 				</div>
-
 				<?php
-				if ( $sidebar_display == 'right' ) {
-					get_sidebar();
+				if ( function_exists( 'rbth_right_sidebar' ) ) {
+					rbth_right_sidebar();
 				}
 				?>
 

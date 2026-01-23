@@ -17,8 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define theme base path for includes.
-define( 'HELPEST_INC_PATH', get_template_directory() . '/inc/' );
-define( 'HELPEST_LIB_PATH', get_template_directory() . '/assets/lib/php/' );
+define( 'RB_BLOG_ONE_INC_PATH', get_template_directory() . '/inc/' );
+define( 'RB_BLOG_ONE_LIB_PATH', get_template_directory() . '/assets/lib/php/' );
 
 /**
  * Load theme includes if files exist.
@@ -27,6 +27,7 @@ define( 'HELPEST_LIB_PATH', get_template_directory() . '/assets/lib/php/' );
  */
 $file_includes = array(
 	'theme-setup.php', // Core setup and supports.
+	'theme-functions.php', // All theme common functions.
 	'theme-assets.php',    // Styles and scripts.
 	'theme-widgets.php',   // Widget areas.
 	'theme-menus.php',   // Theme menus.
@@ -36,7 +37,7 @@ $file_includes = array(
 );
 
 foreach ( $file_includes as $file ) {
-	$filepath = HELPEST_INC_PATH . $file;
+	$filepath = RB_BLOG_ONE_INC_PATH . $file;
 	if ( file_exists( $filepath ) ) {
 		require_once $filepath;
 	}
@@ -51,7 +52,7 @@ $file_libs = array(
 );
 
 foreach ( $file_libs as $file ) {
-	$filepath = HELPEST_LIB_PATH . $file;
+	$filepath = RB_BLOG_ONE_LIB_PATH . $file;
 	if ( file_exists( $filepath ) ) {
 		require_once $filepath;
 	}

@@ -2,7 +2,8 @@
 /**
  * The template for displaying the Header Style - One
  *
- * @package Helpest
+ * @package RB_Themes
+ * @subpackage RB_Blog_One
  */
 
 // Exit if accessed directly.
@@ -27,6 +28,28 @@ $site_tagline = get_bloginfo( 'description', 'display' );
 if ( function_exists( 'rbth_header_top' ) ) {
 	rbth_header_top();
 }
+
+// Header Ads switch.
+$header_ads_switch = (int) get_theme_mod( 'rbth_header_ads_switch', 0 );
+
+// Header Ads image.
+$header_ads     = get_theme_mod( 'rbth_header_ads', array() );
+$header_ads_url = '';
+$header_ads_alt = esc_attr__( 'Header Advertisement', 'rb-blog-one' );
+
+// Get uploaded image URL (Kirki save_as => array).
+if ( is_array( $header_ads ) && ! empty( $header_ads['url'] ) ) {
+	$header_ads_url = $header_ads['url'];
+}
+
+// Fallback image (only if switch is ON).
+if ( 1 === $header_ads_switch && empty( $header_ads_url ) ) {
+	$header_ads_url = get_template_directory_uri() . '/assets/img/pexels-ads.jpg';
+}
+
+// Final boolean flag (clean logic).
+$has_header_ads = ( 1 === $header_ads_switch && ! empty( $header_ads_url ) );
+$branding_col   = $has_header_ads ? 'col-lg-6' : 'col-lg-12';
 
 // Safety check.
 if ( ! empty( $GLOBALS['rbth_show_header_top'] ) ) {
@@ -81,7 +104,7 @@ if ( ! empty( $GLOBALS['rbth_show_header_top'] ) ) {
 			
 			<?php if ( has_custom_logo() || display_header_text() ) : ?>
 			<!-- Site Logo & Title-Tagline -->
-			<div class="col-lg-12">
+			<div class="<?php echo esc_attr( $branding_col ); ?>">
 				<div class="site-branding d-lg-flex align-items-lg-center d-sm-block d-md-block">
 					<?php if ( has_custom_logo() ) : ?>
 					<div class="site-logo mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
@@ -110,6 +133,18 @@ if ( ! empty( $GLOBALS['rbth_show_header_top'] ) ) {
 					<?php endif; ?>
 				</div>
 			</div>
+			<?php endif; ?>
+			
+			<?php if ( $has_header_ads ) : ?>
+				<div class="col-lg-6">
+					<div class="header-ads">
+						<img
+							src="<?php echo esc_url( $header_ads_url ); ?>"
+							alt="<?php echo esc_attr( $header_ads_alt ); ?>"
+							loading="lazy"
+						>
+					</div>
+				</div>
 			<?php endif; ?>
 
 		</div><!-- .row -->

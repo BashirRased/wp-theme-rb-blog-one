@@ -54,14 +54,14 @@
   	WHITE BACKGROUND SET
   ------------------------------*/
   --color-white: #ffffff;
-  --text-on-white: #5e5e5e;
+  --text-on-white: #6b6b6b;
   --border-on-white: #dcdcdc;
   --text-muted-on-white: #777777;
   /* -----------------------------
   	LIGHT GREY SECONDARY BACKGROUND SET
   ------------------------------*/
   --color-light: #f7f7f7;
-  --text-on-light: #1a1a1a;
+  --text-on-light: #3c3c3c;
   --border-on-light: #cccccc;
   --text-muted-on-light: #888888;
   /* -----------------------------
@@ -96,7 +96,7 @@
   border: 1px solid var(--border-on-white);
   background-color: var(--color-white); }
 
-.theme-btn, .link-post, .post-page-numbers,
+.theme-btn, .post-page-numbers,
 .page-numbers, .wp-block-search__button,
 #searchsubmit, .widget_tag_cloud a,
 .wp-block-tag-cloud a, .wp-block-loginout a,
@@ -109,7 +109,7 @@
   transition: var(--transition-normal);
   text-decoration: none; }
 
-.theme-btn:hover, .theme-btn:focus, .link-post:hover, .link-post:focus, .page-numbers.current,
+.theme-btn:hover, .theme-btn:focus, .page-numbers.current,
 .page-numbers:hover,
 .page-numbers:focus,
 .post-page-numbers.current,
@@ -167,7 +167,6 @@ em {
 .gallery-columns-10,
 .gallery-columns-11,
 .gallery-columns-12, .footer-widget-list {
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
 
@@ -202,7 +201,7 @@ em {
 .widget_categories nav > ul,
 .widget_categories ul li .children .children .children,
 ol.wp-block-latest-comments,
-.widget_recent_comments nav > ul {
+.widget_recent_comments nav > ul, .breadcrumb-nav ul, .post-categories {
   margin: 0;
   padding: 0;
   list-style: none; }
@@ -230,14 +229,6 @@ ol.wp-block-latest-comments,
 
 *:focus-visible {
   outline: 0; }
-
-*::-moz-selection {
-  background-color: #008000;
-  color: var(--color-white); }
-
-*::selection {
-  background-color: #008000;
-  color: var(--color-white); }
 
 body {
   color: var(--color-black);
@@ -280,7 +271,8 @@ video {
 
 iframe,
 figure {
-  max-width: 100%; }
+  max-width: 100%;
+  width: 824px; }
 
 table {
   caption-side: top;
@@ -377,18 +369,30 @@ pre {
 .alignnone {
   margin: 10px 10px 10px 0; }
 
+.wp-block-image {
+  position: relative; }
+
+.wp-block-image::after {
+  content: '';
+  position: absolute;
+  display: block;
+  clear: both; }
+
 .aligncenter,
 div.aligncenter {
   display: block;
-  margin: 10px 0; }
+  margin: 10px 0;
+  text-align: center; }
 
 .alignright {
   float: right;
-  margin: 10px 0 10px 10px; }
+  margin: 10px 0 10px 10px;
+  text-align: right; }
 
 .alignleft {
   float: left;
-  margin: 10px 10px 10px 0; }
+  margin: 10px 10px 10px 0;
+  text-align: left; }
 
 a img.alignright {
   float: right;
@@ -511,19 +515,6 @@ a img.aligncenter {
     .nice-select .option.focus, .nice-select .option.selected.focus {
       background-color: var(--color-primary); }
 
-/*================================
-===== 1.5. Swiper Customizer =====
-================================*/
-.swiper-pagination-bullet {
-  background-color: var(--color-white);
-  opacity: .8; }
-  .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    background-color: var(--color-primary); }
-
-.swiper-button-prev:after,
-.swiper-button-next:after {
-  color: var(--color-primary); }
-
 /*========================
 ===== 2.1. Preloader =====
 ========================*/
@@ -533,7 +524,7 @@ a img.aligncenter {
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 999999;
+  z-index: 99999999;
   clear: none;
   background-color: var(--color-white); }
 
@@ -722,17 +713,20 @@ a img.aligncenter {
   height: 120px;
   line-height: 120px;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: var(--color-light);
   overflow: hidden; }
   .header-ads img {
+    max-width: 100%;
     width: 100%;
-    height: 120px; }
+    min-height: 120px; }
 
 /*==========================
 ===== 2.4. Header Menu =====
 ==========================*/
 .header-menu-area {
+  position: relative;
+  z-index: 999999;
   background-color: var(--color-black); }
   .header-menu-area .dropdown-toggle::after {
     display: none; }
@@ -874,12 +868,14 @@ a img.aligncenter {
 ===== 2.6. Breadcrumbs =====
 ==========================*/
 .breadcrumb-area {
+  align-items: center;
   position: relative;
   padding: 100px 0;
+  min-height: 450px;
   background-color: var(--color-light);
   z-index: 1; }
   .breadcrumb-area::before {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0, 0.65);
     z-index: 9; }
 
 .breadcrumb-content {
@@ -912,14 +908,16 @@ a img.aligncenter {
   z-index: 2; }
 
 .breadcrumb-nav ul {
-  margin: 0;
-  padding: 0; }
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center; }
+  .breadcrumb-nav ul i.fa-home {
+    margin-right: 5px; }
   .breadcrumb-nav ul a {
     color: var(--color-primary);
     text-decoration: none; }
     .breadcrumb-nav ul a:hover, .breadcrumb-nav ul a:focus {
-      text-decoration: underline;
-      background-color: transparent; }
+      text-decoration: underline; }
 
 /*======================
 ===== 03. Page CSS =====
@@ -930,9 +928,6 @@ a img.aligncenter {
 /*========================
 ===== 3.1. Blog Page =====
 ========================*/
-.post-list div {
-  clear: both; }
-
 /*==========================
 ===== 3.1.1. Blog List =====
 ==========================*/
@@ -980,33 +975,55 @@ a img.aligncenter {
     color: var(--color-primary);
     margin-right: 5px; }
   .post-meta a {
-    color: var(--text-on-light);
+    color: var(--text-on-white);
     text-decoration: none; }
     .post-meta a:hover, .post-meta a:focus {
       color: var(--color-primary);
       background-color: transparent;
       text-decoration: underline; }
 
+.post-single-item .post-meta {
+  margin-bottom: 20px; }
+
+.post-single-item .post-thumbnail img {
+  width: 100%;
+  object-fit: cover; }
+
 .author-post-meta,
 .date-post-meta,
 .comments-post-meta,
-.edit-post-meta {
+.edit-post-meta,
+.cat-post-meta,
+.tag-post-meta,
+.view-post-meta,
+.read-post-meta {
   display: inline-block;
   margin: 10px 20px 0 0; }
+
+.post-categories {
+  display: inline-flex;
+  flex-wrap: wrap; }
 
 .comment-meta-off-text {
   color: var(--border-on-white); }
 
-.post-img-gallery {
-  width: 100%;
-  height: 500px; }
-  .post-img-gallery img {
-    width: 100%;
-    height: 500px; }
-
-.link-post {
-  padding: 10px 30px;
-  margin-bottom: 20px; }
+.post-image {
+  margin-bottom: 0;
+  position: relative; }
+  .post-image .post-image-caption {
+    position: absolute;
+    margin-bottom: 0;
+    width: calc(100% - 20px);
+    height: auto;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+    bottom: 10px;
+    transform: translateX(-50%);
+    left: 50%;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 1.2em; }
 
 .quote-author {
   position: relative;
@@ -1023,6 +1040,28 @@ a img.aligncenter {
     width: 50px;
     height: 2px;
     background-color: var(--color-primary); }
+
+.gallery-post-item {
+  position: relative;
+  margin-bottom: 0; }
+  .gallery-post-item img {
+    height: 600px;
+    width: 100%;
+    object-fit: cover; }
+  .gallery-post-item .gallery-post-caption {
+    position: absolute;
+    margin-bottom: 0;
+    width: calc(100% - 20px);
+    height: auto;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px;
+    bottom: 10px;
+    transform: translateX(-50%);
+    left: 50%;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 1.2em; }
 
 .post-excerpt {
   margin-top: 15px; }
@@ -1419,9 +1458,7 @@ input#s[type="text"] {
 :where(.wp-block-search__button-inside .wp-block-search__inside-wrapper) {
   border: 1px solid var(--color-primary); }
 
-.wp-block-search__input:hover,
 .wp-block-search__input:focus,
-input#s[type="text"]:hover,
 input#s[type="text"]:focus {
   border: 1px solid var(--color-primary); }
 
@@ -1829,6 +1866,9 @@ input#s[type="text"]:focus {
     background-color: var(--color-primary); }
 
 /** 03. Comments List */
+.comment-item {
+  list-style: none; }
+
 .comments-box {
   list-style: none;
   margin-top: 10px; }
@@ -1836,7 +1876,9 @@ input#s[type="text"]:focus {
 .comments-avatar {
   float: left;
   margin-right: 15px;
-  border: 1px solid var(--color-primary); }
+  border: 1px solid var(--color-primary);
+  border-radius: 45px;
+  overflow: hidden; }
 
 .avatar-name a {
   text-decoration: none;
@@ -1861,6 +1903,9 @@ input#s[type="text"]:focus {
   overflow: hidden;
   clear: none; }
 
+.comments-reply {
+  margin-top: 10px; }
+
 .comment-reply-link,
 #cancel-comment-reply-link {
   display: inline-block;
@@ -1880,7 +1925,8 @@ input#s[type="text"]:focus {
 #cancel-comment-reply-link:hover,
 #cancel-comment-reply-link:focus {
   color: var(--color-white);
-  background-color: var(--color-primary); }
+  background-color: var(--color-primary);
+  text-decoration: none; }
 
 /** 04. Comments List */
 .comments-pagination {

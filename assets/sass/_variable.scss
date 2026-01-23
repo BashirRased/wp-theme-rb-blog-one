@@ -20,7 +20,7 @@
 		WHITE BACKGROUND SET
 	------------------------------*/
     --color-white: #ffffff;
-    --text-on-white: #5e5e5e;
+    --text-on-white: #6b6b6b;
     --border-on-white: #dcdcdc;
 	--text-muted-on-white: #777777;
 
@@ -28,7 +28,7 @@
 		LIGHT GREY SECONDARY BACKGROUND SET
 	------------------------------*/
     --color-light: #f7f7f7;
-	--text-on-light: #1a1a1a;
+	--text-on-light: #3c3c3c;
 	--border-on-light: #cccccc;
     --text-muted-on-light: #888888;
 
@@ -101,7 +101,6 @@
 }
 
 %d_flex {
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }

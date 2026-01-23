@@ -128,17 +128,20 @@ if ( ! function_exists( 'rb_blog_one_third_party_assets' ) ) {
 			'font-awesome'      => 'font-awesome.css',
 			'owl-carousel'      => 'owl.carousel.css',
 			'owl-theme-default' => 'owl.theme.default.css',
+			'meanmenu'          => 'meanmenu.css',
 		);
 
 		// Third-party library JS paths.
 		$lib_js = array(
 			'owl-carousel' => 'owl.carousel.js',
+			'meanmenu'     => 'jquery.meanmenu.js',
 		);
 
 		// Third-party library CSS & JS version.
 		$lib_version = array(
 			'owl-carousel'      => '2.3.4',
 			'owl-theme-default' => '2.3.4',
+			'meanmenu'          => '2.0.8',
 		);
 
 		// Third-party CSS.
@@ -167,6 +170,7 @@ if ( ! function_exists( 'rb_blog_one_third_party_assets' ) ) {
 	}
 	add_action( 'wp_enqueue_scripts', 'rb_blog_one_third_party_assets' );
 }
+
 
 /**
  * 05. WordPress Assets

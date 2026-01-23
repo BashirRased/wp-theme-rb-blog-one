@@ -6,6 +6,11 @@
  * @subpackage RB_Blog_One
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 get_header();
 
 /*
@@ -22,21 +27,32 @@ if ( post_password_required() ) {
 	<h3 class="total-comments">
 		<?php
 		$rb_blog_one_comment_count = get_comments_number();
+
 		if ( 1 === $rb_blog_one_comment_count ) {
-			/* translators: %s: Post title. */
-			printf( _x( '1 comment on %s', 'comments title', 'rb-blog-one' ), get_the_title() );
-		} else {
 			printf(
-				/* translators: 1: Number of comments, 2: Post title. */
-				_nx(
-					'<span class="comment-count">%1$s</span> comment on <span class="comment-title">&ldquo;%2$s&rdquo;</span>',
-					'<span class="comment-count">%1$s</span> comments on <span class="comment-title">&ldquo;%2$s&rdquo;</span>',
-					$rb_blog_one_comment_count,
+				/* translators: %s: Post title. */
+				esc_html_x(
+					'1 comment on %s',
 					'comments title',
 					'rb-blog-one'
 				),
-				number_format_i18n( $rb_blog_one_comment_count ),
-				get_the_title()
+				esc_html( get_the_title() )
+			);
+
+		} else {
+			printf(
+				wp_kses_post(
+					/* translators: 1: Number of comments, 2: Post title. */
+					_nx(
+						'<span class="comment-count">%1$s</span> comment on <span class="comment-title">&ldquo;%2$s&rdquo;</span>',
+						'<span class="comment-count">%1$s</span> comments on <span class="comment-title">&ldquo;%2$s&rdquo;</span>',
+						$rb_blog_one_comment_count,
+						'comments title',
+						'rb-blog-one'
+					)
+				),
+				esc_html( number_format_i18n( $rb_blog_one_comment_count ) ),
+				esc_html( get_the_title() )
 			);
 		}
 		?>

@@ -7,7 +7,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: 999999;
+    z-index: 99999999;
     clear: none;
     background-color: var(--color-white);
 }
@@ -221,12 +221,13 @@
     height: 120px;
     line-height: 120px;
     text-align: center;
-    border-radius: 5px;
-    background-color: var(--color-light);    
+    border-radius: 10px;
+    background-color: var(--color-light);
     overflow: hidden;
     img {
-        width: 100%;
-        height: 120px;
+		max-width: 100%;
+		width: 100%;
+        min-height: 120px;
     }
 }
 
@@ -234,6 +235,8 @@
 ===== 2.4. Header Menu =====
 ==========================*/
 .header-menu-area {
+	position: relative;
+	z-index: 999999;
     background-color: var(--color-black);
     .dropdown-toggle::after {
         display: none;
@@ -424,13 +427,15 @@
 .breadcrumb-area {
     @extend %d_flex;
     @extend %bg_attr;
+	align-items: center;
     position: relative;	
     padding: 100px 0;
+	min-height: 450px;
     background-color: var(--color-light);
     z-index: 1;
     &::before {
         @extend %overlay_full;
-        background-color: rgba(0,0,0,.85);
+        background-color: rgba(0,0,0,.65);
         z-index: 9;
     }
 }
@@ -472,15 +477,19 @@
 }
 
 .breadcrumb-nav ul {
-    margin: 0;
-	padding: 0;    
+    @extend %ul_none;
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	i.fa-home {
+		margin-right: 5px;
+	}
     a {
         color: var(--color-primary);
         text-decoration: none;
         &:hover,
         &:focus {
             text-decoration: underline;
-            background-color: transparent;
         }
     }
 }

@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * +++++  01. Theme Setup
  * +++++  02. Skip Link Focus
  * +++++  03. Allowed HTML
+ * +++++  04. Editor Style
  */
 
 /**
@@ -100,10 +101,11 @@ if ( ! function_exists( 'rb_blog_one_theme_setup' ) ) {
 
 		// Custom header.
 		$custom_header = array(
-			'width'       => 1110,
-			'height'      => 450,
-			'flex-width'  => true,
-			'flex-height' => true,
+			'width'         => 1110,
+			'height'        => 450,
+			'flex-width'    => true,
+			'flex-height'   => true,
+			'default-image' => get_template_directory_uri() . '/assets/img/pexels-breadcrumb.jpg',
 		);
 		add_theme_support( 'custom-header', $custom_header );
 
@@ -273,8 +275,50 @@ if ( ! function_exists( 'rb_blog_one_allowed_html' ) ) {
 				'class' => true,
 				'style' => true,
 			),
+
+			// Forms.
+			'form'    => array(
+				'action' => true,
+				'method' => true,
+				'class'  => true,
+				'id'     => true,
+			),
+			'label'   => array(
+				'for' => true,
+			),
+			'input'   => array(
+				'type'  => true,
+				'name'  => true,
+				'id'    => true,
+				'class' => true,
+				'size'  => true,
+				'value' => true,
+			),
 		);
 
 		return $allowed_html;
 	}
+
+	/**
+	 * Escape content using allowed HTML tags.
+	 *
+	 * @param string $content Content to escape.
+	 * @return string Escaped content.
+	 */
+	function rb_blog_one_kses_post( $content ) {
+		return wp_kses( $content, rb_blog_one_allowed_html() );
+	}
+}
+
+/**
+ * 04. Editor Style
+ */
+if ( ! function_exists( 'rb_blog_one_add_editor_style' ) ) {
+	/**
+	 * Editor Style CSS
+	 */
+	function rb_blog_one_add_editor_style() {
+		add_editor_style( 'assets/css/editor-style.css' );
+	}
+	add_action( 'after_setup_theme', 'rb_blog_one_add_editor_style' );
 }

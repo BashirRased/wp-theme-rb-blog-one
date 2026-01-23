@@ -11,16 +11,6 @@
 	outline: 0;
 }
 
-*::-moz-selection {
-	background-color: #008000;
-	color: var(--color-white);
-}
-
-*::selection {
-	background-color: #008000;
-	color: var(--color-white);
-}
-
 body {
     @extend %text_1;
     color: var(--color-black);
@@ -87,6 +77,7 @@ video {
 iframe,
 figure {
 	max-width: 100%;
+	width: 824px;
 }
 
 table {
@@ -200,20 +191,34 @@ pre {
     margin: 10px 10px 10px 0;
 }
 
+.wp-block-image {
+	position: relative;
+}
+
+.wp-block-image::after {
+	content: '';
+	position: absolute;
+	display: block;
+	clear: both;
+}
+
 .aligncenter,
 div.aligncenter {
     display: block;
-    margin: 10px 0;
+    margin: 10px 0;	
+	text-align: center;
 }
 
 .alignright {
     float:right;
     margin: 10px 0 10px 10px;
+	text-align: right;
 }
 
 .alignleft {
     float: left;
     margin: 10px 10px 10px 0;
+	text-align: left;
 }
 
 a img {
@@ -396,20 +401,4 @@ ol.wp-block-latest-comments,
 			background-color: var(--color-primary);
 		}
 	}
-}
-
-/*================================
-===== 1.5. Swiper Customizer =====
-================================*/
-.swiper-pagination-bullet {
-	background-color: var(--color-white);
-	opacity: .8;
-	&.swiper-pagination-bullet-active {
-		background-color: var(--color-primary);
-	}
-}
-
-.swiper-button-prev:after,
-.swiper-button-next:after {
-    color: var(--color-primary);
 }

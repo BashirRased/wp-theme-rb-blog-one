@@ -1,78 +1,90 @@
+<?php
+/**
+ * Template Parts - Footer Text.
+ *
+ * @package RB_Themes
+ * @subpackage RB_Blog_One
+ */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+$copyright_switch = (int) get_theme_mod( 'rbth_copyright_switch', 0 );
+$poweredby_switch = (int) get_theme_mod( 'rbth_poweredby_switch', 0 );
+
+$copyright_text = trim( get_theme_mod( 'rbth_copyright_text', '' ) );
+$poweredby_text = trim( get_theme_mod( 'rbth_poweredby_text', '' ) );
+
+$has_copyright = ( 1 === $copyright_switch && ! empty( $copyright_text ) );
+$has_poweredby = ( 1 === $poweredby_switch && ! empty( $poweredby_text ) );
+
+// Column logic.
+$footer_col_class           = ( $has_copyright && $has_poweredby ) ? 'col-lg-6' : 'col-lg-12';
+$footer_powerby_right_class = ( $has_copyright && $has_poweredby ) ? 'float-lg-end' : '';
+?>
 <!--==============================
 ===== Footer Area Start Here =====
 ===============================-->
 <footer class="site-footer">
-    <div class="container">
-        <div class="row">
-            
-            <?php if ( true == get_theme_mod( 'rbth_copyright_switch' ) ) : ?>
-            <div class="col-lg-6">
-                <p class="copyright-text">
-                    <?php echo wp_kses_post ( get_theme_mod( 'rbth_copyright_text' ), 'rb-blog-one' ); ?>
-                </p>
-            </div>
-            <?php else : ?>
-            <div class="col-lg-6">
-                <?php
-                    $fromYear = (int)esc_html('2021','rb-blog-one');
-                    $thisYear = esc_html( date_i18n( __( ' Y', 'rb-blog-one' )));;
-                    $copyrightYear = $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');
+	<div class="container">
+		<div class="row">
 
-                    printf(
-                        '<p class="copyright-text">%1$s %2$s %3$s <a href="%4$s" target="_blank">%5$s</a> %6$s</p>',
-                        
-                        /* translators: %1$s: Copyright Text-1. */
-                        esc_html('&copy; Copyright','rb-blog-one'),
+			<?php if ( $has_copyright || $has_poweredby ) : ?>
 
-                        /* translators: %2$s: Copyright Year. */
-                        $copyrightYear,
+				<?php if ( $has_copyright ) : ?>
+					<div class="<?php echo esc_attr( $footer_col_class ); ?>">
+						<div class="copyright-text">
+							<?php echo wp_kses_post( $copyright_text ); ?>
+						</div>
+					</div>
+				<?php endif; ?>
 
-                        /* translators: %3$s: Copyright Text-2. */
-                        esc_html('by','rb-blog-one'),
+				<?php if ( $has_poweredby ) : ?>
+					<div class="powered-by-text <?php echo esc_attr( $footer_col_class ); ?>">
+						<?php echo wp_kses_post( $poweredby_text ); ?>
+					</div>
+				<?php endif; ?>
 
-                        /* translators: %4$s: Home URL. */
-                        esc_url( home_url( '/' ) ),
+			<?php else : ?>
 
-                        /* translators: %5$s: Site Name. */
-                        esc_html( get_bloginfo( 'name' ),'rb-blog-one' ),
+				<div class="col-lg-6">
+					<?php
+					$published_year = 2021;
+					$this_year      = date_i18n( 'Y' );
+					$wp_year        = $published_year . ( ( $published_year !== $this_year ) ? '-' . $this_year : '' );
 
-                        /* translators: %6$s: Copyright Text-3. */
-                        esc_html('| All rights reserved.','rb-blog-one')
-                    );
-                ?>
-            </div>
-            <?php endif; ?>
+					printf(
+						'<p class="copyright-text">%1$s %2$s %3$s <a href="%4$s">%5$s</a> %6$s</p>',
+						esc_html__( 'Copyright', 'rb-blog-one' ),
+						esc_html( $wp_year ),
+						esc_html__( 'by', 'rb-blog-one' ),
+						esc_url( home_url( '/' ) ),
+						esc_html( get_bloginfo( 'name' ) ),
+						esc_html__( '| All rights reserved.', 'rb-blog-one' )
+					);
+					?>
+				</div>
 
-            <?php if ( true == get_theme_mod( 'rbth_poweredby_switch' ) ) : ?>
-            <div class="col-lg-6">
-                <p class="powered-by-text float-lg-end">
-                    <?php echo wp_kses_post ( get_theme_mod( 'rbth_poweredby_text' ), 'rb-blog-one' ); ?>
-                </p>            
-            </div>
-            <?php else : ?>
-            <div class="col-lg-6">
-                <?php
-                    printf(
-                        '<p class="powered-by-text float-lg-end">%1$s <a href="%2$s" target="_blank">%3$s</a>%4$s</p>',
-                        
-                        /* translators: %1$s: Powered by Text-1. */
-                        esc_html('Powered by','rb-blog-one'),
+				<div class="col-lg-6">
+					<?php
+					printf(
+						'<p class="powered-by-text float-lg-end">%1$s <a href="%2$s" target="_blank" rel="noopener noreferrer">%3$s</a>%4$s</p>',
+						esc_html__( 'Powered by', 'rb-blog-one' ),
+						esc_url( 'https://bashir-rased.com/' ),
+						esc_html__( 'Bashir Rased', 'rb-blog-one' ),
+						esc_html__( '.', 'rb-blog-one' )
+					);
+					?>
+				</div>
 
-                        /* translators: %2$s: Powered By URL. */
-                        esc_url( 'https://bashirrased.com/' ),
+			<?php endif; ?>
 
-                        /* translators: %3$s: Powered by Text-2. */
-                        esc_html('Bashir Rased','rb-blog-one'),
-
-                        /* translators: %4$s: Powered by Text-3. */
-                        esc_html('.','rb-blog-one')
-                    );
-                ?>
-            </div>
-            <?php endif; ?>
-        </div><!-- .row -->
-    </div><!-- .container -->
+		</div>
+	</div>
 </footer>
+
 <!--============================
 ===== Footer Area End Here =====
-=============================--> 
+=============================-->

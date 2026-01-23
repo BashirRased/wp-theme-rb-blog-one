@@ -1,3 +1,17 @@
+<?php
+/**
+ * If post conent none load this template.
+ *
+ * @package RB_Themes
+ * @subpackage RB_Blog_One
+ */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
+
 <section class="no-results text-center">
 	<header class="page-header">
 		<?php if ( is_search() ) : ?>
